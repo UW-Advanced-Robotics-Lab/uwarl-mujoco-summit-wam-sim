@@ -19,7 +19,7 @@
 <mujoco model="wam(v1.31)">
     <compiler coordinate="local" angle="radian" meshdir="meshes/" />	
 	<default>
-		<joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1" frictional="true" frictionloss=".001"/>
+		<joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".001"/>
 		<default class="viz">
 			<geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
 		</default>
