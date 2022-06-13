@@ -7,7 +7,7 @@
 		Last edits 	: Jun 13, 2022
 ====================================================== -->
 
-<mujoco model="waterloo_steel(v1.0.0)">
+<mujoco model="waterloo_steel_summit_only(v1.0.0)">
     <compiler coordinate="local" angle="radian" meshdir="meshes/" />
 		
 	<asset>

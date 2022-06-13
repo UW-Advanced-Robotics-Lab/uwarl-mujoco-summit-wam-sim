@@ -1,0 +1,68 @@
+<!-- ======================================================
+    This file is part of modified version based on the official MuJoCo WAM model.
+	Copyright UWARL (UW Mechanical and Control Lab).
+	
+	Model 		:: WAM Arm from Barrett technologies
+		Source		: https://github.com/jhu-lcsr/barrett_model
+		Downloaded	: Oct 10, 2015
+		
+	Mujoco		:: Advanced physics simulation engine
+		Source		: www.roboti.us
+		Version		: 1.31
+
+    Original    :: Vikash kumar
+        Source      : https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/
+        Downloaded  : Jun 13, 2022
+		Contacts 	: kumar@roboti.us
+		
+	Author		:: Jack (Jianxiang) Xu
+		Contacts 	: j337xu@uwaterloo.ca
+		Last edits 	: Jun 13, 2022
+====================================================== -->
+
+<mujoco model="waterloo_steel_complete(v1.0.0)">
+    <compiler coordinate="local" angle="radian" meshdir="meshes/" />	
+	<!-- <default>
+		<joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".001"/>
+		<default class="viz">
+			<geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+		</default>
+		<default class="col">
+			<geom type="mesh" contype="0" conaffinity="1" group="0" rgba="0.5 0.6 0.7 1"/>
+		</default>
+	</default> -->
+		
+	<asset>
+        <!-- GND -->
+		<texture name="groundplane" type="2d" builtin="checker" rgb1=".25 .26 .25" 
+			rgb2=".22 .22 .22" width="100" height="100" mark="edge" markrgb=".3 .3 .3"/>
+		<material name="MatGnd" texture="groundplane"  texrepeat="5 5" specular="1" shininess=".3" reflectance="0.00001"/>
+	</asset>
+
+    <!-- WAM -->
+	<include file="include_wam_7dof_wam_bhand_Dependencies.xml"/>
+    
+    <!-- SUMMIT -->
+	<include file="include_summit_Dependencies.xml"/>
+	
+    <worldbody>
+		
+        <!-- GND -->
+		<light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
+		<geom name="ground" type="plane" pos="0 0 0" size="1.5 2 1" conaffinity="1" contype="1" material="MatGnd"/>
+        
+		<!-- Robot -->
+		<body name="waterloo_steel/base_link" pos="0 0 0.0" >
+			<!-- SUMMIT -->
+			<body name="summit" pos="0 0 0">
+				<include file="include_summit_Chain.xml"/>
+			</body>
+            <!-- WAM -->
+			<body name="wam" pos="0 0.14 0.405" quat="0.707 0 0 0.707">
+				<include file="include_wam_7dof_wam_bhand_Chain.xml"/>
+			</body>
+        </body>
+
+
+    </worldbody>
+</mujoco>
