@@ -50,7 +50,7 @@
 		<mesh file="wrist_palm_link_convex.stl"/>
 	</asset>
     <!-- WAM BHAND -->
-	<include file="include_bhandDependencies.xml"/>
+	<include file="include_bhand_Dependencies.xml"/>
 	
     <default>
 		<default class="col">

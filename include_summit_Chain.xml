@@ -1,0 +1,60 @@
+<!-- ======================================================
+	Copyright UWARL (UW Mechanical and Control Lab).
+		
+	Author		:: Jack (Jianxiang) Xu
+		Contacts 	: j337xu@uwaterloo.ca
+		Last edits 	: Jun 13, 2022
+====================================================== -->
+
+<mujocoinclude>	
+	<!-- WAM -->
+    <body name="summit/base_link" pos="0 0 0">
+        <inertial pos="0 0 0.37" mass="200" diaginertia="0.1 0.1 0.1" />
+        <geom class="summit_viz" mesh="base_link_summit"/>
+        <!-- <geom class="summit_col" mesh="base_link_summit"/> -->
+		<!-- Simplified the collision into boxes + arm rest -->
+		<!-- Summit Mesh -->
+        <geom class="summit_col" pos="0 0 0.42" size="0.24 0.32 0.16" type="box" />
+		<!-- Arm Rest Full STL Mesh -->
+        <geom class="summit_col" pos="0 0.098 0.55" quat="0.5 0.5 -0.5 -0.5" mesh="arm_rest" />
+		<!-- Lidar Collision Mesh -->
+		<geom class="summit_col" size="0.06 0.044" pos="0.246 0.362 0.313" type="cylinder" />
+
+		<!-- control summit base -->
+		<joint name="summit_base_x_slide_joint" type="slide" pos="0 0 0" axis="1 0 0" limited="true" range="-1 1" damping="15000"/>
+		<joint name="summit_base_y_slide_joint" type="slide" pos="0 0 0" axis="0 1 0" limited="true" range="-1 1" damping="15000"/>
+        <joint name="summit_base_z_hinge_joint" type="hinge" pos="0 0 0" axis="0 0 1" limited="true" range="-3.14 3.14" damping="10000"/>
+
+		<!-- Mobile Wheels -->
+        <body name="summit/wheel_LF_link" pos="0 0 0">
+            <!-- <inertial pos="0 0 0" quat="-0.0084687 -0.2554202 -0.1067398 0.9608826" mass="200.0" diaginertia="0.132557 0.074713 0.074713" /> -->
+            <joint name="summit/wheel_LF" pos="-0.264 0.222 0.128" axis="1 0 0"/>
+            <geom class="summit_viz" mesh="mecanum_LF_1"/>
+			<!-- <geom class="summit_col" mesh="mecanum_LF_1"/> -->
+			<geom class="summit_col" size="0.13 0.05" quat="0.707107 0 0.707106 0" pos="-0.220 0.222 0.128" type="cylinder" />
+        </body>
+        <body name="summit/wheel_LR_link" pos="0 0 0">
+            <!-- <inertial pos="0 0 0" quat="-0.0084687 -0.2554202 -0.1067398 0.9608826" mass="200.0" diaginertia="0.132557 0.074713 0.074713" /> -->
+            <joint name="summit/wheel_LR" pos="-0.264 -0.223 0.128" axis="1 0 0"/>
+            <geom class="summit_viz" mesh="mecanum_LR_1"/>
+			<!-- <geom class="summit_col" mesh="mecanum_LR_1"/> -->
+			<geom class="summit_col" size="0.13 0.05" quat="0.707107 0 0.707106 0" pos="-0.220 -0.223 0.128" type="cylinder" />
+        </body>
+        <body name="summit/wheel_RF_link" pos="0 0 0">
+            <!-- <inertial pos="0 0 0" quat="0 0 0 0" mass="200.637" diaginertia="0.04411 0.02467 0.02467" /> -->
+            <joint name="summit/wheel_RF" pos="0.264 0.222 0.128" axis="1 0 0"/>
+            <geom class="summit_viz" mesh="mecanum_RF_1"/>
+			<!-- <geom class="summit_col" mesh="mecanum_RF_1"/> -->
+			<geom class="summit_col" size="0.13 0.05" quat="0.707107 0 0.707106 0" pos="0.220 0.222 0.128" type="cylinder" />
+        </body>
+        <body name="summit/wheel_RR_link" pos="0 0 0">
+            <!-- <inertial pos="0 0 0" quat="0 0 0 0" mass="200.637" diaginertia="0.04411 0.02467 0.02467" /> -->
+            <joint name="summit/wheel_RR" pos="0.264 -0.223 0.128" axis="1 0 0"/>
+            <geom class="summit_viz" mesh="mecanum_RR_1"/>
+			<!-- <geom class="summit_col" mesh="mecanum_RR_1"/> -->
+			<geom class="summit_col" size="0.13 0.05" quat="0.707107 0 0.707106 0" pos="0.220 -0.223 0.128" type="cylinder" />
+        </body>
+    </body>
+    <!-- END of WAM -->
+	
+</mujocoinclude>

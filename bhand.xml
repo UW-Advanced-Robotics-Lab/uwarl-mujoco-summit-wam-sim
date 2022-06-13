@@ -18,11 +18,11 @@
 
 <mujoco model="bhand(v1.22)">
 	<compiler coordinate="local" angle="radian" meshdir="meshes/" />
-	<include file="include_bhandDependencies.xml"/>
+	<include file="include_bhand_Dependencies.xml"/>
 	
 	<worldbody>
 		<light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
-		<include file="include_bhandChain.xml"/>
+		<include file="include_bhand_Chain.xml"/>
 	</worldbody>
 	
 </mujoco>

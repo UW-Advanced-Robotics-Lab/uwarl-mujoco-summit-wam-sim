@@ -70,7 +70,7 @@
                                     <geom class="viz" mesh="wrist_palm_link_fine"/>
                                     <geom class="col" mesh="wrist_palm_link_convex"/>
                                     <!-- WAM BHAND -->
-                                    <include file="include_bhandChain.xml"/>
+                                    <include file="include_bhand_Chain.xml"/>
                                 </body>
                             </body>
                         </body>
