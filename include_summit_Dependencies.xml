@@ -26,6 +26,7 @@
 			<geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
 		</default>
 	</default>
-	
+
+	<include file="include_wam_7dof_wam_bhand_Dependencies.xml"/>    
 </mujocoinclude>
 

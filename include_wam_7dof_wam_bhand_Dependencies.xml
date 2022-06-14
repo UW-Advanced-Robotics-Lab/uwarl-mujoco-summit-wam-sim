@@ -53,11 +53,13 @@
 	<include file="include_bhand_Dependencies.xml"/>
 	
     <default>
-		<default class="col">
-			<joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".001"/>
+		<default class="wam">
+			<joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".1"/>
+		</default>
+		<default class="wam_col">
 			<geom type="mesh" contype="0" conaffinity="1" group="0" rgba="0.5 0.6 0.7 1"/>
 		</default>
-		<default class="viz">
+		<default class="wam_viz">
 			<geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
 		</default>
 	</default>

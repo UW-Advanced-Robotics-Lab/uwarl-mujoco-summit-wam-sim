@@ -1,0 +1,99 @@
+<!-- ======================================================
+    This file is part of modified version based on the official MuJoCo WAM model.
+	Copyright UWARL (UW Mechanical and Control Lab).
+	
+	Model 		:: WAM Arm from Barrett technologies
+		Source		: https://github.com/jhu-lcsr/barrett_model
+		Downloaded	: Oct 10, 2015
+		
+	Mujoco		:: Advanced physics simulation engine
+		Source		: www.roboti.us
+		Version		: 1.31
+
+    Original    :: Vikash kumar
+        Source      : https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/
+        Downloaded  : Jun 13, 2022
+		Contacts 	: kumar@roboti.us
+		
+	Author		:: Jack (Jianxiang) Xu
+		Contacts 	: j337xu@uwaterloo.ca
+		Last edits 	: Jun 13, 2022
+====================================================== -->
+
+<mujoco model="playground_mobile_grasping(v1.0.0)">
+    <compiler coordinate="local" angle="radian" meshdir="meshes/" texturedir="textures/"/>	
+	<option timestep="2e-3"
+		iterations="10"
+		tolerance="1e-10"
+		impratio="10"
+		gravity="0 0 -9.81"
+		solver="PGS"
+		cone="elliptic" />
+
+	<!-- <size nuserdata="100" njmax="500" nconmax="1000" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_actuator="12" nuser_sensor="1" /> -->
+
+	<!-- ENV -->
+	<asset>
+        <!-- GND -->
+		<texture name="groundplane" type="2d" builtin="checker" rgb1=".25 .26 .25" 
+			rgb2=".22 .22 .22" width="100" height="100" mark="edge" markrgb=".3 .3 .3"/>
+		<material name="MatGnd" texture="groundplane"  texrepeat="5 5" specular="1" shininess=".3" reflectance="0.00001"/>
+	</asset>
+
+	<!-- Objects -->
+	<asset>
+        <mesh file="can.stl" name="can_mesh" scale="2.0 2.0 2.0" />
+        <texture file="can.png" name="tex-can"/>
+        <material name="coke" reflectance="0.7" texrepeat="5 5" texture="tex-can" texuniform="true"/>
+        <material name="table_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.93 0.93 0.93 1"></material>
+    </asset>
+	
+	<equality>
+	<!-- TBD -->
+    </equality>
+
+	<contact>
+	<!-- TBD -->
+		<exclude body1="summit/base_link" body2="wam/base_link"/>
+    </contact>
+
+    <visual>
+        <map fogstart="3" fogend="5" force="0.1" znear="0.1"/>
+        <quality shadowsize="2048" offsamples="8"/>
+        <global offwidth="800" offheight="800"/>
+    </visual>   
+
+    <!-- SUMMIT -->
+	<include file="include_summit_Dependencies.xml"/>
+	
+    <worldbody>
+        <!-- GND -->
+		<light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
+		<geom name="ground" type="plane" pos="0 0 0" size="1.5 2 1" conaffinity="1" contype="1" material="MatGnd"/>
+		
+		<!-- Object -->
+		<body pos="1.2 -0.4 0.6" name="object0" >
+			<joint name="object0/joint" type="free" damping="0.01"></joint>
+			<geom pos="0 0 0" mesh="can_mesh" type="mesh" solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" material="coke" group="1" condim="4"/>
+			<geom pos="0 0 0" mesh="can_mesh" type="mesh" material="coke"  conaffinity="0" contype="0" group="1" mass="0.0001"/>
+			<site name="object0" pos="0 0 0" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere"></site>
+			<site rgba="0 0 0 0" size="0.005" pos="0 0 -0.06" name="can_bottom_site"/>
+			<site rgba="0 0 0 0" size="0.005" pos="0 0 0.04" name="can_top_site"/>
+			<site rgba="0 0 0 0" size="0.005" pos="0.025 0.025 0" name="can_horizontal_radius_site"/>
+		</body>
+		
+		<!-- Table -->
+		<body pos="1.2 -0.4 0.2" name="table0">
+			<geom size="0.25 0.3 0.2" type="box" mass="2000" material="table_mat"></geom>
+			<geom size="0.25 0.3 0.2" type="box" mass="2000" group="1" material="table_mat"></geom>
+		</body>
+
+		
+		<!-- Robot -->
+		<body name="waterloo_steel/base_link" pos="0 0 0.0" >
+			<include file="include_summit_Chain.xml"/>
+		</body>
+
+    </worldbody>
+    
+</mujoco>

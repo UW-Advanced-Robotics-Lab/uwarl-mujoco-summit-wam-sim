@@ -9,16 +9,21 @@
 <mujocoinclude>	
 	<!-- WAM -->
     <body name="summit/base_link" pos="0 0 0">
-        <inertial pos="0 0 0.37" mass="200" diaginertia="0.1 0.1 0.1" />
-        <geom class="summit_viz" mesh="base_link_summit"/>
-        <!-- <geom class="summit_col" mesh="base_link_summit"/> -->
+		<inertial pos="0 0 0.37" mass="200" diaginertia="0.1 0.1 0.1" />
+		<geom class="summit_viz" mesh="base_link_summit"/>
+		<!-- <geom class="summit_col" mesh="base_link_summit"/> -->
 		<!-- Simplified the collision into boxes + arm rest -->
 		<!-- Summit Mesh -->
-        <geom class="summit_col" pos="0 0 0.42" size="0.24 0.32 0.16" type="box" />
+		<geom class="summit_col" pos="0 0 0.42" size="0.24 0.32 0.16" type="box" />
 		<!-- Arm Rest Full STL Mesh -->
-        <geom class="summit_col" pos="0 0.098 0.55" quat="0.5 0.5 -0.5 -0.5" mesh="arm_rest" />
+		<geom class="summit_col" pos="0 0.098 0.55" quat="0.5 0.5 -0.5 -0.5" mesh="arm_rest" />
 		<!-- Lidar Collision Mesh -->
 		<geom class="summit_col" size="0.06 0.044" pos="0.246 0.362 0.313" type="cylinder" />
+
+		<!-- world placement -->
+		<joint armature="0.0001" axis="1 0 0" damping="1e+11" name="robot0:slide0" pos="0 0 0" type="slide"></joint>
+		<joint armature="0.0001" axis="0 1 0" damping="1e+11" name="robot0:slide1" pos="0 0 0" type="slide"></joint>
+		<joint armature="0.0001" axis="0 0 1" damping="1e+0" name="robot0:slide2" pos="0 0 0" type="slide"></joint>
 
 		<!-- control summit base -->
 		<joint name="summit_base_x_slide_joint" type="slide" pos="0 0 0" axis="1 0 0" limited="true" range="-1 1" damping="15000"/>
@@ -54,7 +59,12 @@
 			<!-- <geom class="summit_col" mesh="mecanum_RR_1"/> -->
 			<geom class="summit_col" size="0.13 0.05" quat="0.707107 0 0.707106 0" pos="0.220 -0.223 0.128" type="cylinder" />
         </body>
+
+		<!-- WAM Module Here -->
+		<body name="wam_7dof_bhand" pos="0 0.14 0.405" quat="0.707 0 0 0.707">
+			<include file="include_wam_7dof_wam_bhand_Chain.xml"/>
+		</body>
     </body>
-    <!-- END of WAM -->
-	
+
+
 </mujocoinclude>

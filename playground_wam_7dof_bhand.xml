@@ -20,7 +20,7 @@
 		Last edits 	: Jun 13, 2022
 ====================================================== -->
 
-<mujoco model="wam(v2.0.0)">
+<mujoco model="wam_with_bhand(v2.0.0)">
     <compiler coordinate="local" angle="radian" meshdir="meshes/" />
 	<asset>
         <!-- GND -->
