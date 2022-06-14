@@ -1,37 +1,37 @@
 <!-- ======================================================
-	Copyright UWARL (UW Mechanical and Control Lab).
-		
-	Author		:: Jack (Jianxiang) Xu
-		Contacts 	: j337xu@uwaterloo.ca
-		Last edits 	: Jun 13, 2022
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
 ====================================================== -->
 
 
-<mujocoinclude>	
-	<!-- SUMMIT -->
-	<asset>
+<mujocoinclude> 
+    <!-- SUMMIT -->
+    <asset>
         <mesh file="base_link_summit.stl"/>
-		<mesh file="mecanum_LF_1.stl"/>
-		<mesh file="mecanum_LR_1.stl"/>
-		<mesh file="mecanum_RF_1.stl"/>
-		<mesh file="mecanum_RR_1.stl"/>
-		<mesh file="arm_rest.stl"/>
-	</asset>
-	
+        <mesh file="mecanum_LF_1.stl"/>
+        <mesh file="mecanum_LR_1.stl"/>
+        <mesh file="mecanum_RF_1.stl"/>
+        <mesh file="mecanum_RR_1.stl"/>
+        <mesh file="arm_rest.stl"/>
+    </asset>
+    
     <default>
-		<default class="summit">
-		</default>
-		<default class="summit/whl">
+        <default class="summit">
+        </default>
+        <default class="summit/whl">
             <joint axis="1 0 0"/>
-		</default>
-		<default class="summit/col">
-			<geom type="mesh" contype="0" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
-		</default>
-		<default class="summit/viz">
-			<geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
-		</default>
-	</default>
+        </default>
+        <default class="summit/col">
+            <geom type="mesh" contype="0" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
+        </default>
+        <default class="summit/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+        </default>
+    </default>
 
-	<include file="include_wam_7dof_wam_bhand_Dependencies.xml"/> 
+    <include file="include_wam_7dof_wam_bhand_Dependencies.xml"/> 
 </mujocoinclude>
 

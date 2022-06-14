@@ -2,23 +2,23 @@
     This file is part of MuJoCo.     
     Copyright 2009-2015 Roboti LLC.
     
-    Model 		:: Barrett hand from Barrett technologies
-        Source		: https://github.com/jhu-lcsr/barrett_model
-        Downloaded	: 10Oct'15
+    Model       :: Barrett hand from Barrett technologies
+        Source      : https://github.com/jhu-lcsr/barrett_model
+        Downloaded  : 10Oct'15
         
-    Mujoco		:: Advanced physics simulation engine
-        Source		: www.roboti.us
-        Version		: 1.22
-        Released 	: 26Nov15
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 1.22
+        Released    : 26Nov15
         
     Original    :: Vikash kumar
         Source      : https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/
         Downloaded  : Jun 13, 2022
-        Contacts 	: kumar@roboti.us
+        Contacts    : kumar@roboti.us
         
-    Author		:: Jack (Jianxiang) Xu
-        Contacts 	: j337xu@uwaterloo.ca
-        Last edits 	: Jun 13, 2022
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
 ====================================================== -->
 
 <mujocoinclude>
@@ -32,64 +32,64 @@
         
 
         <body name="wam/bhand/finger_1/prox_link" pos="-0.025 0 0.0415" quat="0.707107 0 0 -0.707107">
-            <inertial 						pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.14109" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
-            <joint name="bhand/f1/prox" 	axis="0 0 -1" range="0 3.14159" damping="0.11"/>
-            <geom     						class="wam/bhand/viz" mesh="bhand_finger_prox_link_fine"/>
-            <geom     						class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p1"/>
-            <geom     						class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p2"/>
-            <geom     						class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p3"/>
+            <inertial                       pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.14109" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
+            <joint name="bhand/f1/prox"     axis="0 0 -1" range="0 3.14159" damping="0.11"/>
+            <geom                           class="wam/bhand/viz" mesh="bhand_finger_prox_link_fine"/>
+            <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p1"/>
+            <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p2"/>
+            <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p3"/>
             
             <body name="wam/bhand/finger_1/med_link" pos="0.05 0 0.0339" quat="0.707107 0.707107 0 0">
-                <inertial 						pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.062139" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
-                <joint name="bhand/f1/med" 	range="0 2.44346" damping="0.11"/>
-                <geom     						class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
-                <geom     						class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
+                <inertial                   pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.062139" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
+                <joint name="bhand/f1/med"  range="0 2.44346" damping="0.11"/>
+                <geom                       class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
+                <geom                       class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
                 
                 <body name="wam/bhand/finger_1/dist_link" pos="0.06994 0.003 0" quat="0.92388 0 0 0.382683">
-                    <inertial 						pos="0.022825 0.0010491 0.0004203" quat="0.508412 0.51165 0.489583 0.489939" mass="0.041377" diaginertia="3.8434e-005 3.72753e-005 3.09987e-006" />
-                    <joint name="bhand/f1/dist" 	range="0 0.837758" damping="0.11"/>
-                    <geom     					 	class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
-                    <geom     					 	class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/> 
+                    <inertial                       pos="0.022825 0.0010491 0.0004203" quat="0.508412 0.51165 0.489583 0.489939" mass="0.041377" diaginertia="3.8434e-005 3.72753e-005 3.09987e-006" />
+                    <joint name="bhand/f1/dist"     range="0 0.837758" damping="0.11"/>
+                    <geom                           class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
+                    <geom                           class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/> 
                 </body>
             </body>
         </body>
         
         
         <body name="wam/bhand/finger_2/prox_link" pos="0.025 0 0.0415" quat="0.707107 0 0 -0.707107">
-            <inertial 						pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.14109" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
-            <joint name="bhand/f2/prox" 	range="0 3.14159" damping="0.11"/>
-            <geom     					 	class="wam/bhand/viz" mesh="bhand_finger_prox_link_fine"/>
-            <geom     					 	class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p1"/>
-            <geom     					 	class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p2"/>
-            <geom     					 	class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p3"/>
+            <inertial                       pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.14109" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
+            <joint name="bhand/f2/prox"     range="0 3.14159" damping="0.11"/>
+            <geom                           class="wam/bhand/viz" mesh="bhand_finger_prox_link_fine"/>
+            <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p1"/>
+            <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p2"/>
+            <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p3"/>
             
             <body name="wam/bhand/finger_2/med_link" pos="0.05 0 0.0339" quat="0.707107 0.707107 0 0">
-                <inertial 						pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.062139" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
-                <joint name="bhand/f2/med" 	range="0 2.44346" damping="0.11"/>
-                <geom     						class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
-                <geom     						class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
+                <inertial                       pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.062139" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
+                <joint name="bhand/f2/med"      range="0 2.44346" damping="0.11"/>
+                <geom                           class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
+                <geom                           class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
                 
                 <body name="wam/bhand/finger_2/dist_link" pos="0.06994 0.003 0" quat="0.92388 0 0 0.382683">
-                    <inertial 						pos="0.022825 0.0010491 0.0004203" quat="0.508412 0.51165 0.489583 0.489939" mass="0.041377" diaginertia="3.8434e-005 3.72753e-005 3.09987e-006" />
-                    <joint name="bhand/f2/dist" 	range="0 0.837758" damping="0.11"/>
-                    <geom     						class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
-                    <geom     						class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/>
+                    <inertial                       pos="0.022825 0.0010491 0.0004203" quat="0.508412 0.51165 0.489583 0.489939" mass="0.041377" diaginertia="3.8434e-005 3.72753e-005 3.09987e-006" />
+                    <joint name="bhand/f2/dist"     range="0 0.837758" damping="0.11"/>
+                    <geom                           class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
+                    <geom                           class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/>
                 </body>
             </body>
         </body>
 
 
         <body name="wam/bhand/finger_3/med_link" pos="0 0.05 0.0754" quat="0.5 0.5 0.5 0.5">
-            <inertial 							pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.062139" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
-            <joint name="bhand/f3/med" 		range="0 2.44346" damping="0.11"/>
-            <geom     							class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
-            <geom     							class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
+            <inertial                           pos="0.023133 0.00078642 0.00052792" quat="0.0160796 0.707269 -0.000766008 0.706762" mass="0.062139" diaginertia="7.77335e-005 7.66282e-005 4.83122e-006" />
+            <joint name="bhand/f3/med"          range="0 2.44346" damping="0.11"/>
+            <geom                               class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
+            <geom                               class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
             
             <body name="wam/bhand/finger_3/dist_link" pos="0.06994 0.003 0" quat="0.92388 0 0 0.382683">
-                <inertial 							pos="0.022825 0.0010491 0.0004203" quat="0.508412 0.51165 0.489583 0.489939" mass="0.041377" diaginertia="3.8434e-005 3.72753e-005 3.09987e-006" />
-                <joint name="bhand/f3/dist" range="0 0.837758" damping="0.11"/>
-                <geom     							class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
-                <geom     							class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/>
+                <inertial                           pos="0.022825 0.0010491 0.0004203" quat="0.508412 0.51165 0.489583 0.489939" mass="0.041377" diaginertia="3.8434e-005 3.72753e-005 3.09987e-006" />
+                <joint name="bhand/f3/dist"         range="0 0.837758" damping="0.11"/>
+                <geom                               class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
+                <geom                               class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/>
             </body>
         </body>
     </body>
