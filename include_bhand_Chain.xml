@@ -1,6 +1,6 @@
 <!-- ======================================================
-    This file is part of MuJoCo.     
-    Copyright 2009-2015 Roboti LLC.
+    This file is a modified version for BH8-280 based on MuJoCo official, and official WAM Specification.
+    Copyright UWARL (UW Mechanical and Control Lab).
     
     Model       :: Barrett hand from Barrett technologies
         Source      : https://github.com/jhu-lcsr/barrett_model
@@ -16,14 +16,18 @@
         Downloaded  : Jun 13, 2022
         Contacts    : kumar@roboti.us
         
+    Spec        :: Barrett Technologies - Mass Properties - BH8-280
+        Source      : https://support.barrett.com/wiki/Hand/280/MassProperties
+        Accessed    : Jun 14, 2022
+        
     Author      :: Jack (Jianxiang) Xu
         Contacts    : j337xu@uwaterloo.ca
         Last edits  : Jun 13, 2022
 ====================================================== -->
 
-<mujocoinclude>
+<mujocoinclude model="BH8-280">
     <body name="wam/bhand/bhand_palm_link" childclass="wam/bhand" pos="0 0 0.06" quat="0 0 0 1">
-        <inertial pos="-5.1098e-005 0.0050433 0.036671" quat="0.553098 0.439047 0.434456 0.559078" mass="0.50573" diaginertia="0.000224052 0.000210701 2.81212e-005" />
+        <inertial pos="-5.1098e-005 0.0050433 0.036671" quat="0.553098 0.439047 0.434456 0.559078" mass="0.60858" diaginertia="0.000224052 0.000210701 2.81212e-005" />
         <geom     class="wam/bhand/viz" mesh="bhand_palm_fine"/>
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p1"/>
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p2"/>

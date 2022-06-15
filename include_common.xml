@@ -45,5 +45,9 @@
         <material name="table_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.93 0.93 0.93 1"></material>
     </asset>
     
+    <default>
+        <!-- <geom contype='1' conaffinity='1' margin="0.001" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" />  -->
+        <!-- <joint armature="0.01" damping=".1"/> -->
+    </default>
 
 </mujocoinclude>    

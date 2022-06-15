@@ -57,11 +57,17 @@
             <joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".1"/>
         </default>
         <default class="wam/col">
-            <geom type="mesh" contype="0" conaffinity="1" group="0" rgba="0.5 0.6 0.7 1"/>
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 1"/>
         </default>
         <default class="wam/viz">
-            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+            <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
         </default>
     </default>
     
+    <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+        <exclude body1="wam/base" body2="wam/shoulder_yaw_link"/>
+        <exclude body1="wam/shoulder_yaw_link" body2="wam/upper_arm_link"/>
+        <exclude body1="wam/forearm_link" body2="wam/wrist_pitch_link"/>
+    </contact>
 </mujocoinclude>

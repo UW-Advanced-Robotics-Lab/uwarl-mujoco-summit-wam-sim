@@ -23,9 +23,11 @@
 <mujocoinclude>
     <!-- WAM -->
     <body name="wam/base_link" childclass="wam" pos="0 0 0">
-        <inertial   pos="0 0 0" mass="1" diaginertia="0.1 0.1 0.1" />
-        <geom       class="wam/viz" mesh="base_link_fine"/>
-        <geom       class="wam/col" mesh="base_link_convex"/>
+        <body name="wam/base" childclass="wam" pos="0 0 0">
+            <inertial   pos="0 0 0" mass="1" diaginertia="0.1 0.1 0.1" />
+            <geom       class="wam/viz" mesh="base_link_fine"/>
+            <geom       class="wam/col" mesh="base_link_convex"/>
+        </body>
 
         <body name="wam/shoulder_yaw_link" pos="0 0 0.346">
             <inertial               pos="-0.00443422 -0.00066489 -0.128904" quat="0.69566 0.716713 -0.0354863 0.0334839" mass="5" diaginertia="0.135089 0.113095 0.0904426" />
