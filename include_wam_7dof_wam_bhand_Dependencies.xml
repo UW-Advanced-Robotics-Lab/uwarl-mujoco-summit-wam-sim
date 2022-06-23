@@ -48,6 +48,7 @@
         <mesh file="wrist_pitch_link_convex_decomposition_p3.stl"/>
         <mesh file="wrist_palm_link_fine.stl"/>
         <mesh file="wrist_palm_link_convex.stl"/>
+        <mesh file="torque_sensor_plate.stl"/>
     </asset>
     <!-- WAM BHAND -->
     <include file="include_bhand_Dependencies.xml"/>
@@ -57,7 +58,7 @@
             <joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".1"/>
         </default>
         <default class="wam/col">
-            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 1"/>
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.6"/>
         </default>
         <default class="wam/viz">
             <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
