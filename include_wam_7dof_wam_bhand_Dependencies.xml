@@ -48,7 +48,13 @@
         <mesh file="wrist_pitch_link_convex_decomposition_p3.stl"/>
         <mesh file="wrist_palm_link_fine.stl"/>
         <mesh file="wrist_palm_link_convex.stl"/>
+        <!-- [Optional] -->
         <mesh file="torque_sensor_plate.stl"/>
+        <mesh file="zed.stl"/>
+        <mesh file="zed_collision_mesh.stl"/>
+        <!-- UNUSED: -->
+        <mesh file="intel_realsense_l515.stl"/>
+        <mesh file="intel_realsense_l515_collision_mesh.stl"/>
     </asset>
     <!-- WAM BHAND -->
     <include file="include_bhand_Dependencies.xml"/>

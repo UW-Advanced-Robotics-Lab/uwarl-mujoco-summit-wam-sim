@@ -36,7 +36,7 @@
         - [June 22, 2022] range limits revised based on (*2)
         - [June 22, 2022] [IMPORTANT] T-S Sensor Plate has been added!!!
         - [June 23, 2022] fullinertia matrix (based on spec *1, *3)
-        - [ ] ZED Camera / Intel Realsense Eye on forearm
+        - [June 24, 2022] ZED Camera / Intel Realsense Eye on forearm
 ====================================================== -->
 
 <mujocoinclude>
@@ -108,6 +108,13 @@
                         <geom                   class="wam/viz" mesh="forearm_link_fine" pos="-.045 -0.0730 0" euler="1.57 0 0"/>
                         <geom                   class="wam/col" mesh="forearm_link_convex_decomposition_p1" pos="-0.045 -0.0730 0" euler="1.57 0 0"/>
                         <geom                   class="wam/col" mesh="forearm_link_convex_decomposition_p2" pos="-0.045 -0.0730 0" euler="1.57 0 0"/>
+                        
+                        <!-- [Optional] ZED Camera on forearm link, TODO: uncertain for inertial params -->
+                        <body name="wam/sensor/zed" pos="-0.16 -0.15 0" quat="0 0.707107 0 0.707107">
+                            <inertial               pos="0 0 0.015" mass="0.124"/>
+                            <geom                   class="wam/viz" mesh="zed"/>
+                            <geom                   class="wam/col" mesh="zed_collision_mesh"/>
+                        </body>
                         
                         <body name="wam/wrist_yaw_link" pos="-0.045 -0.3 0" quat="0.707107 0.707107 0 0">
                             <!-- ### Inertial Ref: (*1, pg.24) unit: [m, kg, kg * m^2] 
