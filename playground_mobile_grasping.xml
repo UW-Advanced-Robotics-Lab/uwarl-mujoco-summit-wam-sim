@@ -26,10 +26,10 @@
         ### IMPORT ###
         ############## -->
     <include file="include_common.xml"/>
-    <include file="include_summit_Dependencies.xml"/>   
+    <include file="include_summit_wam_bhand_Dependencies.xml"/>   
     
     <!-- TODO: -->
-    <!-- <include file="include_actuators.xml"/> -->
+    <include file="include_summit_wam_bhand_actuators.xml"/>
     <!-- <include file="include_textures.xml"/> -->
 
 
@@ -78,7 +78,7 @@
         
         <!-- Robot -->
         <body name="waterloo_steel/base_link" pos="0 0 0.0" >
-            <include file="include_summit_Chain.xml"/>
+            <include file="include_summit_wam_bhand_Chain.xml"/>
         </body>
 
     </worldbody>

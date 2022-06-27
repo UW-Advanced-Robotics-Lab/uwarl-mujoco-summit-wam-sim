@@ -8,17 +8,21 @@
 ====================================================== -->
 
 <mujoco model="waterloo_steel_summit_only(v1.0.0)">
-    <compiler coordinate="local" angle="radian" meshdir="meshes/" />
-        
-    <asset>
-        <!-- GND -->
-        <texture name="groundplane" type="2d" builtin="checker" rgb1=".25 .26 .25" 
-            rgb2=".22 .22 .22" width="100" height="100" mark="edge" markrgb=".3 .3 .3"/>
-        <material name="MatGnd" texture="groundplane"  texrepeat="5 5" specular="1" shininess=".3" reflectance="0.00001"/>
-    </asset>
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <include file="include_common.xml"/>
+    <include file="include_summit_wam_bhand_Dependencies.xml"/>   
+    
+    <!-- TODO: -->
+    <include file="include_summit_wam_bhand_actuators.xml"/>
+    <!-- <include file="include_textures.xml"/> -->
 
+    <!--####################
+        ### Hello World: ###
+        #################### -->
     <!-- SUMMIT -->
-    <include file="include_summit_Dependencies.xml"/>
+    <include file="include_summit_wam_bhand_Dependencies.xml"/>
     
     <worldbody>
         
@@ -28,7 +32,7 @@
         
         <!-- SUMMIT -->
         <body name="base_link" pos="0 0 0">
-            <include file="include_summit_Chain.xml"/>
+            <include file="include_summit_wam_bhand_Chain.xml"/>
         </body>
 
     </worldbody>

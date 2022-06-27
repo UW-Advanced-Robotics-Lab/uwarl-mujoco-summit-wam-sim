@@ -1,0 +1,46 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+====================================================== -->
+
+<mujocoinclude>
+    
+    <actuator>
+        <!-- [SUMMIT] -->
+        <!-- [SUMMIT] control summit base in a position fashion (Ain't gonna focus on the modelling on the base) -->
+        <position name="smt/pose/x" ctrlrange="-10.0 10.0" joint="smt/pose/x" kp="18000" user="1" ctrllimited="true"/>
+        <position name="smt/pose/y" ctrlrange="-10.0 10.0" joint="smt/pose/y" kp="18000" user="1" ctrllimited="true"/>
+        <position name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kp="18000" user="1" ctrllimited="true"/>
+        
+        <!-- [WAM 7DOF] -->
+        <!-- 
+            Attributes Descriptions:
+            - SPEC: https://web.barrett.com/support/WAM_Documentation/WAM_InertialSpecifications_AC-02.pdf
+            - gear: scakes the length of the actuator (different gain / moment arms and velocity, force)
+        -->
+        <!-- [WAM 7DOF] force control mode -->
+        <!-- <motor name='wam/J1/F' ctrllimited="true" joint='wam/J1' ctrlrange='-2.6 2.6'       gear="42"      />
+        <motor name='wam/J2/F' ctrllimited="true" joint='wam/J2' ctrlrange='-1.985 1.985'   gear="28.25"   />
+        <motor name='wam/J3/F' ctrllimited="true" joint='wam/J3' ctrlrange='-2.8 2.8'       gear="28.25"   />
+        <motor name='wam/J4/F' ctrllimited="true" joint='wam/J4' ctrlrange='-0.9 3.14159'   gear="18"      />
+        <motor name='wam/J5/F' ctrllimited="true" joint='wam/J5' ctrlrange='-4.55 1.25'     gear="9.7"     />
+        <motor name='wam/J6/F' ctrllimited="true" joint='wam/J6' ctrlrange='-1.5707 1.5707' gear="9.7"     />
+        <motor name='wam/J7/F' ctrllimited="true" joint='wam/J7' ctrlrange='-3 3'           gear="14.93"   />
+         -->
+        <!-- [WAM 7DOF] position control mode -->
+        <position name='wam/J1/P' ctrllimited="true" joint='wam/J1' ctrlrange='-2.6 2.6'       kp="2000"   />
+        <position name='wam/J2/P' ctrllimited="true" joint='wam/J2' ctrlrange='-1.985 1.985'   kp="2000"   />
+        <position name='wam/J3/P' ctrllimited="true" joint='wam/J3' ctrlrange='-2.8 2.8'       kp="2000"   />
+        <position name='wam/J4/P' ctrllimited="true" joint='wam/J4' ctrlrange='-0.9 3.14159'   kp="2000"   />
+        <position name='wam/J5/P' ctrllimited="true" joint='wam/J5' ctrlrange='-4.55 1.25'     kp="2000"   />
+        <position name='wam/J6/P' ctrllimited="true" joint='wam/J6' ctrlrange='-1.5707 1.5707' kp="2000"   />
+        <position name='wam/J7/P' ctrllimited="true" joint='wam/J7' ctrlrange='-3 3'           kp="2000"   />
+        
+        <!-- WAM BHand -->
+        
+    </actuator>
+
+</mujocoinclude>    
