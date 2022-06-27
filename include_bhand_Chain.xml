@@ -34,6 +34,8 @@
         - [June 22, 2022] fullinertia 
         - [June 22, 2022] range limits revised based on (*2)
         - [June 22, 2022] Important Notes: Parameters based on assumption with fingertip torque sensor and fingertip pressure pad.
+        - [ ] TODO: We need to calibrate / measure the damping / friction values
+        - [June 27, 2022] Assume small damping for simplicity on control
 ====================================================== -->
 
 <mujocoinclude model="BH8-280">
@@ -48,7 +50,7 @@
 
         <body name="wam/bhand/finger_1/prox_link" pos="-0.025 0 0.0415" quat="0.707107 0 0 -0.707107">
             <inertial                       pos="0.030616 7.3219e-005 0.011201" mass="0.14109" fullinertia="2.0672e-005 7.4105e-005 6.8207e-005 2.6024e-007 6.3481e-006 1.7118e-008" />
-            <joint name="bhand/f1/prox"     axis="0 0 -1" range="0 3.1415926536" damping="0.11"/>
+            <joint name="bhand/f1/prox"     axis="0 0 -1" range="0 3.1415926536" damping="0.1" frictionloss="0.1"/>
             <geom                           class="wam/bhand/viz" mesh="bhand_finger_prox_link_fine"/>
             <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p1"/>
             <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p2"/>
@@ -57,14 +59,14 @@
             <!-- IMPORTANT: with fingertip torque sensor -->
             <body name="wam/bhand/finger_1/med_link" pos="0.05 0 0.0339" quat="0.707107 0.707107 0 0">
                 <inertial                   pos="0.023133 0.00078642 0.00052792" mass="0.062139" fullinertia="4.8162e-006 4.3317e-005 4.4441e-005 5.7981e-007 -7.2483e-007 -2.6653e-009" />
-                <joint name="bhand/f1/med"  range="0 2.4434609528 rad" damping="0.11"/>
+                <joint name="bhand/f1/med"  range="0 2.4434609528"  damping="0.1"/>
                 <geom                       class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
                 <geom                       class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
                 
                 <!-- IMPORTANT: with fingertip pressure pad -->
                 <body name="wam/bhand/finger_1/dist_link" pos="0.06994 0.003 0" quat="0.92388 0 0 0.382683">
                     <inertial                       pos="0.02295 0.0010739 0.00041752" mass="0.04166" fullinertia="3.1199e-006 1.6948e-005 1.5809e-005 4.5115e-007 -2.9813e-007 -1.8635e-008" />
-                    <joint name="bhand/f1/dist"     range="0 0.837758041" damping="0.11"/>
+                    <joint name="bhand/f1/dist"     range="0 0.837758041"  damping="0.1"/>
                     <geom                           class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
                     <geom                           class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/> 
                 </body>
@@ -73,7 +75,7 @@
         
         <body name="wam/bhand/finger_2/prox_link" pos="0.025 0 0.0415" quat="0.707107 0 0 -0.707107">
             <inertial                       pos="0.030616 7.3219e-005 0.011201" mass="0.14109" fullinertia="2.0672e-005 7.4105e-005 6.8207e-005 2.6024e-007 6.3481e-006 1.7118e-008" />
-            <joint name="bhand/f2/prox"     range="0 3.1415926536" damping="0.11"/>
+            <joint name="bhand/f2/prox"     range="0 3.1415926536" damping="0.1" frictionloss="0.1"/>
             <geom                           class="wam/bhand/viz" mesh="bhand_finger_prox_link_fine"/>
             <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p1"/>
             <geom                           class="wam/bhand/col" mesh="bhand_finger_prox_link_convex_decomposition_p2"/>
@@ -82,14 +84,14 @@
             <!-- IMPORTANT: with fingertip torque sensor -->
             <body name="wam/bhand/finger_2/med_link" pos="0.05 0 0.0339" quat="0.707107 0.707107 0 0">
                 <inertial                   pos="0.023133 0.00078642 0.00052792" mass="0.062139" fullinertia="4.8162e-006 4.3317e-005 4.4441e-005 5.7981e-007 -7.2483e-007 -2.6653e-009" />
-                <joint name="bhand/f2/med"  range="0 2.4434609528 rad" damping="0.11"/>
+                <joint name="bhand/f2/med"  range="0 2.4434609528"  damping="0.1"/>
                 <geom                       class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
                 <geom                       class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
                 
                 <!-- IMPORTANT: with fingertip pressure pad -->
                 <body name="wam/bhand/finger_2/dist_link" pos="0.06994 0.003 0" quat="0.92388 0 0 0.382683">
                     <inertial                       pos="0.02295 0.0010739 0.00041752" mass="0.04166" fullinertia="3.1199e-006 1.6948e-005 1.5809e-005 4.5115e-007 -2.9813e-007 -1.8635e-008" />
-                    <joint name="bhand/f2/dist"     range="0 0.837758041" damping="0.11"/>
+                    <joint name="bhand/f2/dist"     range="0 0.837758041"  damping="0.1"/>
                     <geom                           class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
                     <geom                           class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/> 
                 </body>
@@ -99,14 +101,14 @@
         <!-- IMPORTANT: with fingertip torque sensor -->
         <body name="wam/bhand/finger_3/med_link" pos="0 0.05 0.0754" quat="0.5 0.5 0.5 0.5">
             <inertial                   pos="0.023133 0.00078642 0.00052792" mass="0.062139" fullinertia="4.8162e-006 4.3317e-005 4.4441e-005 5.7981e-007 -7.2483e-007 -2.6653e-009" />
-            <joint name="bhand/f3/med"  range="0 2.4434609528 rad" damping="0.11"/>
+            <joint name="bhand/f3/med"  range="0 2.4434609528"  damping="0.1"/>
             <geom                       class="wam/bhand/viz" mesh="bhand_finger_med_link_fine"/>
             <geom                       class="wam/bhand/col" mesh="bhand_finger_med_link_convex"/>
             
             <!-- IMPORTANT: with fingertip pressure pad -->
             <body name="wam/bhand/finger_3/dist_link" pos="0.06994 0.003 0" quat="0.92388 0 0 0.382683">
                 <inertial                       pos="0.02295 0.0010739 0.00041752" mass="0.04166" fullinertia="3.1199e-006 1.6948e-005 1.5809e-005 4.5115e-007 -2.9813e-007 -1.8635e-008" />
-                <joint name="bhand/f3/dist"     range="0 0.837758041" damping="0.11"/>
+                <joint name="bhand/f3/dist"     range="0 0.837758041"  damping="0.1"/>
                 <geom                           class="wam/bhand/viz" mesh="bhand_finger_dist_link_fine" euler="0 0 -.84"/>
                 <geom                           class="wam/bhand/col" mesh="bhand_finger_dist_link_convex" euler="0 0 -.84"/> 
             </body>

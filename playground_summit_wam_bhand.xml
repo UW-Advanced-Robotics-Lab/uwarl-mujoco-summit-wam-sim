@@ -21,9 +21,6 @@
     <!--####################
         ### Hello World: ###
         #################### -->
-    <!-- SUMMIT -->
-    <include file="include_summit_wam_bhand_Dependencies.xml"/>
-    
     <worldbody>
         
         <!-- GND -->

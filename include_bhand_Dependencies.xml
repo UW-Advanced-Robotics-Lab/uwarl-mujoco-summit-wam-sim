@@ -45,4 +45,21 @@
         </default>
     </default>
 
+
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <equality>
+        <!-- Joint Constraints: -->
+        <joint joint1="bhand/f1/prox" joint2="bhand/f2/prox" polycoef="0 1 0 0 0"/>
+        <joint joint1="bhand/f1/med" joint2="bhand/f1/dist" polycoef="0 3 0 0 0"/>
+        <joint joint1="bhand/f2/med" joint2="bhand/f2/dist" polycoef="0 3 0 0 0"/>
+        <joint joint1="bhand/f3/med" joint2="bhand/f3/dist" polycoef="0 3 0 0 0"/>
+    </equality>
+    
+    <contact>
+        <exclude body1="wam/bhand/bhand_palm_link" body2="wam/bhand/finger_1/med_link"/>
+        <exclude body1="wam/bhand/bhand_palm_link" body2="wam/bhand/finger_2/med_link"/>
+    </contact>
+
 </mujocoinclude>
