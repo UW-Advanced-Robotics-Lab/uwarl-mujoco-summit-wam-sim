@@ -2,23 +2,9 @@
 Mujoco Simulation Package for Waterloo steel robot
 
 ## Preview:
-### Waterloo Steel Joint Preset Panel:
-<img src="./documentation/waterloo_steel_complete.png" alt="waterloo_steel" width="600"/>
-
-### Waterloo Steel Mobile Manipulator Simulation:
-<img src="./documentation/contact_physics_summit_wam_bhand.png" alt="waterloo_steel" width="600"/>
-
-### Playground Demo:
-<img src="./documentation/playground_mobile.png" alt="waterloo_steel" width="600"/>
-<img src="./documentation/contact_physics_playground.png" alt="waterloo_steel" width="600"/>
-
-### WAM 7DOF:
-- WAM sim file is a CORRECTED and MODIFIED version based on [the official archived MuJoCo model made by Vikash kumar](https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/)
-    - Findings: The original model has collision disabled, and parameters are incorrectly populated
-    - Note: We have modified the original model based on the given stl files completely, and configured MoI based on [the Official Barrett WAM Specification](https://web.barrett.com/support/WAM_Documentation/WAM_InertialSpecifications_AC-02.pdf). 
-        - Specifically, we made exactly the same as described in the document, and removed incorrect quaternion parameters for `inertial` , and populated the `inertial` purely based on the centre of the mass and translated the coordinate frames to the stl model frame (manually)
-- Shall you have any concern with the parameters, kindly open an issue.
-<img src="./documentation/MoI.png" alt="wam MoI" width="300"/>
+### Waterloo Steel Mobile Grasping Playground:
+<img src="./documentation/playground_mobile_grasping.png" alt="waterloo_steel" width="600"/>
+> [ (1) Joint Status | (2) Position Control Panel | (3) Contact Point ]
 
 ## ToDo:
 - [x] Full Assembly
@@ -27,7 +13,7 @@ Mujoco Simulation Package for Waterloo steel robot
 - [x] [WAM] Ensure Mechanical Params are Verified
 - [x] [BHAND] Ensure Mechanical Params are Verified
 - [?] [SUMMIT] Ensure Mechanical Params are Verified
-- [ ] Control Descriptors
+- [x] Control Descriptors
 - [ ] Example Interfacing code
 - [ ] ....
 
@@ -58,3 +44,19 @@ x
 
 [ 5 directories, # files ]
 ```
+
+## Appendix:
+### Note:
+- WAM sim file is a CORRECTED and MODIFIED version based on [the official archived MuJoCo model made by Vikash kumar](https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/)
+    - Findings: The original model has collision disabled, and parameters are incorrectly populated
+    - Note: We have modified the original model based on the given stl files completely, and configured MoI based on [the Official Barrett WAM Specification](https://web.barrett.com/support/WAM_Documentation/WAM_InertialSpecifications_AC-02.pdf). 
+        - Specifically, we made exactly the same as described in the document, and removed incorrect quaternion parameters for `inertial` , and populated the `inertial` purely based on the centre of the mass and translated the coordinate frames to the stl model frame (manually)
+- Shall you have any concern with the parameters, kindly open an issue.
+
+### Waterloo Steel Mobile Manipulator Simulation:
+#### Collision Meshes:
+<img src="./documentation/contact_physics_summit_wam_bhand.png" alt="waterloo_steel" width="600"/>
+
+#### Joints and MOI:
+<img src="./documentation/joints.png" alt="waterloo_steel" width="300"/>
+<img src="./documentation/MoI.png" alt="waterloo_steel" width="300"/>
