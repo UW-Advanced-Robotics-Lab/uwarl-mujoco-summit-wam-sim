@@ -29,4 +29,32 @@ Mujoco Simulation Package for Waterloo steel robot
 - [?] [SUMMIT] Ensure Mechanical Params are Verified
 - [ ] Control Descriptors
 - [ ] Example Interfacing code
-- [ ] ...
+- [ ] ....
+
+
+## File Hierarchy:
+```
+.
+├── CITATION.cff
+├── LICENSE
+├── README.md
+├── components
+│   ├── include_common.xml
+│   ├── include_{component-name}_Chain.xml
+│   ├── include_{component-name}_Dependencies.xml
+│   ├── include_{component-name}_actuators.xml
+│   └── ...
+├── documentation
+│   └── ...
+├── meshes
+│   ├── {3D-model-component-name}.stl
+│   └── ...
+├── playground
+│   ├── playground_{playground-name}.xml
+│   └── ...
+└── textures
+│   └── ...
+x
+
+[ 5 directories, # files ]
+```
