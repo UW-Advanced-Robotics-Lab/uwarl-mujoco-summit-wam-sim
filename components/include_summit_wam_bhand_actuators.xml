@@ -22,13 +22,13 @@
             - gear: scakes the length of the actuator (different gain / moment arms and velocity, force)
         -->
         <!-- [WAM 7DOF] force control mode -->
-        <motor name='wam/J1/F' ctrllimited="true" joint='wam/J1' ctrlrange='-0.8 0.8' gear="42"      />
-        <motor name='wam/J2/F' ctrllimited="true" joint='wam/J2' ctrlrange='-0.8 0.8' gear="28.25"   />
-        <motor name='wam/J3/F' ctrllimited="true" joint='wam/J3' ctrlrange='-0.8 0.8' gear="28.25"   />
-        <motor name='wam/J4/F' ctrllimited="true" joint='wam/J4' ctrlrange='-0.8 0.8' gear="18"      />
-        <motor name='wam/J5/F' ctrllimited="true" joint='wam/J5' ctrlrange='-0.8 0.8' gear="9.7"     />
-        <motor name='wam/J6/F' ctrllimited="true" joint='wam/J6' ctrlrange='-0.8 0.8' gear="9.7"     />
-        <motor name='wam/J7/F' ctrllimited="true" joint='wam/J7' ctrlrange='-0.8 0.8' gear="14.93"   />
+        <!-- <motor name='wam/J1/F' ctrllimited="true" joint='wam/J1' ctrlrange='-0.8 0.8' gear="42"      /> -->
+        <!-- <motor name='wam/J2/F' ctrllimited="true" joint='wam/J2' ctrlrange='-0.8 0.8' gear="28.25"   /> -->
+        <!-- <motor name='wam/J3/F' ctrllimited="true" joint='wam/J3' ctrlrange='-0.8 0.8' gear="28.25"   /> -->
+        <!-- <motor name='wam/J4/F' ctrllimited="true" joint='wam/J4' ctrlrange='-0.8 0.8' gear="18"      /> -->
+        <!-- <motor name='wam/J5/F' ctrllimited="true" joint='wam/J5' ctrlrange='-0.8 0.8' gear="9.7"     /> -->
+        <!-- <motor name='wam/J6/F' ctrllimited="true" joint='wam/J6' ctrlrange='-0.8 0.8' gear="9.7"     /> -->
+        <!-- <motor name='wam/J7/F' ctrllimited="true" joint='wam/J7' ctrlrange='-0.8 0.8' gear="14.93"   /> -->
         
         <!-- [WAM 7DOF] position control mode -->
         <position name='wam/J1/P' ctrllimited="true" joint='wam/J1' ctrlrange='-2.6 2.6'       kp="900"  />

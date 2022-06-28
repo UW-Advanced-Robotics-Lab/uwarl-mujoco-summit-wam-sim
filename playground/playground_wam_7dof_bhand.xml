@@ -24,8 +24,8 @@
     <!--##############
         ### IMPORT ###
         ############## -->
-    <include file="include_common.xml"/>
-    <include file="include_wam_7dof_wam_bhand_Dependencies.xml"/>
+    <include file="../components/include_common.xml"/>
+    <include file="../components/include_wam_7dof_wam_bhand_Dependencies.xml"/>
 
     <!--####################
         ### Hello World: ###
@@ -38,7 +38,7 @@
 
         <!-- WAM -->
         <body name="base_link" pos="0 0 0.6">
-            <include file="include_wam_7dof_wam_bhand_Chain.xml"/>
+            <include file="../components/include_wam_7dof_wam_bhand_Chain.xml"/>
         </body>
 
     </worldbody>

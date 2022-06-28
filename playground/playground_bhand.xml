@@ -1,0 +1,26 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+
+    Playground  :: BHand [BH8-280] (v2.0.0)
+====================================================== -->
+
+<mujoco model="playground:bhand(v2.0.0)"> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <include file="../components/include_common.xml"/>
+    <include file="../components/include_bhand_Dependencies.xml"/>
+
+    <!--####################
+        ### Hello World: ###
+        #################### -->
+    <worldbody>
+        <light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
+        <include file="../components/include_bhand_Chain.xml"/>
+    </worldbody>
+    
+</mujoco>

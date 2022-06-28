@@ -41,6 +41,7 @@
 ====================================================== -->
 
 <mujocoinclude>
+
     <!-- WAM -->
     <body name="wam/base_link" childclass="wam" pos="0 0 0">
         <body name="wam/base" childclass="wam" pos="0 0 0">
@@ -171,7 +172,7 @@
                                                 - [USER PARAMS] 0.01: mounting gap
                                         -->
                                         <body name="wam/bhand"  pos="0 0.01 0"  quat="0 0 0.707107 0.707107">
-                                            <include file="include_bhand_Chain.xml"/>
+                                            <include file="../components/include_bhand_Chain.xml"/>
                                         </body>
                                     </body>
                                     
@@ -184,4 +185,5 @@
         </body>
     </body>
     <!-- END of WAM -->
+
 </mujocoinclude>

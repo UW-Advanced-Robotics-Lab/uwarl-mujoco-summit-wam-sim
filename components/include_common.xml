@@ -4,13 +4,19 @@
     Author      :: Jack (Jianxiang) Xu
         Contacts    : j337xu@uwaterloo.ca
         Last edits  : Jun 13, 2022
+    
+    Updates:
+        + [June 22, 2022] (CS) Compiler Defaults and Options
+        + [June 22, 2022] (ENV) Ground Plane
+        + [June 22, 2022] (OBJ) Coke Can
 ====================================================== -->
+
 
 <mujocoinclude> 
     <!--#########################
         ### Compiler Specific ###
         ######################### -->
-    <compiler coordinate="local" angle="radian" meshdir="meshes/" texturedir="textures/"/>  
+    <compiler coordinate="local" angle="radian" meshdir="../meshes/" texturedir="../textures/"/>
     
     <!-- Options: -->
     <option 

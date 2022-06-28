@@ -21,6 +21,9 @@
 ====================================================== -->
 
 <mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
     <!-- WAM -->
     <asset>
         <mesh file="base_link_fine.stl"/>
@@ -57,8 +60,12 @@
         <mesh file="intel_realsense_l515_collision_mesh.stl"/>
     </asset>
     <!-- WAM BHAND -->
-    <include file="include_bhand_Dependencies.xml"/>
+    <include file="../components/include_bhand_Dependencies.xml"/>
     
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT -->
     <default>
         <default class="wam">
             <joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".1"/>
@@ -71,13 +78,12 @@
         </default>
     </default>
     
-    <!--###############
-        ### Config: ###
-        ############### -->
+    <!-- CONTACT -->
     <contact>
     <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
         <exclude body1="wam/base" body2="wam/shoulder_yaw_link"/>
         <exclude body1="wam/shoulder_yaw_link" body2="wam/upper_arm_link"/>
         <exclude body1="wam/forearm_link" body2="wam/wrist_pitch_link"/>
     </contact>
+
 </mujocoinclude>

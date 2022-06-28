@@ -1,21 +1,20 @@
 <!-- ======================================================
-    This file is based on the v36 URDF Fusion Model imported / modified by Jack.
     Copyright UWARL (UW Mechanical and Control Lab).
-
+        
     Author      :: Jack (Jianxiang) Xu
         Contacts    : j337xu@uwaterloo.ca
         Last edits  : Jun 13, 2022
+
+    Playground  :: SUMMIT-WAM-BHAND (v2.0.0)
 ====================================================== -->
 
-<mujoco model="waterloo_steel_summit_only(v1.0.0)">
+<mujoco model="waterloo_steel_summit_wam_bhand(v2.0.0)">
     <!--##############
         ### IMPORT ###
         ############## -->
-    <include file="include_common.xml"/>
-    <include file="include_summit_wam_bhand_Dependencies.xml"/>   
-    
-    <!-- TODO: -->
-    <include file="include_summit_wam_bhand_actuators.xml"/>
+    <include file="../components/include_common.xml"/>
+    <include file="../components/include_summit_wam_bhand_Dependencies.xml"/>   
+    <include file="../components/include_summit_wam_bhand_actuators.xml"/>
     <!-- <include file="include_textures.xml"/> -->
 
     <!--####################
@@ -29,7 +28,7 @@
         
         <!-- SUMMIT -->
         <body name="base_link" pos="0 0 0">
-            <include file="include_summit_wam_bhand_Chain.xml"/>
+            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
 
     </worldbody>

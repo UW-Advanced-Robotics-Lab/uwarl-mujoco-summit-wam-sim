@@ -25,12 +25,9 @@
     <!--##############
         ### IMPORT ###
         ############## -->
-    <include file="include_common.xml"/>
-    <include file="include_summit_wam_bhand_Dependencies.xml"/>   
-    
-    <!-- TODO: -->
-    <include file="include_summit_wam_bhand_actuators.xml"/>
-    <!-- <include file="include_textures.xml"/> -->
+    <include file="../components/include_common.xml"/>
+    <include file="../components/include_summit_wam_bhand_Dependencies.xml"/>   
+    <include file="../components/include_summit_wam_bhand_actuators.xml"/>
 
 
     <!--###############
@@ -75,10 +72,9 @@
             <geom size="0.25 0.3 0.2" type="box" mass="2000" group="1" material="table_mat"></geom>
         </body>
 
-        
         <!-- Robot -->
         <body name="waterloo_steel/base_link" pos="0 0 0.0" >
-            <include file="include_summit_wam_bhand_Chain.xml"/>
+            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
 
     </worldbody>

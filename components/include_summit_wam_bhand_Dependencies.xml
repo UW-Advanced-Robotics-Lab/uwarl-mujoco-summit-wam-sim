@@ -8,6 +8,9 @@
 
 
 <mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
     <!-- SUMMIT -->
     <asset>
         <mesh file="base_link_summit.stl"/>
@@ -17,7 +20,13 @@
         <mesh file="mecanum_RR_1.stl"/>
         <mesh file="arm_rest.stl"/>
     </asset>
+    <!-- WAM -->
+    <include file="../components/include_wam_7dof_wam_bhand_Dependencies.xml"/> 
     
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT -->
     <default>
         <default class="summit">
         </default>
@@ -31,7 +40,5 @@
             <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
         </default>
     </default>
-
-    <include file="include_wam_7dof_wam_bhand_Dependencies.xml"/> 
 </mujocoinclude>
 

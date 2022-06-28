@@ -1,5 +1,6 @@
 <!-- ======================================================
     Copyright UWARL (UW Mechanical and Control Lab).
+    (This file is based on the v36 URDF Fusion Model imported / modified by Jack.)
         
     Author      :: Jack (Jianxiang) Xu
         Contacts    : j337xu@uwaterloo.ca
@@ -10,7 +11,8 @@
 ====================================================== -->
 
 <mujocoinclude> 
-    <!-- WAM -->
+
+    <!-- SUMMIT -->
     <body name="smt/base_link" childclass="summit" pos="0 0 0">
         <!-- === BASE LINK === === === === -->
         <!-- mobile body -->
@@ -62,7 +64,7 @@
         <!-- === WAM 7DOF HAND LINK === === === === -->
         <!-- Place WAM Module Here -->
         <body name="wam_7dof_bhand" pos="0 0.14 0.405" quat="0.707 0 0 0.707">
-            <include file="include_wam_7dof_wam_bhand_Chain.xml"/>
+            <include file="../components/include_wam_7dof_wam_bhand_Chain.xml"/>
         </body>
     </body>
 

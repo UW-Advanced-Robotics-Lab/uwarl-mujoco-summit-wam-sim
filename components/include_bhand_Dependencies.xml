@@ -17,6 +17,10 @@
 ====================================================== -->
 
 <mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- WAM BHAND -->
     <asset>
         <mesh file="bhand_palm_fine.stl"/>
         <mesh file="bhand_palm_link_convex_decomposition_p1.stl"/>
@@ -32,7 +36,12 @@
         <mesh file="bhand_finger_dist_link_fine.stl"/>
         <mesh file="bhand_finger_dist_link_convex.stl"/>
     </asset>
-    
+
+
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT --> 
     <default>
         <default class="wam/bhand">
             <joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".001"/>
@@ -44,11 +53,8 @@
             <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0.8 1"/>
         </default>
     </default>
-
-
-    <!--###############
-        ### Config: ###
-        ############### -->
+    
+    <!-- EQUALITY -->
     <equality>
         <!-- Joint Constraints: -->
         <joint joint1="bhand/f1/prox" joint2="bhand/f2/prox" polycoef="0 1 0 0 0"/>
@@ -56,7 +62,8 @@
         <joint joint1="bhand/f2/med" joint2="bhand/f2/dist" polycoef="0 3 0 0 0"/>
         <joint joint1="bhand/f3/med" joint2="bhand/f3/dist" polycoef="0 3 0 0 0"/>
     </equality>
-    
+
+    <!-- CONTACT -->
     <contact>
         <exclude body1="wam/bhand/bhand_palm_link" body2="wam/bhand/finger_1/med_link"/>
         <exclude body1="wam/bhand/bhand_palm_link" body2="wam/bhand/finger_2/med_link"/>
