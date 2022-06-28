@@ -71,6 +71,9 @@
         </default>
     </default>
     
+    <!--###############
+        ### Config: ###
+        ############### -->
     <contact>
     <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
         <exclude body1="wam/base" body2="wam/shoulder_yaw_link"/>

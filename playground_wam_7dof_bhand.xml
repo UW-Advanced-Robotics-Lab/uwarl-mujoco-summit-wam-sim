@@ -21,16 +21,15 @@
 ====================================================== -->
 
 <mujoco model="wam_with_bhand(v2.0.0)">
-    <compiler coordinate="local" angle="radian" meshdir="meshes/" />
-    <asset>
-        <!-- GND -->
-        <texture name="groundplane" type="2d" builtin="checker" rgb1=".25 .26 .25" 
-            rgb2=".22 .22 .22" width="100" height="100" mark="edge" markrgb=".3 .3 .3"/>
-        <material name="MatGnd" texture="groundplane"  texrepeat="5 5" specular="1" shininess=".3" reflectance="0.00001"/>
-    </asset>
-    <!-- WAM -->
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <include file="include_common.xml"/>
     <include file="include_wam_7dof_wam_bhand_Dependencies.xml"/>
-    
+
+    <!--####################
+        ### Hello World: ###
+        #################### -->
     <worldbody>
         
         <!-- GND -->

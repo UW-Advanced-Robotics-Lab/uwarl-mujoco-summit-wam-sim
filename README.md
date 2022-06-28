@@ -25,8 +25,8 @@ Mujoco Simulation Package for Waterloo steel robot
 - [x] Simulation setup
 - [x] Contact Physics [Last Edit: 15/Jun/2022]
 - [x] [WAM] Ensure Mechanical Params are Verified
-- [ ] [BHAND] Ensure Mechanical Params are Verified
-- [ ] [SUMMIT] Ensure Mechanical Params are Verified
+- [x] [BHAND] Ensure Mechanical Params are Verified
+- [?] [SUMMIT] Ensure Mechanical Params are Verified
 - [ ] Control Descriptors
 - [ ] Example Interfacing code
 - [ ] ...
