@@ -60,3 +60,13 @@ x
 #### Joints and MOI:
 <img src="./documentation/joints.png" alt="waterloo_steel" width="300"/>
 <img src="./documentation/MoI.png" alt="waterloo_steel" width="300"/>
+
+
+### Installation Guide
+- you may consider to utilize env manager to hot-swap setup environment:
+  - pyenv + pyenv-virtualenv : for simple local machine python version env control
+  - conda / miniforge
+  - docker (not too familiar)
+  - vagrant
+#### M1 Mac Specific:
+- MuJoCo 2.1.x works / NOT 2.2.x :C : https://github.com/openai/mujoco-py/issues/662
