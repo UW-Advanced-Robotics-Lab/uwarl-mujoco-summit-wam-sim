@@ -1,23 +1,14 @@
 <!-- ======================================================
-    This file is part of modified version based on the official MuJoCo WAM model.
     Copyright UWARL (UW Mechanical and Control Lab).
-    
-    Model       :: WAM Arm from Barrett technologies
-        Source      : https://github.com/jhu-lcsr/barrett_model
-        Downloaded  : Oct 10, 2015
-        
-    Mujoco      :: Advanced physics simulation engine
-        Source      : www.roboti.us
-        Version     : 1.31
-
-    Original    :: Vikash kumar
-        Source      : https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/
-        Downloaded  : Jun 13, 2022
-        Contacts    : kumar@roboti.us
         
     Author      :: Jack (Jianxiang) Xu
         Contacts    : j337xu@uwaterloo.ca
         Last edits  : Jun 13, 2022
+
+    Brief       :: Mobile Grasping Playground
+        This is a demo playground showcasing the mobile robot,
+        configured with 7DOF WAM Arm + BHand + Summit Mobile Robot,
+        in a setting of simple coke can grasping task.
 ====================================================== -->
 
 <mujoco model="playground_mobile_grasping(v1.0.0)">
