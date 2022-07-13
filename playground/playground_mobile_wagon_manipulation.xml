@@ -1,0 +1,62 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+
+    Brief       :: Mobile Wagon Playground
+        This is a demo playground showcasing the mobile robot,
+        configured with 7DOF WAM Arm + BHand + Summit Mobile Robot,
+        in a setting of wagon manipulation.
+====================================================== -->
+
+<mujoco model="playground_wagon_manipulation(v1.0.0)">
+    
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <include file="../components/include_common.xml"/>
+    <include file="../components/include_summit_wam_bhand_Dependencies.xml"/>   
+    <include file="../components/include_summit_wam_bhand_actuators.xml"/>
+    <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/>   
+
+
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <equality>
+    <!-- TBD -->
+    </equality>
+
+    <contact>
+    <!-- TBD -->
+    </contact>
+
+    <visual>
+        <map fogstart="3" fogend="5" force="0.1" znear="0.1"/>
+        <quality shadowsize="2048" offsamples="8"/>
+        <global offwidth="800" offheight="800"/>
+    </visual>   
+
+    <!--####################
+        ### Hello World: ###
+        #################### -->
+    <worldbody>
+        <!-- GND -->
+        <light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
+        <geom name="ground" type="plane" pos="0 0 0" size="1.5 2 1" conaffinity="1" contype="1" material="MatGnd"/>
+        
+        <!-- Robot -->
+        <body name="waterloo_steel" pos="0 0 0.0" >
+            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
+        </body>
+        
+        <!-- Wagon -->
+        <body name="wagon" pos="0 1 0.0" >
+            <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
+        </body>
+
+    </worldbody>
+    
+</mujoco>
