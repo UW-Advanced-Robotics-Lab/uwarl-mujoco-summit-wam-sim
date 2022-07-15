@@ -15,6 +15,7 @@
     <body name="utility/wagon" childclass="wagon">
         <!-- === BASE LINK === === === === -->
         <body name="wagon/wire_frame" pos="-0.013891 0.009207 0.22892">
+            <inertial pos="-0.013891 0.009207 0.22892" mass="1"/>
             <geom name="wagon/viz/base_link"                      class="wagon/viz" mesh="wagon_base_link"/>
             <geom name="wagon/col/base_link"                      class="wagon/col" mesh="wagon_base_link"/>
         </body>
@@ -85,7 +86,13 @@
         <!-- Pull/Push Handle With Passive Hinge Joint -->
         <body name="wagon/handle" pos="-0.015 -0.398275 0.208685">
             <geom name="wagon/viz/handle"                class="wagon/viz"      mesh="wagon_handle"/>
-            <geom name="wagon/col/handle"                class="wagon/col"      mesh="wagon_handle_col"/>
+            <!-- Collision Segments -->
+            <geom name="wagon/col/handle_1"              class="wagon/col"      mesh="wagon_handle_1"/>
+            <geom name="wagon/col/handle_2"              class="wagon/col"      mesh="wagon_handle_2"/>
+            <geom name="wagon/col/handle_3"              class="wagon/col"      mesh="wagon_handle_3"/>
+            <geom name="wagon/col/handle_bar"            class="wagon/col"      mesh="wagon_handle_col_bar"/>
+            <!-- <geom name="wagon/col/handle"                class="wagon/col"      mesh="wagon_handle_col"/> -->
+            <!-- Handle Hinge Joint -->
             <joint name="wagon/handle"                   class="wagon/hinge"    range="0 0.785398"/>
         </body>
         
