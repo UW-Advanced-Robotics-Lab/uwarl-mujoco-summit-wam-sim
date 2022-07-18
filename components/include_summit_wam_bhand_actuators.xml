@@ -1,21 +1,35 @@
 <!-- ======================================================
+    This file is an example template for all the actuators of the full waterloo summit in the playground. 
     Copyright UWARL (UW Mechanical and Control Lab).
         
     Author      :: Jack (Jianxiang) Xu
         Contacts    : j337xu@uwaterloo.ca
         Last edits  : Jun 13, 2022
+    
+    Updates:
+        - [July 18, 2022] Added Comments based on the spec
+        - [ ] Breakaway force curve should be implemented through scripts
 ====================================================== -->
 
 <mujocoinclude>
     
+    <!-- [SUMMIT] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+    -->
     <actuator>
-        <!-- [SUMMIT] -->
         <!-- [SUMMIT] control summit base in a position fashion (Ain't gonna focus on the modelling on the base) -->
         <position name="smt/pose/x" ctrlrange="-10.0 10.0" joint="smt/pose/x" kp="18000" user="1" ctrllimited="true"/>
         <position name="smt/pose/y" ctrlrange="-10.0 10.0" joint="smt/pose/y" kp="18000" user="1" ctrllimited="true"/>
         <position name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kp="18000" user="1" ctrllimited="true"/>
+    </actuator>
         
-        <!-- [WAM 7DOF] -->
+    <!-- [WAM 7DOF] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+            - Position gain is based on the config file hosted in WAM PC
+    -->
+    <actuator>
         <!-- 
             Attributes Descriptions:
             - SPEC: https://web.barrett.com/support/WAM_Documentation/WAM_InertialSpecifications_AC-02.pdf
@@ -38,7 +52,24 @@
         <position name='wam/J5/P' ctrllimited="true" joint='wam/J5' ctrlrange='-4.55 1.25'     kp="50"  />
         <position name='wam/J6/P' ctrllimited="true" joint='wam/J6' ctrlrange='-1.5707 1.5707' kp="50"  />
         <position name='wam/J7/P' ctrllimited="true" joint='wam/J7' ctrlrange='-3 3'           kp="8"  />
-        
+    </actuator>
+    
+    <!-- [WAM BHAND BH8-280] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+        - Position Control:
+            > Trapezoid Profile Control
+        - Velocity Control:
+            > is used during torque-close and torque-open commands (TC and TO). 
+                These commands use proportional gain multiplied by the instantaneous velocity error to control the motors. 
+                The motor torque responds for each motor controller according to: 
+                    MCn = (K / 4) * Yn
+            > K depends on the Boolean LCPG flag. If LCPG is true than K is equal to the loop control proportional gain, 
+                otherwise K is equal to the value of the “FPG” property. 
+            > Yn is the velocity error equal to control velocity multiplied by the loop control velocity coefficient 
+                minus the actual velocity.
+    -->
+    <actuator>
         <!-- [WAM BHAND] position control mode -->
         <position name='bhand/spread' ctrllimited="true" joint='bhand/f1/prox' ctrlrange='0 3.1415'   kp="1" />
         <!-- <position name='bhand/f2/prox' ctrllimited="true" joint='bhand/f2/prox' ctrlrange='0 3.1415'   kp="1" /> -->
@@ -47,8 +78,7 @@
         <position name='bhand/f3/med'  ctrllimited="true" joint='bhand/f3/med'  ctrlrange='0 2.4434'   kp="1.2" />
         <!-- <position name='bhand/f1/dist' ctrllimited="true" joint='bhand/f1/dist' ctrlrange='0 0.8377'   kp="2" /> -->
         <!-- <position name='bhand/f2/dist' ctrllimited="true" joint='bhand/f2/dist' ctrlrange='0 0.8377'   kp="2" /> -->
-        <!-- <position name='bhand/f3/dist' ctrllimited="true" joint='bhand/f3/dist' ctrlrange='0 0.8377'   kp="2" /> -->
-        
+        <!-- <position name='bhand/f3/dist' ctrllimited="true" joint='bhand/f3/dist' ctrlrange='0 0.8377'   kp="2" /> -->    
     </actuator>
 
 </mujocoinclude>    
