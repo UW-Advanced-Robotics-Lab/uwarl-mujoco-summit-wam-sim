@@ -1,6 +1,6 @@
 <!-- ======================================================
-    This file is part of MuJoCo.     
-    Copyright 2009-2015 Roboti LLC.
+    This file is a modified version for [BH8-280] based on MuJoCo official, and official WAM Specification.
+    Copyright UWARL (UW Mechanical and Control Lab).
     
     Model       :: Barrett hand from Barrett technologies
         Source      : https://github.com/jhu-lcsr/barrett_model
@@ -11,9 +11,22 @@
         Version     : 1.22
         Released    : 26Nov15
         
-    Author      :: Vikash Kumar
+    Original    :: Vikash kumar
+        Source      : https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/
+        Downloaded  : Jun 13, 2022
         Contacts    : kumar@roboti.us
-        Last edits  : 26Dec'15
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+            
+    Spec        :: WAM BHand BH8-280 Mass Spec (*1)
+        Source      : https://support.barrett.com/wiki/Hand/280/MassProperties
+        Correction  : Jack @ Jun 22, 2022
+    
+    Spec        :: WAM BHand BH8-280 Range Spec (*1)
+        Source      : https://support.barrett.com/wiki/Hand/280/KinematicsJointRangesConversionFactors
+        Correction  : Jack @ Jun 22, 2022
 ====================================================== -->
 
 <mujocoinclude> 
@@ -56,7 +69,16 @@
     
     <!-- EQUALITY -->
     <equality>
-        <!-- Joint Constraints: -->
+        <!-- Joint Constraints: 
+            - SPEC:
+                > Note that joint 1 in the knuckle drives the outer link first through a 93.75 reduction 
+                    and then a 4:1 reduction.
+                > In this state, the ratios of motor position to joint position for the 1 stand 2 ndfinger 
+                    joints are 93.75:1 and 125:1, respectively.
+            - Note:
+                - Hence, the motion contraint is based on 93.75:125 * 4:1 = 3:1 reduction, 
+                    which is close to the range of motion ratio 140:48 [deg] === 2.9167:1 reduction
+        -->
         <joint joint1="bhand/f1/prox" joint2="bhand/f2/prox" polycoef="0 1 0 0 0"/>
         <joint joint1="bhand/f1/med" joint2="bhand/f1/dist" polycoef="0 3 0 0 0"/>
         <joint joint1="bhand/f2/med" joint2="bhand/f2/dist" polycoef="0 3 0 0 0"/>
