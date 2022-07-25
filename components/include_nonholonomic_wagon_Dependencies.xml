@@ -15,17 +15,17 @@
         ############## -->
     <!-- WAM BHAND -->
     <asset>
-        <mesh file="wagon_wheel.stl"/>
-        <mesh file="wagon_handle.stl"/>
-        <!-- <mesh file="wagon_handle_col.stl"/> -->
-        <mesh file="wagon_handle_col_bar.stl"/>
-        <mesh file="wagon_handle_1.stl"/>
-        <mesh file="wagon_handle_2.stl"/>
-        <mesh file="wagon_handle_3.stl"/>
-        <mesh file="wagon_base_link.stl"/>
-        <mesh file="wagon_fixed_mount.stl"/>
-        <mesh file="wagon_swivel_mount.stl"/>
-        <mesh file="wagon_pocket.stl"/>
+        <mesh file="meshes_wagon/wagon_wheel.stl"/>
+        <mesh file="meshes_wagon/wagon_handle.stl"/>
+        <!-- <mesh file="meshes_wagon/wagon_handle_col.stl"/> -->
+        <mesh file="meshes_wagon/wagon_handle_col_bar.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_1.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_2.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_3.stl"/>
+        <mesh file="meshes_wagon/wagon_base_link.stl"/>
+        <mesh file="meshes_wagon/wagon_fixed_mount.stl"/>
+        <mesh file="meshes_wagon/wagon_swivel_mount.stl"/>
+        <mesh file="meshes_wagon/wagon_pocket.stl"/>
     </asset>
 
     <!--###############
