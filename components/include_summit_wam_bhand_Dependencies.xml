@@ -13,12 +13,12 @@
         ############## -->
     <!-- SUMMIT -->
     <asset>
-        <mesh file="base_link_summit.stl"/>
-        <mesh file="mecanum_LF_1.stl"/>
-        <mesh file="mecanum_LR_1.stl"/>
-        <mesh file="mecanum_RF_1.stl"/>
-        <mesh file="mecanum_RR_1.stl"/>
-        <mesh file="arm_rest.stl"/>
+        <mesh file="meshes_summit/base_link_summit.stl"/>
+        <mesh file="meshes_summit/mecanum_LF_1.stl"/>
+        <mesh file="meshes_summit/mecanum_LR_1.stl"/>
+        <mesh file="meshes_summit/mecanum_RF_1.stl"/>
+        <mesh file="meshes_summit/mecanum_RR_1.stl"/>
+        <mesh file="meshes_summit/arm_rest.stl"/>
     </asset>
     <!-- WAM -->
     <include file="../components/include_wam_7dof_wam_bhand_Dependencies.xml"/> 

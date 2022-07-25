@@ -35,19 +35,19 @@
         ############## -->
     <!-- WAM BHAND -->
     <asset>
-        <mesh file="bhand_palm_fine.stl"/>
-        <mesh file="bhand_palm_link_convex_decomposition_p1.stl"/>
-        <mesh file="bhand_palm_link_convex_decomposition_p2.stl"/>
-        <mesh file="bhand_palm_link_convex_decomposition_p3.stl"/>
-        <mesh file="bhand_palm_link_convex_decomposition_p4.stl"/>
-        <mesh file="bhand_finger_prox_link_fine.stl"/>
-        <mesh file="bhand_finger_prox_link_convex_decomposition_p1.stl"/>
-        <mesh file="bhand_finger_prox_link_convex_decomposition_p2.stl"/>
-        <mesh file="bhand_finger_prox_link_convex_decomposition_p3.stl"/>
-        <mesh file="bhand_finger_med_link_fine.stl"/>
-        <mesh file="bhand_finger_med_link_convex.stl"/>
-        <mesh file="bhand_finger_dist_link_fine.stl"/>
-        <mesh file="bhand_finger_dist_link_convex.stl"/>
+        <mesh file="meshes_bhand/bhand_palm_fine.stl"/>
+        <mesh file="meshes_bhand/bhand_palm_link_convex_decomposition_p1.stl"/>
+        <mesh file="meshes_bhand/bhand_palm_link_convex_decomposition_p2.stl"/>
+        <mesh file="meshes_bhand/bhand_palm_link_convex_decomposition_p3.stl"/>
+        <mesh file="meshes_bhand/bhand_palm_link_convex_decomposition_p4.stl"/>
+        <mesh file="meshes_bhand/bhand_finger_prox_link_fine.stl"/>
+        <mesh file="meshes_bhand/bhand_finger_prox_link_convex_decomposition_p1.stl"/>
+        <mesh file="meshes_bhand/bhand_finger_prox_link_convex_decomposition_p2.stl"/>
+        <mesh file="meshes_bhand/bhand_finger_prox_link_convex_decomposition_p3.stl"/>
+        <mesh file="meshes_bhand/bhand_finger_med_link_fine.stl"/>
+        <mesh file="meshes_bhand/bhand_finger_med_link_convex.stl"/>
+        <mesh file="meshes_bhand/bhand_finger_dist_link_fine.stl"/>
+        <mesh file="meshes_bhand/bhand_finger_dist_link_convex.stl"/>
     </asset>
 
 

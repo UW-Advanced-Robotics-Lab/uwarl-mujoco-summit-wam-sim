@@ -45,7 +45,7 @@
         ######################## -->
     <asset>
         <!-- [OBJ] Coke Can -->
-        <mesh file="can.stl" name="can_mesh" scale="2.0 2.0 2.0" />
+        <mesh file="meshes_objects/can.stl" name="can_mesh" scale="2.0 2.0 2.0" />
         <texture file="can.png" name="tex-can"/>
         <material name="coke" reflectance="0.7" texrepeat="5 5" texture="tex-can" texuniform="true"/>
         <material name="table_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.93 0.93 0.93 1"></material>

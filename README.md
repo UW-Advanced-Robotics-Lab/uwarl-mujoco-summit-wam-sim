@@ -26,17 +26,22 @@ Mujoco Simulation Package for Waterloo steel robot
 ├── README.md
 ├── components
 │   ├── include_common.xml
-│   ├── include_{component-name}_Chain.xml
-│   ├── include_{component-name}_Dependencies.xml
-│   ├── include_{component-name}_actuators.xml
+│   ├── include_{assembly-name}_Chain.xml
+│   ├── include_{assembly-name}_Dependencies.xml
+│   ├── include_{assembly-name}_actuators.xml
 │   └── ...
 ├── documentation
 │   └── ...
 ├── meshes
-│   ├── {3D-model-component-name}.stl
+│   ├── meshes_{module-name}
+│   │   ├── {3D-model-component-name}.stl
+│   │   └── ...
 │   └── ...
 ├── playground
 │   ├── playground_{playground-name}.xml
+│   └── ...
+├── src_examples
+│   ├── {scripts}.py
 │   └── ...
 └── textures
 │   └── ...
