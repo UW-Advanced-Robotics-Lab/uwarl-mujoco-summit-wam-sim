@@ -1,0 +1,3 @@
+[submodule "submodules/jx-mujoco-python-viewer"]
+	path = submodules/jx-mujoco-python-viewer
+	url = git@github.com:jaku-jaku/jx-mujoco-python-viewer.git
