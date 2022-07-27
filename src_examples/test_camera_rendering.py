@@ -19,7 +19,7 @@ import time
 import numpy as np
 
 # Ours:
-import lib.jx_lib as jx
+import mujoco_engine as jx
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -81,5 +81,5 @@ def main():
 if __name__ == '__main__':
     try: 
         main()
-    except jx.Engine_InterruptException:
+    except jx.MuJoCo_Engine_InterruptException:
         pass
