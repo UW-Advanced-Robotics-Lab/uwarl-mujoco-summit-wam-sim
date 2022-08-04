@@ -5,20 +5,21 @@
         Contacts    : j337xu@uwaterloo.ca
         Last edits  : Jun 13, 2022
 
-    Brief       :: Mobile Grasping Playground
+    Brief       :: Mobile Wagon Playground
         This is a demo playground showcasing the mobile robot,
         configured with 7DOF WAM Arm + BHand + Summit Mobile Robot,
-        in a setting of simple coke can grasping task.
+        in a setting of wagon manipulation.
 ====================================================== -->
 
-<mujoco model="playground_mobile_grasping(v1.0.0)">
-
+<mujoco model="playground_wagon_manipulation(v1.0.0)">
+    
     <!--##############
         ### IMPORT ###
         ############## -->
     <include file="../components/include_common.xml"/>
     <include file="../components/include_summit_wam_bhand_Dependencies.xml"/>   
     <include file="../components/include_summit_wam_bhand_actuators.xml"/>
+    <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/>   
 
 
     <!--###############
@@ -32,6 +33,10 @@
     <!-- TBD -->
     </contact>
 
+    <visual>
+    <!-- TBD -->
+    </visual>   
+
     <!--####################
         ### Hello World: ###
         #################### -->
@@ -40,26 +45,14 @@
         <light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
         <geom name="ground" type="plane" pos="0 0 0" size="1.5 2 1" conaffinity="1" contype="1" material="MatGnd"/>
         
-        <!-- Object -->
-        <body pos="1.2 -0.4 0.6" name="object0" >
-            <joint name="object0/joint" type="free" damping="0.01"></joint>
-            <geom pos="0 0 0" mesh="can_mesh" type="mesh" solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" material="coke" group="1" condim="4"/>
-            <geom pos="0 0 0" mesh="can_mesh" type="mesh" material="coke"  conaffinity="0" contype="1" group="1" mass="0.0001"/>
-            <site name="object0" pos="0 0 0" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere"></site>
-            <site rgba="0 0 0 0" size="0.005" pos="0 0 -0.06" name="can_bottom_site"/>
-            <site rgba="0 0 0 0" size="0.005" pos="0 0 0.04" name="can_top_site"/>
-            <site rgba="0 0 0 0" size="0.005" pos="0.025 0.025 0" name="can_horizontal_radius_site"/>
+        <!-- Robot -->
+        <body name="waterloo_steel" pos="0 0 0.0" >
+            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
-        <!-- Table -->
-        <body pos="1.2 -0.4 0.2" name="table0">
-            <geom size="0.25 0.3 0.2" type="box" mass="2000" material="table_mat"></geom>
-            <geom size="0.25 0.3 0.2" type="box" mass="2000" group="1" material="table_mat"></geom>
-        </body>
-
-        <!-- Robot -->
-        <body name="waterloo_steel/base_link" pos="0 0 0.0" >
-            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
+        <!-- Wagon -->
+        <body name="wagon" pos="0 1 0.0" >
+            <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
     </worldbody>

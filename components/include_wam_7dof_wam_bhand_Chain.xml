@@ -112,10 +112,13 @@
                         <geom                   class="wam/col" mesh="forearm_link_convex_decomposition_p2" pos="-0.045 -0.0730 0" euler="1.57 0 0"/>
                         
                         <!-- [Optional] ZED Camera on forearm link, TODO: uncertain for inertial params -->
-                        <body name="wam/sensor/zed" pos="-0.16 -0.15 0" quat="0 0.707107 0 0.707107">
+                        <body name="wam/sensor/zed" pos="-0.18 -0.15 0" quat="0 0.707107 0 0.707107">
                             <inertial               pos="0 0 0.015" mass="0.124"/>
-                            <geom                   class="wam/viz" mesh="zed"/>
+                            <!-- <geom                   class="wam/viz" mesh="zed"/> -->
+                            <!-- TIP: Decrease znear values to remove clipping effects -->
                             <geom                   class="wam/col" mesh="zed_collision_mesh"/>
+                            <camera name="camera/zed/R" pos="-0.06 0 0.042"  quat="0 0 -0.707107 0.707107" fovy="60"/>
+                            <camera name="camera/zed/L" pos=" 0.06 0 0.042"  quat="0 0 -0.707107 0.707107" fovy="60"/>
                         </body>
                         
                         <body name="wam/wrist_yaw_link" pos="-0.045 -0.3 0" quat="0.707107 0.707107 0 0">

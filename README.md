@@ -17,7 +17,11 @@ Mujoco Simulation Package for Waterloo steel robot
 - [ ] Example Interfacing code
 - [ ] ....
 
-
+## Note:
+> :announcement: Starting version 2.1.2, MuJoCo comes with python bindings, no need to look into mujoco_py package (which only works for 210)
+> Migration notes: https://mujoco.readthedocs.io/en/latest/python.html#migration-notes-for-mujoco-py
+> Right now, we will use mujoco-viewer based on https://github.com/rohanpsingh/mujoco-python-viewer
+> TODO: We will migrate to the official viewer in python bindings later: Watch PR: https://github.com/deepmind/mujoco/pull/201
 ## File Hierarchy:
 ```
 .

@@ -30,6 +30,13 @@
     />
     <!-- <size nuserdata="100" njmax="500" nconmax="1000" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_actuator="12" nuser_sensor="1" /> -->
 
+    <!-- Visual -->
+    <visual>
+        <map fogstart="3" fogend="5" force="0.1" znear="0.001"/>
+        <quality shadowsize="2048" offsamples="8"/>
+        <global offwidth="800" offheight="800"/>
+    </visual>
+
     <!--############################
         ### Environment Specific ###
         ############################ -->
@@ -52,7 +59,7 @@
     </asset>
     
     <default>
-        <!-- <geom contype='1' conaffinity='1' margin="0.001" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" />  -->
+        <geom margin="0.001" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" /> 
     </default>
 
 </mujocoinclude>    

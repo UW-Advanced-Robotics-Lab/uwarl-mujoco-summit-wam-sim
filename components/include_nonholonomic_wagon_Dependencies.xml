@@ -1,0 +1,60 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+        
+    TODO:
+    - [ ] mass and inertial parameters check and configure
+====================================================== -->
+
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- WAM BHAND -->
+    <asset>
+        <mesh file="meshes_wagon/wagon_wheel.stl"/>
+        <mesh file="meshes_wagon/wagon_handle.stl"/>
+        <!-- <mesh file="meshes_wagon/wagon_handle_col.stl"/> -->
+        <mesh file="meshes_wagon/wagon_handle_col_bar.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_1.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_2.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_3.stl"/>
+        <mesh file="meshes_wagon/wagon_base_link.stl"/>
+        <mesh file="meshes_wagon/wagon_fixed_mount.stl"/>
+        <mesh file="meshes_wagon/wagon_swivel_mount.stl"/>
+        <mesh file="meshes_wagon/wagon_pocket.stl"/>
+    </asset>
+
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT --> 
+    <default>
+        <default class="wagon">
+        </default>
+        <default class="wagon/hinge">
+            <joint type="hinge" limited="true" axis="1 0 0"  frictionloss=".001"/>
+        </default>
+        <default class="wagon/swivel">
+            <!-- Note: position relative to the origin of swivel linkage from CAD -->
+            <joint axis="0 0 1" damping="0.55" pos="-0.017456 -0.04 0.10985"/>
+        </default>
+        <default class="wagon/whl">
+            <joint axis="1 0 0" damping="0.55"/>
+        </default>
+        <default class="wagon/col">
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.7"/>          
+            <default class="wagon/col/whl">
+                <geom pos="-0.02 0 0" quat="0.707107 0 0.707106 0" size="0.087 0.02" type="cylinder"/>
+            </default>
+        </default>
+        <default class="wagon/viz">
+            <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0.8 1"/>
+        </default>
+    </default>
+
+</mujocoinclude>
+
