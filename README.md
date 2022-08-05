@@ -1,7 +1,7 @@
 # simulation-mujoco-summit-wam
 Mujoco Physics Simulation Package for Waterloo steel robot
 
-## Custom Library to support with MuJoCo 2.2.x
+### Custom Library to support with MuJoCo 2.2.x
 - [jx-mujoco-python-viewer](https://github.com/jaku-jaku/jx-mujoco-python-viewer)
 - [jx-mujoco-python-engine](https://github.com/jaku-jaku/jx-mujoco-python-engine) (similar to [deepmind/dm_control](https://github.com/deepmind/dm_control))
 - [TODO: Unity Integration] for rendering and realistic camera views
