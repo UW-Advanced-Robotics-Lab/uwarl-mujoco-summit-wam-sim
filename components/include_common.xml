@@ -33,8 +33,8 @@
     <!-- Visual -->
     <visual>
         <map fogstart="3" fogend="5" force="0.1" znear="0.001"/>
-        <quality shadowsize="2048" offsamples="8"/>
-        <global offwidth="800" offheight="800"/>
+        <quality shadowsize="4096" offsamples="16"/>
+        <!-- <global offwidth="1960" offheight="800"/> -->
     </visual>
 
     <!--############################
