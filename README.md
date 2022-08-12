@@ -7,9 +7,8 @@ Mujoco Physics Simulation Package for Waterloo steel robot
 - [TODO: Unity Integration] for rendering and realistic camera views
 
 ## Preview:
-### Waterloo Steel Mobile Grasping Playground:
-<img src="./documentation/playground_mobile_grasping.png" alt="waterloo_steel" width="600"/>
-> [ (1) Joint Status | (2) Position Control Panel | (3) Contact Point ]
+### Waterloo Steel Mobile Cart Manipulation Playground (engine & viewer):
+<img src="./documentation/main.png" alt="waterloo_steel" height="400"/>
 
 ## ToDo:
 - [x] Full Assembly
@@ -49,9 +48,12 @@ Mujoco Physics Simulation Package for Waterloo steel robot
 ├── playground
 │   ├── playground_{playground-name}.xml
 │   └── ...
-├── src_examples
-│   ├── {scripts}.py
+├── src
+│   ├── {scripts}.py # [launch files]
 │   └── ...
+├── submodules
+│   ├── jx-mujoco-python-viewer # [Mujoco Render/Interaction GUI]
+│   └── jx-mujoco-python-engine # [Main engine code]
 └── textures
 │   └── ...
 x
@@ -68,19 +70,39 @@ x
 - Shall you have any concern with the parameters, kindly open an issue.
 
 ### Waterloo Steel Mobile Manipulator Simulation:
-#### Collision Meshes:
-<img src="./documentation/contact_physics_summit_wam_bhand.png" alt="waterloo_steel" width="600"/>
+#### Launch Demo:
 
 #### Joints and MOI:
-<img src="./documentation/joints.png" alt="waterloo_steel" width="300"/>
-<img src="./documentation/MoI.png" alt="waterloo_steel" width="300"/>
+Joints             |  MOI
+:-------------------------:|:-------------------------:
+<img src="./documentation/joints.png" alt="waterloo_steel" height="300"/>  |  <img src="./documentation/MoI.png" alt="waterloo_steel" height="300"/>
 
 
 ### Installation Guide
-- you may consider to utilize env manager to hot-swap setup environment:
-  - pyenv + pyenv-virtualenv : for simple local machine python version env control
-  - conda / miniforge
-  - docker (not too familiar)
-  - vagrant
-#### M1 Mac Specific:
-- MuJoCo 2.1.x works / NOT 2.2.x :C : https://github.com/openai/mujoco-py/issues/662
+- Install MuJoCo 2.2.x via `$ sudo pip install mujoco`
+
+#### Tested Platforms:
+- M1 Macbook Pro 14" 
+- Ubuntu 20.04
+#### Submodules:
+1. Submodule Update
+    ```zsh
+    $ cd submodules
+    $ git submodule update
+    ```
+2. Install editable [python viewer](https://github.com/jaku-jaku/jx-mujoco-python-viewer):
+    ```zsh
+    $ cd jx-mujoco-python-viewer
+    $ pip install -e .
+    ```
+3. Install editable [python engine](https://github.com/jaku-jaku/jx-mujoco-python-engine):
+    ```zsh
+    $ cd jx-mujoco-python-engine
+    $ pip install -e .
+    ```
+
+#### Launch:
+##### Cart Manipulation:
+```
+$ cd src && python main.py
+```
