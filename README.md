@@ -7,7 +7,7 @@ Mujoco Physics Simulation Package for Waterloo steel robot
 - [TODO: Unity Integration] for rendering and realistic camera views
 
 ## Preview:
-### Waterloo Steel Mobile Cart Manipulation Playground (engine & viewer):
+### Waterloo Steel Mobile Playground (engine & viewer):
 <img src="./documentation/main.png" alt="waterloo_steel" height="400"/>
 
 ## ToDo:
