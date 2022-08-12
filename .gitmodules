@@ -4,3 +4,9 @@
 [submodule "submodules/jx-mujoco-python-engine"]
 	path = submodules/jx-mujoco-python-engine
 	url = git@github.com:jaku-jaku/jx-mujoco-python-engine.git
+[submodule "submodules/simulation-mujoco-summit-wam-unity"]
+	path = submodules/simulation-mujoco-summit-wam-unity
+	url = git@github.com:UW-Advanced-Robotics-Lab/simulation-mujoco-summit-wam-unity.git
+[submodule "submodules/jx-mujoco"]
+	path = submodules/jx-mujoco
+	url = git@github.com:jaku-jaku/jx-mujoco.git

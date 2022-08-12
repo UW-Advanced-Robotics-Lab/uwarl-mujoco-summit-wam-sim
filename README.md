@@ -80,10 +80,18 @@ Joints             |  MOI
 
 ### Installation Guide
 - Install MuJoCo 2.2.x via `$ sudo pip install mujoco`
-
+- Download MuJoCo 2.2.x release package from https://github.com/deepmind/mujoco/releases
 #### Tested Platforms:
 - M1 Macbook Pro 14" 
 - Ubuntu 20.04
+
+#### M1 Macbook:
+- Make directory `MuJoCo_v2.2` under `/Applications`
+- Copy all files from **MuJoCo 2.2.x** release dmg into `/Applications/MuJoCo_v2.2`
+
+#### Unity module:
+- The directory for the `.dylib` has been modified to `/Applications/MuJoCo_v2.2/MuJoCo.app/Contents/Frameworks` under this `submodules/jx-mujoco`
+
 #### Submodules:
 1. Submodule Update
     ```zsh
