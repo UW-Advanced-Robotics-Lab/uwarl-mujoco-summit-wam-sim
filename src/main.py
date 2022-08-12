@@ -19,7 +19,7 @@ import time
 import numpy as np
 
 # Ours:
-import mujoco_engine as jx
+import mujoco_engine.core_engine as jx
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -70,7 +70,8 @@ import mujoco_engine as jx
 #===========#
 def main():
     Engine = jx.Mujoco_Engine(
-        xml_path        = "../playground/playground_mobile_grasping.xml",
+        xml_path        = "../playground/playground_mobile_wagon_manipulation.xml",
+        # xml_path        = "../playground/playground_mobile_grasping.xml",
         rate_Hz         = 10,
         camera_config   = None,
     )

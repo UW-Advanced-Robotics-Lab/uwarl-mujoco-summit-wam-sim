@@ -30,6 +30,10 @@
     Spec        :: WAM Torque Sensor Spec (*3)
         Source      : https://web.barrett.com/supportFiles/wikiFiles/B4066Documentation.PDF
         Correction  : Jack @ Jun 22, 2022
+    
+    Spec        :: Intel L515 (*4)
+        Source      : https://dev.intelrealsense.com/docs/lidar-camera-l515-datasheet
+        Correction  : Jack @ Aug 05, 2022
         
     Updates:
         - [June 22, 2022] mass and inertial parameters re-populated based on (*1)
@@ -114,11 +118,11 @@
                         <!-- [Optional] ZED Camera on forearm link, TODO: uncertain for inertial params -->
                         <body name="wam/sensor/zed" pos="-0.18 -0.15 0" quat="0 0.707107 0 0.707107">
                             <inertial               pos="0 0 0.015" mass="0.124"/>
-                            <!-- <geom                   class="wam/viz" mesh="zed"/> -->
+                            <geom                   class="wam/viz" mesh="zed"/>
                             <!-- TIP: Decrease znear values to remove clipping effects -->
                             <geom                   class="wam/col" mesh="zed_collision_mesh"/>
-                            <camera name="camera/zed/R" pos="-0.06 0 0.042"  quat="0 0 -0.707107 0.707107" fovy="60"/>
-                            <camera name="camera/zed/L" pos=" 0.06 0 0.042"  quat="0 0 -0.707107 0.707107" fovy="60"/>
+                            <camera name="camera/zed/R" pos="-0.06 0.03 0.042"  quat="0 0 -0.707107 0.707107" fovy="60"/>
+                            <camera name="camera/zed/L" pos=" 0.06 0.03 0.042"  quat="0 0 -0.707107 0.707107" fovy="60"/>
                         </body>
                         
                         <body name="wam/wrist_yaw_link" pos="-0.045 -0.3 0" quat="0.707107 0.707107 0 0">
@@ -158,6 +162,14 @@
                                     <geom                   class="wam/viz" mesh="wrist_palm_link_fine"/>
                                     <geom                   class="wam/col" mesh="wrist_palm_link_convex"/>
                                     
+                                    
+                                    <!-- [Optional] Intel Lidar Camera (*4) -->
+                                    <body name="wam/sensor/intel" pos="0 0.085 0.1">
+                                        <inertial               pos="0 0 0.015" mass="0.095"/>
+                                        <geom                   class="wam/viz" mesh="intel_realsense_l515"/>
+                                        <geom                   class="wam/col" mesh="intel_realsense_l515_collision_mesh"/>
+                                        <camera name="camera/intel/rgb" quat="0 -1 0 0" fovy="55"/>
+                                    </body>
                                     
                                     <!-- ### T-S Sensor (*3) Ref: (*3) unit: [m, kg, kg * m^2] 
                                         Note:
