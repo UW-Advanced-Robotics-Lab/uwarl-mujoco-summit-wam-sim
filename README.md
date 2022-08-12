@@ -8,7 +8,7 @@ Mujoco Physics Simulation Package for Waterloo steel robot
 
 ## Preview:
 ### Waterloo Steel Mobile Playground (engine & viewer):
-<img src="./documentation/main.png" alt="waterloo_steel" height="400"/>
+<img src="./documentation/main.png" alt="waterloo_steel" height="600"/>
 
 ## ToDo:
 - [x] Full Assembly
