@@ -2,9 +2,11 @@
 Mujoco Physics Simulation Package for Waterloo steel robot
 
 ### Custom Library to support with MuJoCo 2.2.x
-- [jx-mujoco-python-viewer](https://github.com/jaku-jaku/jx-mujoco-python-viewer)
-- [jx-mujoco-python-engine](https://github.com/jaku-jaku/jx-mujoco-python-engine) (similar to [deepmind/dm_control](https://github.com/deepmind/dm_control))
-- [TODO: Unity Integration] for rendering and realistic camera views
+- Launch Package (includes models) (**This Package**)
+- Graphical User Interface / Direct OnOff-screen Render: [jx-mujoco-python-viewer](https://github.com/jaku-jaku/jx-mujoco-python-viewer)
+- Main Engine Code [jx-mujoco-python-engine](https://github.com/jaku-jaku/jx-mujoco-python-engine) (similar to [deepmind/dm_control](https://github.com/deepmind/dm_control))
+- MuJoCo 2.2.x locking variants [jx-mujoco](https://github.com/jaku-jaku/jx-mujoco)
+- Unity Project for MuJoCo-Unity-Integration [simulation-mujoco-summit-wam-unity](https://github.com/UW-Advanced-Robotics-Lab/simulation-mujoco-summit-wam-unity)
 
 ## Preview:
 ### Waterloo Steel Mobile Playground (engine & viewer):
