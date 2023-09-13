@@ -32,8 +32,10 @@ Mujoco Physics Simulation Package for Waterloo Steel Robot
 ### 1.1 Custom Library to support with MuJoCo 2.2.x
 
 - [x] Launch Package (includes models) (**This Package**)
-- [x] Graphical User Interface / Direct OnOff-screen Render: [jx-mujoco-python-viewer](https://github.com/jaku-jaku/jx-mujoco-python-viewer)
-- [x] Main Engine Code [jx-mujoco-python-engine](https://github.com/jaku-jaku/jx-mujoco-python-engine) (similar to [deepmind/dm_control](https://github.com/deepmind/dm_control))
+- [x] Graphical User Interface / Direct OnOff-screen Render: [uwarl-mujoco-python-viewer](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-viewer)
+  -  branching from [jx-mujoco-python-viewer](https://github.com/jaku-jaku/jx-mujoco-python-viewer)
+- [x] Main Engine Code [uwarl-mujoco-python-engine](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-engine)
+  - branching from [jx-mujoco-python-engine](https://github.com/jaku-jaku/jx-mujoco-python-engine) (similar to [deepmind/dm_control](https://github.com/deepmind/dm_control))
 - [x] MuJoCo 2.2.x locking variants [jx-mujoco](https://github.com/jaku-jaku/jx-mujoco)
 - [ ] [TODO: Unity Integration] for rendering and realistic camera views
 - [ ] [TODO: ROS Integration] for bridging SIL and HIL
