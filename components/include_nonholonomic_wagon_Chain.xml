@@ -93,7 +93,8 @@
             <geom name="wagon/col/handle_bar"            class="wagon/col"      mesh="wagon_handle_col_bar"/>
             <!-- <geom name="wagon/col/handle"                class="wagon/col"      mesh="wagon_handle_col"/> -->
             <!-- Handle Hinge Joint -->
-            <joint name="wagon/handle"                   class="wagon/hinge"    range="0 0.785398"/>
+            <!-- Changed range for hinge joint from 0 0.785398 to 0 0.1 to have a bit of play -->
+            <joint name="wagon/handle"                   class="wagon/hinge"    range="0 0.1"/>
         </body>
         
         <!-- === Container === === === === -->
