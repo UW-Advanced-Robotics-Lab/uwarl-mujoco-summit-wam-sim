@@ -18,6 +18,8 @@ import time
 # python 3rd party libraries:
 import numpy as np
 
+import rospy
+
 # Ours:
 import mujoco_engine.core_engine as jx
 
@@ -70,8 +72,8 @@ import mujoco_engine.core_engine as jx
 #===========#
 def main():
     Engine = jx.Mujoco_Engine(
-        # xml_path        = "../playground/playground_mobile_wagon_manipulation.xml",
-        xml_path        = "../playground/playground_mobile_grasping.xml",
+        # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
+        xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
         rate_Hz         = 10,
         camera_config   = None,
     )
@@ -80,6 +82,7 @@ def main():
         time.sleep(0.001)
 
 if __name__ == '__main__':
+    rospy.init_node('Mujocolaunch')
     try: 
         main()
     except jx.MuJoCo_Engine_InterruptException:
