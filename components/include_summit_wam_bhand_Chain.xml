@@ -25,13 +25,13 @@
         <geom name="smt/col/base_link/cylinder_lidar"       class="summit/col" pos="0.246 0.362 0.313" size="0.06 0.044" type="cylinder"/>
 
         <!-- world placement -->
-        <joint name="smt/world_x" armature="0.0001" axis="1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
-        <joint name="smt/world_y" armature="0.0001" axis="0 1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="smt/world_x" armature="0.0001" axis="0 1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="smt/world_y" armature="0.0001" axis="-1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
         <joint name="smt/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
 
         <!-- control summit base -->
-        <joint name="smt/pose/x"                            type="slide" pos="0 0 0" axis="1 0 0" limited="true" range="-1 1" damping="15000"/>
-        <joint name="smt/pose/y"                            type="slide" pos="0 0 0" axis="0 1 0" limited="true" range="-1 1" damping="15000"/>
+        <joint name="smt/pose/x"                            type="slide" pos="0 0 0" axis="0 1 0" limited="true" range="-1 1" damping="15000"/>
+        <joint name="smt/pose/y"                            type="slide" pos="0 0 0" axis="-1 0 0" limited="true" range="-1 1" damping="15000"/>
         <joint name="smt/orie/z"                            type="hinge" pos="0 0 0" axis="0 0 1" limited="true" range="-3.14 3.14" damping="10000"/>
 
         <!-- === whl LINK === === === === -->

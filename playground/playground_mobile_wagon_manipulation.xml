@@ -43,15 +43,15 @@
     <worldbody>
         <!-- GND -->
         <light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
-        <geom name="ground" type="plane" pos="0 0 0" size="1.5 2 1" conaffinity="1" contype="1" material="MatGnd"/>
+        <geom name="ground" type="plane" pos="0 0 0" size="20 20 1" conaffinity="1" contype="1" material="MatGnd" group="1"/>
         
         <!-- Robot -->
-        <body name="waterloo_steel" pos="0 0 0.0" >
+        <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
         <!-- Wagon -->
-        <body name="wagon" pos="0 1 0.0" >
+        <body name="wagon" pos="-1.35 0 0.0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 

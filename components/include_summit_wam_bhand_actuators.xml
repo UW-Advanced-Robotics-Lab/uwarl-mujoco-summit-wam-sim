@@ -19,9 +19,9 @@
     -->
     <actuator>
         <!-- [SUMMIT] control summit base in a position fashion (Ain't gonna focus on the modelling on the base) -->
-        <position name="smt/pose/x" ctrlrange="-10.0 10.0" joint="smt/pose/x" kp="18000" user="1" ctrllimited="true"/>
-        <position name="smt/pose/y" ctrlrange="-10.0 10.0" joint="smt/pose/y" kp="18000" user="1" ctrllimited="true"/>
-        <position name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kp="18000" user="1" ctrllimited="true"/>
+        <velocity name="smt/pose/x" ctrlrange="-10.0 10.0" joint="smt/pose/x" kv="18000" user="1" ctrllimited="true"/>
+        <velocity name="smt/pose/y" ctrlrange="-10.0 10.0" joint="smt/pose/y" kv="18000" user="1" ctrllimited="true"/>
+        <velocity name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kv="18000" user="1" ctrllimited="true"/>
     </actuator>
         
     <!-- [WAM 7DOF] 
@@ -36,13 +36,13 @@
             - gear: scakes the length of the actuator (different gain / moment arms and velocity, force)
         -->
         <!-- [WAM 7DOF] force control mode -->
-        <!-- <motor name='wam/J1/F' ctrllimited="true" joint='wam/J1' ctrlrange='-0.8 0.8' gear="42"      /> -->
-        <!-- <motor name='wam/J2/F' ctrllimited="true" joint='wam/J2' ctrlrange='-0.8 0.8' gear="28.25"   /> -->
-        <!-- <motor name='wam/J3/F' ctrllimited="true" joint='wam/J3' ctrlrange='-0.8 0.8' gear="28.25"   /> -->
-        <!-- <motor name='wam/J4/F' ctrllimited="true" joint='wam/J4' ctrlrange='-0.8 0.8' gear="18"      /> -->
-        <!-- <motor name='wam/J5/F' ctrllimited="true" joint='wam/J5' ctrlrange='-0.8 0.8' gear="9.7"     /> -->
-        <!-- <motor name='wam/J6/F' ctrllimited="true" joint='wam/J6' ctrlrange='-0.8 0.8' gear="9.7"     /> -->
-        <!-- <motor name='wam/J7/F' ctrllimited="true" joint='wam/J7' ctrlrange='-0.8 0.8' gear="14.93"   /> -->
+        <motor name='wam/J1/F' ctrllimited="true" joint='wam/J1' ctrlrange='-0.8 0.8' gear="42"      />
+        <motor name='wam/J2/F' ctrllimited="true" joint='wam/J2' ctrlrange='-0.8 0.8' gear="28.25"   />
+        <motor name='wam/J3/F' ctrllimited="true" joint='wam/J3' ctrlrange='-0.8 0.8' gear="28.25"   />
+        <motor name='wam/J4/F' ctrllimited="true" joint='wam/J4' ctrlrange='-0.8 0.8' gear="18"      />
+        <motor name='wam/J5/F' ctrllimited="true" joint='wam/J5' ctrlrange='-0.8 0.8' gear="9.7"     />
+        <motor name='wam/J6/F' ctrllimited="true" joint='wam/J6' ctrlrange='-0.8 0.8' gear="9.7"     />
+        <motor name='wam/J7/F' ctrllimited="true" joint='wam/J7' ctrlrange='-0.8 0.8' gear="14.93"   />
         
         <!-- [WAM 7DOF] position control mode -->
         <position name='wam/J1/P' ctrllimited="true" joint='wam/J1' ctrlrange='-2.6 2.6'       kp="900"  />
@@ -71,14 +71,22 @@
     -->
     <actuator>
         <!-- [WAM BHAND] position control mode -->
-        <position name='bhand/spread' ctrllimited="true" joint='bhand/f1/prox' ctrlrange='0 3.1415'   kp="1" />
-        <!-- <position name='bhand/f2/prox' ctrllimited="true" joint='bhand/f2/prox' ctrlrange='0 3.1415'   kp="1" /> -->
+        <!-- <position name='bhand/f1/prox' ctrllimited="true" joint='bhand/f1/prox' ctrlrange='0 3.1415'   kp="1" /> 
+        <position name='bhand/f2/prox' ctrllimited="true" joint='bhand/f2/prox' ctrlrange='0 3.1415'   kp="1" />
         <position name='bhand/f1/med'  ctrllimited="true" joint='bhand/f1/med'  ctrlrange='0 2.4434'   kp="1.2" />
         <position name='bhand/f2/med'  ctrllimited="true" joint='bhand/f2/med'  ctrlrange='0 2.4434'   kp="1.2" />
         <position name='bhand/f3/med'  ctrllimited="true" joint='bhand/f3/med'  ctrlrange='0 2.4434'   kp="1.2" />
-        <!-- <position name='bhand/f1/dist' ctrllimited="true" joint='bhand/f1/dist' ctrlrange='0 0.8377'   kp="2" /> -->
-        <!-- <position name='bhand/f2/dist' ctrllimited="true" joint='bhand/f2/dist' ctrlrange='0 0.8377'   kp="2" /> -->
-        <!-- <position name='bhand/f3/dist' ctrllimited="true" joint='bhand/f3/dist' ctrlrange='0 0.8377'   kp="2" /> -->    
+        <position name='bhand/f1/dist' ctrllimited="true" joint='bhand/f1/dist' ctrlrange='0 0.8377'   kp="2" />
+        <position name='bhand/f2/dist' ctrllimited="true" joint='bhand/f2/dist' ctrlrange='0 0.8377'   kp="2" />
+        <position name='bhand/f3/dist' ctrllimited="true" joint='bhand/f3/dist' ctrlrange='0 0.8377'   kp="2" />    -->
+        <position name='bhand/f1/prox' ctrllimited="true" joint='bhand/f1/prox' ctrlrange='0 3.1415'   kp="2" /> 
+        <position name='bhand/f2/prox' ctrllimited="true" joint='bhand/f2/prox' ctrlrange='0 3.1415'   kp="2" />
+        <position name='bhand/f1/med'  ctrllimited="true" joint='bhand/f1/med'  ctrlrange='0 2.4434'   kp="2" />
+        <position name='bhand/f2/med'  ctrllimited="true" joint='bhand/f2/med'  ctrlrange='0 2.4434'   kp="2" />
+        <position name='bhand/f3/med'  ctrllimited="true" joint='bhand/f3/med'  ctrlrange='0 2.4434'   kp="2" />
+        <position name='bhand/f1/dist' ctrllimited="true" joint='bhand/f1/dist' ctrlrange='0 0.8377'   kp="2" />
+        <position name='bhand/f2/dist' ctrllimited="true" joint='bhand/f2/dist' ctrlrange='0 0.8377'   kp="2" />
+        <position name='bhand/f3/dist' ctrllimited="true" joint='bhand/f3/dist' ctrlrange='0 0.8377'   kp="2" />   
     </actuator>
 
 </mujocoinclude>    

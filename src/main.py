@@ -77,12 +77,21 @@ def main():
         rate_Hz         = 10,
         camera_config   = None,
     )
-    while True:
+
+    rospy.sleep(1)
+
+    # Make sure mujoco is real time
+    steptime = 0.002*10
+    r = rospy.Rate(1/steptime)
+
+    while not rospy.is_shutdown():
         Engine._update()
-        time.sleep(0.01)
+        r.sleep()
+
 
 if __name__ == '__main__':
     rospy.init_node('Mujocolaunch')
+
     try: 
         main()
     except jx.MuJoCo_Engine_InterruptException:
