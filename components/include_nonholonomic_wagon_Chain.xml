@@ -15,7 +15,7 @@
     <body name="utility/wagon" childclass="wagon">
         <!-- === BASE LINK === === === === -->
         <body name="wagon/wire_frame" pos="-0.013891 0.009207 0.22892">
-            <inertial pos="-0.013891 0.009207 0.22892" mass="1"/>
+            <inertial pos="-0.013891 0.009207 0.22892" mass="3"/>
             <geom name="wagon/viz/base_link"                      class="wagon/viz" mesh="wagon_base_link"/>
             <geom name="wagon/col/base_link"                      class="wagon/col" mesh="wagon_base_link"/>
         </body>
@@ -28,13 +28,13 @@
         <!-- <geom name="wagon/col/base_link/cylinder_lidar"       class="wagon/col" pos="0.246 0.362 0.313" size="0.06 0.044" type="cylinder"/> -->
 
         <!-- world placement -->
-        <joint name="wagon/world_x" armature="0.0001" axis="1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
-        <joint name="wagon/world_y" armature="0.0001" axis="0 1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="wagon/world_x" armature="0.0001" axis="0 -1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="wagon/world_y" armature="0.0001" axis="1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
         <joint name="wagon/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
 
         <!-- control wagon base -->
-        <joint name="wagon/p/x"                            type="slide" pos="0 0 0" axis="1 0 0" limited="true" range="-1 1" damping="15000"/>
-        <joint name="wagon/p/y"                            type="slide" pos="0 0 0" axis="0 1 0" limited="true" range="-1 1" damping="15000"/>
+        <joint name="wagon/p/x"                            type="slide" pos="0 0 0" axis="0 -1 0" limited="true" range="-1 1" damping="15000"/>
+        <joint name="wagon/p/y"                            type="slide" pos="0 0 0" axis="1 0 0" limited="true" range="-1 1" damping="15000"/>
         <joint name="wagon/o/z"                            type="hinge" pos="0 0 0" axis="0 0 1" limited="true" range="-3.14 3.14" damping="10000"/>
         
         <!-- === whl LINK === === === === -->
@@ -84,19 +84,46 @@
                 
         <!-- === handle LINK === === === === -->
         <!-- Pull/Push Handle With Passive Hinge Joint -->
-        <body name="wagon/handle" pos="-0.015 -0.398275 0.208685">
+        <!-- <body name="wagon/handle" pos="-0.015 -0.398275 0.208685">
             <geom name="wagon/viz/handle"                class="wagon/viz"      mesh="wagon_handle"/>
-            <!-- Collision Segments -->
+            Collision Segments
             <geom name="wagon/col/handle_1"              class="wagon/col"      mesh="wagon_handle_1"/>
             <geom name="wagon/col/handle_2"              class="wagon/col"      mesh="wagon_handle_2"/>
             <geom name="wagon/col/handle_3"              class="wagon/col"      mesh="wagon_handle_3"/>
             <geom name="wagon/col/handle_bar"            class="wagon/col"      mesh="wagon_handle_col_bar"/>
-            <!-- <geom name="wagon/col/handle"                class="wagon/col"      mesh="wagon_handle_col"/> -->
+            <geom name="wagon/col/handle"                class="wagon/col"      mesh="wagon_handle_col"/>
+            Handle Hinge Joint
+            Changed range for hinge joint from 0 0.785398 to 0 0.02 to have a bit of play
+            <joint name="wagon/handle"                   class="wagon/hinge"    range="0 0.02"/>
+        </body> -->
+
+        <body name="wagon/handle" pos="-0.015 -0.398275 0.208685">
+            <!-- <inertial pos="0 0 0" mass="0.2"/> -->
+            <geom name="wagon/viz/handle_1"                class="wagon/viz"      mesh="wagon_handle_base_hinge"/>
+
+            <!-- Collision Segments -->
+            <geom name="wagon/col/handle_1"              class="wagon/col"      mesh="wagon_handle_base_hinge"/>
+
             <!-- Handle Hinge Joint -->
             <!-- Changed range for hinge joint from 0 0.785398 to 0 0.1 to have a bit of play -->
-            <joint name="wagon/handle"                   class="wagon/hinge"    range="0 0.1"/>
+            <joint name="wagon/handle"                   class="wagon/hinge"     range="0 0.1"/>
+
+
+
+            <body name="wagon/handle2" pos="0.0 0.0 0.0" >
+                <!-- <inertial pos="0.1 0.1 0.2" mass="0.5"/> -->
+                <geom name="wagon/viz/handle_2"              class="wagon/viz"      mesh="wagon_top_handle"/>
+
+                <!-- Collision Segments -->
+                <geom name="wagon/col/handle_2"              class="wagon/col"      mesh="wagon_top_handle"/>
+
+                <!-- Prismatic joint -->
+                <joint name="wagon/handle2"                  class="wagon/prismatic" range="-0.28 0.0"/>
+            </body>
         </body>
         
+
+
         <!-- === Container === === === === -->
         <body name="wagon/pocket" pos="0 0.018 0.217">
             <geom name="wagon/viz/pocket"                class="wagon/viz"      mesh="wagon_pocket"/>
