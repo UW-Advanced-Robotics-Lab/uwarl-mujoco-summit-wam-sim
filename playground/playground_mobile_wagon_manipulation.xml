@@ -46,12 +46,14 @@
         <geom name="ground" type="plane" pos="0 0 0" size="20 20 1" conaffinity="1" contype="1" material="MatGnd" group="1"/>
         
         <!-- Robot -->
+        <!-- <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 0"> -->
         <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 -1.57079632679">
-            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
+            <include file="../components/include_summit_wam_bhand_Chain.xml"/>s
         </body>
         
         <!-- Wagon -->
-        <body name="wagon" pos="-1.35 0 0.0" euler="0 0 1.57079632679" >
+        <!-- <body name="wagon" pos="0 -1.45 0.0" euler="0 0 3.14159265359" > -->
+        <body name="wagon" pos="-1.45 0 0.0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 

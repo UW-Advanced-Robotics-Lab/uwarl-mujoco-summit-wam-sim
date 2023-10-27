@@ -30,9 +30,10 @@
         <joint name="smt/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
 
         <!-- control summit base -->
-        <joint name="smt/pose/x"                            type="slide" pos="0 0 0" axis="0 1 0" limited="true" range="-1 1" damping="15000"/>
-        <joint name="smt/pose/y"                            type="slide" pos="0 0 0" axis="-1 0 0" limited="true" range="-1 1" damping="15000"/>
-        <joint name="smt/orie/z"                            type="hinge" pos="0 0 0" axis="0 0 1" limited="true" range="-3.14 3.14" damping="10000"/>
+        <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1" limited="true" range="-3.14 3.14" damping="10000"/>
+        <joint name="smt/pose/x"                            type="slide" pos="0 0 0.4" axis="0 1 0" limited="true" range="-1.1 1.1" damping="15000"/>
+        <joint name="smt/pose/y"                            type="slide" pos="0 0 0.4" axis="-1 0 0" limited="true" range="-1.1 1.1" damping="15000"/>
+        <!-- <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1" limited="true" range="-3.14 3.14" damping="10000"/> -->
 
         <!-- === whl LINK === === === === -->
         <!-- Mobile whls -->
@@ -40,24 +41,28 @@
             <geom name="smt/viz/whl/LF"                    class="summit/viz" mesh="mecanum_LF_1"/>
             <geom name="smt/col/whl/LF_cylinder"           class="summit/col" pos="-0.220 0.222 0.128" quat="0.707107 0 0.707106 0" size="0.13 0.05" type="cylinder"/>
             <inertial                                                         pos="-0.220 0.222 0.128" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/>
+            <!-- <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
             <joint name="smt/whl_LF"                       class="summit/whl" pos="-0.264 0.222 0.128"/>
         </body>
         <body name="smt/whl/LR_link" pos="0 0 0">
             <geom name="smt/viz/whl/LR"                    class="summit/viz" mesh="mecanum_LR_1"/>
             <geom name="smt/col/whl/LR_cylinder"           class="summit/col" pos="-0.220 -0.223 0.128" quat="0.707107 0 0.707106 0" size="0.13 0.05" type="cylinder"/>
             <inertial                                                         pos="-0.220 -0.223 0.128" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/>
+            <!-- <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
             <joint name="smt/whl_LR"                       class="summit/whl" pos="-0.264 -0.223 0.128"/>
         </body>
         <body name="smt/whl/RF_link" pos="0 0 0">
             <geom name="smt/viz/whl/RF"                   class="summit/viz" mesh="mecanum_RF_1"/>
             <geom name="smt/col/whl/RF_cylinder"          class="summit/col" pos="0.220 0.222 0.128" quat="0.707107 0 0.707106 0" size="0.13 0.05" type="cylinder"/>
             <inertial                                                        pos="0.220 0.222 0.128" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/>
+            <!-- <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
             <joint name="smt/whl_RF"                      class="summit/whl" pos="0.264 0.222 0.128"/>
         </body>
         <body name="smt/whl/RR_link" pos="0 0 0">
             <geom name="smt/viz/whl/RR"                   class="summit/viz" mesh="mecanum_RR_1"/>
             <geom name="smt/col/whl/RR_cylinder"          class="summit/col" pos="0.220 -0.223 0.128" quat="0.707107 0 0.707106 0" size="0.13 0.05" type="cylinder"/>
             <inertial                                                        pos="0.220 -0.223 0.128" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/>
+            <!-- <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
             <joint name="smt/whl_RR"                      class="summit/whl" pos="0.264 -0.223 0.128"/>
         </body>
 

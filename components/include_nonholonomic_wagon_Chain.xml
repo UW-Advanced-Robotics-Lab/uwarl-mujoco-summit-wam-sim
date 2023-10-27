@@ -98,7 +98,7 @@
         </body> -->
 
         <body name="wagon/handle" pos="-0.015 -0.398275 0.208685">
-            <!-- <inertial pos="0 0 0" mass="0.2"/> -->
+            <inertial pos="0 0 0" mass="1" diaginertia="1 1 1"/>
             <geom name="wagon/viz/handle_1"                class="wagon/viz"      mesh="wagon_handle_base_hinge"/>
 
             <!-- Collision Segments -->
@@ -111,7 +111,7 @@
 
 
             <body name="wagon/handle2" pos="0.0 0.0 0.0" >
-                <!-- <inertial pos="0.1 0.1 0.2" mass="0.5"/> -->
+                <inertial pos="0.1 0.1 0.2" mass="1" diaginertia="1 1 1"/>
                 <geom name="wagon/viz/handle_2"              class="wagon/viz"      mesh="wagon_top_handle"/>
 
                 <!-- Collision Segments -->

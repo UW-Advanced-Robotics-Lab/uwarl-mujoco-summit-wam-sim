@@ -81,7 +81,7 @@ def main():
     rospy.sleep(1)
 
     # Make sure mujoco is real time
-    steptime = 0.002*10
+    steptime = 0.002*5
     r = rospy.Rate(1/steptime)
 
     while not rospy.is_shutdown():
