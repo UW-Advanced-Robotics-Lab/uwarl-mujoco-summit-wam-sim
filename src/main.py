@@ -74,19 +74,45 @@ def main():
     Engine = jx.Mujoco_Engine(
         xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
         # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
-        rate_Hz         = 10,
+        rate_Hz         = 50,
         camera_config   = None,
     )
 
     rospy.sleep(1)
 
     # Make sure mujoco is real time
-    steptime = 0.002*5
+    steptime = 0.002*10
     r = rospy.Rate(1/steptime)
+    i=0
+    now = rospy.Time.now()
+    simtime = 0.0
+    realtime = 0.0
+    realstart = float(rospy.Time.now().secs)+float(rospy.Time.now().nsecs)/10**9
 
     while not rospy.is_shutdown():
+        
         Engine._update()
-        r.sleep()
+        r.sleep() 
+        i+=1
+
+        # Check frequency and compare simtime and realtime:
+        if  i == 100:
+
+            # Compute sim and real time
+            simtime += steptime*i
+            i=0
+            realtime = float(rospy.Time.now().secs)+float(rospy.Time.now().nsecs)/10**9 - realstart
+            # Compute frequency over 
+            second = rospy.Time.now()
+            time_taken = second-now
+            freq = 1/(float(time_taken.secs)+float(time_taken.nsecs)/10**9+0.000000001)*100.0
+            # Print if frequency deviates from desired
+            if freq < 1/steptime-1.0:
+                rospy.logwarn('Mujoco update cannot reach minimum update frequency of: ' + str(1/steptime) + ', actual (Hz): '+ str(freq))
+                rospy.loginfo('Simtime: '+ str(simtime)+', Realtime: ' + str(realtime))
+            now = rospy.Time.now()
+
+
 
 
 if __name__ == '__main__':
