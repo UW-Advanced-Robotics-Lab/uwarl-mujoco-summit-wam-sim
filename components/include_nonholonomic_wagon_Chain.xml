@@ -112,10 +112,10 @@
 
             <body name="wagon/handle2" pos="0.0 0.0 0.0" >
                 <inertial pos="0.1 0.1 0.2" mass="1" diaginertia="1 1 1"/>
-                <geom name="wagon/viz/handle_2"              class="wagon/viz"      mesh="wagon_top_handle"/>
+                <geom name="wagon/viz/handle_2"              class="wagon/viz"      mesh="wagon_top_handle" friction="0.001 0.001 0.001"/>
 
                 <!-- Collision Segments -->
-                <geom name="wagon/col/handle_2"              class="wagon/col"      mesh="wagon_top_handle"/>
+                <geom name="wagon/col/handle_2"              class="wagon/col"      mesh="wagon_top_handle" friction="0.001 0.001 0.001"/>
 
                 <!-- Prismatic joint -->
                 <joint name="wagon/handle2"                  class="wagon/prismatic" range="-0.28 0.0"/>
