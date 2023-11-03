@@ -48,7 +48,7 @@
         <!-- Robot -->
         <!-- <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 0"> -->
         <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 -1.57079632679">
-            <include file="../components/include_summit_wam_bhand_Chain.xml"/>s
+            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
         <!-- Wagon -->

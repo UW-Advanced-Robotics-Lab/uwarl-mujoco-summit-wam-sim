@@ -71,8 +71,8 @@ import mujoco_engine.core_engine as jx
 #  M A I N  #
 #===========#
 def main():
-    update_rate = 70
-    rate_plot = 5
+    update_rate = 100
+    rate_plot = 10
 
     Engine = jx.Mujoco_Engine(
         xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",

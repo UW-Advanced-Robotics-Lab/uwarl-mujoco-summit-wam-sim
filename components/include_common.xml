@@ -20,10 +20,10 @@
     
     <!-- Options: -->
     <option 
-        timestep="1e-3"
+        timestep="2e-4"
         iterations="10"
         tolerance="1e-8"
-        impratio="10"
+        impratio="1"
         gravity="0 0 -9.81"
         solver="PGS"
         cone="elliptic" 
