@@ -84,6 +84,10 @@
         <exclude body1="wam/base" body2="wam/shoulder_yaw_link"/>
         <exclude body1="wam/shoulder_yaw_link" body2="wam/upper_arm_link"/>
         <exclude body1="wam/forearm_link" body2="wam/wrist_pitch_link"/>
+        <exclude body1="smt/base_link" body2="smt/whl/LF_link"/>
+        <exclude body1="smt/base_link" body2="smt/whl/RF_link"/>
+        <exclude body1="smt/base_link" body2="smt/whl/RR_link"/>
+        <exclude body1="smt/base_link" body2="smt/whl/LR_link"/>
     </contact>
 
 </mujocoinclude>

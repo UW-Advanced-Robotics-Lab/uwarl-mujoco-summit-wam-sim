@@ -71,19 +71,22 @@ import mujoco_engine.core_engine as jx
 #  M A I N  #
 #===========#
 def main():
-    update_rate = 50
+    update_rate = 70
+    rate_plot = 5
 
     Engine = jx.Mujoco_Engine(
         xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
         # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
         rate_Hz         = update_rate,
+        rate_scene      = rate_plot,
         camera_config   = None,
     )
 
     rospy.sleep(1)
 
     # Make sure mujoco is real time
-    steptime = 1/update_rate
+    steptime = 1.0/update_rate
+
     r = rospy.Rate(update_rate)
     i=0
     now = rospy.Time.now()

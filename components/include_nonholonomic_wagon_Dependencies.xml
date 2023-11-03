@@ -28,6 +28,10 @@
         <mesh file="meshes_wagon/wagon_pocket.stl"/>
         <mesh file="meshes_wagon/wagon_handle_base_hinge.stl"/>
         <mesh file="meshes_wagon/wagon_top_handle.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_0.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_part1.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_part2.stl"/>
+        <mesh file="meshes_wagon/handle_extension.stl"/>
     </asset>
 
     <!--###############
