@@ -2,7 +2,15 @@ cmake_minimum_required(VERSION 3.0.2)
 project(uwarl-mujoco-summit-wam-sim)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
+
+# Add your dependencies in the order you want them to build.
+# add_subdirectory(submodules/uwarl-mujoco-python-engine/jx-mujoco-python-engine/mujoco_engine/core_engine/mujoco_ros_msgs)
+# add_subdirectory(submodules/uwarl-mujoco-python-engine/jx-mujoco-python-engine/mujoco_engine/core_engine/mujoco_ros_control)
+# add_subdirectory(submodules/hw_interface_folder)
+add_subdirectory(mujoco_ros_msgs)
+# add_subdirectory(shadow_robot_pkg/mujoco_ros_pkgs/mujoco_ros_control)
+
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -11,6 +19,19 @@ find_package(catkin REQUIRED COMPONENTS
   # rosbag
   # actionlib_msgs
   rospy
+  roscpp
+  std_msgs
+  controller_manager
+  control_toolbox
+  hardware_interface
+  transmission_interface
+  pluginlib
+  joint_limits_interface
+  urdf
+  mujoco_ros_msgs
+  # mujoco
+  # mujoco_ros_msgs
+  # mujoco_ros_control
   # std_msgs
 )
 
@@ -104,9 +125,19 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES rosbag_recorder
-CATKIN_DEPENDS rospy
+ INCLUDE_DIRS include
+ LIBRARIES robot_hw_sim
+ CATKIN_DEPENDS rospy
+  roscpp
+  # rospy
+  std_msgs
+  controller_manager
+  control_toolbox
+  pluginlib
+  hardware_interface
+  transmission_interface
+  joint_limits_interface
+  urdf
 #  DEPENDS system_lib
 )
 
@@ -117,14 +148,34 @@ CATKIN_DEPENDS rospy
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+include
   ${catkin_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIR}
+  # ${PYTHON3_INCLUDE_DIRS}
+  /home/tim/.local/lib/python3.8/site-packages/mujoco/include/mujoco
+  /home/tim/.local/lib/python3.8/site-packages/mujoco/include
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/rosbag_recorder.cpp
 # )
+
+
+add_library(robot_hw_sim src/robot_hw_sim.cpp)
+target_link_libraries(robot_hw_sim ${catkin_LIBRARIES})
+
+add_library(robot_hw_sim_plugin src/robot_hw_sim_plugin.cpp)
+target_link_libraries(robot_hw_sim_plugin ${catkin_LIBRARIES})
+
+add_library(visualization_utils src/visualization_utils.cpp)
+target_link_libraries(visualization_utils ${catkin_LIBRARIES})
+
+## Declare a C++ library
+add_executable(mujoco_ros_control src/mujoco_ros_control.cpp)
+target_link_libraries(mujoco_ros_control ${catkin_LIBRARIES} glfw /home/tim/.local/lib/python3.8/site-packages/mujoco/libmujoco.so.3.0.0 robot_hw_sim robot_hw_sim_plugin visualization_utils GLEW glut X11 GL GLU)
+
+
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

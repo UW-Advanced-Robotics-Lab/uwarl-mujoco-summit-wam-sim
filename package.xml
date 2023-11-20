@@ -63,13 +63,32 @@
 
   <!-- <exec_depend>rosbag</exec_depend> -->
   <exec_depend>rospy</exec_depend>
+  <!-- <depend>mujoco_ros_control</depend> -->
+  <!-- <depend>mujoco_ros_msgs</depend> -->
+   
   <!-- <exec_depend>actionlib</exec_depend>
   <exec_depend>actionlib_msgs</exec_depend>
   <exec_depend>std_msgs</exec_depend> -->
 
-  <!-- The export tag contains other, unspecified, tags -->
-  <export>
-    <!-- Other tools can request additional information be placed here -->
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>control_toolbox</depend>
+  <depend>controller_manager</depend>
+  <depend>pluginlib</depend>
+  <depend>hardware_interface</depend>
+  <depend>transmission_interface</depend>
+  <depend>joint_limits_interface</depend>
+  <depend>mujoco_ros_msgs</depend>
+  <depend>urdf</depend>
+  <!-- <depend>roslint</depend> -->
 
+  <export>
+    <uwarl-mujoco-summit-wam-sim plugin="${prefix}/robot_hw_sim_plugin.xml"/>
   </export>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <!-- <export> -->
+    <!-- Other tools can request additional information be placed here -->
+    <!-- <mujoco_ros_control "shadow_robot_pkg/mujoco_ros_pkgs/mujoco_ros_control/package.xml"/> -->
+  <!-- </export> -->
 </package>

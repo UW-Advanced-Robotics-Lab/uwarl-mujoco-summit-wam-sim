@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<robot name="waterloo_steel" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+
+    <!-- model attributes: -->
+    <xacro:arg name="load_wam_7dof"          default="false" />
+    <xacro:arg name="load_wam_bhand"         default="false" />
+    <xacro:arg name="load_torque_sensor"     default="false" />
+    <xacro:arg name="hardware_interface"     default="effort" />
+
+
+    <!-- ***************** -->
+    <!-- Imported elements -->
+    <!-- ***************** -->
+    
+    <!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
+
+    <!-- Import summit XL base elements -->
+    <xacro:include filename="$(find waterloo_steel_description)/urdf/bases/waterloo_steel_base.urdf.xacro" />
+
+    <!-- Import summit XL wheels -->
+    <xacro:include filename="$(find waterloo_steel_description)/urdf/wheels/omni_wheel.urdf.xacro" />
+    
+    <!-- Import ARM -->
+    <xacro:if value="$(arg load_wam_7dof)">
+        <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/wam_top.urdf.xacro" />
+        <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/wam_$(arg hardware_interface)_transmission.urdf.xacro" />
+        <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/bhand_$(arg hardware_interface)_transmission.urdf.xacro" />
+        <!-- <xacro:include filename="$(find waterloo_steel_description)/urdf/wam/wam_position_transmission.urdf.xacro" />
+        <xacro:include filename="$(find waterloo_steel_description)/urdf/wam/bhand_position_transmission.urdf.xacro" /> -->
+        
+    </xacro:if>
+
+    <!-- Import all available sensors -->
+    <!-- <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" /> -->
+
+    <xacro:property name="PI"                   value="3.1415926535897931"/>
+
+    <!-- Wheel parameters -->
+    <xacro:property name="wheel_radius"         value="0.127" /> <!-- omin-wheel -->
+
+    <xacro:property name="wheel_offset_x"       value="0.2225" />    <!-- x,y,z in translation from base_link to the center of the wheel -->
+    <xacro:property name="wheel_offset_y"       value="0.2045" />    
+    <xacro:property name="wheel_offset_z"       value="0.0" />
+    
+    <!-- ARM parameters -->
+    <xacro:property name="arm_offset_x"         value="0.139" />    <!-- x,y,z in translation from base_link to the center of the arm -->
+    <xacro:property name="arm_offset_y"         value="0.0" />
+    <xacro:property name="arm_offset_z"         value="0.272" />  <!-- 0.402 - 0.13 -->
+    <xacro:property name="arm_offset_roll"      value="0.0" />    <!-- r,p,y in r from base_link to the center of the arm -->
+    <xacro:property name="arm_offset_pitch"     value="0.0" />
+    <xacro:property name="arm_offset_yaw"       value="0.0" />
+
+    <!-- Updated Nov. 04 2022 [Fusion v45.2.6] Note: center ground to the center of the lidar -->
+    <xacro:property name="front_laser_offset_x" value="0.362"/>   
+    <xacro:property name="front_laser_offset_y" value="-0.246"/>    
+    <xacro:property name="front_laser_offset_z" value="0.154"/> <!-- 0.284 - 0.13 -->
+    
+    <!-- Updated Nov. 04 2022 [Fusion v45.2.6] BUT UNUSED / NOT-Occupied -->
+    <xacro:property name="rear_laser_offset_x"  value="-0.364"/>   
+    <xacro:property name="rear_laser_offset_y"  value="0.246"/>    
+    <xacro:property name="rear_laser_offset_z"  value="0.147"/> <!-- 0.277 - 0.13 -->
+    
+    <!-- TODO: IMU PX4 location -->
+    <xacro:property name="imu_offset_x"         value="0.25"/>   
+    <xacro:property name="imu_offset_y"         value="-0.15"/>    
+    <xacro:property name="imu_offset_z"         value="0.18"/>
+    
+    <!-- Updated Nov. 04 2022 | TODO: check zed camera measurements and CAD L struct-->
+    <xacro:property name="front_rgbd_camera_offset_x" value="0.347"/><!-- 0.297 + 0.05? -->
+    <xacro:property name="front_rgbd_camera_offset_y" value="0"/>    
+    <xacro:property name="front_rgbd_camera_offset_z" value="0.237"/><!-- 0.367 - 0.13 -->
+    
+    <!-- NOTE: TODO: check if gps is necessary, as we dont have one -->
+    <xacro:property name="gps_offset_x"         value="-0.365"/>   
+    <xacro:property name="gps_offset_y"         value="-0.167"/>    
+    <xacro:property name="gps_offset_z"         value="0.302"/>
+
+    <!-- Flag to select the high or low quality model -->
+    <xacro:property name="hq"                   value="true" />
+
+    <xacro:arg name="prefix"                 default="waterloo_steel_"/>
+    <xacro:arg name="arm_prefix"             default="$(arg prefix)_wam"/>
+	<xacro:arg name="ros_planar_move_plugin" default="false"/>
+	<xacro:arg name="gpu" default="false"/>
+
+    <!-- Define waterloo_steel -->
+    <xacro:macro name="waterloo_steel" params="prefix publish_bf hq load_wam_7dof load_wam_bhand load_torque_sensor">
+
+        <!-- <xacro:arg name="load_wam_7dof"         default="true" />
+        <xacro:arg name="load_wam_bhand"        default="true" />
+        <xacro:arg name="load_torque_sensor"    default="true" /> -->
+        <!-- *************** -->
+        <!-- Robots Elements -->
+        <!-- *************** -->
+
+        <!-- Here we create the robot elements using the xacro:macros imported at the beggining of this file -->
+
+        <!-- Summit XL base -->
+        <xacro:waterloo_steel_base prefix="$(arg prefix)" publish_bf="${publish_bf}" hq="${hq}" />
+
+        <xacro:omni_wheel prefix="front_right" parent="$(arg prefix)base_link" reflect="false" hq="${hq}">
+            <origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        </xacro:omni_wheel>
+
+        <xacro:omni_wheel prefix="front_left" parent="$(arg prefix)base_link" reflect="true" hq="${hq}">
+            <origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        </xacro:omni_wheel>
+
+        <xacro:omni_wheel prefix="back_left" parent="$(arg prefix)base_link" reflect="true" hq="${hq}">
+            <origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        </xacro:omni_wheel>
+
+        <xacro:omni_wheel prefix="back_right" parent="$(arg prefix)base_link" reflect="false" hq="${hq}">
+            <origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        </xacro:omni_wheel>
+        <!-- IMU -->
+        <!-- <xacro:sensor_imu_hector prefix="$(arg prefix)imu" parent="$(arg prefix)base_link">
+            <origin xyz="-0.09 -0.11 0.170" rpy="0 0 0"/>
+        </xacro:sensor_imu_hector> -->
+    
+        <!-- SENSORS -->
+        <!-- LIDAR -->
+        <!-- <xacro:sensor_velodyne_vlp16 prefix="$(arg prefix)front_laser" parent="$(arg prefix)base_link" range_min="0.4" range_max="130" gpu="false">
+            <origin xyz="${front_laser_offset_x} ${front_laser_offset_y} ${front_laser_offset_z}" rpy="0 0 0" /> [m]
+        </xacro:sensor_velodyne_vlp16> -->
+        <!-- ZED -->
+        <!-- <xacro:stereolabs_zed prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" model="zed" format="R8G8B8" near="0.05" far="2500">
+            <origin xyz="${front_rgbd_camera_offset_x} ${front_rgbd_camera_offset_y} ${front_rgbd_camera_offset_z}" rpy="0 0 0"/>
+        </xacro:stereolabs_zed> -->
+    
+        <!-- Mounting ARM -->
+        <xacro:if value="$(arg load_wam_7dof)">
+            <joint name="$(arg prefix)arm_base_joint" type="fixed">
+                <parent link="$(arg prefix)base_link" />
+                <origin xyz="${arm_offset_x} ${arm_offset_y} ${arm_offset_z}" rpy="${arm_offset_roll} ${arm_offset_pitch} ${arm_offset_yaw}" />    
+                <child link="$(arg prefix)arm_base_link" />
+                <axis xyz="0 0 0" />
+            </joint>
+            
+            <link name="$(arg prefix)arm_base_link" />
+            <!-- TODO: maybe its just wam in real hardware robot, OR rename the real world launching for wam -->
+                <!-- Mount WAM: -->
+                <xacro:wam_7dof prefix="$(arg arm_prefix)" parent_link="$(arg prefix)arm_base_link" 
+                                xyz="0 0 0" rpy="0 0 0" torque_sensor="$(arg load_torque_sensor)"/>
+                <!-- Enable WAM Transmissions -->
+                <xacro:wam_transmissions prefix="$(arg arm_prefix)"/>
+
+                <!-- Mount Hand: -->
+                <xacro:if value="$(arg load_wam_bhand)">
+                    <xacro:bhand prefix="$(arg arm_prefix)/bhand" parent_link="$(arg arm_prefix)/wrist_palm_link" 
+                                xyz="0 0 0.06" rpy="0 0 ${PI}"/>
+                    <!-- Enable Bhand Transmissions -->
+                    <xacro:bhand_transmissions prefix="$(arg arm_prefix)/bhand"/>
+                </xacro:if>
+        </xacro:if>
+
+    </xacro:macro>
+    <!-- Gazebo ros control pluggins -->
+    <xacro:ros_control> <!--UNUSED ?--> </xacro:ros_control>
+
+    <xacro:if value="$(arg ros_planar_move_plugin)">
+        <xacro:omni_steering prefix="$(arg prefix)" publish_tf="true"/>
+    </xacro:if>
+
+    <!-- TODO: bf and hq should be parameterized>??? -->
+    <xacro:waterloo_steel   prefix="$(arg prefix)" publish_bf="true" hq="true" 
+                            load_wam_7dof="$(arg load_wam_7dof)" 
+                            load_wam_bhand="$(arg load_wam_bhand)" 
+                            load_torque_sensor="$(arg load_torque_sensor)"
+    />
+</robot>
