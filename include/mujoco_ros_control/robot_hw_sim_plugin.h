@@ -72,6 +72,8 @@ public:
 
   virtual void pass_mj_data(std::map<std::string, std::vector <double> > *list_joints);
 
+  virtual std::map<std::string, double >* get_mj_data(void);
+
   // virtual void write(const ros::Time& time, const ros::Duration& period);
 };
 }  // namespace mujoco_ros_control

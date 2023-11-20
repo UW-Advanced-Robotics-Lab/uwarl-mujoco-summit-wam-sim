@@ -159,6 +159,9 @@ protected:
   ros::Time last_update_sim_time_ros_;
   ros::Time last_write_sim_time_ros_;
 
+  // init control variable
+  std::map<std::string, double > received_effort_control;
+
 //   // publishing
 //   ros::Publisher objects_in_scene_publisher = robot_node_handle.advertise<mujoco_ros_msgs::ModelStates>
 //                                                                          ("/mujoco/model_states", 1000);

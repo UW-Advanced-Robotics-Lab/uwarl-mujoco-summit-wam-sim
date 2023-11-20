@@ -257,11 +257,14 @@ bool RobotHWSim::init_sim(
 }
 
 
-
-
 void RobotHWSim::read(const ros::Time& time, const ros::Duration& period)
 {
   // This function is reduntant
+}
+
+std::map<std::string, double>* RobotHWSim::get_mj_data(void)
+{
+  return &effort_control;
 }
 
 void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
@@ -275,100 +278,58 @@ void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
   vj_limits_interface_.enforceLimits(period);
 
 
-  // for (auto& actuator : mujoco_actuators_)
-  // {
-  //   if (string_ends_with(actuator.first, "FJ0"))
-  //   {
-  //     std::string joint_1_name = actuator.first;
-  //     std::string joint_2_name = actuator.first;
-  //     joint_1_name[joint_1_name.size() - 1] = '1';
-  //     joint_2_name[joint_2_name.size() - 1] = '2';
-  //     JointData& joint_1 = joints_.at(joint_1_name);
-  //     JointData& joint_2 = joints_.at(joint_2_name);
-  //     switch (joint_1.control_method)
-  //     {
-  //       case EFFORT:
-  //       {
-  //         mujoco_data_->ctrl[actuator.second.id] = joint_1.effort_command + joint_2.effort_command;
-  //         break;
-  //       }
+  effort_control.clear();
+  for (auto& joint_item : joints_)
+    {
+      JointData& joint = joint_item.second;
+      // if ( actuator.first == joint.name)
+      // {
+        switch (joint.control_method)
+        {
+          case EFFORT:
+          {
+            const double effort = joint.effort_command;
+            effort_control.insert(std::pair<std::string, double > (joint.name, effort));
+            break;
+          }
 
-  //       case POSITION:
-  //         mujoco_data_->ctrl[actuator.second.id] = joint_1.position_command + joint_2.position_command;
-  //         break;
+          case POSITION:
+          {
+            // mujoco_data_->ctrl[actuator.second.id] = joint.position_command;
+            break;
+          }
 
-  //       case POSITION_PID:
-  //       {
-  //         mujoco_data_->ctrl[actuator.second.id] =
-  //           clamp(joint_1.pid_controller.computeCommand(joint_1.position_command - joint_1.position, period),
-  //                 -joint_1.effort_limit, joint_1.effort_limit) +
-  //           clamp(joint_2.pid_controller.computeCommand(joint_2.position_command - joint_2.position, period),
-  //                 -joint_2.effort_limit, joint_2.effort_limit);
-  //         break;
-  //       }
+          case POSITION_PID:
+          {
+            double error;
+            error = joint.position_command - joint.position;
+            const double effort_limit = joint.effort_limit;
+            const double effort = clamp(joint.pid_controller.computeCommand(error, period),
+                                        -effort_limit, effort_limit);
+            effort_control.insert(std::pair<std::string, double > (joint.name, effort));
+            break;
+          }
 
-  //       case VELOCITY:
-  //         mujoco_data_->ctrl[actuator.second.id] = joint_1.velocity_command + joint_2.velocity_command;
-  //         break;
+          case VELOCITY:
+          {
+            // mujoco_data_->ctrl[actuator.second.id] = joint.velocity_command;
+            break;
+          }
 
-  //       case VELOCITY_PID:
-  //         mujoco_data_->ctrl[actuator.second.id] =
-  //           clamp(joint_1.pid_controller.computeCommand(joint_1.velocity_command - joint_1.velocity, period),
-  //                 -joint_1.effort_limit, joint_1.effort_limit) +
-  //           clamp(joint_2.pid_controller.computeCommand(joint_2.velocity_command - joint_2.velocity, period),
-  //                 -joint_2.effort_limit, joint_2.effort_limit);
-  //         break;
-  //     }
-  //     continue;
-  //   }
-  //   for (auto& joint_item : joints_)
-  //   {
-  //     JointData& joint = joint_item.second;
-  //     if ( actuator.first == joint.name)
-  //     {
-  //       switch (joint.control_method)
-  //       {
-  //         case EFFORT:
-  //         {
-  //           mujoco_data_->ctrl[actuator.second.id] = joint.effort_command;
-  //         }
-  //         break;
-
-  //         case POSITION:
-  //         {
-  //           mujoco_data_->ctrl[actuator.second.id] = joint.position_command;
-  //         }
-  //         break;
-
-  //         case POSITION_PID:
-  //         {
-  //           double error;
-
-  //           error = joint.position_command - joint.position;
-  //           const double effort_limit = joint.effort_limit;
-  //           const double effort = clamp(joint.pid_controller.computeCommand(error, period),
-  //                                       -effort_limit, effort_limit);
-  //           mujoco_data_->ctrl[actuator.second.id] = effort;
-  //         }
-  //         break;
-
-  //         case VELOCITY:
-  //           mujoco_data_->ctrl[actuator.second.id] = joint.velocity_command;
-  //           break;
-
-  //         case VELOCITY_PID:
-  //           double error;
-  //           error = joint.velocity_command - joint.velocity;
-  //           const double effort_limit = joint.effort_limit;
-  //           const double effort = clamp(joint.pid_controller.computeCommand(error, period),
-  //                                       -effort_limit, effort_limit);
-  //           mujoco_data_->ctrl[actuator.second.id] = effort;
-  //           break;
-  //       }
-  //       continue;
-  //     }
-  //   }
-  // }
+          case VELOCITY_PID:
+          {
+            double error;
+            error = joint.velocity_command - joint.velocity;
+            const double effort_limit = joint.effort_limit;
+            const double effort = clamp(joint.pid_controller.computeCommand(error, period),
+                                        -effort_limit, effort_limit);
+            effort_control.insert(std::pair<std::string, double > (joint.name, effort));
+            break;
+          }
+        }
+        // continue;
+      // }
+    }
 }
 
 void RobotHWSim::pass_mj_data(std::map<std::string, std::vector <double> > *list_joints_mj)
@@ -405,7 +366,7 @@ void RobotHWSim::pass_mj_data(std::map<std::string, std::vector <double> > *list
     }
     catch(const std::exception& e)
     {
-      std::cerr << e.what() << '\n';
+      // std::cerr << e.what() << '\n';
     }
   }
 }

@@ -211,14 +211,10 @@ int main(int argc, char** argv)
 
     mujoco_ros_control::MujocoRosControl mujoco_ros_control_1;
 
-    // mujoco_ros_control::MujocoVisualizationUtils &mujoco_visualization_utils =
-    //     mujoco_ros_control::MujocoVisualizationUtils::getInstance();
+    // create publisher to publish command signals for mujoco
+    ros::Publisher pub = nh_.advertise<sensor_msgs::JointState>("/mujoco/ros_control/effort_commands", 1);
 
-    // ros::Publisher pub = nh_.advertise<std_msgs::String>("/mujoco/joint_states", 1);
-    // std_msgs::String msg;
-    // msg.data = "hallo";
-    // pub.publish(msg);
-
+    std::map<std::string, double > received_effort_control;
 
     std::map<std::string, std::vector<double> > list_mj_data;
 
@@ -237,62 +233,40 @@ int main(int argc, char** argv)
       return 1;
     }
 
-    // // init GLFW
-    // if ( !glfwInit() )
-    //   mju_error("Could not initialize GLFW");
-
-    // // create window, make OpenGL context current, request v-sync
-    // GLFWwindow* window = glfwCreateWindow(1200, 900, "Demo", NULL, NULL);
-    // glfwMakeContextCurrent(window);
-    // glfwSwapInterval(1);
-
-    // // make context current
-    // glfwMakeContextCurrent(window);
-
-    // // initialize mujoco visualization functions
-    // mujoco_visualization_utils.init(mujoco_ros_control.mujoco_model, mujoco_ros_control.mujoco_data, window);
-
     // spin
     ros::AsyncSpinner spinner(1);
     spinner.start();
 
     ros::Rate r(100);
 
+    ros::Duration sim_period;
+    ros::Time sim_time_ros;
+
+    ros::Time sim_time_last = ros::Time::now();
+    ros::Duration(0,1000).sleep();
+
+    sensor_msgs::JointState effort_pub;
 
     // run main loop, target real-time simulation and 60 fps rendering
     while ( ros::ok())
     {
-      // // advance interactive simulation for 1/60 sec
-      // // Assuming MuJoCo can simulate faster than real-time, which it usually can,
-      // // this loop will finish on time for the next frame to be rendered at 60 fps.
-      // mjtNum sim_start = mujoco_ros_control.mujoco_data->time;
+      effort_pub.effort.clear();
+      effort_pub.name.clear();
+      sim_time_ros = ros::Time::now();
+      sim_period = sim_time_ros - sim_time_last;
+      mujoco_ros_control_1.robot_hw_sim_->write(sim_time_ros, sim_period);
+      sim_time_last = ros::Time::now();
+      received_effort_control = *mujoco_ros_control_1.robot_hw_sim_->get_mj_data();
 
-      // while ( mujoco_ros_control.mujoco_data->time - sim_start < 1.0/60.0 && ros::ok() )
-      // {
+      for (auto& x : received_effort_control)
+      {
+        effort_pub.effort.push_back(x.second);
+        effort_pub.name.push_back(x.first);
+      }
 
-      
+      pub.publish(effort_pub);
 
-      // mujoco_ros_control_1.robot_hw_sim_->pass_mj_data(&list_mj_data);
-
-      // ros::Time sim_time_ros = ros::Time::now();
-      // ros::Duration sim_period = ros::Duration(2);
-      // mujoco_ros_control_1.robot_hw_sim_->read(sim_time_ros, sim_period);
-      // mujoco_ros_control_1.robot_hw_sim_->write(sim_time_ros, sim_period);
-
-
-      // }
-      // mujoco_visualization_utils.update(window);
-
-      // ros::Publisher pub = nh_.advertise<std_msgs::String>("/mujoco/joint_states", 1);
-      // std_msgs::String msg;
-      // msg.data = "hallo";
-      // pub.publish(msg);
-
-
-        r.sleep();
+      r.sleep();
     }
-
-    // mujoco_visualization_utils.terminate();
-
     return 0;
 }

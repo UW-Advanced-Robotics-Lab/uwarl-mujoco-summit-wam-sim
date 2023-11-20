@@ -80,6 +80,8 @@ public:
 
   virtual void pass_mj_data(std::map<std::string, std::vector <double> > *list_joints_mj);
 
+  virtual std::map<std::string, double >* get_mj_data(void);
+
   // Methods used to control a joint.
   enum ControlMethod {EFFORT, POSITION, POSITION_PID, VELOCITY, VELOCITY_PID};
 
@@ -202,7 +204,7 @@ protected:
   std::map<std::string, JointData> joints_;
   // std::map<std::string, MujocoJointData> mujoco_joints_;
   // std::map<std::string, MujocoActuatorData> mujoco_actuators_;
-  // std::map<std::string, JointData > list_joints;
+  std::map<std::string, double > effort_control;
  
 
   // // mujoco elements

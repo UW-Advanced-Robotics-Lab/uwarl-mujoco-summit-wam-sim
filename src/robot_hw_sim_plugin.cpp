@@ -77,6 +77,12 @@ void RobotHWSimPlugin::pass_mj_data(std::map<std::string, std::vector <double> >
     return;
   }
 
+std::map<std::string, double>* RobotHWSimPlugin::get_mj_data(void)
+  {
+    std::map<std::string, double > test;
+    return &test;
+  }
+
   // virtual void write(const ros::Time& time, const ros::Duration& period);
 
 }  // namespace mujoco_ros_control
