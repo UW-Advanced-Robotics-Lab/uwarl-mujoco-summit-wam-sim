@@ -71,7 +71,7 @@ bool RobotHWSimPlugin::init_sim(
     return false;
   }
 
-void RobotHWSimPlugin::pass_mj_data(std::map<std::string, std::list<double> > *list_joints)
+void RobotHWSimPlugin::pass_mj_data(std::map<std::string, std::vector <double> > *list_joints)
   {
     // printf("hello");
     return;

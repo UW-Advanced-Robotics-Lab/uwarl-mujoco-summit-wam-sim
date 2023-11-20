@@ -29,6 +29,7 @@
 #include <ros/ros.h>
 #include <pluginlib/class_loader.h>
 #include <std_msgs/Bool.h>
+#include <sensor_msgs/JointState.h>
 #include <ros/package.h>
 
 // Mujoco dependencies
@@ -92,7 +93,10 @@ public:
   boost::shared_ptr<mujoco_ros_control::RobotHWSimPlugin> robot_hw_sim_;
 
   // Callback for mujoco
-  void readCallback_mujoco(const std_msgs::String::ConstPtr& msg);
+  void readCallback_mujoco(const sensor_msgs::JointState::ConstPtr& msg);
+
+  // initialize mujoco joint data vector
+  std::map<std::string, std::vector<double> > list_mj_data;
 
 protected:
   // free or static object

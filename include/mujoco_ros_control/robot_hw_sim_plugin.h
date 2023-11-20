@@ -70,7 +70,7 @@ public:
       const urdf::Model *const urdf_model,
       std::vector<transmission_interface::TransmissionInfo> transmissions) = 0;
 
-  virtual void pass_mj_data(std::map<std::string, std::list<double> > *list_joints);
+  virtual void pass_mj_data(std::map<std::string, std::vector <double> > *list_joints);
 
   // virtual void write(const ros::Time& time, const ros::Duration& period);
 };

@@ -27,6 +27,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <vector>
 
 namespace mujoco_ros_control
 {
@@ -53,24 +54,6 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
         ROS_FATAL_STREAM_NAMED("mujoco_ros_control", "Unable to initialize Mujoco node.");
         return false;
     }
-
-    // if (nodehandle.getParam("mujoco_ros_control/key_path", key_path_))
-    // {
-    //   ROS_INFO("Got param activation key path: %s", key_path_.c_str());
-    // }
-    // else
-    // {
-    //   ROS_ERROR("Failed to get param 'key_path', attempting activation with default ('%s')", key_path_.c_str());
-    // }
-
-    // activation license mujoco
-    // mj_activate(key_path_.c_str());
-
-    // publish clock for simulated time
-    // pub_clock_ = nodehandle.advertise<rosgraph_msgs::Clock>("/clock", 10);
-
-    // // create robot node handle
-    // robot_node_handle = ros::NodeHandle("/");
 
     ROS_INFO_NAMED("mujoco_ros_control", "Starting mujoco_ros_control_node node in namespace: %s", robot_namespace_.c_str());
 
@@ -102,31 +85,6 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
     }
 
     char error[1000];
-
-    // // create mjModel
-    // mujoco_model = mj_loadXML(robot_model_path_.c_str(), NULL, error, 1000);
-    // if (!mujoco_model)
-    // {
-    //   printf("Could not load mujoco model with error: %s.\n", error);
-    //   return false;
-    // }
-
-    // // create mjData corresponding to mjModel
-    // mujoco_data = mj_makeData(mujoco_model);
-    // if (!mujoco_data)
-    // {
-    //   printf("Could not create mujoco data from model.\n");
-    //   return false;
-    // }
-
-    // // check number of dofs
-    // get_number_of_dofs();
-
-    // // get the Mujoco simulation period
-    // ros::Duration mujoco_period(mujoco_model->opt.timestep);
-
-    // // set control period as mujoco_period
-    // control_period_ = mujoco_period;
 
     // load the RobotHWSim abstraction to interface the controllers with the gazebo model
     try
@@ -181,99 +139,9 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
     }
     ROS_INFO_NAMED("mujoco_ros_control", "Loaded mujoco_ros_control.");
 
-    // // set up the initial simulation environment
-    // setup_sim_environment();
-    
-
-    // ROS_WARN("Initializing pass data");
-    // std::map<std::string, std::list<double> > list_joints_mj;
-    // ros::Time sim_time_ros = ros::Time::now();
-    // ros::Duration sim_period = ros::Duration(2);
-    // robot_hw_sim_->pass_mj_data(&list_joints_mj);
-    // // robot_hw_sim_->read(sim_time_ros, sim_period);
-
     return true;
 }
 
-// void MujocoRosControl::setup_sim_environment()
-// {
-//   XmlRpc::XmlRpcValue robot_joints, robot_initial_state;
-//   bool params_read_correctly = true;
-
-//   if (!robot_node_handle.getParam("robot_joints", robot_joints))
-//   {
-//     ROS_WARN("Failed to get param 'robot_joints'");
-//     params_read_correctly = false;
-//   }
-
-//   if (params_read_correctly && robot_node_handle.getParam("robot_initial_state", robot_initial_state))
-//   {
-//     for (int i = 0; i < robot_joints.size(); i++)
-//     {
-//       for (XmlRpc::XmlRpcValue::iterator it = robot_initial_state.begin(); it != robot_initial_state.end(); ++it)
-//       {
-//         if (robot_joints[i] == it->first)
-//         {
-//           mujoco_data->qpos[i] = it->second;
-//         }
-//       }
-//     }
-//   }
-//   else
-//   {
-//     ROS_WARN("Failed to get param 'robot_initial_state'");
-//     params_read_correctly = false;
-//   }
-
-//   if (!params_read_correctly)
-//   {
-//     for (int i=0; i < n_dof_-objects_in_scene_.size(); i++)
-//     {
-//       mujoco_data->qpos[i] = 0;
-//     }
-//   }
-
-//   // compute forward kinematics for new pos
-//   mj_forward(mujoco_model, mujoco_data);
-
-//   // run simulation to setup the new pos
-//   mj_step(mujoco_model, mujoco_data);
-// }
-
-// void MujocoRosControl::update()
-// {
-//   publish_sim_time();
-
-//   ros::Time sim_time = (ros::Time)mujoco_data->time;
-//   ros::Time sim_time_ros(sim_time.sec, sim_time.nsec);
-
-//   ros::Duration sim_period = sim_time_ros - last_update_sim_time_ros_;
-
-//   mj_step1(mujoco_model, mujoco_data);
-
-//   // check if we should update the controllers
-//   if (sim_period >= control_period_)
-//   {
-//     // store simulation time
-//     last_update_sim_time_ros_ = sim_time_ros;
-
-//     // update the robot simulation with the state of the mujoco model
-//     robot_hw_sim_->read(sim_time_ros, sim_period);
-
-//     bool reset_ctrls = false;
-
-//     // compute the controller commands
-//     controller_manager_->update(sim_time_ros, sim_period, reset_ctrls);
-//   }
-
-//   // update the mujoco model with the result of the controller
-//   robot_hw_sim_->write(sim_time_ros, sim_time_ros - last_write_sim_time_ros_);
-
-//   last_write_sim_time_ros_ = sim_time_ros;
-//   mj_step2(mujoco_model, mujoco_data);
-
-//   publish_objects_in_scene();
-// }
 
 // get the URDF XML from the parameter server
 std::string MujocoRosControl::get_urdf(std::string param_name) const
@@ -313,152 +181,24 @@ bool MujocoRosControl::parse_transmissions(const std::string& urdf_string)
   return true;
 }
 
-// std::string MujocoRosControl::geom_type_to_string(int geom_type)
-// {
-//   std::string result;
-//   switch (geom_type)
-//   {
-//     case 0 :
-//       result = mujoco_ros_msgs::ModelStates::PLANE;
-//       break;
-//     case 1 :
-//       result = mujoco_ros_msgs::ModelStates::HFIELD;
-//       break;
-//     case 2 :
-//       result = mujoco_ros_msgs::ModelStates::SPHERE;
-//       break;
-//     case 3 :
-//       result = mujoco_ros_msgs::ModelStates::CAPSULE;
-//       break;
-//     case 4 :
-//       result = mujoco_ros_msgs::ModelStates::ELLIPSOID;
-//       break;
-//     case 5 :
-//       result = mujoco_ros_msgs::ModelStates::CYLINDER;
-//       break;
-//     case 6 :
-//       result = mujoco_ros_msgs::ModelStates::BOX;
-//       break;
-//     case 7 :
-//       result = mujoco_ros_msgs::ModelStates::MESH;
-//       break;
-//     default:
-//       result = "unknown_type";
-//       break;
-//   }
-//   return result;
-// }
 
-// void MujocoRosControl::get_number_of_dofs()
-// {
-//   n_dof_ = mujoco_model->njnt;
-// }
-
-// void MujocoRosControl::publish_sim_time()
-// {
-//   ros::Time sim_time = (ros::Time)mujoco_data->time;
-//   if (pub_clock_frequency_ > 0 && (sim_time - last_pub_clock_time_).toSec() < 1.0/pub_clock_frequency_)
-//     return;
-
-//   ros::Time current_time = (ros::Time)mujoco_data->time;
-//   rosgraph_msgs::Clock ros_time_;
-//   ros_time_.clock.fromSec(current_time.toSec());
-//   // publish time to ros
-//   last_pub_clock_time_ = sim_time;
-//   pub_clock_.publish(ros_time_);
-// }
-
-// void MujocoRosControl::check_objects_in_scene()
-// {
-//   int num_of_bodies = mujoco_model->nbody;
-//   int object_id;
-//   int joint_addr;
-//   int joint_type;
-//   int num_of_joints_for_body;
-//   std::string object_name;
-
-//   for (int object_id=0; object_id < num_of_bodies; object_id++)
-//   {
-//     object_name = mj_id2name(mujoco_model, 1, object_id);
-//     num_of_joints_for_body = mujoco_model->body_jntnum[object_id];
-//     if (0 == num_of_joints_for_body &&
-//         !(std::find(robot_link_names_.begin(), robot_link_names_.end(), object_name) != robot_link_names_.end()))
-//     {
-//       objects_in_scene_[object_id] = STATIC;
-//       ROS_INFO_STREAM("Static object found: " << object_name);
-//     }
-//     else if (1 == num_of_joints_for_body)
-//     {
-//       joint_addr = mujoco_model->body_jntadr[object_id];
-//       joint_type = mujoco_model->jnt_type[joint_addr];
-//       if (0 == joint_type)
-//       {
-//         objects_in_scene_[object_id] = FREE;
-//         n_free_joints_++;
-//         ROS_INFO_STREAM("Free object found: " << object_name);
-//       }
-//     }
-//   }
-// }
-
-// void MujocoRosControl::publish_objects_in_scene()
-// {
-//   const int geom_size_dim = 3;
-//   const int xpos_dim = 3;
-//   const int xquat_dim = 4;
-//   int geom_type;
-//   int geom_addr;
-//   geometry_msgs::Pose pose;
-//   std_msgs::Float64MultiArray size;
-//   mujoco_ros_msgs::ModelStates objects;
-
-//   for (std::map<int, Object_State>::iterator it = objects_in_scene_.begin(); it != objects_in_scene_.end(); it++ )
-//   {
-//     size.data.clear();
-//     geom_addr = mujoco_model->body_geomadr[it->first];
-//     geom_type = mujoco_model->geom_type[geom_addr];
-
-//     for (int i=0; i < geom_size_dim; i++)
-//     {
-//       size.data.push_back(mujoco_model->geom_size[3 * geom_addr + i]);
-//     }
-
-//     pose.position.x = mujoco_data->xpos[xpos_dim * it->first];
-//     pose.position.y = mujoco_data->xpos[xpos_dim * it->first + 1];
-//     pose.position.z = mujoco_data->xpos[xpos_dim * it->first + 2];
-//     pose.orientation.x = mujoco_data->xquat[xquat_dim * it->first + 1];
-//     pose.orientation.y = mujoco_data->xquat[xquat_dim * it->first + 2];
-//     pose.orientation.z = mujoco_data->xquat[xquat_dim * it->first + 3];
-//     pose.orientation.w = mujoco_data->xquat[xquat_dim * it->first];
-
-//     objects.name.push_back(mj_id2name(mujoco_model, 1, it->first));
-//     objects.type.push_back(geom_type_to_string(geom_type));
-//     objects.is_static.push_back(it->second);
-//     objects.size.push_back(size);
-//     objects.pose.push_back(pose);
-//   }
-
-//   objects_in_scene_publisher.publish(objects);
-// }
-
-
-// void readcallback(const std_msgs::String::ConstPtr& msg)
-//   35 {
-//   36   ROS_INFO("I heard: [%s]", msg->data.c_str());
-//   37 }
-
-void MujocoRosControl::readCallback_mujoco(const std_msgs::String::ConstPtr& msg)
+void MujocoRosControl::readCallback_mujoco(const sensor_msgs::JointState::ConstPtr& msg)
 {
-        // for (auto& joint_item : msg->)
-        // {
-        //     // msg->
-        // }
-
-      // ros::Time sim_time_ros1 = ros::Time::now();
-      // ros::Duration sim_period1 = ros::Duration(2);
-      // robot_hw_sim_->read(sim_time_ros1, sim_period1);
-      printf("hellosub");
-
+    list_mj_data.clear();
+    std::vector<double> jointdata;
+    std::string name; 
+    for (size_t i = 0; i < msg->position.size(); ++i) 
+    {
+        jointdata.clear();
+        name = msg->name[i];
+        jointdata.push_back(msg->position[i]);
+        jointdata.push_back(msg->velocity[i]);
+        jointdata.push_back(msg->effort[i]);
+        
+        // Store the joint value in the map
+        list_mj_data.insert(std::pair<std::string, std::vector<double> >(name, jointdata));
+    } 
+    robot_hw_sim_->pass_mj_data(&list_mj_data);
 }
 
 }  // namespace mujoco_ros_control
@@ -474,18 +214,21 @@ int main(int argc, char** argv)
     // mujoco_ros_control::MujocoVisualizationUtils &mujoco_visualization_utils =
     //     mujoco_ros_control::MujocoVisualizationUtils::getInstance();
 
-    ros::Publisher pub = nh_.advertise<std_msgs::String>("/mujoco/joint_states", 1);
-    std_msgs::String msg;
-    msg.data = "hallo";
-    pub.publish(msg);
+    // ros::Publisher pub = nh_.advertise<std_msgs::String>("/mujoco/joint_states", 1);
+    // std_msgs::String msg;
+    // msg.data = "hallo";
+    // pub.publish(msg);
+
+
+    std::map<std::string, std::vector<double> > list_mj_data;
 
     ROS_INFO("Subscribing to joint_states");
 
-    // ros::Subscriber listener_mujoco = nh_.subscribe("/mujoco/joint_states", 1, &mujoco_ros_control::MujocoRosControl::readCallback_mujoco);
+    ros::Subscriber listener_mujoco = nh_.subscribe("/mujoco/joint_states", 1, &mujoco_ros_control::MujocoRosControl::readCallback_mujoco, &mujoco_ros_control_1);
 
     ROS_INFO("Subscribed to joint_states");
 
-  ros::spinOnce();
+    ros::spinOnce();
 
     // initialize mujoco stuff
     if (!mujoco_ros_control_1.init(nh_))
@@ -516,8 +259,6 @@ int main(int argc, char** argv)
     ros::Rate r(100);
 
 
-
-
     // run main loop, target real-time simulation and 60 fps rendering
     while ( ros::ok())
     {
@@ -529,16 +270,9 @@ int main(int argc, char** argv)
       // while ( mujoco_ros_control.mujoco_data->time - sim_start < 1.0/60.0 && ros::ok() )
       // {
 
-      std::list<double> test;
-      test.clear();
-      test.push_back(0.1);
-      test.push_back(0.2);
-      test.push_back(0.3);
-      test.push_back(0.4);
-      std::map<std::string, std::list<double> > list_test;
-      list_test.insert(std::pair<std::string, std::list<double> >("test", test));
+      
 
-      mujoco_ros_control_1.robot_hw_sim_->pass_mj_data(&list_test);
+      // mujoco_ros_control_1.robot_hw_sim_->pass_mj_data(&list_mj_data);
 
       // ros::Time sim_time_ros = ros::Time::now();
       // ros::Duration sim_period = ros::Duration(2);

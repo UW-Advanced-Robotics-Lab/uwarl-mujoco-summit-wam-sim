@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="bhand_transmissions" params="prefix">
+	<!--Left Finger | Prox Joint transmission and motor -->
+		<transmission name="${prefix}/f1/prox_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/f1/prox">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/f1/prox_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	
+	<!--Left Finger | Mid Joint transmission and motor -->
+		<transmission name="${prefix}/f1/med_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/f1/med">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/f1/med_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	
+	<!--Left Finger | Dist Joint transmission and motor -->
+		<transmission name="${prefix}/f1/dist_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/f1/dist">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/f1/dist_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+
+	<!--Right Finger | Prox Joint transmission and motor -->
+		<transmission name="${prefix}/f2/prox_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/f2/prox">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/f2/prox_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	
+	<!--Right Finger | Mid Joint transmission and motor -->
+		<transmission name="${prefix}/f2/med_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/f2/med">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/f2/med_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	
+	<!--Right Finger | Dist Joint transmission and motor -->
+		<transmission name="${prefix}/f2/dist_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/f2/dist">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/f2/dist_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	
+	<!--Center Finger | Mid Joint transmission and motor -->
+		<transmission name="${prefix}/f3/med_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/f3/med">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/finger_3/med_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	
+	<!--Center Finger | Dist Joint transmission and motor -->
+		<transmission name="${prefix}/f3/dist_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/f3/dist">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/f3/dist_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	</xacro:macro>
+</robot>

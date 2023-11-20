@@ -26,6 +26,7 @@
 #include <limits>
 #include <utility>
 #include <list>
+#include <vector>
 #include <map>
 #include <std_msgs/String.h>
 
@@ -260,44 +261,7 @@ bool RobotHWSim::init_sim(
 
 void RobotHWSim::read(const ros::Time& time, const ros::Duration& period)
 {
-  // std::map<std::string, JointData> list_joints
-  // std::map<std::string, mujoco_ros_control::RobotHWSim::JointData> joints_mujoco = *list_joints;
-
-
-  // for (auto& joint_item : joints_)
-  // {
-  //   JointData& joint = joint_item.second;
-  //   JointData& joint_mujoco = list_joints.at(joint_item.first).copy()
-  //   // if (string_ends_with(joint.name, "FJ1") || string_ends_with(joint.name, "FJ2"))
-  //   // {
-  //   //   std::string actuator_name = joint.name;
-  //   //   actuator_name[actuator_name.size() - 1] = '0';
-  //   //   MujocoActuatorData& actuator = mujoco_actuators_.at(actuator_name);
-  //   //   joint.effort = mujoco_data_->qfrc_actuator[actuator.id]/2;
-  //   // }
-  //   // else
-  //   // {
-  //     joint.effort = joint_mujoco.effort;
-  //   // }
-  //   if (joint.type == urdf::Joint::PRISMATIC)
-  //   {
-  //     joint.position = joint_mujoco.position;
-  //   }
-  //   else
-  //   {
-  //     joint.position += angles::shortest_angular_distance(joint.position, joint_mujoco.position);
-  //   }
-  //   joint.velocity = joint_mujoco.velocity;
-  // }
-
-  // std::map<std::string, std::list<double> > list = *list_joints;
-
-  // // return &joints_mujoco;
-  // printf(to_string(list.at("test").front()).c_str());
-
-  // std::map<std::string, std::list<double> > list_joints_mj;
-  // printf("hello read");
-  // pass_mj_data(&list_joints_mj);
+  // This function is reduntant
 }
 
 void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
@@ -310,9 +274,6 @@ void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
   vj_sat_interface_.enforceLimits(period);
   vj_limits_interface_.enforceLimits(period);
 
-  std_msgs::String msg;
-  msg.data = "test";
-  // pub_controller_data.publish(msg);
 
   // for (auto& actuator : mujoco_actuators_)
   // {
@@ -410,43 +371,43 @@ void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
   // }
 }
 
-void RobotHWSim::pass_mj_data(std::map<std::string, std::list<double> > *list_joints_mj)
+void RobotHWSim::pass_mj_data(std::map<std::string, std::vector <double> > *list_joints_mj)
 {
   // std::map<std::string, JointData> list_joints
-  // std::map<std::string, mujoco_ros_control::RobotHWSim::JointData> joints_mujoco = *list_joints;
+  std::map<std::string, std::vector <double> > joints_mujoco = *list_joints_mj;
 
 
-  // for (auto& joint_item : joints_)
-  // {
-  //   JointData& joint = joint_item.second;
-  //   JointData& joint_mujoco = list_joints.at(joint_item.first).copy()
-  //   // if (string_ends_with(joint.name, "FJ1") || string_ends_with(joint.name, "FJ2"))
-  //   // {
-  //   //   std::string actuator_name = joint.name;
-  //   //   actuator_name[actuator_name.size() - 1] = '0';
-  //   //   MujocoActuatorData& actuator = mujoco_actuators_.at(actuator_name);
-  //   //   joint.effort = mujoco_data_->qfrc_actuator[actuator.id]/2;
-  //   // }
-  //   // else
-  //   // {
-  //     joint.effort = joint_mujoco.effort;
-  //   // }
-  //   if (joint.type == urdf::Joint::PRISMATIC)
-  //   {
-  //     joint.position = joint_mujoco.position;
-  //   }
-  //   else
-  //   {
-  //     joint.position += angles::shortest_angular_distance(joint.position, joint_mujoco.position);
-  //   }
-  //   joint.velocity = joint_mujoco.velocity;
-  // }
+  for (auto& joint_item : joints_)
+  {
+    JointData& joint = joint_item.second;
+    // printf(joint.to_string().c_str());
+    // printf("\n");
+    JointData joint_mujoco; 
+    joint_mujoco.name = joint.name;
 
-  // std::map<std::string, std::list<double> > list = *list_joints;
+    try
+    {
+      joint_mujoco.position = joints_mujoco.at(joint.name).at(0);
+      joint_mujoco.velocity = joints_mujoco.at(joint.name).at(1);
+      joint_mujoco.effort = joints_mujoco.at(joint.name).at(2);
 
-  // // return &joints_mujoco;
-  // printf(to_string(list.at("test").front()).c_str());
-  printf("passing data");
+      joint.effort = joint_mujoco.effort;
+      // }
+      if (joint.type == urdf::Joint::PRISMATIC)
+      {
+        joint.position = joint_mujoco.position;
+      }
+      else
+      {
+        joint.position += angles::shortest_angular_distance(joint.position, joint_mujoco.position);
+      }
+      joint.velocity = joint_mujoco.velocity;
+    }
+    catch(const std::exception& e)
+    {
+      std::cerr << e.what() << '\n';
+    }
+  }
 }
 
 // Register the limits of the joint specified by joint_name and joint_handle. The limits are
