@@ -82,40 +82,51 @@ def main():
         camera_config   = None,
     )
 
-    rospy.sleep(1)
-
     # Make sure mujoco is real time
     steptime = 1.0/update_rate
 
-    r = rospy.Rate(update_rate)
+    # r = rospy.Rate(update_rate)
+    r = time.sleep
     i=0
-    now = rospy.Time.now()
+    # now = rospy.Time.now()
+    now = time.time()
     simtime = 0.0
     realtime = 0.0
-    realstart = float(rospy.Time.now().secs)+float(rospy.Time.now().nsecs)/10**9
+    # realstart = float(rospy.Time.now().secs)+float(rospy.Time.now().nsecs)/10**9
+    realstart = time.time()
 
     while not rospy.is_shutdown():
         
+        # regulate update freq to be real time:
+        before_sim_time = rospy.Time.now().to_time()
         Engine._update()
-        r.sleep() 
+         
         i+=1
 
         # Check frequency and compare simtime and realtime:
-        if  i == 100:
+        if  i == 1000:
 
             # Compute sim and real time
-            simtime += steptime*i
+            simtime = rospy.Time.now().to_time()
             i=0
-            realtime = float(rospy.Time.now().secs)+float(rospy.Time.now().nsecs)/10**9 - realstart
-            # Compute frequency over 
-            second = rospy.Time.now()
+
+            realtime = time.time() - realstart
+
+            # Compute frequency over 100 iterations
+            second = time.time()
             time_taken = second-now
-            freq = 1/(float(time_taken.secs)+float(time_taken.nsecs)/10**9+0.000000001)*100.0
+            freq = 1/time_taken*1000
+
             # Print if frequency deviates from desired
-            if freq < 1/steptime-1.0:
+            if freq < 1/steptime-0.5:
                 rospy.logwarn('Mujoco update cannot reach minimum update frequency of: ' + str(1/steptime) + ', actual (Hz): '+ str(freq))
                 rospy.loginfo('Simtime: '+ str(simtime)+', Realtime: ' + str(realtime))
-            now = rospy.Time.now()
+
+            now = time.time()
+
+        # Waiting to continue to update with realtime
+        while time.time()-realstart<before_sim_time+steptime:
+            pass
 
 
 

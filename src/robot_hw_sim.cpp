@@ -62,45 +62,9 @@ bool RobotHWSim::init_sim(
     const urdf::Model *const urdf_model,
     std::vector<transmission_interface::TransmissionInfo> transmissions_info)
 {
-  // // save references
-  // mujoco_model_ = mujoco_model;
-  // mujoco_data_ = mujoco_data;
 
   const ros::NodeHandle joint_limit_nh(robot_nh);
 
-  // // resize vectors to number of DOF
-  // n_dof_ = mujoco_model_->njnt - objects_in_scene;
-  // ROS_INFO("%i robot degrees of freedom found.", n_dof_);
-  // ROS_DEBUG("%i generalized coordinates (qpos) found.", mujoco_model_->nq);
-  // ROS_DEBUG("%i degrees of freedom (qvel) found.", mujoco_model_->nv);
-  // ROS_INFO("%i actuators/controls (ctrl) found.", mujoco_model_->nu);
-  // ROS_DEBUG("%i actuation states (act) found.", mujoco_model_->na);
-  // ROS_DEBUG("%i joints (njnt) found.", mujoco_model_->njnt);
-  // for (int mujoco_joint_id = 0; mujoco_joint_id < n_dof_; mujoco_joint_id++)
-  // {
-  //   std::string joint_name = mj_id2name(mujoco_model_, mjOBJ_JOINT, mujoco_joint_id);
-  //   MujocoJointData mj_joint_data;
-  //   mj_joint_data.id = mujoco_joint_id;
-  //   mj_joint_data.qpos_addr = mujoco_model_->jnt_qposadr[mujoco_joint_id];
-  //   mj_joint_data.qvel_addr = mujoco_model_->jnt_dofadr[mujoco_joint_id];
-  //   mj_joint_data.type = mujoco_model_->jnt_type[mujoco_joint_id];
-  //   mujoco_joints_.insert(std::pair<std::string, MujocoJointData>(joint_name, mj_joint_data));
-  // }
-  // for (auto& mujoco_joint : mujoco_joints_)
-  // {
-  //   ROS_DEBUG("%s: %s", mujoco_joint.first.c_str(), mujoco_joint.second.to_string().c_str());
-  // }
-  // for (int mujoco_actuator_id = 0; mujoco_actuator_id < mujoco_model_->nu; mujoco_actuator_id++)
-  // {
-  //   std::string actuator_name = mj_id2name(mujoco_model_, mjOBJ_ACTUATOR, mujoco_actuator_id);
-  //   MujocoActuatorData mj_actuator_data;
-  //   mj_actuator_data.id = mujoco_actuator_id;
-  //   mujoco_actuators_.insert(std::pair<std::string, MujocoActuatorData>(actuator_name, mj_actuator_data));
-  // }
-  // for (auto& mujoco_actuator : mujoco_actuators_)
-  // {
-  //   ROS_DEBUG("%s: %s", mujoco_actuator.first.c_str(), mujoco_actuator.second.to_string().c_str());
-  // }
 
   for (auto& transmission_info : transmissions_info)
   {
@@ -113,13 +77,7 @@ bool RobotHWSim::init_sim(
       JointData& joint = joints_.at(joint_info.name_);
       joint.name = joint_info.name_;
       transmission.joint_names.push_back(joint.name);
-      // joint.mujoco_joint_id = mj_name2id(mujoco_model_, mjOBJ_JOINT, joint.name.c_str());
-      // joint.mujoco_qpos_addr = mujoco_model_->jnt_qposadr[joint.mujoco_joint_id];
-      // joint.mujoco_qvel_addr = mujoco_model_->jnt_dofadr[joint.mujoco_joint_id];
-      // if (joint.mujoco_joint_id == -1)
-      // {
-      //   ROS_WARN("Joint %s not found in Mujoco model!", joint.name.c_str());
-      // }
+
       joint.position = 1.0;
       joint.velocity = 0.0;
       joint.effort = 1.0;  // N/m for continuous joints

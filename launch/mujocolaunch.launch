@@ -6,12 +6,12 @@
     <arg name="xacro_robot_path" default="$(eval find(xacro_robot_package) + '/components/robots/' + xacro_robot)"/>
 
     <!-- Launch into param server of ROS -->
-    <param name="robot_description_mujoco" command="$(find xacro)/xacro '$(arg xacro_robot_path)'" />
+    <param name="robot_description" command="$(find xacro)/xacro '$(arg xacro_robot_path)'" />
 
     <!-- This launch file launches mujoco_ros_control node -->
     <param name="/use_sim_time" value="true"/>
     <arg name="robot_model_path" value="/playground/playground_mobile_wagon_manipulation"/>
-    <arg name="robot_description_param" value = "robot_description_mujoco"/>
+    <arg name="robot_description_param" value = "robot_description"/>
     <arg name="debug" value="false"/>
 
     <!-- Launch mujoco hw sim interface based on the simplified robot urdf -->

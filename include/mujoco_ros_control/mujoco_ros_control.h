@@ -74,7 +74,7 @@ public:
   bool init(ros::NodeHandle &nodehandle);
 
   // step update function
-  void update();
+  std::map<std::string, double >  update();
 
   // pointer to the mujoco model
   mjModel* mujoco_model;
@@ -97,6 +97,9 @@ public:
 
   // initialize mujoco joint data vector
   std::map<std::string, std::vector<double> > list_mj_data;
+
+  // init control variable
+  std::map<std::string, double > received_effort_control;
 
 protected:
   // free or static object
@@ -144,7 +147,6 @@ protected:
   // transmissions in this plugin's scope
   std::vector<transmission_interface::TransmissionInfo> transmissions_;
 
-  
 
   // controller manager
   boost::shared_ptr<controller_manager::ControllerManager> controller_manager_;
@@ -159,8 +161,10 @@ protected:
   ros::Time last_update_sim_time_ros_;
   ros::Time last_write_sim_time_ros_;
 
-  // init control variable
-  std::map<std::string, double > received_effort_control;
+  ros::Duration sim_period;
+  ros::Time sim_time_ros;
+  ros::Time sim_time_last;
+
 
 //   // publishing
 //   ros::Publisher objects_in_scene_publisher = robot_node_handle.advertise<mujoco_ros_msgs::ModelStates>

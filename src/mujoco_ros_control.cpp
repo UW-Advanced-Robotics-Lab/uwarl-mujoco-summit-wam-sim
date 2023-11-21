@@ -77,7 +77,7 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
 
     if (nodehandle.getParam("mujoco_ros_control_node/robot_model_path", robot_model_path_))
     {
-      ROS_INFO("Got param: %s", robot_model_path_.c_str());
+      // ROS_INFO("Got param: %s", robot_model_path_.c_str());
     }
     else
     {
@@ -129,8 +129,8 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
     }
 
     // // create the controller manager
-    // controller_manager_.reset
-    //   (new controller_manager::ControllerManager(robot_hw_sim_.get(), robot_node_handle));
+    controller_manager_.reset
+      (new controller_manager::ControllerManager(robot_hw_sim_.get(), robot_node_handle));
     }
     catch(pluginlib::LibraryLoadException &ex)
     {
@@ -138,6 +138,11 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
                              << ex.what());
     }
     ROS_INFO_NAMED("mujoco_ros_control", "Loaded mujoco_ros_control.");
+
+    // Init more variables
+    ros::Time sim_time_last = ros::Time::now();
+    ros::Duration(0,1000).sleep();
+
 
     return true;
 }
@@ -181,6 +186,22 @@ bool MujocoRosControl::parse_transmissions(const std::string& urdf_string)
   return true;
 }
 
+std::map<std::string, double >  MujocoRosControl::update(void)
+{
+    sim_time_ros = ros::Time::now();
+    sim_period = sim_time_ros - sim_time_last;
+    bool reset_ctrls = false;
+    controller_manager_->update(sim_time_ros, sim_period, reset_ctrls);
+
+    robot_hw_sim_->write(sim_time_ros, sim_period);
+
+    received_effort_control = *robot_hw_sim_->get_mj_data();
+    sim_time_last = ros::Time::now();
+
+    return received_effort_control;
+}
+
+
 
 void MujocoRosControl::readCallback_mujoco(const sensor_msgs::JointState::ConstPtr& msg)
 {
@@ -214,11 +235,11 @@ int main(int argc, char** argv)
     // create publisher to publish command signals for mujoco
     ros::Publisher pub = nh_.advertise<sensor_msgs::JointState>("/mujoco/ros_control/effort_commands", 1);
 
-    std::map<std::string, double > received_effort_control;
+    std::map<std::string, double > received_effort_control_pub;
 
     std::map<std::string, std::vector<double> > list_mj_data;
 
-    ROS_INFO("Subscribing to joint_states");
+    // ROS_INFO("Subscribing to joint_states");
 
     ros::Subscriber listener_mujoco = nh_.subscribe("/mujoco/joint_states", 1, &mujoco_ros_control::MujocoRosControl::readCallback_mujoco, &mujoco_ros_control_1);
 
@@ -239,11 +260,11 @@ int main(int argc, char** argv)
 
     ros::Rate r(100);
 
-    ros::Duration sim_period;
-    ros::Time sim_time_ros;
+    // ros::Duration sim_period;
+    // ros::Time sim_time_ros;
 
-    ros::Time sim_time_last = ros::Time::now();
-    ros::Duration(0,1000).sleep();
+    // ros::Time sim_time_last = ros::Time::now();
+    // ros::Duration(0,1000).sleep();
 
     sensor_msgs::JointState effort_pub;
 
@@ -252,19 +273,21 @@ int main(int argc, char** argv)
     {
       effort_pub.effort.clear();
       effort_pub.name.clear();
-      sim_time_ros = ros::Time::now();
-      sim_period = sim_time_ros - sim_time_last;
-      mujoco_ros_control_1.robot_hw_sim_->write(sim_time_ros, sim_period);
-      sim_time_last = ros::Time::now();
-      received_effort_control = *mujoco_ros_control_1.robot_hw_sim_->get_mj_data();
+      // sim_time_ros = ros::Time::now();
+      // sim_period = sim_time_ros - sim_time_last;
 
-      for (auto& x : received_effort_control)
+      // update:
+      received_effort_control_pub = mujoco_ros_control_1.update();
+
+      for (auto& x : received_effort_control_pub)
       {
         effort_pub.effort.push_back(x.second);
         effort_pub.name.push_back(x.first);
       }
 
       pub.publish(effort_pub);
+
+      // sim_time_last = ros::Time::now();
 
       r.sleep();
     }
