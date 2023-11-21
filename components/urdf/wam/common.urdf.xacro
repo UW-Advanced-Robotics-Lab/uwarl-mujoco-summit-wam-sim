@@ -26,7 +26,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
     <!-- Directories -->
-    <xacro:property name="models_path" value="package://waterloo_steel_description" />
+    <xacro:property name="models_path" value="package://uwarl-mujoco-summit-wam-sim/components" />
     <!-- <xacro:property name="highResModelDirectory" value="${models_path}/meshes/splitModels" /> -->
 
     <!-- Constants -->

@@ -25,8 +25,8 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find waterloo_steel_description)/urdf/wam/common.urdf.xacro"/>
-    <xacro:include filename="$(find waterloo_steel_description)/urdf/wam/components.urdf.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/common.urdf.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/components_V1.urdf.xacro"/>
 
     <xacro:macro name="wam_7dof" params="prefix parent_link xyz rpy torque_sensor">
         <xacro:arg name="torque_sensor" default="false"/>

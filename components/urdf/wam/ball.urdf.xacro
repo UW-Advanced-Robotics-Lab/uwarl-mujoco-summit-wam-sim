@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find waterloo_steel_description)/urdf/wam/common.urdf.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/common.urdf.xacro"/>
 
     <!-- High-leveel hand macro -->
     <xacro:macro name="bball" params="parent_link prefix xyz rpy">
