@@ -50,7 +50,7 @@
 // msgs
 #include "geometry_msgs/Pose.h"
 #include "std_msgs/Float64MultiArray.h"
-#include "mujoco_ros_msgs/ModelStates.h"
+// #include "mujoco_ros_msgs/ModelStates.h"
 
 #include <controller_manager/controller_manager.h>
 #include <transmission_interface/transmission_parser.h>

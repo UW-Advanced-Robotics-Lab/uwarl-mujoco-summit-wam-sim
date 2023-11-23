@@ -20,7 +20,7 @@
     
     <!-- Options: -->
     <option 
-        timestep="2e-4"
+        timestep="1e-3"
         iterations="10"
         tolerance="1e-8"
         impratio="1"

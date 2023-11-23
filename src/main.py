@@ -120,7 +120,7 @@ def main():
             freq = 1/time_taken*1000
 
             # Print if frequency deviates from desired
-            if freq < 1/steptime-0.5:
+            if simtime < realtime-0.3:
                 rospy.logwarn('Mujoco update cannot reach minimum update frequency of: ' + str(1/steptime) + ', actual (Hz): '+ str(freq))
                 rospy.loginfo('Simtime: '+ str(simtime)+', Realtime: ' + str(realtime))
 
