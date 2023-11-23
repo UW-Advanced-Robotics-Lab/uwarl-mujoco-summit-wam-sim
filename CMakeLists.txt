@@ -8,7 +8,7 @@ add_compile_options(-std=c++11)
 # add_subdirectory(submodules/uwarl-mujoco-python-engine/jx-mujoco-python-engine/mujoco_engine/core_engine/mujoco_ros_msgs)
 # add_subdirectory(submodules/uwarl-mujoco-python-engine/jx-mujoco-python-engine/mujoco_engine/core_engine/mujoco_ros_control)
 # add_subdirectory(submodules/hw_interface_folder)
-add_subdirectory(mujoco_ros_msgs)
+# add_subdirectory(mujoco_ros_msgs)
 # add_subdirectory(shadow_robot_pkg/mujoco_ros_pkgs/mujoco_ros_control)
 
 
@@ -28,7 +28,7 @@ find_package(catkin REQUIRED COMPONENTS
   pluginlib
   joint_limits_interface
   urdf
-  mujoco_ros_msgs
+  # mujoco_ros_msgs
   # mujoco
   # mujoco_ros_msgs
   # mujoco_ros_control

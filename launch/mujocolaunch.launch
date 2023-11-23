@@ -6,7 +6,7 @@
     <arg name="xacro_robot_path" default="$(eval find(xacro_robot_package) + '/components/robots/' + xacro_robot)"/>
 
     <!-- Give simulation update frequency to synch between engine and hw_sim_int -->
-    <param name="sim_frequency_mujoco" value = "200" type="int" />
+    <param name="sim_frequency_mujoco" value = "120" type="int" />
 
     <!-- Launch into param server of ROS -->
     <param name="robot_description" command="$(find xacro)/xacro '$(arg xacro_robot_path)'" />
