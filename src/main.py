@@ -71,7 +71,9 @@ import mujoco_engine.core_engine as jx
 #  M A I N  #
 #===========#
 def main():
-    update_rate = 100
+    freq_muj = rospy.get_param("sim_frequency_mujoco")
+
+    update_rate = int(freq_muj)
     rate_plot = 10
 
     Engine = jx.Mujoco_Engine(

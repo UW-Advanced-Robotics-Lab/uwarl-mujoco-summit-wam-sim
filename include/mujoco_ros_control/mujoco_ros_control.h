@@ -101,6 +101,8 @@ public:
   // init control variable
   std::map<std::string, double > received_effort_control;
 
+  int simfreqmuj;
+
 protected:
   // free or static object
   enum Object_State { STATIC = true, FREE = false };
@@ -136,6 +138,7 @@ protected:
   std::string robot_namespace_ = "mujoco_hw_interface";
   std::string robot_description_param_;
   std::string robot_model_path_;
+  int sim_frequency_mujoco_ = 100;
   std::string key_path_ = "/home/user/mjpro150/bin/mjkey.txt";
 
   // vectors

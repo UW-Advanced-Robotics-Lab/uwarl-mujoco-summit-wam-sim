@@ -28,6 +28,7 @@
 #include <map>
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
 namespace mujoco_ros_control
 {
@@ -56,6 +57,19 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
     }
 
     ROS_INFO_NAMED("mujoco_ros_control", "Starting mujoco_ros_control_node node in namespace: %s", robot_namespace_.c_str());
+
+    // std::string sim_frequency_mujoco_;
+
+    if (nodehandle.getParam("sim_frequency_mujoco", sim_frequency_mujoco_))
+    {
+      // ROS_INFO("Got param: %s", sim_frequency_mujoco_.c_str());
+    }
+    else
+    {
+      ROS_ERROR("Failed to get param 'sim_frequency'");
+    }
+
+    simfreqmuj = sim_frequency_mujoco_;
 
     // read urdf from ros parameter server then setup actuators and mechanism control node.
     if (nodehandle.getParam("mujoco_ros_control_node/robot_description_param", robot_description_param_))
@@ -258,7 +272,7 @@ int main(int argc, char** argv)
     ros::AsyncSpinner spinner(1);
     spinner.start();
 
-    ros::Rate r(100);
+    ros::Rate r(mujoco_ros_control_1.simfreqmuj);
 
     // ros::Duration sim_period;
     // ros::Time sim_time_ros;
