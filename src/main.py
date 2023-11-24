@@ -13,7 +13,7 @@
 #===================================#
 
 # python libraries:
-import time
+# import time
 
 # python 3rd party libraries:
 import numpy as np
@@ -85,22 +85,20 @@ def main():
     )
 
     # Make sure mujoco is real time
-    steptime = 1.0/update_rate
+    steptime = 1.0/float(update_rate)
 
-    # r = rospy.Rate(update_rate)
-    r = time.sleep
+    r = rospy.Rate(update_rate)
+
     i=0
-    # now = rospy.Time.now()
-    now = time.time()
-    simtime = 0.0
-    realtime = 0.0
-    # realstart = float(rospy.Time.now().secs)+float(rospy.Time.now().nsecs)/10**9
-    realstart = time.time()
+    now = rospy.Time.now().to_time()
+
+    simtime = rospy.Time.now().to_time()
+    realtime = rospy.Time.now().to_time()
+
 
     while not rospy.is_shutdown():
         
         # regulate update freq to be real time:
-        before_sim_time = rospy.Time.now().to_time()
         Engine._update()
          
         i+=1
@@ -109,14 +107,13 @@ def main():
         if  i == 1000:
 
             # Compute sim and real time
-            simtime = rospy.Time.now().to_time()
+            simtime += i*steptime
             i=0
 
-            realtime = time.time() - realstart
+            realtime = rospy.Time.now().to_time()
 
             # Compute frequency over 100 iterations
-            second = time.time()
-            time_taken = second-now
+            time_taken = realtime-now
             freq = 1/time_taken*1000
 
             # Print if frequency deviates from desired
@@ -124,11 +121,9 @@ def main():
                 rospy.logwarn('Mujoco update cannot reach minimum update frequency of: ' + str(1/steptime) + ', actual (Hz): '+ str(freq))
                 rospy.loginfo('Simtime: '+ str(simtime)+', Realtime: ' + str(realtime))
 
-            now = time.time()
+            now = rospy.Time.now().to_time()
 
-        # Waiting to continue to update with realtime
-        while time.time()-realstart<before_sim_time+steptime:
-            pass
+        r.sleep()
 
 
 

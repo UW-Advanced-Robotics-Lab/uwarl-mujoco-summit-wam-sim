@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <launch>
+    <!-- Publish clock -->
+    <node pkg="uwarl-mujoco-summit-wam-sim" type="clockpub.py" name="ClockPublisher" output="screen">\
+        <!-- <param name="/use_sim_time" value="true"/> -->
+    </node>
+
     <!-- Define new robot urdf without sensors -->
     <arg name="xacro_robot_package" default="uwarl-mujoco-summit-wam-sim"/>
     <arg name="xacro_robot" default="$(optenv ROBOT_XML waterloo_steel_mujoco.urdf.xacro)"/>
