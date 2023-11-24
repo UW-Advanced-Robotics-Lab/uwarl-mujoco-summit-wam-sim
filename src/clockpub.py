@@ -36,7 +36,7 @@ def pubclock():
         clock.clock = rospy.Time.from_sec(time_now - first_clock)
         pub_clock.publish(clock)
 
-        time.sleep(0.002)
+        time.sleep(0.001)
 
 
 
