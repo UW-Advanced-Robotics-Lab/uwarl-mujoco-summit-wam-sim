@@ -74,7 +74,7 @@ def main():
     freq_muj = rospy.get_param("sim_frequency_mujoco")
 
     update_rate = int(freq_muj)
-    rate_plot = 25
+    rate_plot = 10
 
     Engine = jx.Mujoco_Engine(
         xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
@@ -127,7 +127,7 @@ def main():
                 rospy.loginfo('Simtime: '+ str(simtime)+', Realtime: ' + str(realtime))
 
             # Do not sleep for 1 step if simulation is lagging behind 
-            if simtime < realtime-0.05:
+            if simtime < realtime-0.01:
                 no_sleep = True
 
             now = rospy.Time.now().to_time()
