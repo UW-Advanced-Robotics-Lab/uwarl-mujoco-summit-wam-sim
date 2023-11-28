@@ -24,10 +24,15 @@
         <!-- <velocity name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kv="18000" user="1" ctrllimited="true"/> -->
         <!-- <velocity name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kv="10000" user="1" ctrllimited="true"/> -->
 
-        <velocity name="smt/pose/x" ctrlrange="-10.0 10.0" joint="smt/pose/x" kv="18000" user="1" ctrllimited="true" forcelimited="false" gear="1.0"/>
+        <!-- <velocity name="smt/pose/x" ctrlrange="-10.0 10.0" joint="smt/pose/x" kv="18000" user="1" ctrllimited="true" forcelimited="false" gear="1.0"/>
         <velocity name="smt/pose/y" ctrlrange="-10.0 10.0" joint="smt/pose/y" kv="18000" user="1" ctrllimited="true" forcelimited="false" gear="1.0"/>
+        <velocity name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kv="18000" user="1" ctrllimited="true"/>
+        <velocity name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kv="10000" user="1" ctrllimited="true" forcelimited="false" gear="1.0"/> -->
+
+        <motor name="smt/pose/x"  joint="smt/pose/x" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
+        <motor name="smt/pose/y"  joint="smt/pose/y" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
         <!-- <velocity name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kv="18000" user="1" ctrllimited="true"/> -->
-        <velocity name="smt/orie/z" ctrlrange="-3.14 3.14" joint="smt/orie/z" kv="10000" user="1" ctrllimited="true" forcelimited="false" gear="1.0"/>
+        <motor name="smt/orie/z"  joint="smt/orie/z" ctrllimited="true" ctrlrange="-10.0 10.0" gear="50.0"/>
     </actuator>
         
     <!-- [WAM 7DOF] 

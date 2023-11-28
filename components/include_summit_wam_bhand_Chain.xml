@@ -16,7 +16,7 @@
     <body name="smt/base_link" childclass="summit" pos="0 0 0">
         <!-- === BASE LINK === === === === -->
         <!-- mobile body -->
-        <inertial                                                              pos="0 0 0.37" mass="1" diaginertia="0.1 0.1 0.1" />
+        <inertial                                                              pos="0 0 0.37" mass="125" diaginertia="1.391 6.853 6.125" />
         <geom name="smt/viz/base_link"                      class="summit/viz" mesh="base_link_summit"/>
         <!-- <geom name="smt/col/base_link"                      class="summit/col" mesh="base_link_summit"/> -->
         <!-- Simplified the collision into boxes + arm rest -->
@@ -30,9 +30,10 @@
         <joint name="smt/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
 
         <!-- control summit base -->
-        <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10000"/>
-        <joint name="smt/pose/x"                            type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15000"/>
-        <joint name="smt/pose/y"                            type="slide" pos="0 0 0.4" axis="-1 0 0"  damping="15000"/>
+        <!-- <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/> -->
+        <joint name="smt/pose/x"                            type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15"/>
+        <joint name="smt/pose/y"                            type="slide" pos="0 0 0.4" axis="-1 0 0"  damping="15"/>
+        <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
         <!-- <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1" limited="true" range="-3.14 3.14" damping="10000"/> -->
 
         <!-- === whl LINK === === === === -->
