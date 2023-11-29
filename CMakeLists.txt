@@ -4,13 +4,6 @@ project(uwarl-mujoco-summit-wam-sim)
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
 
-# Add your dependencies in the order you want them to build.
-# add_subdirectory(submodules/uwarl-mujoco-python-engine/jx-mujoco-python-engine/mujoco_engine/core_engine/mujoco_ros_msgs)
-# add_subdirectory(submodules/uwarl-mujoco-python-engine/jx-mujoco-python-engine/mujoco_engine/core_engine/mujoco_ros_control)
-# add_subdirectory(submodules/hw_interface_folder)
-# add_subdirectory(mujoco_ros_msgs)
-# add_subdirectory(shadow_robot_pkg/mujoco_ros_pkgs/mujoco_ros_control)
-
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -28,11 +21,6 @@ find_package(catkin REQUIRED COMPONENTS
   pluginlib
   joint_limits_interface
   urdf
-  # mujoco_ros_msgs
-  # mujoco
-  # mujoco_ros_msgs
-  # mujoco_ros_control
-  # std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -168,12 +156,9 @@ target_link_libraries(robot_hw_sim ${catkin_LIBRARIES})
 add_library(robot_hw_sim_plugin src/robot_hw_sim_plugin.cpp)
 target_link_libraries(robot_hw_sim_plugin ${catkin_LIBRARIES})
 
-add_library(visualization_utils src/visualization_utils.cpp)
-target_link_libraries(visualization_utils ${catkin_LIBRARIES})
-
 ## Declare a C++ library
 add_executable(mujoco_ros_control src/mujoco_ros_control.cpp)
-target_link_libraries(mujoco_ros_control ${catkin_LIBRARIES} glfw /home/tim/.local/lib/python3.8/site-packages/mujoco/libmujoco.so.3.0.0 robot_hw_sim robot_hw_sim_plugin visualization_utils GLEW glut X11 GL GLU)
+target_link_libraries(mujoco_ros_control ${catkin_LIBRARIES} glfw /home/tim/.local/lib/python3.8/site-packages/mujoco/libmujoco.so.3.0.0 robot_hw_sim robot_hw_sim_plugin GLEW glut X11 GL GLU)
 
 
 

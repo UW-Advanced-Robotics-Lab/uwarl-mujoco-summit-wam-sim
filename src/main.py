@@ -5,7 +5,7 @@
 
     @author:  Jack (Jianxiang) Xu
         Contacts    : j337xu@uwaterloo.ca
-        Last edits  : July 25, 2022
+        Last edits  : Nov 28, 2023 (Tim van Meijel)
 
 """
 #===================================#
@@ -42,39 +42,20 @@ import mujoco_engine.core_engine as jx
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-#=======================#
-#  D E F I N I T I O N  #
-#=======================#
-
-
-#===================#
-#  C O N S T A N T  #
-#===================#
-
-
-
-#===============================#
-#  I N I T I A L I Z A T I O N  #
-#===============================#
-
-
-#==================================#
-#  P U B L I C    F U N C T I O N  #
-#==================================#
-
-
-#====================================#
-#  P R I V A T E    F U N C T I O N  #
-#====================================#
-
 #===========#
 #  M A I N  #
 #===========#
 def main():
+    # Get update frequency of engine from launch file "mujocolaunch.launch"
     freq_muj = rospy.get_param("sim_frequency_mujoco")
-
     update_rate = int(freq_muj)
+    steptime = 1.0/float(update_rate)
+    r = rospy.Rate(update_rate)
+
+    # Define viewer refresh rate
     rate_plot = 10
+
+    rospy.sleep(1.0)
 
     Engine = jx.Mujoco_Engine(
         xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
@@ -84,54 +65,57 @@ def main():
         camera_config   = None,
     )
 
-    # Make sure mujoco is real time
-    steptime = 1.0/float(update_rate)
-
-    r = rospy.Rate(update_rate)
-
+    # Initialize variables
     i=0
     j=0
-    now = rospy.Time.now().to_time()
-
+    # now = rospy.Time.now().to_time()
     simtime = rospy.Time.now().to_time()
     realtime = rospy.Time.now().to_time()
     no_sleep = False
 
-
+    # Engine update loop which tries to be real time. Checks the time difference between clocktime and simtime
     while not rospy.is_shutdown():
         
-        # regulate update freq to be real time:
+        # Step engine to progress in time
         Engine._update()
-         
+        
+        # Set simulation time counter +1
         i+=1
 
+        # Set no_sleep variable to false to make sure the loop is kept at constant frequency
         no_sleep = False
 
-        # Check frequency and compare simtime and realtime:
+        # Check frequency and compare simtime and realtime (every 100 iterations):
         if  i == 100:
 
-            # Compute sim and real time
+            # Compute simulation and clock time
             simtime += i*steptime
+            realtime = rospy.Time.now().to_time()
+
+            # Set counter to 0 and increase counter for printing simulation and real time
             i=0
             j+=1
 
-            realtime = rospy.Time.now().to_time()
+            ## Compute frequency over 100 iterations (to be printed below)
+            # time_taken = realtime-now
+            # freq = 1/time_taken*100
 
-            # Compute frequency over 100 iterations
-            time_taken = realtime-now
-            freq = 1/time_taken*100
-
+            # Print simulation time and clock time approximately every 10 seconds
             if j>20:
                 j = 0
                 # rospy.loginfo('Mujoco update cannot reach minimum update frequency of: ' + str(1/steptime) + ', actual (Hz): '+ str(freq))
-                rospy.loginfo('Simtime: '+ str(simtime)+', Realtime: ' + str(realtime))
+                rospy.logwarn('Simtime: '+ str(simtime)+', Realtime: ' + str(realtime))
 
-            # Do not sleep for 1 step if simulation is lagging behind 
+            # Do not sleep for 1 step if simulation is lagging behind. This is done to avoid laging behind. 
+            # When simulation lags more than 0.01 seconds behind, it will slowly catch up by not sleeping for 1 iteration 
+            # every 100 iterations. This will slowly merge the simulation time with the real time. 
             if simtime < realtime-0.01:
                 no_sleep = True
 
-            now = rospy.Time.now().to_time()
+            ## Used for computing frequency
+            # now = rospy.Time.now().to_time()
         
+        # Check boolian to sleep or not which acts as time regulator
         if not no_sleep:
             r.sleep()
 

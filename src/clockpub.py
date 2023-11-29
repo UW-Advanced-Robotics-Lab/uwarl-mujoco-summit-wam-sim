@@ -1,20 +1,11 @@
 #! /usr/bin/env python
-""" `test_camera_rendering.py`
 
-    Copyright UWARL (UW Mechanical and Control Lab).
-
-    @author:  Jack (Jianxiang) Xu
-        Contacts    : j337xu@uwaterloo.ca
-        Last edits  : July 25, 2022
-
-"""
+# Last version Nov 28 2023, Tim van Meijel
+# Publish clock to use during Mujoco simulation
 
 
-# python libraries:
 import time
-
 import rospy
-
 from rosgraph_msgs.msg import Clock
 
 def pubclock():

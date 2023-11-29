@@ -7,6 +7,7 @@
         Last edits  : Jun 13, 2022
         
     TODO:
+    - [Nov  28, 2023] Added masses to links (Tim van Meijel)
     - [ ] mass and inertial parameters check and configure
 ====================================================== -->
 
@@ -30,11 +31,9 @@
         <joint name="smt/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
 
         <!-- control summit base -->
-        <!-- <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/> -->
         <joint name="smt/pose/x"                            type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15"/>
         <joint name="smt/pose/y"                            type="slide" pos="0 0 0.4" axis="-1 0 0"  damping="15"/>
         <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
-        <!-- <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1" limited="true" range="-3.14 3.14" damping="10000"/> -->
 
         <!-- === whl LINK === === === === -->
         <!-- Mobile whls -->

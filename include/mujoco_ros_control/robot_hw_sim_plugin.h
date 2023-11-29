@@ -16,6 +16,10 @@
 * @file   mujoco_ros_control.h
 * @author Giuseppe Barbieri <giuseppe@shadowrobot.com>
 * @brief  Node to allow ros_control hardware interfaces to be plugged into mujoco
+* 
+* Current version specifically for UWARL
+* Last edit: Nov 28, 2023 (Tim van Meijel)
+*
 **/
 
 #ifndef MUJOCO_ROS_CONTROL_ROBOT_HW_SIM_PLUGIN_H
@@ -25,11 +29,6 @@
 #include <hardware_interface/robot_hw.h>
 #include <transmission_interface/transmission_info.h>
 #include <urdf/model.h>
-
-// Mujoco dependencies
-#include <mujoco.h>
-#include <mjdata.h>
-#include <mjmodel.h>
 
 #include <string>
 #include <vector>
@@ -58,15 +57,8 @@ public:
   virtual ~RobotHWSimPlugin() { }
 
   virtual bool init_sim(
-      // const std::string& robot_namespace,
-      // ros::NodeHandle model_nh,
-      // mjModel* mujoco_model, mjData *mujoco_data,
-      // const urdf::Model *const urdf_model,
-      // std::vector<transmission_interface::TransmissionInfo> transmissions,
-      // int objects_in_scene) = 0;
       const std::string& robot_namespace,
       ros::NodeHandle model_nh,
-      // mjModel* mujoco_model, mjData *mujoco_data,
       const urdf::Model *const urdf_model,
       std::vector<transmission_interface::TransmissionInfo> transmissions) = 0;
 
@@ -74,7 +66,6 @@ public:
 
   virtual std::map<std::string, double >* get_mj_data(void);
 
-  // virtual void write(const ros::Time& time, const ros::Duration& period);
 };
 }  // namespace mujoco_ros_control
 

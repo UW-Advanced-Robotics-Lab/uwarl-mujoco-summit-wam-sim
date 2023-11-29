@@ -9,6 +9,10 @@
         This is a demo playground showcasing the mobile robot,
         configured with 7DOF WAM Arm + BHand + Summit Mobile Robot,
         in a setting of wagon manipulation.
+
+    Updates:
+        - [Nov  28, 2023] Initial orientation of wagon and cart (Tim van Meijel)
+
 ====================================================== -->
 
 <mujoco model="playground_wagon_manipulation(v1.0.0)">
@@ -46,13 +50,11 @@
         <geom name="ground" type="plane" pos="0 0 0" size="20 20 1" conaffinity="1" contype="1" material="MatGnd" friction="0.0001 0.001 0.001" group="1"/>
         
         <!-- Robot -->
-        <!-- <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 0"> -->
         <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
         <!-- Wagon -->
-        <!-- <body name="wagon" pos="0 -1.45 0.0" euler="0 0 3.14159265359" > -->
         <body name="wagon" pos="-3.35 0 0.0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>

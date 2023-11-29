@@ -16,6 +16,10 @@
 * @file   robot_hw_sim.cpp
 * @author Giuseppe Barbieri <giuseppe@shadowrobot.com>
 * @brief  Hardware interface for simulated robot in Mujoco
+* 
+* Current version specifically for UWARL
+* Last edit: Nov 28, 2023 (Tim van Meijel)
+*
 **/
 
 #include <mujoco_ros_control/robot_hw_sim.h>
@@ -50,15 +54,8 @@ RobotHWSim::RobotHWSim()
 
 
 bool RobotHWSim::init_sim(
-    // const std::string& robot_namespace,
-    // ros::NodeHandle robot_nh,
-    // mjModel* mujoco_model, mjData* mujoco_data,
-    // const urdf::Model *const urdf_model,
-    // std::vector<transmission_interface::TransmissionInfo> transmissions_info,
-    // int objects_in_scene)
     const std::string& robot_namespace,
     ros::NodeHandle robot_nh,
-    // mjModel* mujoco_model, mjData* mujoco_data,
     const urdf::Model *const urdf_model,
     std::vector<transmission_interface::TransmissionInfo> transmissions_info)
 {
@@ -192,7 +189,6 @@ bool RobotHWSim::init_sim(
         }
         else
         {
-          // mujoco_data_->ctrl[joint.mujoco_qvel_addr] = joint.effort_limit;
         }
       }
     }
@@ -240,8 +236,7 @@ void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
   for (auto& joint_item : joints_)
     {
       JointData& joint = joint_item.second;
-      // if ( actuator.first == joint.name)
-      // {
+
         switch (joint.control_method)
         {
           case EFFORT:
@@ -253,7 +248,6 @@ void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
 
           case POSITION:
           {
-            // mujoco_data_->ctrl[actuator.second.id] = joint.position_command;
             break;
           }
 
@@ -270,7 +264,6 @@ void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
 
           case VELOCITY:
           {
-            // mujoco_data_->ctrl[actuator.second.id] = joint.velocity_command;
             break;
           }
 
@@ -285,22 +278,17 @@ void RobotHWSim::write(const ros::Time& time, const ros::Duration& period)
             break;
           }
         }
-        // continue;
-      // }
     }
 }
 
 void RobotHWSim::pass_mj_data(std::map<std::string, std::vector <double> > *list_joints_mj)
 {
-  // std::map<std::string, JointData> list_joints
   std::map<std::string, std::vector <double> > joints_mujoco = *list_joints_mj;
 
 
   for (auto& joint_item : joints_)
   {
     JointData& joint = joint_item.second;
-    // printf(joint.to_string().c_str());
-    // printf("\n");
     JointData joint_mujoco; 
     joint_mujoco.name = joint.name;
 
@@ -324,7 +312,6 @@ void RobotHWSim::pass_mj_data(std::map<std::string, std::vector <double> > *list
     }
     catch(const std::exception& e)
     {
-      // std::cerr << e.what() << '\n';
     }
   }
 }
@@ -451,11 +438,6 @@ void RobotHWSim::register_joint_limits(const std::string& joint_name,
   }
 }
 
-bool RobotHWSim::string_ends_with(std::string const & value, std::string const & ending)
-{
-    if (ending.size() > value.size()) return false;
-    return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
-}
 
 }  // namespace mujoco_ros_control
 
@@ -467,4 +449,3 @@ std::string to_string(double x)
 }
 
 PLUGINLIB_EXPORT_CLASS(mujoco_ros_control::RobotHWSim, mujoco_ros_control::RobotHWSimPlugin)
-// PLUGINLIB_EXPORT_CLASS(mujoco_ros_control::RobotHWSim)

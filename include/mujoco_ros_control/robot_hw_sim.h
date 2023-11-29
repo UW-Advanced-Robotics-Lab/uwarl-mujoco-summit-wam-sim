@@ -16,6 +16,10 @@
 * @file   robot_hw_sim.h
 * @author Giuseppe Barbieri <giuseppe@shadowrobot.com>
 * @brief  Hardware interface for simulated robot in Mujoco
+* 
+* Current version specifically for UWARL
+* Last edit: Nov 28, 2023 (Tim van Meijel)
+*
 **/
 
 #ifndef MUJOCO_ROS_CONTROL_ROBOT_HW_SIM_H
@@ -32,11 +36,6 @@
 #include <joint_limits_interface/joint_limits_urdf.h>
 #include <transmission_interface/transmission_info.h>
 
-// Mujoco dependencies
-#include <mujoco.h>
-#include <mjdata.h>
-#include <mjmodel.h>
-
 // ROS
 #include <ros/ros.h>
 #include <angles/angles.h>
@@ -44,7 +43,6 @@
 
 // URDF
 #include <urdf/model.h>
-
 #include <map>
 #include <string>
 #include <vector>
@@ -62,15 +60,8 @@ public:
   virtual ~RobotHWSim() {}
 
   virtual bool init_sim(
-    // const std::string& robot_namespace,
-    // ros::NodeHandle model_nh,
-    // mjModel* mujoco_model, mjData *mujoco_data,
-    // const urdf::Model *const urdf_model,
-    // std::vector<transmission_interface::TransmissionInfo> transmissions_info,
-    // int objects_in_scene);
     const std::string& robot_namespace,
     ros::NodeHandle model_nh,
-    // mjModel* mujoco_model, mjData *mujoco_data,
     const urdf::Model *const urdf_model,
     std::vector<transmission_interface::TransmissionInfo> transmissions_info);
 
@@ -132,38 +123,6 @@ public:
     }
   };
 
-  // struct MujocoJointData
-  // {
-  //   int id;
-  //   int qpos_addr;
-  //   int qvel_addr;
-  //   int type;
-
-  //   std::string to_string()
-  //   {
-  //     std::stringstream ss;
-  //     ss << "Mujoco Joint has type " << type << ", mujoco addresses " << id << ", " <<
-  //       qpos_addr << ", " << qvel_addr;
-  //     return ss.str();
-  //   }
-  // };
-
-  // struct MujocoActuatorData
-  // {
-  //   int id;
-
-  //   std::string to_string()
-  //   {
-  //     std::stringstream ss;
-  //     ss << "Mujoco Actuator has mujoco address " << id << ".";
-  //     return ss.str();
-  //   }
-  // };
-
-    
-    
-
-  // void write_mujoco(const ros::Time& time, const ros::Duration& period);
 
 protected:
   // Register the limits of the joint specified by joint_name and joint_handle. The limits are
@@ -177,14 +136,7 @@ protected:
                              int *const joint_type, double *const lower_limit,
                              double *const upper_limit, double *const effort_limit);
 
-  static bool string_ends_with(std::string const & value, std::string const & ending);
-
-  // static void readCallback_mujoco(const std_msgs::String::ConstPtr& msg);
-
   unsigned int n_dof_;
-
-  // ros::Subscriber listener_mujoco;
-  // ros::Publisher pub_controller_data;
 
   // hardware interfaces
   hardware_interface::JointStateInterface    js_interface_;
@@ -202,15 +154,10 @@ protected:
 
   std::vector<TransmissionData> transmissions_;
   std::map<std::string, JointData> joints_;
-  // std::map<std::string, MujocoJointData> mujoco_joints_;
-  // std::map<std::string, MujocoActuatorData> mujoco_actuators_;
   std::map<std::string, double > effort_control;
- 
 
-  // // mujoco elements
-  // mjModel* mujoco_model_;
-  // mjData* mujoco_data_;
 };
+
 typedef boost::shared_ptr<RobotHWSim> RobotHWSimPtr;
 }  // namespace mujoco_ros_control
 

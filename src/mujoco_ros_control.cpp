@@ -16,12 +16,15 @@
 * @file   mujoco_ros_control.cpp
 * @author Giuseppe Barbieri <giuseppe@shadowrobot.com>
 * @brief  Hardware interface for simulated robot in Mujoco
+* 
+* Current version specifically for UWARL
+* Last edit: Nov 28, 2023 (Tim van Meijel)
+*
 **/
 
 
 #include <boost/bind.hpp>
 #include <mujoco_ros_control/mujoco_ros_control.h>
-#include <mujoco_ros_control/visualization_utils.h>
 #include <urdf/model.h>
 #include <string>
 #include <vector>
@@ -33,18 +36,12 @@
 namespace mujoco_ros_control
 {
 MujocoRosControl::MujocoRosControl()
-: n_free_joints_(0)
 {
 }
 
 MujocoRosControl::~MujocoRosControl()
 {
-  // deallocate existing mjModel
-  mj_deleteModel(mujoco_model);
 
-  // deallocate existing mjData
-  mj_deleteData(mujoco_data);
-  // mj_deactivate();
 }
 
 bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
@@ -58,7 +55,6 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
 
     ROS_INFO_NAMED("mujoco_ros_control", "Starting mujoco_ros_control_node node in namespace: %s", robot_namespace_.c_str());
 
-    // std::string sim_frequency_mujoco_;
 
     if (nodehandle.getParam("sim_frequency_mujoco", sim_frequency_mujoco_))
     {
@@ -120,14 +116,10 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
       robot_link_names_.push_back(it->first);
     }
 
-    // check for objects
-    // check_objects_in_scene();
 
     ROS_INFO("Initialising robot simulation interface...");
     try
     {
-      // if (!robot_hw_sim_->init_sim(robot_namespace_, robot_node_handle, mujoco_model,
-      //                             mujoco_data, urdf_model_ptr, transmissions_, n_free_joints_))
       if (!robot_hw_sim_->init_sim(robot_namespace_, robot_node_handle, 
                                   urdf_model_ptr, transmissions_))
       {
@@ -156,7 +148,6 @@ bool MujocoRosControl::init(ros::NodeHandle &nodehandle)
     // Init more variables
     ros::Time sim_time_last = ros::Time::now();
     ros::Duration(0,1000).sleep();
-
 
     return true;
 }
@@ -274,12 +265,6 @@ int main(int argc, char** argv)
 
     ros::Rate r(mujoco_ros_control_1.simfreqmuj);
 
-    // ros::Duration sim_period;
-    // ros::Time sim_time_ros;
-
-    // ros::Time sim_time_last = ros::Time::now();
-    // ros::Duration(0,1000).sleep();
-
     sensor_msgs::JointState effort_pub;
 
     // run main loop, target real-time simulation and 60 fps rendering
@@ -287,8 +272,6 @@ int main(int argc, char** argv)
     {
       effort_pub.effort.clear();
       effort_pub.name.clear();
-      // sim_time_ros = ros::Time::now();
-      // sim_period = sim_time_ros - sim_time_last;
 
       // update:
       received_effort_control_pub = mujoco_ros_control_1.update();
@@ -300,8 +283,6 @@ int main(int argc, char** argv)
       }
 
       pub.publish(effort_pub);
-
-      // sim_time_last = ros::Time::now();
 
       r.sleep();
     }
