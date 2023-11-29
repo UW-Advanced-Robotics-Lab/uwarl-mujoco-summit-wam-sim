@@ -104,7 +104,7 @@ def main():
             if j>20:
                 j = 0
                 # rospy.loginfo('Mujoco update cannot reach minimum update frequency of: ' + str(1/steptime) + ', actual (Hz): '+ str(freq))
-                rospy.logwarn('Simtime: '+ str(simtime)+', Realtime: ' + str(realtime))
+                rospy.logwarn('Simtime: '+ str(round(simtime,3))+', Realtime: ' + str(round(realtime,3)))
 
             # Do not sleep for 1 step if simulation is lagging behind. This is done to avoid laging behind. 
             # When simulation lags more than 0.01 seconds behind, it will slowly catch up by not sleeping for 1 iteration 
