@@ -56,7 +56,7 @@
         </body>
 
         <!-- E7 3rd floor -->
-        <body name="environment" pos="0 5 -0.6" euler="0 0 -1.5079632679" >
+        <body name="environment" pos="-1.3 -1.65 -0.6" euler="0 0 0.03">
             <include file="../components/include_e7_3rd_floor.xml"/>   
         </body>
 
