@@ -3,7 +3,7 @@
         
     Author      :: Jack (Jianxiang) Xu
         Contacts    : j337xu@uwaterloo.ca
-        Last edits  : Jun 13, 2022
+        Last edits  : Nov 30, 2023 
 
     Brief       :: Mobile Wagon Playground
         This is a demo playground showcasing the mobile robot,
@@ -11,7 +11,7 @@
         in a setting of wagon manipulation.
 
     Updates:
-        - [Nov  28, 2023] Initial orientation of wagon and cart (Tim van Meijel)
+        - [Nov  30, 2023] Initial orientation of wagon and cart, map 3rd floor E7(Tim van Meijel)
 
 ====================================================== -->
 
@@ -23,8 +23,8 @@
     <include file="../components/include_common.xml"/>
     <include file="../components/include_summit_wam_bhand_Dependencies.xml"/>   
     <include file="../components/include_summit_wam_bhand_actuators.xml"/>
-    <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/>   
-
+    <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/>  
+    <include file="../components/include_e7_3rd_floor_Dependencies.xml"/> 
 
     <!--###############
         ### Config: ###
@@ -32,10 +32,6 @@
     <equality>
     <!-- TBD -->
     </equality>
-
-    <contact>
-    <!-- TBD -->
-    </contact>
 
     <visual>
     <!-- TBD -->
@@ -48,7 +44,7 @@
         <!-- GND -->
         <light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
         <geom name="ground" type="plane" pos="0 0 0" size="20 20 1" conaffinity="1" contype="1" material="MatGnd" friction="0.0001 0.001 0.001" group="1"/>
-        
+
         <!-- Robot -->
         <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
@@ -59,6 +55,36 @@
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
+        <!-- E7 3rd floor -->
+        <body name="environment" pos="0 5 -0.6" euler="0 0 -1.5079632679" >
+            <include file="../components/include_e7_3rd_floor.xml"/>   
+        </body>
+
     </worldbody>
+
+    <!-- Used for simulation of E7 3rd floor map -->
+    <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+        <exclude body1="smt/whl/LF_link" body2="e7_3rd_floor_body"/>
+        <exclude body1="smt/whl/RF_link" body2="e7_3rd_floor_body"/>
+        <exclude body1="smt/whl/LR_link" body2="e7_3rd_floor_body"/>
+        <exclude body1="smt/whl/RR_link" body2="e7_3rd_floor_body"/>
+        <exclude body1="smt/base_link" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/LF" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/RF" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/RR" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/LR" body2="e7_3rd_floor_body"/>
+        <exclude body1="smt/base_link" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/LF/whl" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/RF/whl" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/RR/whl" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/LR/whl" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/pocket" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/handle" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/handle2" body2="e7_3rd_floor_body"/>
+        <exclude body1="utility/wagon" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/wire_frame" body2="e7_3rd_floor_body"/>
+    
+    </contact>
     
 </mujoco>

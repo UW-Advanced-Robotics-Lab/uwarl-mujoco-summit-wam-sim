@@ -1,0 +1,12 @@
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- WAM BHAND -->
+    <asset>
+        <mesh file="maps_thirdfloor/map_e7_3_v3.stl" />
+    </asset>
+
+
+</mujocoinclude>
+
