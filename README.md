@@ -37,8 +37,9 @@ Mujoco Physics Simulation Package for Waterloo Steel Robot
 - [x] Main Engine Code [uwarl-mujoco-python-engine](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-engine)
   - branching from [jx-mujoco-python-engine](https://github.com/jaku-jaku/jx-mujoco-python-engine) (similar to [deepmind/dm_control](https://github.com/deepmind/dm_control))
 - [x] MuJoCo 2.2.x locking variants [jx-mujoco](https://github.com/jaku-jaku/jx-mujoco)
+- [x] [TODO: ROS Integration] for bridging SIL and HIL
 - [ ] [TODO: Unity Integration] for rendering and realistic camera views
-- [ ] [TODO: ROS Integration] for bridging SIL and HIL
+- [ ] [TODO: Migration to MuJoCo 3] for rendering higher simulation speeds
 
 ### 1.2 Waterloo Steel Mobile Playground (engine & viewer):
 <img src="./documentation/main.png" alt="waterloo_steel" height="600"/>
@@ -51,6 +52,9 @@ Mujoco Physics Simulation Package for Waterloo Steel Robot
 - [x] [BHAND] Ensure Mechanical Params are Verified
 - [?] [SUMMIT] Ensure Mechanical Params are Verified
 - [x] Control Descriptors
+- [x] PID control for base
+- [x] ROS integration
+- [x] Real-time simulation synchronization
 - [ ] Example Interfacing code
 - [ ] ....
 
@@ -66,6 +70,18 @@ Mujoco Physics Simulation Package for Waterloo Steel Robot
 ├── LICENSE
 ├── README.md
 ├── components
+│   ├── meshes
+│   │   ├── bases
+│   │   ├── meshes_bhand
+│   │   └── ...
+│   ├── robots
+│   │   ├── wam_7dof_wam_bhand.urdf.xacro
+│   │   └── waterloo_steel_mujoco.urdf.xacro
+│   ├── urdf
+│   │   ├── bases
+│   │   ├── wagon
+│   │   ├── wam
+│   │   └── wheels
 │   ├── include_common.xml
 │   ├── include_{assembly-name}_Chain.xml
 │   ├── include_{assembly-name}_Dependencies.xml
@@ -73,7 +89,15 @@ Mujoco Physics Simulation Package for Waterloo Steel Robot
 │   └── ...
 ├── documentation
 │   └── ...
+├── include
+│   └── mujoco_ros_control
+│   │   ├── mujoco_ros_control.h
+│   │   ├── robot_hw_sim_plugin.h
+│   │   └── robot_hw_sim.h
 ├── meshes
+│   ├── maps_thirdfloor
+│   │   ├── map_e7_3_v6.stl
+│   │   └── ...
 │   ├── meshes_{module-name}
 │   │   ├── {3D-model-component-name}.stl
 │   │   └── ...
@@ -85,8 +109,8 @@ Mujoco Physics Simulation Package for Waterloo Steel Robot
 │   ├── {scripts}.py # [launch files]
 │   └── ...
 ├── submodules
-│   ├── jx-mujoco-python-viewer # [Mujoco Render/Interaction GUI]
-│   └── jx-mujoco-python-engine # [Main engine code]
+│   ├── uwarl-mujoco-python-viewer # [Mujoco Render/Interaction GUI]
+│   └── uwarl-mujoco-python-engine # [Main engine code]
 └── textures
 │   └── ...
 x
@@ -131,22 +155,38 @@ Joints             |  MOI
     $ cd submodules
     $ git submodule update
     ```
-2. Install editable [python viewer](https://github.com/jaku-jaku/jx-mujoco-python-viewer):
+2. Install editable [python viewer](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-viewer):
     ```zsh
     $ cd jx-mujoco-python-viewer
     $ pip install -e .
     ```
-3. Install editable [python engine](https://github.com/jaku-jaku/jx-mujoco-python-engine):
+3. Install editable [python engine](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-engine):
     ```zsh
     $ cd jx-mujoco-python-engine
     $ pip install -e .
     ```
 
-#### A.2.7 Launch:
-##### Cart Manipulation:
+### A.3 Launch:
+#### A.3.1 Cart Manipulation:
+Launches the cart manipulation simulation with ROS integration. The launch file will launch:
+- Clock publisher for simulation time
+- Mujoco Engine and Viewer based on submodules
+- ROS controllers which are used for trajectory control of the WAM
+- Hardware simulation interface node to connect MuJoCo to ROS controllers
+- Trajectory following action server for mobile base 
+- Rosbag recorder action server
+- `Demo_V09_mujoco.py` node 
+
 ```
-$ cd src && python main.py
+$ roslaunch waterloo_steel_sim_bringup waterloo_steel_complete_cart_mujoco.launch
 ```
+
+##### Variables of simulation:
+These variables can be changed depending on the simulation. 
+- In `launch/mujocolaunch.launch` param `sim_frequency_mujoco`. This changes the frequency of the node which updates the engine. Make sure 1/frequency is equal to a multiple of the engine stepsize for real-time simulation!!
+- In `components/include_common.xml` param `timestep`. Make sure the 1/frequency of the ROS node can be divided by the engine steptime with no remainder!!
+- In `playground/playground_mobile_wagon_manipulation.xml` comment out the world body and the contact exclusions to simulate without a world. This increases the rendering performance. 
+- In `components/include_e7_3rd_floor_Dependencies.xml`, the world .stl file is defined. Change to simulate different world.
 
 <eof>
 
