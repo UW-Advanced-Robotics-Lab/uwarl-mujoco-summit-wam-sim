@@ -56,6 +56,7 @@ Mujoco Physics Simulation Package for Waterloo Steel Robot
 - [x] ROS integration
 - [x] Real-time simulation synchronization
 - [ ] Example Interfacing code
+- [ ] Passing all variables in highest level launch file
 - [ ] ....
 
 ## 3. Note:
@@ -187,6 +188,8 @@ These variables can be changed depending on the simulation.
 - In `components/include_common.xml` param `timestep`. Make sure the 1/frequency of the ROS node can be divided by the engine steptime with no remainder!!
 - In `playground/playground_mobile_wagon_manipulation.xml` comment out the world body and the contact exclusions to simulate without a world. This increases the rendering performance. 
 - In `components/include_e7_3rd_floor_Dependencies.xml`, the world .stl file is defined. Change to simulate different world.
+- In `src/main.py` the MuJoCo viewer rate can be defined. 
+- In `src/main.py` the onboard cameras of the Summit and WAM can be enabled. This can be done by passing `True` in the Engine `_update` function. Default value equals `False`.
 
 <eof>
 
