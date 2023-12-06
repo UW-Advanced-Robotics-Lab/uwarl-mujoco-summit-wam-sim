@@ -139,9 +139,7 @@ include_directories(
 include
   ${catkin_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIR}
-  # ${PYTHON3_INCLUDE_DIRS}
-  /home/tim/.local/lib/python3.8/site-packages/mujoco/include/mujoco
-  /home/tim/.local/lib/python3.8/site-packages/mujoco/include
+  ${PYTHON3_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -158,7 +156,7 @@ target_link_libraries(robot_hw_sim_plugin ${catkin_LIBRARIES})
 
 ## Declare a C++ library
 add_executable(mujoco_ros_control src/mujoco_ros_control.cpp)
-target_link_libraries(mujoco_ros_control ${catkin_LIBRARIES} glfw /home/tim/.local/lib/python3.8/site-packages/mujoco/libmujoco.so.3.0.0 robot_hw_sim robot_hw_sim_plugin GLEW glut X11 GL GLU)
+target_link_libraries(mujoco_ros_control ${catkin_LIBRARIES} robot_hw_sim robot_hw_sim_plugin)
 
 
 

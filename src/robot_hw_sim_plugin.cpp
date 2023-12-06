@@ -54,8 +54,8 @@ void RobotHWSimPlugin::pass_mj_data(std::map<std::string, std::vector <double> >
 
 std::map<std::string, double>* RobotHWSimPlugin::get_mj_data(void)
   {
-    std::map<std::string, double > test;
-    return &test;
+    std::map<std::string, double > * test;
+    return test;
   }
 
 }  // namespace mujoco_ros_control
