@@ -14,6 +14,7 @@
 
 # python libraries:
 # import time
+import os
 
 # python 3rd party libraries:
 import numpy as np
@@ -46,6 +47,8 @@ import mujoco_engine.core_engine as jx
 #  M A I N  #
 #===========#
 def main():
+    home_path = os.environ["HOME"]
+
     # Get update frequency of engine from launch file "mujocolaunch.launch"
     freq_muj = rospy.get_param("sim_frequency_mujoco")
     update_rate = int(freq_muj)
@@ -58,7 +61,7 @@ def main():
     rospy.sleep(1.0)
 
     Engine = jx.Mujoco_Engine(
-        xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
+        xml_path        = home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
         # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
         rate_Hz         = update_rate,
         rate_scene      = rate_plot,
