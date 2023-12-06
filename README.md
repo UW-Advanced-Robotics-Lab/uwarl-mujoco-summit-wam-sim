@@ -158,12 +158,12 @@ Joints             |  MOI
     ```
 2. Install editable [python viewer](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-viewer):
     ```zsh
-    $ cd jx-mujoco-python-viewer
+    $ cd uwarl-mujoco-python-viewer
     $ pip install -e .
     ```
 3. Install editable [python engine](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-python-engine):
     ```zsh
-    $ cd jx-mujoco-python-engine
+    $ cd uwarl-mujoco-python-engine
     $ pip install -e .
     ```
 
