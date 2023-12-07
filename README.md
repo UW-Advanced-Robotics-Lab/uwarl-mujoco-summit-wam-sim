@@ -200,6 +200,8 @@ These variables can be changed depending on the simulation.
 ### A.4 MuJoCo-ROS integration
 <img src="./documentation/mujoco_ros_integration.png" alt="mujoco_ros_integration" width="800"/>
 
+In detail, zoomed in on the Hardware Interface:
+
 <img src="./documentation/mujoco_ros_integration_detailed.png" alt="mujoco_ros_integration_detailed" width="800"/>
 
 To find more details on the ROS integration of the MuJoCo simulator, see the pdf file in the documentation folder.
