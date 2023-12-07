@@ -1,0 +1,6 @@
+[submodule "submodules/uwarl-mujoco-python-engine"]
+	path = submodules/uwarl-mujoco-python-engine
+	url = git@github.com:UW-Advanced-Robotics-Lab/uwarl-mujoco-python-engine.git
+[submodule "submodules/uwarl-mujoco-python-viewer"]
+	path = submodules/uwarl-mujoco-python-viewer
+	url = git@github.com:UW-Advanced-Robotics-Lab/uwarl-mujoco-python-viewer.git
