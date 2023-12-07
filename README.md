@@ -188,8 +188,8 @@ These variables can be changed depending on the simulation.
 - In `components/include_common.xml` param `timestep` for changing the engines time step.
 
 > [!IMPORTANT]
-> Make sure 1/frequency is equal to a multiple of the engine stepsize for real-time simulation.
-> Make sure the 1/frequency of the ROS node can be divided by the engine steptime with no remainder.
+> - Make sure 1/frequency is equal to a multiple of the engine stepsize for real-time simulation.
+> - Make sure the 1/frequency of the ROS node can be divided by the engine steptime with no remainder.
 
 - In `playground/playground_mobile_wagon_manipulation.xml` comment out the world body and the contact exclusions to simulate without a world. This increases the rendering performance. 
   - You might want to compress the mesh to increase rendering performance, by using MeshLab for example. 
