@@ -184,12 +184,11 @@ $ roslaunch waterloo_steel_sim_bringup waterloo_steel_complete_cart_mujoco.launc
 
 ##### Variables of simulation:
 These variables can be changed depending on the simulation. 
-- In `launch/mujocolaunch.launch` param `sim_frequency_mujoco`. This changes the frequency of the node which updates the engine. 
-- In `components/include_common.xml` param `timestep` for changing the engines time step.
+- In `launch/mujocolaunch.launch` param `sim_frequency_mujoco`. This changes the frequency of the node which updates the engine. It is synched to the simulation Hardware Simulation Interface for control of the WAM.
+- In `components/include_common.xml` param `timestep` for changing the engines stepsize.
 
 > [!IMPORTANT]
-> - Make sure 1/frequency is equal to a multiple of the engine stepsize for real-time simulation.
-> - Make sure the 1/frequency of the ROS node can be divided by the engine steptime with no remainder.
+> Make sure 1/frequency of the ROS node updating the engine is equal to a multiple of the engine stepsize for real-time simulation.
 
 - In `playground/playground_mobile_wagon_manipulation.xml` comment out the world body and the contact exclusions to simulate without a world. This increases the rendering performance. 
   - You might want to compress the mesh to increase rendering performance, by using MeshLab for example. 
