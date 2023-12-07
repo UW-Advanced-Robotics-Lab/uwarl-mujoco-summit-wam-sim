@@ -1,7 +1,7 @@
 <toc>
 
 # Table of Contents
-[*Last generated: Wed 13 Sep 2023 10:56:48 EDT*]
+[*Last generated: Thu 07 Dec 2023 02:29:05 PM EST*]
 - [**Mujoco Simulation Packages**](#Mujoco-Simulation-Packages)
   - [1. Preview:](#1-Preview)
     - [1.1 Custom Library to support with MuJoCo 2.2.x](#11-Custom-Library-to-support-with-MuJoCo-22x)
@@ -18,8 +18,10 @@
       - [A.2.4 M1 Macbook Instructions:](#A24-M1-Macbook-Instructions)
       - [A.2.5 Unity module:](#A25-Unity-module)
       - [A.2.6 Submodules:](#A26-Submodules)
-      - [A.2.7 Launch:](#A27-Launch)
-        - [Cart Manipulation:](#Cart-Manipulation)
+    - [A.3 Launch:](#A3-Launch)
+      - [A.3.1 Cart Manipulation:](#A31-Cart-Manipulation)
+        - [Variables of simulation:](#Variables-of-simulation)
+    - [A.4 MuJoCo-ROS integration](#A4-MuJoCo-ROS-integration)
 
 ---
 </toc>
@@ -205,6 +207,7 @@ In detail, zoomed in on the Hardware Interface:
 <img src="./documentation/mujoco_ros_integration_detailed.png" alt="mujoco_ros_integration_detailed" width="800"/>
 
 To find more details on the ROS integration of the MuJoCo simulator, see the pdf file in the documentation folder.
+
 
 <eof>
 
