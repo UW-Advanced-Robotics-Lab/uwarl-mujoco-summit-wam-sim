@@ -55,7 +55,7 @@ Mujoco Physics Simulation Package for Waterloo Steel Robot
 - [x] PID control for base
 - [x] ROS integration
 - [x] Real-time simulation synchronization
-- [ ] Example Interfacing code
+- [ ] Find solution for convex hull of wagon handle
 - [ ] Passing all variables in highest level launch file
 - [ ] ....
 
@@ -195,6 +195,14 @@ These variables can be changed depending on the simulation.
 - In `components/include_e7_3rd_floor_Dependencies.xml`, the world .stl file is defined. Change to simulate different world.
 - In `src/main.py` the MuJoCo viewer rate can be defined. 
 - In `src/main.py` the onboard cameras of the Summit and WAM can be enabled. This can be done by passing `True` in the Engine `_update` function. Default value equals `False`.
+
+
+### A.4 MuJoCo-ROS integration
+<img src="./documentation/mujoco_ros_integration.png" alt="mujoco_ros_integration" height="300"/>
+
+<img src="./documentation/mujoco_ros_integration_detailed.png" alt="mujoco_ros_integration_detailed" height="300"/>
+
+To find more details on the ROS integration of the MuJoCo simulator, see the pdf file in the documentation folder.
 
 <eof>
 
