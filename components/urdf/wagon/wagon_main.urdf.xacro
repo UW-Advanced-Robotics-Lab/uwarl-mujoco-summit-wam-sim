@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<robot name="waterloo_steel" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+
+
+  <!-- ***************** -->
+  <!-- Imported elements -->
+  <!-- ***************** -->
+  
+  <!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
+
+  <!-- Import wagon elements -->
+  <xacro:include filename="$(find waterloo_steel_description)/urdf/wagon/wagon_V2.urdf.xacro" />
+
+  <xacro:property name="PI"                   value="3.1415926535897931"/>
+
+  <!-- Wheel parameters -->
+  <xacro:property name="wheel_radius"         value="0.127" /> <!-- omin-wheel -->
+  <!-- Front Left Swivel -->
+  <xacro:property name="wheel_offset_left_front_x"       value="0.242" />    <!-- x,y,z in translation from base_link to the center of the wheel -->
+  <!-- Front Right Swivel -->
+  <xacro:property name="wheel_offset_right_front_x"      value="-0.214" />
+  <!-- Rear Left Fixed -->
+  <xacro:property name="wheel_offset_left_rear_x"       value="0.197" />
+  <!-- Rear Right Fixed -->
+  <xacro:property name="wheel_offset_right_rear_x"      value="-0.133" />
+  <!-- Front Swivel -->
+  <xacro:property name="wheel_offset_front_y"       value="-0.407" />
+  <xacro:property name="wheel_offset_front_z"       value="0.02" />
+  <!-- Rear Fixed -->
+  <xacro:property name="wheel_offset_rear_y"       value="0.396" />
+  <xacro:property name="wheel_offset_rear_z"       value="-0.142" />
+  
+
+
+  <xacro:arg name="prefix"                 default="waterloo_steel_"/>
+
+  <!-- Define wagon -->
+  <xacro:macro name="wagon" params="prefix">
+
+    <!-- Here we create the robot elements using the xacro:macros imported at the beggining of this file -->
+
+    <!-- Wagon Base -->
+    <xacro:wagon_base_link prefix="$(arg prefix)"/>
+
+    <!-- Front Swivel Left Wheel -->
+    <xacro:wagon_swivel_wheel_mount prefix="$(arg prefix)_front_left" 
+                                    parent="$(arg prefix)_base_link" 
+                                    child="$(arg prefix)_front_left_wheel"
+                                    reflect="true">
+        <origin xyz="${wheel_offset_left_front_x} ${wheel_offset_front_y} ${wheel_offset_front_z}" rpy="0 0 0"/>
+    </xacro:wagon_swivel_wheel_mount>
+    <xacro:wagon_wheel_link prefix="$(arg prefix)_front_left"/>
+
+    <!-- Front Swivel Right Wheel -->
+    <xacro:wagon_swivel_wheel_mount prefix="$(arg prefix)_front_right" 
+                                    parent="$(arg prefix)_base_link" 
+                                    child="$(arg prefix)_front_right_wheel"
+                                    reflect="false">
+        <origin xyz="${wheel_offset_right_front_x} ${wheel_offset_front_y} ${wheel_offset_front_z}" rpy="0 0 0"/>
+    </xacro:wagon_swivel_wheel_mount>
+    <xacro:wagon_wheel_link prefix="$(arg prefix)_front_right"/>
+
+    <!-- Rear Fixed Left Wheel -->
+    <xacro:wagon_fixed_wheel_mount prefix="$(arg prefix)_rear_left" parent="$(arg prefix)_base_link" child="$(arg prefix)_rear_left_wheel">
+        <origin xyz="${wheel_offset_left_rear_x} ${wheel_offset_rear_y} ${wheel_offset_rear_z}" rpy="0 0 0"/>
+    </xacro:wagon_fixed_wheel_mount>
+    <xacro:wagon_wheel_link prefix="$(arg prefix)_rear_left"/>
+
+    <!-- Rear Fixed Right Wheel -->
+    <xacro:wagon_fixed_wheel_mount prefix="$(arg prefix)_rear_right" parent="$(arg prefix)_base_link" child="$(arg prefix)_rear_right_wheel">
+        <origin xyz="${wheel_offset_right_rear_x} ${wheel_offset_rear_y} ${wheel_offset_rear_z}" rpy="0 0 0"/>
+    </xacro:wagon_fixed_wheel_mount>
+    <xacro:wagon_wheel_link prefix="$(arg prefix)_rear_right"/>
+      
+    <!-- Handle -->
+    <xacro:handle_link prefix="$(arg prefix)" parent="$(arg prefix)_base_link">
+        <origin xyz="0.001 -0.407 -0.02" rpy="0 0 0"/>
+    </xacro:handle_link>
+  </xacro:macro>
+    
+  <xacro:wagon prefix="$(arg prefix)"/>
+</robot>

@@ -1,0 +1,17 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Tim van Meijel
+        Last edits  : NOv 30, 2023
+        
+====================================================== -->
+
+<mujocoinclude> 
+
+        <body name="e7_3rd_floor_body" pos="0 0 0">
+            <inertial pos="0 0 0" mass="0"/>
+            <geom name="e7_map" type="mesh" class="wagon/viz"  mesh="map_e7_3rd_floor"/>
+        </body>
+        
+</mujocoinclude>
+

@@ -26,6 +26,12 @@
         <mesh file="meshes_wagon/wagon_fixed_mount.stl"/>
         <mesh file="meshes_wagon/wagon_swivel_mount.stl"/>
         <mesh file="meshes_wagon/wagon_pocket.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_base_hinge.stl"/>
+        <mesh file="meshes_wagon/wagon_top_handle.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_0.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_part1.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_part2.stl"/>
+        <mesh file="meshes_wagon/handle_extension.stl"/>
     </asset>
 
     <!--###############
@@ -37,6 +43,10 @@
         </default>
         <default class="wagon/hinge">
             <joint type="hinge" limited="true" axis="1 0 0"  frictionloss=".001"/>
+        </default>
+        <!-- Prismatic joint of the handle -->
+        <default class="wagon/prismatic">
+            <joint type="slide" limited="true" axis="0 0 1"/>
         </default>
         <default class="wagon/swivel">
             <!-- Note: position relative to the origin of swivel linkage from CAD -->
@@ -55,6 +65,11 @@
             <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0.8 1"/>
         </default>
     </default>
+
+     <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+        <exclude body1="wagon/handle" body2="wagon/handle2"/>
+    </contact>
 
 </mujocoinclude>
 

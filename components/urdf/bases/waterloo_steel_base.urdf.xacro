@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot name="summit_xl" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+
+    
+    <xacro:include filename="$(find waterloo_steel_description)/urdf/bases/waterloo_steel_base_summit_xl.gazebo.xacro" />
+
+    <xacro:macro name="waterloo_steel_base" params="prefix publish_bf hq">
+
+        <!-- Robot mechanical and motor parameters -->
+        <xacro:property name="PI" value="3.1415926535897931"/>
+        <xacro:property name="wheel_width" value="0.175" />
+            
+        <!-- BASE FOOTPRINT -->
+        <xacro:if value="${publish_bf}">
+            <link name="${prefix}base_footprint">
+                <visual>
+                        <origin xyz="0 0 0" rpy="0 0 0" />
+                        <geometry>
+                            <box size="0.001 0.001 0.001" />
+                        </geometry>
+                </visual>
+            </link>
+
+            <joint name="${prefix}base_footprint_joint" type="fixed">
+                <origin xyz="0 0 0" rpy="0 0 0" /> <!-- ${wheel_radius} property must be defined inside wheel description -->
+                <parent link="${prefix}base_footprint"/>
+                <child link="${prefix}base_link" />
+            </joint>    
+        </xacro:if>
+        
+        <!-- BASE_LINK -->
+        <link name="${prefix}base_link">
+            <inertial>
+                <mass value="125.0" />
+                <!-- # from cad: 0.345 - 0.137 # Inertia from original, so no need to reoriented with our cad-->
+                <origin xyz="0 0 0.215" rpy="0 0 0" /> 
+                <inertia  ixx="1.391" ixy="0.004"  ixz="0.0"  iyy="6.853"  iyz="0.0"  izz="6.125" />
+            </inertial>
+            <visual name="viz/summit_base">
+                <!-- # reoriented based on our cad [Fusion v45.2.6] -->
+                <origin xyz="0 0 -0.13" rpy="0 0 -${PI/2}" />
+                <!-- <xacro:if value="${hq}"> -->
+                <!--  TODO: High quality model toggle -->
+                <!-- </xacro:if> -->
+                <geometry>
+                    <mesh filename="package://waterloo_steel_description/meshes/meshes_summit/base_link.stl"/>
+                </geometry>
+            </visual>  
+            <!-- # based on our [Fusion v45.2.6] -->
+            <visual name="viz/summit_arm_rest">
+                <origin xyz="0 0 -0.13" rpy="0 0 -${PI/2}" />
+                <geometry>
+                    <mesh filename="package://waterloo_steel_description/meshes/meshes_summit/arm_rest.stl"/>
+                </geometry>
+            </visual>
+            <collision name="col/summit_base">
+                <!-- # reoriented based on our cad [Fusion v45.2.6] -->
+                <origin xyz="0 0 0.290" rpy="0 0 -${PI/2}" />
+                <!--  TODO: box representation meshes for collision -->
+                <geometry>
+                    <box xyz="0 0 0" size="0.44 0.61 0.29" />
+                </geometry>
+            </collision>
+            <!-- # based on our [Fusion v45.2.6] -->
+            <collision name="col/summit_arm_rest">
+                <origin xyz="0 0 -0.13" rpy="0 0 -${PI/2}" />
+                <geometry>
+                    <mesh filename="package://waterloo_steel_description/meshes/meshes_summit/arm_rest.stl"/>
+                </geometry>
+            </collision>
+        </link>
+
+    </xacro:macro>
+</robot>
+

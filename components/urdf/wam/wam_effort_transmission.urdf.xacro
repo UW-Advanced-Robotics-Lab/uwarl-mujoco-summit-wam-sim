@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="wam_transmissions" params="prefix">
+
+	<!-- Joint 1 transmission and motor -->
+		<transmission name="${prefix}/base_yaw_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/J1">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/base_yaw_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+		
+	<!-- Joint 2 transmission and motor -->
+		<transmission name="${prefix}/shoulder_pitch_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/J2">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/shoulder_pitch_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+		
+	<!-- Joint 3 transmission and motor -->	
+		<transmission name="${prefix}/shoulder_yaw_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/J3">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/shoulder_yaw_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	
+	<!-- Joint 4 transmission and motor -->	
+		<transmission name="${prefix}/elbow_pitch_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/J4">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/elbow_pitch_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+		
+	<!-- Joint 5 transmission and motor -->
+		<transmission name="${prefix}/wrist_yaw_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/J5">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/wrist_yaw_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+		
+	<!-- Joint 6 transmission and motor -->
+		<transmission name="${prefix}/wrist_pitch_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/J6">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/wrist_pitch_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+		
+	<!--Joint 7 transmission and motor -->
+		<transmission name="${prefix}/palm_yaw_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${prefix}/J7">
+				<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${prefix}/palm_yaw_motor">
+				<mechanicalReduction>1</mechanicalReduction>
+				<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+			</actuator>
+		</transmission>
+	</xacro:macro>
+</robot>

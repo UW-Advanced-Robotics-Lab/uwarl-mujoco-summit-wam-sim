@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!-- Launch file for Mujoco engine, clock publisher, and hw simulation interface
+     Last update: Nov 28 2023, Tim van Meijel -->
+
+<launch>
+    <!-- Publish clock -->
+    <node pkg="uwarl-mujoco-summit-wam-sim" type="clockpub.py" name="ClockPublisher" output="screen">\
+    </node>
+
+    <!-- Define new robot urdf without sensors -->
+    <arg name="xacro_robot_package" default="uwarl-mujoco-summit-wam-sim"/>
+    <arg name="xacro_robot" default="$(optenv ROBOT_XML waterloo_steel_mujoco.urdf.xacro)"/>
+    <arg name="xacro_robot_path" default="$(eval find(xacro_robot_package) + '/components/robots/' + xacro_robot)"/>
+
+    <!-- Give simulation update frequency to synch between engine and hw_sim_int 
+
+         !!!!! Make sure the node steptime is a multiple of the MjModel steptime !!!!! 
+         
+         -->
+    <param name="sim_frequency_mujoco" value = "200" type="int" />
+
+    <!-- Launch into param server of ROS -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(arg xacro_robot_path)'" />
+
+    <!-- This launch file launches mujoco_ros_control node -->
+    <param name="/use_sim_time" value="true"/>
+    <arg name="robot_model_path" value="/playground/playground_mobile_wagon_manipulation"/>
+    <arg name="robot_description_param" value = "robot_description"/>
+    <arg name="debug" value="false"/>
+
+    <!-- Launch mujoco hw sim interface based on the simplified robot urdf -->
+    <node unless="$(arg debug)" name="mujoco_ros_control_node" pkg="uwarl-mujoco-summit-wam-sim" type="mujoco_ros_control" output="screen">
+        <param name="robot_model_path" value="$(arg robot_model_path)"/>
+        <param name="robot_description_param" value="$(arg robot_description_param)"/>
+    </node>
+
+    <node if="$(arg debug)" name="mujoco_ros_control_node" pkg="uwarl-mujoco-summit-wam-sim" type="mujoco_ros_control" output="screen" launch-prefix="gdb -ex run -args">
+        <param name="robot_model_path" value="$(arg robot_model_path)"/>
+        <param name="robot_description_param" value="$(arg robot_description_param)"/>
+    </node>
+
+    <node pkg="uwarl-mujoco-summit-wam-sim" type="main.py" name="Mujocolaunch" output="screen">
+    </node>
+
+    <!-- Plotting package for plotting ros topics -->
+    <!-- <node pkg="plotjuggler" type="plotjuggler" name="plotter_juggler" output="screen">
+    </node> -->
+
+</launch>

@@ -9,6 +9,7 @@
         + [June 22, 2022] (CS) Compiler Defaults and Options
         + [June 22, 2022] (ENV) Ground Plane
         + [June 22, 2022] (OBJ) Coke Can
+        - [Nov  28, 2023] Solver settings (Tim van Meijel)
 ====================================================== -->
 
 
@@ -20,12 +21,12 @@
     
     <!-- Options: -->
     <option 
-        timestep="2e-3"
+        timestep="2.5e-3"
         iterations="10"
         tolerance="1e-10"
-        impratio="10"
+        impratio="1"
         gravity="0 0 -9.81"
-        solver="PGS"
+        solver="Newton"
         cone="elliptic" 
     />
     <!-- <size nuserdata="100" njmax="500" nconmax="1000" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_actuator="12" nuser_sensor="1" /> -->
@@ -44,7 +45,7 @@
         <!-- [ENV] Ground PLane -->
         <texture name="groundplane" type="2d" builtin="checker" rgb1=".25 .26 .25" 
             rgb2=".22 .22 .22" width="100" height="100" mark="edge" markrgb=".3 .3 .3"/>
-        <material name="MatGnd" texture="groundplane"  texrepeat="5 5" specular="1" shininess=".3" reflectance="0.00001"/>
+        <material name="MatGnd" texture="groundplane"  texrepeat="5 5" specular="1" shininess=".001" reflectance="0.00001"/>
     </asset>
 
     <!--########################

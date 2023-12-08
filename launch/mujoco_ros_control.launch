@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!-- Launch file for Mujoco Hardware Simulation interface to use ros_control
+     Last update: Nov 28 2023, Tim van Meijel -->
+
+<launch>
+  <!-- This launch file launches mujoco_ros_control node -->
+  <param name="/use_sim_time" value="true"/>
+  <arg name="robot_model_path" value="/playground/"/>
+  <arg name="robot_description_param" value = "playground_mobile_wagon_manipulation"/>
+  <arg name="debug" value="false"/>
+
+  <node unless="$(arg debug)" name="mujoco_ros_control_node" pkg="uwarl-mujoco-summit-wam-sim" type="mujoco_ros_control" output="screen">
+    <param name="robot_model_path" value="$(arg robot_model_path)"/>
+    <param name="robot_description_param" value="$(arg robot_description_param)"/>
+  </node>
+
+  <node if="$(arg debug)" name="mujoco_ros_control_node" pkg="uwarl-mujoco-summit-wam-sim" type="mujoco_ros_control" output="screen" launch-prefix="gdb -ex run -args">
+    <param name="robot_model_path" value="$(arg robot_model_path)"/>
+    <param name="robot_description_param" value="$(arg robot_description_param)"/>
+    <param name="key_path" value="$(arg key_path)"/>
+  </node>
+</launch>

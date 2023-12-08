@@ -1,0 +1,351 @@
+<?xml version="1.0" ?>
+<robot name="wagon" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- <xacro:include filename="$(find waterloo_steel_description)/urdf/wagon/materials.xacro" /> -->
+<!-- <xacro:include filename="$(find waterloo_steel_description)/urdf/wagon/wagon.trans" /> -->
+<!-- <xacro:include filename="$(find waterloo_steel_description)/urdf/wagon/wagon_V2.gazebo" /> -->
+<xacro:property name="PI" value="3.1415926535897931"/>
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<xacro:macro name="wagon_base_link" params="prefix">
+  <!-- Root link to Base link -->
+  <joint name="${prefix}_root_to_base" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="${prefix}_root_link"/>
+    <child link="${prefix}_base_link"/>
+  </joint>
+  <!-- Base link to pocket -->
+  <joint name="${prefix}_base_to_pocket" type="fixed">
+    <origin xyz="0.01 -0.009 -0.012" rpy="0 0 0"/>
+    <parent link="${prefix}_base_link"/>
+    <child link="${prefix}_pocket"/>
+  </joint>
+  <!-- Base link to imu -->
+  <joint name="${prefix}_base_to_imu" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="${prefix}_base_link"/>
+    <child link="${prefix}_imu_link"/>
+  </joint>
+
+  <link name="${prefix}_root_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+  </link>
+
+  <link name="${prefix}_base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.3"/>
+      <inertia ixx="0.04" iyy="0.05" izz="0.02" ixy="0.0" iyz="0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_base_link.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_base_link.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${prefix}_pocket">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.9"/>
+      <inertia ixx="0.05" iyy="0.06" izz="0.02" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_pocket.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_pocket.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${prefix}_imu_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+  </link>
+
+  <gazebo reference="${prefix}_base_link">
+    <material>${body_color}</material>
+    <kp>1e15</kp>
+    <kd>1e13</kd>
+    <!-- https://answers.ros.org/question/400947/why-collision-is-not-working-for-ur5/ -->
+    <selfCollide>true</selfCollide>
+    <gravity>true</gravity>
+  </gazebo>
+
+  <gazebo reference="${prefix}_pocket">
+    <material>${body_color}</material>
+    <!-- https://answers.ros.org/question/400947/why-collision-is-not-working-for-ur5/ -->
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="${prefix}_imu_link">
+    <!--https://classic.gazebosim.org/tutorials?tut=ros_gzplugins-->
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>100.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+</xacro:macro>
+
+<xacro:macro name="wagon_swivel_wheel_mount" params="prefix parent child reflect *origin">
+  <!-- Wagon Base to swivel mount -->
+  <joint name="${prefix}_swivel_joint" type="continuous">
+    <xacro:insert_block name="origin" />
+    <parent link="${parent}"/>
+    <child link="${prefix}_wheel_swivel_mount"/>
+    <axis xyz="0 0 1" rpy="0 0 0" />
+    <limit effort="100" velocity="100"/>
+    <joint_properties damping="0.1" friction="0.0"/>
+  </joint>
+  <!-- Swivel mount to wheel -->
+  <joint name="${prefix}_swivel_wheel" type="continuous">
+    <xacro:wagon_swivel_reflect reflect="${reflect}"/>
+    <parent link="${prefix}_wheel_swivel_mount"/>
+    <child link="${child}"/>
+    <dynamics damping="0.1000"/>
+    <dynamics friction="0.0000"/>
+    <axis xyz="1.0 0.0 0.0"/>
+  </joint>
+
+  <link name="${prefix}_wheel_swivel_mount">
+    <inertial>
+      <xacro:wagon_swivel_reflect reflect="${reflect}"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.000873" iyy="0.00017" izz="0.00085" ixy="0" iyz="0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <xacro:wagon_swivel_reflect reflect="${reflect}"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_swivel_mount.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <xacro:wagon_swivel_reflect reflect="${reflect}"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_swivel_mount.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="${prefix}_wheel_swivel_mount">
+    <material>${body_color}</material>
+    <!-- <mu1>0.2</mu1>
+    <mu2>0.2</mu2> -->
+    <!-- https://answers.ros.org/question/400947/why-collision-is-not-working-for-ur5/ -->
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+</xacro:macro>
+
+<xacro:macro name="wagon_swivel_reflect" params="reflect">
+  <xacro:if value="${reflect}">
+    <origin xyz="0.017 0.04 -0.162" rpy="0 0 0"/>
+  </xacro:if>
+  <xacro:unless value="${reflect}">
+    <origin xyz="0.017 0.04 -0.162" rpy="0 0 0"/>
+  </xacro:unless>
+</xacro:macro>
+
+<xacro:macro name="wagon_fixed_wheel_mount" params="prefix parent child *origin">
+  <!-- Wagon Base to fixed mount -->
+  <joint name="${prefix}_fixed" type="fixed">
+    <xacro:insert_block name="origin" />
+    <parent link="${parent}"/>
+    <child link="${prefix}_wheel_fixed_mount"/>
+  </joint>
+  <!-- Fixed mount to wheel -->
+  <joint name="${prefix}_fixed_wheel" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="${prefix}_wheel_fixed_mount"/>
+    <child link="${child}"/>
+    <dynamics damping="0.1000"/>
+    <dynamics friction="0.0000"/>
+    <axis xyz="1.0 0.0 0.0"/>
+  </joint>
+
+  <link name="${prefix}_wheel_fixed_mount">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.000873" iyy="0.00017" izz="0.00085" ixy="0" iyz="0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_fixed_mount.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_fixed_mount.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="${prefix}_wheel_fixed_mount">
+    <material>${body_color}</material>
+    <!-- <mu1>0.2</mu1>
+    <mu2>0.2</mu2> -->
+    <!-- https://answers.ros.org/question/400947/why-collision-is-not-working-for-ur5/ -->
+    <selfCollide>false</selfCollide>
+  </gazebo>
+</xacro:macro>
+
+<xacro:macro name="wagon_wheel_link" params="prefix">
+  <link name="${prefix}_wheel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.736"/>
+      <inertia ixx="0.321" iyy="0.264" izz="0.134" ixy="-0.06" iyz="-0.145" ixz="-0.093"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_wheel.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_wheel.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="${prefix}_wheel">
+    <material>${body_color}</material>
+    <kp>1e15</kp>
+    <kd>1e13</kd>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <!-- https://answers.ros.org/question/400947/why-collision-is-not-working-for-ur5/ -->
+    <selfCollide>false</selfCollide>
+  </gazebo>
+</xacro:macro>
+
+<xacro:macro name="handle_link" params="prefix parent *origin">
+  <!-- Base to handle 1 -->
+  <joint name="${prefix}_base_to_handle_1_joint" type="revolute">
+    <xacro:insert_block name="origin" />
+    <parent link="${parent}"/>
+    <child link="${prefix}_handle_1"/>
+    <axis xyz="1 0 0" rpy="0 0 0" />
+    <limit upper="0.01" lower="-0.01"  effort="100" velocity="100"/>
+    <joint_properties damping="0.1" friction="0.0"/>
+  </joint>
+  <!-- Handle 1 to handle 2 -->
+  <joint name="handle_1_to_handle_2_joint" type="prismatic">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="${prefix}_handle_1"/>
+    <child link="${prefix}_handle_2"/>
+    <axis xyz="0 0 1" rpy="0 0 0" />
+    <limit upper="0" lower="-0.28"  effort="100" velocity="100"/>
+    <joint_properties damping="0.1" friction="0.0"/>
+  </joint>
+
+  <!-- Handle 1 -->
+  <link name="${prefix}_handle_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.147"/>
+      <inertia ixx="0.035" iyy="0.011" izz="0.024" ixy="0.0" iyz="-0.014" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_handle_base_hinge.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_handle_base_hinge.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Handle 2 -->
+  <link name="${prefix}_handle_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.281"/>
+      <inertia ixx="0.063" iyy="0.017" izz="0.046" ixy="0.0" iyz="0.025" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_top_handle.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://waterloo_steel_description/meshes/meshes_wagon/wagon_top_handle.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="${prefix}_handle_1">
+    <material>${body_color}</material>
+    <kp>1e15</kp>
+    <kd>1e13</kd>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="${prefix}_handle_2">
+    <material>${body_color}</material>
+    <kp>1e15</kp>
+    <kd>1e13</kd>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+</xacro:macro>
+
+
+
+</robot>

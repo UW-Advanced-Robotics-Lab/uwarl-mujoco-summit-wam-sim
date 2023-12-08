@@ -1,0 +1,166 @@
+/*
+* Copyright 2018 Shadow Robot Company Ltd.
+*
+* This program is free software: you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the Free
+* Software Foundation version 2 of the License.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+* more details.
+*
+* You should have received a copy of the GNU General Public License along
+* with this program. If not, see <http://www.gnu.org/licenses/>.
+*
+* @file   robot_hw_sim.h
+* @author Giuseppe Barbieri <giuseppe@shadowrobot.com>
+* @brief  Hardware interface for simulated robot in Mujoco
+* 
+* Current version specifically for UWARL
+* Last edit: Nov 28, 2023 (Tim van Meijel)
+*
+**/
+
+#ifndef MUJOCO_ROS_CONTROL_ROBOT_HW_SIM_H
+#define MUJOCO_ROS_CONTROL_ROBOT_HW_SIM_H
+
+// ros_control
+#include <control_toolbox/pid.h>
+#include <hardware_interface/joint_command_interface.h>
+#include <hardware_interface/robot_hw.h>
+#include <mujoco_ros_control/robot_hw_sim_plugin.h>
+#include <joint_limits_interface/joint_limits.h>
+#include <joint_limits_interface/joint_limits_interface.h>
+#include <joint_limits_interface/joint_limits_rosparam.h>
+#include <joint_limits_interface/joint_limits_urdf.h>
+#include <transmission_interface/transmission_info.h>
+
+// ROS
+#include <ros/ros.h>
+#include <angles/angles.h>
+#include <pluginlib/class_list_macros.h>
+
+// URDF
+#include <urdf/model.h>
+#include <map>
+#include <string>
+#include <vector>
+#include <list>
+#include <std_msgs/String.h>
+
+
+namespace mujoco_ros_control
+{
+
+class RobotHWSim : public mujoco_ros_control::RobotHWSimPlugin
+{
+public:
+  RobotHWSim();
+  virtual ~RobotHWSim() {}
+
+  virtual bool init_sim(
+    const std::string& robot_namespace,
+    ros::NodeHandle model_nh,
+    const urdf::Model *const urdf_model,
+    std::vector<transmission_interface::TransmissionInfo> transmissions_info);
+
+  virtual void read(const ros::Time& time, const ros::Duration& period);
+
+  virtual void write(const ros::Time& time, const ros::Duration& period);  
+
+  virtual void pass_mj_data(std::map<std::string, std::vector <double> > *list_joints_mj);
+
+  virtual std::map<std::string, double >* get_mj_data(void);
+
+  // Methods used to control a joint.
+  enum ControlMethod {EFFORT, POSITION, POSITION_PID, VELOCITY, VELOCITY_PID};
+
+  struct JointData
+  {
+    std::string name;
+    int type;
+    double lower_limit;
+    double upper_limit;
+    double effort_limit;
+    ControlMethod control_method;
+    control_toolbox::Pid pid_controller;
+    double position;
+    double velocity;
+    double effort;
+    double effort_command;
+    double position_command;
+    double last_position_command;
+    double velocity_command;
+    std::vector<std::string> hardware_interfaces;
+    int mujoco_joint_id;
+    int mujoco_qpos_addr;
+    int mujoco_qvel_addr;
+
+    std::string to_string()
+    {
+      std::stringstream ss;
+      ss << "Joint " << name << " has type " << type << ", mujoco addresses " << mujoco_joint_id << ", " <<
+        mujoco_qpos_addr << ", " << mujoco_qvel_addr << ".\nJoint status: p:" << position << " v:" << velocity <<
+        " e:" << effort << "\nJoint position address: " << &position;
+      return ss.str();
+    }
+  };
+
+  struct TransmissionData
+  {
+    std::string name;
+    std::vector<std::string> joint_names;
+    std::string to_string()
+    {
+      std::stringstream ss;
+      ss << "Transmission " << name << " has " << joint_names.size() << " joints:";
+      for (auto& joint_name : joint_names)
+      {
+        ss << "\n" << joint_name;
+      }
+      return ss.str();
+    }
+  };
+
+
+protected:
+  // Register the limits of the joint specified by joint_name and joint_handle. The limits are
+  // retrieved from joint_limit_nh. If urdf_model is not NULL, limits are retrieved from it also.
+  // Return the joint's type, lower position limit, upper position limit, and effort limit.
+  void register_joint_limits(const std::string& joint_name,
+                             const hardware_interface::JointHandle& joint_handle,
+                             const ControlMethod ctrl_method,
+                             const ros::NodeHandle& joint_limit_nh,
+                             const urdf::Model *const urdf_model,
+                             int *const joint_type, double *const lower_limit,
+                             double *const upper_limit, double *const effort_limit);
+
+  unsigned int n_dof_;
+
+  // hardware interfaces
+  hardware_interface::JointStateInterface    js_interface_;
+  hardware_interface::EffortJointInterface   ej_interface_;
+  hardware_interface::PositionJointInterface pj_interface_;
+  hardware_interface::VelocityJointInterface vj_interface_;
+
+  // joint limit interfaces
+  joint_limits_interface::EffortJointSaturationInterface   ej_sat_interface_;
+  joint_limits_interface::EffortJointSoftLimitsInterface   ej_limits_interface_;
+  joint_limits_interface::PositionJointSaturationInterface pj_sat_interface_;
+  joint_limits_interface::PositionJointSoftLimitsInterface pj_limits_interface_;
+  joint_limits_interface::VelocityJointSaturationInterface vj_sat_interface_;
+  joint_limits_interface::VelocityJointSoftLimitsInterface vj_limits_interface_;
+
+  std::vector<TransmissionData> transmissions_;
+  std::map<std::string, JointData> joints_;
+  std::map<std::string, double > effort_control;
+
+};
+
+typedef boost::shared_ptr<RobotHWSim> RobotHWSimPtr;
+}  // namespace mujoco_ros_control
+
+std::string to_string(double x);
+
+#endif  // MUJOCO_ROS_CONTROL_ROBOT_HW_SIM_H

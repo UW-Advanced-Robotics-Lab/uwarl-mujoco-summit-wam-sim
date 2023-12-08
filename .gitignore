@@ -1,2 +1,3 @@
-src_examples/output/*
-**__pycache__**
+*.vscode
+*.pyc
+*.bag
