@@ -187,6 +187,12 @@ Joints             |  MOI
 ### A.2.2 Installation Guide Extra
 - Install MuJoCo 2.2.x via `$ sudo pip install mujoco`
 - Download MuJoCo 2.2.x release package from https://github.com/deepmind/mujoco/releases
+- The package "opencv-python-headless", which is installed during the process of setting-up the workspace (see the list of commands execcuted during the process), must be replaced with "opencv-python" [Source](https://github.com/opencv/opencv-python/issues/18):
+```zsh
+$ pip uninstall opencv-python-headless
+$ pip install opencv-python
+```
+Otherwise, the window for MuJoCo will not open, and the simulation will crash.
 
 #### A.2.3 Tested Platforms:
 - [x] M1 Macbook Pro 14" 
