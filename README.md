@@ -99,6 +99,24 @@ Launches the cart manipulation simulation with ROS integration. The launch file 
 $ roslaunch waterloo_steel_sim_bringup waterloo_steel_complete_cart_mujoco.launch
 ```
 
+### 5.2 Environment location
+When needing to change the environment in which one is simulating in, follow the following path:
+- In `playground/playground_mobile_wagon_manipulation.xml` file, edit the following line to point to the desired environment description:
+```
+<include file="../components/include_e7_3rd_floor_Dependencies.xml"/>
+```
+- In `.../include_e7_3rd_floor_Dependencies.xml`, you have to point to the stl-file representing the environment.
+- The environment mesh is associated with the name `map_e7_3rd_floor`, and this name is again referenced in `include_e7_3rd_floor.xml`. 
+- The file `include_e7_3rd_floor.xml` is called in the `playground_mobile_wagon_manipulation.xml` file:
+```
+        <!-- E7 3rd floor -->
+        <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
+            <include file="../components/include_e7_3rd_floor.xml"/>   
+        </body>
+```
+- Best that one creates seperate files for `include_e7_3rd_floor.xml` and `include_e7_3rd_floor_Dependencies.xml` when switching to a new simulation environment, for better readability.
+
+
 #### Variables of simulation:
 These variables can be changed depending on the simulation. 
 - In `launch/mujocolaunch.launch` param `sim_frequency_mujoco`. This changes the frequency of the node which updates the engine. It is synched to the simulation Hardware Simulation Interface for control of the WAM.
