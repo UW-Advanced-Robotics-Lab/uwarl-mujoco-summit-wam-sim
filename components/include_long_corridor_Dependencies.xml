@@ -4,7 +4,7 @@
         ############## -->
     <!-- WAM BHAND -->
     <asset>
-        <mesh name="long_corridor" file="maps/long_corridor/Hallway.stl" />
+        <mesh name="long_corridor" file="maps/long_corridor/map.stl" scale="1 1 1"/>
     </asset>
 
 

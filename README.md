@@ -12,6 +12,7 @@
   - [5. Launch:](#5-Launch)
     - [5.1 Cart Manipulation:](#51-Cart-Manipulation)
       - [Variables of simulation:](#Variables-of-simulation)
+    - [5.2 Environment model location:](#52-Environment-model-location)
   - [6. File Hierarchy:](#6-File-Hierarchy)
   - [A*. Appendix:](#A-Appendix)
     - [A.1 Note:](#A1-Note)
@@ -99,24 +100,6 @@ Launches the cart manipulation simulation with ROS integration. The launch file 
 $ roslaunch waterloo_steel_sim_bringup waterloo_steel_complete_cart_mujoco.launch
 ```
 
-### 5.2 Environment location
-When needing to change the environment in which one is simulating in, follow the following path:
-- In `playground/playground_mobile_wagon_manipulation.xml` file, edit the following line to point to the desired environment description:
-```
-<include file="../components/include_e7_3rd_floor_Dependencies.xml"/>
-```
-- In `.../include_e7_3rd_floor_Dependencies.xml`, you have to point to the stl-file representing the environment.
-- The environment mesh is associated with the name `map_e7_3rd_floor`, and this name is again referenced in `include_e7_3rd_floor.xml`. 
-- The file `include_e7_3rd_floor.xml` is called in the `playground_mobile_wagon_manipulation.xml` file:
-```
-        <!-- E7 3rd floor -->
-        <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
-            <include file="../components/include_e7_3rd_floor.xml"/>   
-        </body>
-```
-- Best that one creates seperate files for `include_e7_3rd_floor.xml` and `include_e7_3rd_floor_Dependencies.xml` when switching to a new simulation environment, for better readability.
-
-
 #### Variables of simulation:
 These variables can be changed depending on the simulation. 
 - In `launch/mujocolaunch.launch` param `sim_frequency_mujoco`. This changes the frequency of the node which updates the engine. It is synched to the simulation Hardware Simulation Interface for control of the WAM.
@@ -131,6 +114,24 @@ These variables can be changed depending on the simulation.
 - In `src/main.py` the MuJoCo viewer rate can be defined. 
 - In `src/main.py` the onboard cameras of the Summit and WAM can be enabled. This can be done by passing `True` in the Engine `_update` function. Default value equals `False`.
 
+### 5.2 Map model location
+When needing to change the map in which one is simulating in, follow the following path:
+- In `playground/playground_mobile_wagon_manipulation.xml` file:
+```
+        <!-- E7 3rd floor -->
+        <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
+            <include file="../components/include_e7_3rd_floor.xml"/>   
+        </body>
+```
+ edit the following line to point to the desired map description:
+```
+<include file="../components/include_e7_3rd_floor_Dependencies.xml"/>
+```
+- In `.../include_e7_3rd_floor_Dependencies.xml`, you have to point to the stl-file representing the map.
+- An stl-representation of a 2D-floor-map can be generated using the `map2gazebo.launch` launch file (instructions are [here]()).
+- The map mesh is associated with the name `map_e7_3rd_floor`, and this name is again referenced in `include_e7_3rd_floor.xml`. 
+
+- Best that one creates seperate files for `include_e7_3rd_floor.xml` and `include_e7_3rd_floor_Dependencies.xml` when switching to a new simulation map, for better readability.
 
 ## 6. File Hierarchy:
 ```

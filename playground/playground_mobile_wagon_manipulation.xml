@@ -25,7 +25,7 @@
     <include file="../components/include_summit_wam_bhand_actuators.xml"/>
     <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/>  
     <!-- <include file="../components/include_e7_3rd_floor_Dependencies.xml"/>  -->
-    <!-- <include file="../components/include_long_corridor_Dependencies.xml"/> -->
+    <include file="../components/include_long_corridor_Dependencies.xml"/>
 
     <!--###############
         ### Config: ###
@@ -60,9 +60,9 @@
         <!-- <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
             <include file="../components/include_e7_3rd_floor.xml"/>   
         </body> -->
-        <!-- <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
+        <body name="environment" pos="-1.1 -1.35 0.0" euler="0 0 -1.57079632679">
             <include file="../components/include_long_corridor.xml"/>   
-        </body> -->
+        </body>
 
     </worldbody>
 
@@ -88,8 +88,8 @@
         <exclude body1="wagon/handle2" body2="e7_3rd_floor_body"/>
         <exclude body1="utility/wagon" body2="e7_3rd_floor_body"/>
         <exclude body1="wagon/wire_frame" body2="e7_3rd_floor_body"/> -->
-        
-        <!-- <exclude body1="smt/whl/LF_link" body2="long_corridor_body"/>
+
+        <exclude body1="smt/whl/LF_link" body2="long_corridor_body"/>
         <exclude body1="smt/whl/RF_link" body2="long_corridor_body"/>
         <exclude body1="smt/whl/LR_link" body2="long_corridor_body"/>
         <exclude body1="smt/whl/RR_link" body2="long_corridor_body"/>
@@ -107,7 +107,7 @@
         <exclude body1="wagon/handle" body2="long_corridor_body"/>
         <exclude body1="wagon/handle2" body2="long_corridor_body"/>
         <exclude body1="utility/wagon" body2="long_corridor_body"/>
-        <exclude body1="wagon/wire_frame" body2="long_corridor_body"/> -->
+        <exclude body1="wagon/wire_frame" body2="long_corridor_body"/>
     
     </contact>
     
