@@ -52,7 +52,7 @@
         </body>
         
         <!-- Wagon -->
-        <body name="wagon" pos="-3.35 0 0" euler="0 0 1.57079632679" >
+        <body name="wagon" pos="-1.4 0 0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
@@ -66,28 +66,8 @@
 
     </worldbody>
 
-    <!-- Used for simulation of E7 3rd floor map -->
     <contact>
     <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
-        <!-- <exclude body1="smt/whl/LF_link" body2="e7_3rd_floor_body"/>
-        <exclude body1="smt/whl/RF_link" body2="e7_3rd_floor_body"/>
-        <exclude body1="smt/whl/LR_link" body2="e7_3rd_floor_body"/>
-        <exclude body1="smt/whl/RR_link" body2="e7_3rd_floor_body"/>
-        <exclude body1="smt/base_link" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/LF" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/RF" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/RR" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/LR" body2="e7_3rd_floor_body"/>
-        <exclude body1="smt/base_link" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/LF/whl" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/RF/whl" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/RR/whl" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/LR/whl" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/pocket" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/handle" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/handle2" body2="e7_3rd_floor_body"/>
-        <exclude body1="utility/wagon" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/wire_frame" body2="e7_3rd_floor_body"/> -->
 
         <exclude body1="smt/whl/LF_link" body2="long_corridor_body"/>
         <exclude body1="smt/whl/RF_link" body2="long_corridor_body"/>
@@ -108,6 +88,12 @@
         <exclude body1="wagon/handle2" body2="long_corridor_body"/>
         <exclude body1="utility/wagon" body2="long_corridor_body"/>
         <exclude body1="wagon/wire_frame" body2="long_corridor_body"/>
+
+        <!-- Exclude contact between wheels and wheel mounts -->
+        <exclude body1="wagon/RF" body2="wagon/RF/whl"/>
+        <exclude body1="wagon/RR" body2="wagon/RR/whl"/>
+        <exclude body1="wagon/LF" body2="wagon/LF/whl"/>
+        <exclude body1="wagon/LR" body2="wagon/LR/whl"/>
     
     </contact>
     

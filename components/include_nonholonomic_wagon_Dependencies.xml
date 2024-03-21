@@ -50,10 +50,10 @@
         </default>
         <default class="wagon/swivel">
             <!-- Note: position relative to the origin of swivel linkage from CAD -->
-            <joint axis="0 0 1" damping="0.55" pos="-0.017456 -0.04 0.10985"/>
+            <joint axis="0 0 1" damping="0.05" pos="-0.017456 -0.04 0.10985"/>
         </default>
         <default class="wagon/whl">
-            <joint axis="1 0 0" damping="0.55"/>
+            <joint axis="1 0 0" damping="0.05"/>
         </default>
         <default class="wagon/col">
             <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.7"/>          

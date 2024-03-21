@@ -28,12 +28,18 @@
         ############### -->
     <!-- DEFAULT -->
     <default>
+        <!-- The class0name being specified under default maps back to the class-names being specified for a body (childclass/class) , or  -->
+        <!-- These names have to be unique; it must not clash with class-names for un-intended bodies/joints/geometries -->
         <default class="summit">
         </default>
         <default class="summit/whl">
+            <!-- class-names for joints -->
             <joint axis="1 0 0" damping="0.55"/>
+            <!-- Bydefault, hinge-type is the default joint type -->
+            <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-joint -->
         </default>
         <default class="summit/col">
+            <!-- class-names for geometry-type -->
             <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
         </default>
         <default class="summit/viz">

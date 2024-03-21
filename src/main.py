@@ -61,7 +61,8 @@ def main():
     rospy.sleep(1.0)
 
     Engine = jx.Mujoco_Engine(
-        xml_path        = home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
+        xml_path        = home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_grasping.xml",
+        # xml_path        = home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
         # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
         rate_Hz         = update_rate,
         rate_scene      = rate_plot,

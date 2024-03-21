@@ -41,7 +41,7 @@
 <mujocoinclude model="BH8-280">
 
     <body name="wam/bhand/bhand_palm_link" childclass="wam/bhand" pos="0 0 0">
-        <inertial pos="5.0019e-005  0.0044561 0.037268" mass="0.60858" fullinertia="0.0006986 0.00050354 0.00062253 2.7577e-007 -7.8138e-007 -6.44e-005" /> -->
+        <inertial pos="5.0019e-005  0.0044561 0.037268" mass="0.60858" fullinertia="0.0006986 0.00050354 0.00062253 2.7577e-007 -7.8138e-007 -6.44e-005" />
         <geom     class="wam/bhand/viz" mesh="bhand_palm_fine"/>
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p1"/>
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p2"/>
