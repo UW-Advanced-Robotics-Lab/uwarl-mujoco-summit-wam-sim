@@ -133,6 +133,28 @@ When needing to change the map in which one is simulating in, follow the followi
 
 - Best that one creates seperate files for `include_e7_3rd_floor.xml` and `include_e7_3rd_floor_Dependencies.xml` when switching to a new simulation map, for better readability.
 
+### 5.3 Peg-in-Hole
+<img src="./documentation/peg_in_hole.png" alt="peg_in_hole" height="600"/>
+Peg-in-Hole is an action by which a peg (a cylinder in the above image) is inserted into a hole in a work-piece. For reasons best explained [here](https://github.com/google-deepmind/mujoco/discussions/738), MuJoCo converts all meshes into their convex-hulls. This, howeever, prevents the emulation of a peg-in-hole action, or, as in our-case, prevents the BHand on the WAM from grasping the cart-handle.
+
+Here, we detail out the process to be followed for carrying out Peg-in-Hole experiments in MuJoCo:
+- In the same post as above, install the recommended repo called `obj2mjcf`, that can be found [here](https://github.com/kevinzakka/obj2mjcf). MuJoCo can use Wavefront OBJ `.obj` files directly.
+- If you have the part as a CAD-file, you will need to sve it as either an `IGES` or `.stp` format.
+  - AutoDesk Fusion 360 has a paid add-on to perform the conversion directly. It does not support exporting `.obj` natively.
+  - SolidWorks also cannot export it natively.
+- Use [FreeCAD](https://github.com/FreeCAD/FreeCAD/releases) to convert to Wavefront OBJ `.obj` (there's apparently another `.obj` format in the list which is not called Wavefront OBJ; have not tested the other one out).
+- In a folder, keep the `.obj` files (along with its corresponding `.mtl` file; material description) in a folder.
+- The call to the `obj2mjcf` function can be made as follows:
+```
+obj2mjcf --obj-dir ~/folder/having/obj_files --save-mjcf --compile-model --decompose 
+```
+- For every `.obj` file it finds, it will convert it into a set of convex-shapes that can be assembled together o get-back the original non-convex shape.
+
+In order to test how does the mesh look like, set-up the `.obj' files as demonstrated in this `.xml` [file](https://github.com/UW-Advanced-Robotics-Lab/uwarl-mujoco-summit-wam-sim/blob/universal/ros1/arnab/jan-2024/playground/playground_peg_in_hole.xml). Some things to keep in mind are as follows:
+- Press `CTRL`+`R` to check the shape of the mesh that MuJoCo used (after taking its convex-hull). This is a great-way of trouble-shooting the cause of possible no Peg-in-Hole action.
+- There are two sets of meshes that are being deployed: one under Group 0, and another under Group 1. By [default](https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-geom-group), the MuJoCo viewer will only display (geom)etric-bodies that are labled as `1` (in-fact, `geom`-tags will be labeled as `0` by default, unless it is set to some other group-number).
+- The last thing that you need to be aware of is the effect of `contype` [link](https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-geom-contype) and `conaffinity` [link](https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-geom-conaffinity). They are a 32-bit tag that helps pair what pair of bodies are allowed to collide based upon both having a common bit that is 1. So, a `contype=1` (0x0001) is allowed to experience collisions with a body having a `conaffinity=3` (0x0011) (a common 1 bit between 0x0001 and 0x0011), but not with a body having `conaffinity=2` (0x0010) (no common 1 bit between 0x0001 and 0x0010). This can become a source of headache if you use different meshes for visualization (MuJoCo has ended up transforming a part into its convex-hull) and collision (a se of bodies were provided by the user which were individually convex). Thus, while the later has a hole in it to perform Peg-in-Hole, the former does not. So, if we want to turn-off collisions between a set of meshes, especialyy ones that are just being used for visualization, set `contype=0` and `conaffinity=0`.
+
 ## 6. File Hierarchy:
 ```
 .

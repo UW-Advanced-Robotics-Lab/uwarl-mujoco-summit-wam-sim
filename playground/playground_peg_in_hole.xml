@@ -109,20 +109,20 @@
             <geom name="cylinder_with_Hole_viz_12" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_12"/>
             <geom name="cylinder_with_Hole_viz_13" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_13"/> -->
 
-            <geom name="cylinder_with_Hole_0" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_0"/>
-            <geom name="cylinder_with_Hole_1" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_1"/>
-            <geom name="cylinder_with_Hole_2" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_2"/>
-            <geom name="cylinder_with_Hole_3" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_3"/>
-            <geom name="cylinder_with_Hole_4" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_4"/>
-            <geom name="cylinder_with_Hole_5" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_5"/>
-            <geom name="cylinder_with_Hole_6" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_6"/>
-            <geom name="cylinder_with_Hole_7" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_7"/>
-            <geom name="cylinder_with_Hole_8" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_8"/>
-            <geom name="cylinder_with_Hole_9" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_9"/>
-            <geom name="cylinder_with_Hole_10" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_10"/>
-            <geom name="cylinder_with_Hole_11" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_11"/>
-            <geom name="cylinder_with_Hole_12" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_12"/>
-            <geom name="cylinder_with_Hole_13" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_13"/>
+            <geom name="cylinder_with_Hole_0" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_0"/>
+            <geom name="cylinder_with_Hole_1" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_1"/>
+            <geom name="cylinder_with_Hole_2" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_2"/>
+            <geom name="cylinder_with_Hole_3" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_3"/>
+            <geom name="cylinder_with_Hole_4" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_4"/>
+            <geom name="cylinder_with_Hole_5" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_5"/>
+            <geom name="cylinder_with_Hole_6" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_6"/>
+            <geom name="cylinder_with_Hole_7" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_7"/>
+            <geom name="cylinder_with_Hole_8" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_8"/>
+            <geom name="cylinder_with_Hole_9" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_9"/>
+            <geom name="cylinder_with_Hole_10" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_10"/>
+            <geom name="cylinder_with_Hole_11" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_11"/>
+            <geom name="cylinder_with_Hole_12" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_12"/>
+            <geom name="cylinder_with_Hole_13" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_13"/>
         </body>
         
         <!-- Peg -->
@@ -132,7 +132,7 @@
             <!-- <geom name="pEg" mass="1" type="mesh" contype="1" conaffinity="0" group="1" rgba="0 0.9 0 1"  mesh="Peg"/> -->
             <!-- <geom name="pEg_col" mass="1" type="mesh" contype="1" conaffinity="1" group="0" rgba="0 0 0.8 1" mesh="Peg"/> -->
             <geom name="pEg" type="mesh" contype="0" conaffinity="0" group="1" rgba="0 0.8 0 1" mesh="Peg"/>
-            <geom name="pEg_col" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.3 0.7 0.8 1" mesh="Peg_0"/>
+            <geom name="pEg_col" type="mesh" contype="1" conaffinity="5" group="0" rgba="0.3 0.7 0.8 1" mesh="Peg_0"/>
         </body>
 
     </worldbody>
