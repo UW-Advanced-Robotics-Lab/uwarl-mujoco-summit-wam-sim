@@ -13,6 +13,7 @@
     - [5.1 Cart Manipulation:](#51-Cart-Manipulation)
       - [Variables of simulation:](#Variables-of-simulation)
     - [5.2 Environment model location:](#52-Environment-model-location)
+    - [5.3 Peg-in-Hole:](#52-peg-in-hole)
   - [6. File Hierarchy:](#6-File-Hierarchy)
   - [A*. Appendix:](#A-Appendix)
     - [A.1 Note:](#A1-Note)
