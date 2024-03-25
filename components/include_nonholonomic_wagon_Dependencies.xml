@@ -27,11 +27,19 @@
         <mesh file="meshes_wagon/wagon_swivel_mount.stl"/>
         <mesh file="meshes_wagon/wagon_pocket.stl"/>
         <mesh file="meshes_wagon/wagon_handle_base_hinge.stl"/>
-        <mesh file="meshes_wagon/wagon_top_handle.stl"/>
+        <!-- <mesh file="meshes_wagon/wagon_top_handle.stl"/>
         <mesh file="meshes_wagon/wagon_handle_0.stl"/>
         <mesh file="meshes_wagon/wagon_handle_part1.stl"/>
-        <mesh file="meshes_wagon/wagon_handle_part2.stl"/>
-        <mesh file="meshes_wagon/handle_extension.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_part2.stl"/> -->
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_1.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_2.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_3.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_4.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_5.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_6.obj" scale="0.01 0.01 0.01"/>
+        <!-- <mesh file="meshes_wagon/handle_extension.stl"/> -->
     </asset>
 
     <!--###############

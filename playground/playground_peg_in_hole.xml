@@ -1,0 +1,146 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Nov 30, 2023 
+
+    Brief       :: Mobile Wagon Playground
+        This is a demo playground showcasing the mobile robot,
+        configured with 7DOF WAM Arm + BHand + Summit Mobile Robot,
+        in a setting of wagon manipulation.
+
+    Updates:
+        - [Nov  30, 2023] Initial orientation of wagon and cart, map 3rd floor E7(Tim van Meijel)
+
+====================================================== -->
+
+<mujoco model="playground_wagon_manipulation(v1.0.0)">
+    <!--#########################
+        ### Compiler Specific ###
+        ######################### -->
+    <compiler coordinate="local" angle="radian" meshdir="../meshes/" texturedir="../textures/"/>
+    
+    <!-- Options: -->
+    <option 
+        timestep="2.5e-3"
+        iterations="10"
+        tolerance="1e-10"
+        impratio="1"
+        gravity="0 0 -9.81"
+        solver="Newton"
+        cone="elliptic" 
+    />
+    <!-- <size nuserdata="100" njmax="500" nconmax="1000" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_actuator="12" nuser_sensor="1" /> -->
+
+    
+
+    <default>
+        <geom margin="0.001" solimp="0.99 0.99 0.01" solref="0.01 1" condim="4" /> 
+    </default>
+
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <asset>
+        <mesh name="Cylinder_with_Hole" file="meshes_peg_in_hole/Cylinder_with_Hole.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_0" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_1" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_1.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_2" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_2.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_3" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_3.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_4" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_4.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_5" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_5.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_6" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_6.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_7" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_7.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_8" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_8.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_9" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_9.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_10" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_10.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_11" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_11.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_12" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_12.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Cylinder_with_Hole_13" file="meshes_peg_in_hole/Cylinder_with_Hole_collision_13.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Peg" file="meshes_peg_in_hole/Peg.obj" scale="0.01 0.01 0.01"/>
+        <mesh name="Peg_0" file="meshes_peg_in_hole/Peg_collision_0.obj" scale="0.01 0.01 0.01"/>
+
+        <texture name="groundplane" type="2d" builtin="checker" rgb1=".25 .26 .25" 
+            rgb2=".22 .22 .22" width="100" height="100" mark="edge" markrgb=".3 .3 .3"/>
+        <material name="MatGnd" texture="groundplane"  texrepeat="5 5" specular="1" shininess=".001" reflectance="0.00001"/>
+        
+    </asset>
+
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <equality>
+    <!-- TBD -->
+    </equality>
+
+    <visual>
+        <map fogstart="3" fogend="5" force="0.1" znear="0.001"/>
+        <quality shadowsize="4096" offsamples="16"/>
+        <!-- <global offwidth="1960" offheight="800"/> -->
+    </visual>  
+
+    <!--####################
+        ### Hello World: ###
+        #################### -->
+    <worldbody>
+        <!-- GND -->
+        <light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".4 .4 5.2" dir="-.1 -.2 -1.3"/>
+        <geom name="ground" type="plane" pos="0 0 0" size="20 20 1" conaffinity="1" contype="1" material="MatGnd" friction="0.0001 0.001 0.001" group="1"/>
+
+        <!-- Cylinder wih Hole -->
+        <body name="cylinder_with_hole" pos="0 0 0.5" euler="0 0 0">
+            <inertial pos="1 1 1" mass="1"/>
+            <!-- group=1 implies that this form can be seen initially -->
+            <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-geom -->
+            <geom name="cylinder_with_Hole" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"  mesh="Cylinder_with_Hole"/>
+            <!-- <geom name="cylinder_with_Hole_viz_0" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_0"/>
+            <geom name="cylinder_with_Hole_viz_1" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_1"/>
+            <geom name="cylinder_with_Hole_viz_2" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_2"/>
+            <geom name="cylinder_with_Hole_viz_3" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_3"/>
+            <geom name="cylinder_with_Hole_viz_4" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_4"/>
+            <geom name="cylinder_with_Hole_viz_5" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_5"/>
+            <geom name="cylinder_with_Hole_viz_6" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_6"/>
+            <geom name="cylinder_with_Hole_viz_7" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_7"/>
+            <geom name="cylinder_with_Hole_viz_8" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_8"/>
+            <geom name="cylinder_with_Hole_viz_9" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_9"/>
+            <geom name="cylinder_with_Hole_viz_10" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_10"/>
+            <geom name="cylinder_with_Hole_viz_11" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_11"/>
+            <geom name="cylinder_with_Hole_viz_12" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_12"/>
+            <geom name="cylinder_with_Hole_viz_13" type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_13"/> -->
+
+            <geom name="cylinder_with_Hole_0" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_0"/>
+            <geom name="cylinder_with_Hole_1" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_1"/>
+            <geom name="cylinder_with_Hole_2" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_2"/>
+            <geom name="cylinder_with_Hole_3" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_3"/>
+            <geom name="cylinder_with_Hole_4" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_4"/>
+            <geom name="cylinder_with_Hole_5" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_5"/>
+            <geom name="cylinder_with_Hole_6" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_6"/>
+            <geom name="cylinder_with_Hole_7" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_7"/>
+            <geom name="cylinder_with_Hole_8" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_8"/>
+            <geom name="cylinder_with_Hole_9" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_9"/>
+            <geom name="cylinder_with_Hole_10" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_10"/>
+            <geom name="cylinder_with_Hole_11" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_11"/>
+            <geom name="cylinder_with_Hole_12" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_12"/>
+            <geom name="cylinder_with_Hole_13" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.7 0.8 0 1"  mesh="Cylinder_with_Hole_13"/>
+        </body>
+        
+        <!-- Peg -->
+        <body name="peg" pos="0.5 0 4" euler="0 0 0">
+            <freejoint name="free"/>
+            <!-- <inertial pos="1 1 1" mass="1"/> -->
+            <!-- <geom name="pEg" mass="1" type="mesh" contype="1" conaffinity="0" group="1" rgba="0 0.9 0 1"  mesh="Peg"/> -->
+            <!-- <geom name="pEg_col" mass="1" type="mesh" contype="1" conaffinity="1" group="0" rgba="0 0 0.8 1" mesh="Peg"/> -->
+            <geom name="pEg" type="mesh" contype="0" conaffinity="0" group="1" rgba="0 0.8 0 1" mesh="Peg"/>
+            <geom name="pEg_col" type="mesh" contype="1" conaffinity="1" group="0" rgba="0.3 0.7 0.8 1" mesh="Peg_0"/>
+        </body>
+
+    </worldbody>
+
+    <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+
+    
+    </contact>
+    
+</mujoco>
