@@ -70,7 +70,7 @@
             </default>
         </default>
         <default class="wagon/viz">
-            <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.8 0.8 1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.8 0.8 1"/>
         </default>
     </default>
 

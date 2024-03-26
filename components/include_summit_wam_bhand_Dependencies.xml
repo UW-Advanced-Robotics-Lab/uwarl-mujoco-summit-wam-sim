@@ -43,7 +43,7 @@
             <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
         </default>
         <default class="summit/viz">
-            <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
         </default>
     </default>
 </mujocoinclude>

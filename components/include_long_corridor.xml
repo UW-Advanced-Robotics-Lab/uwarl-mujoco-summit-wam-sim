@@ -10,7 +10,8 @@
 
         <body name="long_corridor_body" pos="0 0 0">
             <inertial pos="0 0 0" mass="0"/>
-            <geom name="long_corridor_map" type="mesh" class="wagon/viz"  mesh="long_corridor"/>
+            <geom name="long_corridor_map/viz" type="mesh" class="wall/viz"  mesh="long_corridor"/>
+            <geom name="long_corridor_map/col" type="mesh" class="wall/col"  mesh="long_corridor"/>
         </body>
         
 </mujocoinclude>

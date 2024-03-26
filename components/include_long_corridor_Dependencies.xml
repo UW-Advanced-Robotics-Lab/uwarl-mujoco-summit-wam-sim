@@ -7,6 +7,14 @@
         <mesh name="long_corridor" file="maps/long_corridor/map.stl" scale="1 1 1"/>
     </asset>
 
+    <default>
+        <default class="wall/col">
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.7"/>          
+        </default>
+        <default class="wall/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.8 0.8 1"/>
+        </default>
+    </default>
 
 </mujocoinclude>
 
