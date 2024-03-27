@@ -5,6 +5,8 @@
     <!-- WAM BHAND -->
     <asset>
         <mesh name="long_corridor" file="maps/long_corridor/map.stl" scale="1 1 1"/>
+        <mesh name="long_corridor_bottom_wall" file="maps/long_corridor/map_bottom.obj" scale="1 1 1"/>
+        <mesh name="long_corridor_top_wall" file="maps/long_corridor/map_top.obj" scale="1 1 1"/>
     </asset>
 
     <default>

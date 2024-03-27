@@ -47,13 +47,13 @@
         <geom name="ground" type="plane" pos="0 0 0" size="20 20 1" conaffinity="1" contype="1" material="MatGnd" friction="0.0001 0.001 0.001" group="1"/>
 
         <!-- Robot -->
-        <body name="waterloo_steel" pos="0 3 0" euler="0 0 0">
+        <body name="waterloo_steel" pos="0 0 0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
         <!-- Wagon -->
         <!-- -1.4 0.02 0 | 0 0 1.57079632679 -->
-        <body name="wagon" pos="0 1 0" euler="0 0 0" >
+        <body name="wagon" pos="-1.4 0.02 0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
@@ -61,7 +61,7 @@
         <!-- <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
             <include file="../components/include_e7_3rd_floor.xml"/>   
         </body> -->
-        <body name="environment" pos="0 0 0" euler="0 0 -1.57079632679">
+        <body name="environment" pos="-13.5 -2 0" euler="0 0 0">
             <include file="../components/include_long_corridor.xml"/>   
         </body>
 
