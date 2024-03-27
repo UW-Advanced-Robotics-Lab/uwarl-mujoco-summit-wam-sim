@@ -47,23 +47,29 @@
         <geom name="ground" type="plane" pos="0 0 0" size="20 20 1" conaffinity="1" contype="1" material="MatGnd" friction="0.0001 0.001 0.001" group="1"/>
 
         <!-- Robot -->
-        <body name="waterloo_steel" pos="0 0 0" euler="0 0 -1.57079632679">
+        <body name="waterloo_steel" pos="4 0.5 0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
         <!-- Wagon -->
         <!-- -1.4 0.02 0 | 0 0 1.57079632679 -->
-        <body name="wagon" pos="-1.4 0.02 0" euler="0 0 1.57079632679" >
+        <body name="wagon" pos="2.6 0.52 0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
-        <!-- E7 3rd floor -->
-        <!-- <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
-            <include file="../components/include_e7_3rd_floor.xml"/>   
-        </body> -->
+        <!-- Long Corridor -->
         <body name="environment" pos="-13.5 -2 0" euler="0 0 0">
             <include file="../components/include_long_corridor.xml"/>   
         </body>
+
+        <!-- Place Box along corridor -->
+        <!-- Origin of this box is at its geometric-center. So initialise the box above the ground. -->
+        <body name="temp_obstacle" pos="7.75 0.98 0.5" euler="0 0 0">
+            <joint name="temp_obstacle/free" type="free"/>
+            <geom name="box/viz" type="box" size="0.25 0.5 0.5" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"/>
+            <geom name="box/col" type="box" size="0.25 0.5 0.5" contype="1" conaffinity="1" group="0" rgba="0.9 0 0 0.7"/>
+        </body>
+
 
     </worldbody>
 
