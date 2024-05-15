@@ -16,7 +16,7 @@
         <!-- === BASE LINK === === === === -->
         <body name="wagon/wire_frame" pos="-0.013891 0.009207 0.22892">
             <inertial pos="-0.013891 0.009207 0.22892" mass="2"/>
-            <geom name="wagon/viz/base_link"                      class="wagon/viz" mesh="wagon_base_link"/>
+            <geom name="wagon/viz/base_link"                      class="wagon/viz/wire_frame" mesh="wagon_base_link"/>
             <geom name="wagon/col/base_link"                      class="wagon/col" mesh="wagon_base_link"/>
         </body>
         <!-- mobile body -->
@@ -148,7 +148,7 @@
         <!-- === Container === === === === -->
         <body name="wagon/pocket" pos="0 0.018 0.217">
             <inertial pos="0 0 0" mass="0.9" diaginertia="0.05 0.06 0.02"/>
-            <geom name="wagon/viz/pocket"                class="wagon/viz"      mesh="wagon_pocket"/>
+            <geom name="wagon/viz/pocket"                class="wagon/viz/pocket"      mesh="wagon_pocket"/>
             <geom name="wagon/col/pocket"                class="wagon/col"      mesh="wagon_pocket"/>
         </body>
     </body>
