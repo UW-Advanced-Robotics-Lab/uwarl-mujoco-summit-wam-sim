@@ -31,9 +31,11 @@
         <!-- <joint name="wagon/world_x" armature="0.0001" axis="0 -1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
         <joint name="wagon/world_y" armature="0.0001" axis="1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
         <joint name="wagon/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint> -->
-        <joint name="wagon/world_x" armature="0.0001" axis="0 -1 0" damping="0.01" pos="0 0 0" type="slide"></joint>
-        <joint name="wagon/world_y" armature="0.0001" axis="1 0 0" damping="0.01" pos="0 0 0" type="hinge"></joint>
-        <joint name="wagon/world_z" armature="0.0001" axis="0 0 1" damping="0.01"  pos="0 0 0" type="slide"></joint>
+        <joint name="wagon/slide/world_x" armature="0.0001" axis="0 -1 0" damping="0.01" pos="0 0 0" type="slide"/>
+        <joint name="wagon/slide/world_y" armature="0.0001" axis="1 0 0" damping="0.01" pos="0 0 0" type="slide"/>
+        <joint name="wagon/slide/world_z" armature="0.0001" axis="0 0 1" damping="0.01" pos="0 0 0" type="slide"/>
+        <joint name="wagon/hinge/world_y" armature="0.0001" axis="1 0 0" damping="0.01" pos="0 0 0" type="hinge"/>
+        <joint name="wagon/hinge/world_z" armature="0.0001" axis="0 0 1" damping="0.01" pos="0 0 0" type="hinge"/>
         
         <!-- === whl LINK === === === === -->
         <!-- Mobile whls Right Front (Swivel) -->
