@@ -65,6 +65,18 @@
         <default class="wam/bhand/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
         </default>
+        <default class="wam/bhand/bhand_palm_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam/bhand/bhand_finger_prox_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam/bhand/bhand_finger_med_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.2 0.4 0.65 1"/>
+        </default>
+        <default class="wam/bhand/bhand_finger_dist_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.05 0.4 0.8 1"/>
+        </default>
     </default>
     
     <!-- EQUALITY -->
