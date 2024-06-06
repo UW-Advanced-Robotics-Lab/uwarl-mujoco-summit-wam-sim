@@ -18,6 +18,8 @@ import os
 
 # python 3rd party libraries:
 import numpy as np
+import cv2
+
 
 import rospy
 
@@ -46,9 +48,8 @@ import mujoco_engine.core_engine as jx
 #===========#
 #  M A I N  #
 #===========#
-def main():
+def main(): 
     home_path = os.environ["HOME"]
-
     # Get update frequency of engine from launch file "mujocolaunch.launch"
     freq_muj = rospy.get_param("sim_frequency_mujoco")
     update_rate = int(freq_muj)
@@ -66,7 +67,9 @@ def main():
         # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
         rate_Hz         = update_rate,
         rate_scene      = rate_plot,
-        camera_config   = None,
+        camera_config   = {"smt/front/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":1},
+                           "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":0},
+                           "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":2}}
     )
 
     # Initialize variables

@@ -19,6 +19,20 @@
         <!-- mobile body -->
         <inertial                                                              pos="0 0 0.37" mass="125" diaginertia="1.391 6.853 6.125" />
         <geom name="smt/viz/base_link"                      class="summit/body/viz" mesh="base_link_summit"/>
+
+        <!-- Front Camera -->
+        <body name="smt/sensor/intel/front" pos="0 0.362 0.373" quat="0 0 0.707107 0.707107">
+            <inertial               pos="0 0 0.015" mass="0.095"/>
+            <geom                   class="wam/viz" mesh="intel_realsense_l515"/>
+            <camera name="smt/front/camera/intel/rgb" pos="0 0 0" quat="0 0 1 0" fovy="55"/>
+        </body>
+        <!-- Rear Camera --><!-- quant=w x y z -->
+        <body name="smt/sensor/intel/rear" pos="0 -0.362 0.373" quat="0.707107 0.707107 0 0"> 
+            <inertial               pos="0 0 0.015" mass="0.095"/>
+            <geom                   class="wam/viz" mesh="intel_realsense_l515"/>
+            <camera name="smt/rear/camera/intel/rgb" pos="0 0 0" quat="0 0 1 0" fovy="55"/>
+        </body>
+
         <!-- <geom name="smt/col/base_link"                      class="summit/col" mesh="base_link_summit"/> -->
         <!-- Simplified the collision into boxes + arm rest -->
         <geom name="smt/col/base_link/box_body"             class="summit/col" pos="0 0 0.42" size="0.24 0.32 0.16" type="box"/>

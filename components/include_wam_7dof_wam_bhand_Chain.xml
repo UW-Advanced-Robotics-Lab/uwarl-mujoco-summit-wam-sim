@@ -119,7 +119,6 @@
                         <!-- <body name="wam/sensor/zed" pos="-0.18 -0.15 0" quat="0 0.707107 0 0.707107">
                             <inertial               pos="0 0 0.015" mass="0.124"/>
                             <geom                   class="wam/viz" mesh="zed"/>
-                            
                             <geom                   class="wam/col" mesh="zed_collision_mesh"/>
                             <camera name="camera/zed/R" pos="-0.06 0.03 0.042"  quat="0 0 -0.707107 0.707107" fovy="60"/>
                             <camera name="camera/zed/L" pos=" 0.06 0.03 0.042"  quat="0 0 -0.707107 0.707107" fovy="60"/>
@@ -164,11 +163,11 @@
                                     
                                     
                                     <!-- [Optional] Intel Lidar Camera (*4) -->
-                                    <body name="wam/sensor/intel" pos="0 0.085 0.1">
+                                    <body name="wam/sensor/intel" pos="0 0.085 0.02">
                                         <inertial               pos="0 0 0.015" mass="0.095"/>
                                         <geom                   class="wam/viz" mesh="intel_realsense_l515"/>
                                         <geom                   class="wam/col" mesh="intel_realsense_l515_collision_mesh"/>
-                                        <camera name="camera/intel/rgb" quat="0 -1 0 0" fovy="55"/>
+                                        <camera name="camera/intel/rgb" quat="0 0 1 0" fovy="55"/><!-- quant=w x y z -->
                                     </body>
                                     
                                     <!-- ### T-S Sensor (*3) Ref: (*3) unit: [m, kg, kg * m^2] 
