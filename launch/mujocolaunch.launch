@@ -25,7 +25,7 @@
 
     <!-- This launch file launches mujoco_ros_control node -->
     <param name="/use_sim_time" value="true"/>
-    <arg name="robot_model_path" value="/playground/playground_mobile_wagon_manipulation"/>
+    <arg name="robot_model_path" value="/playground/playground_mobile_wagon_grasping"/>
     <arg name="robot_description_param" value = "robot_description"/>
     <arg name="debug" value="false"/>
 
