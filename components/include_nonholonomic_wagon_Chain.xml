@@ -16,8 +16,32 @@
         <!-- === BASE LINK === === === === -->
         <body name="wagon/wire_frame" pos="-0.013891 0.009207 0.22892">
             <inertial pos="-0.013891 0.009207 0.22892" mass="2"/>
-            <geom name="wagon/viz/base_link"                      class="wagon/viz/wire_frame" mesh="wagon_base_link"/>
-            <geom name="wagon/col/base_link"                      class="wagon/col" mesh="wagon_base_link"/>
+            <!-- <geom name="wagon/viz/base_link"                      class="wagon/viz/wire_frame" mesh="wagon_base_link"/> -->
+            <geom name="wagon/viz/base_link"                      class="wagon/viz/wire_frame" mesh="Cart_outer_skeleton"/>
+            <!-- <geom name="wagon/col/base_link"                      class="wagon/col" mesh="wagon_base_link"/> -->
+            <geom name="wagon/col/base_link_0"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_0"/>
+            <geom name="wagon/col/base_link_1"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_1"/>
+            <geom name="wagon/col/base_link_2"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_2"/>
+            <geom name="wagon/col/base_link_3"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_3"/>
+            <geom name="wagon/col/base_link_4"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_4"/>
+            <geom name="wagon/col/base_link_5"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_5"/>
+            <geom name="wagon/col/base_link_6"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_6"/>
+            <geom name="wagon/col/base_link_7"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_7"/>
+            <geom name="wagon/col/base_link_8"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_8"/>
+            <geom name="wagon/col/base_link_9"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_9"/>
+            <geom name="wagon/col/base_link_10"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_10"/>
+            <geom name="wagon/col/base_link_11"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_11"/>
+            <geom name="wagon/col/base_link_12"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_12"/>
+            <geom name="wagon/col/base_link_13"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_13"/>
+            <geom name="wagon/col/base_link_14"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_14"/>
+            <geom name="wagon/col/base_link_15"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_15"/>
+            <geom name="wagon/col/base_link_16"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_16"/>
+            <geom name="wagon/col/base_link_17"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_17"/>
+            <geom name="wagon/col/base_link_18"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_18"/>
+            <geom name="wagon/col/base_link_19"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_19"/>
+            <geom name="wagon/col/base_link_20"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_20"/>
+            <geom name="wagon/col/base_link_21"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_21"/>
+            <geom name="wagon/col/base_link_22"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_22"/>
         </body>
         <!-- mobile body -->
         <!-- <inertial                                                               pos="0 0 0.37" mass="100" diaginertia="0.1 0.1 0.1" /> -->
@@ -148,8 +172,24 @@
         <!-- === Container === === === === -->
         <body name="wagon/pocket" pos="0 0.018 0.217">
             <inertial pos="0 0 0" mass="0.9" diaginertia="0.05 0.06 0.02"/>
-            <geom name="wagon/viz/pocket"                class="wagon/viz/pocket"      mesh="wagon_pocket"/>
-            <geom name="wagon/col/pocket"                class="wagon/col"      mesh="wagon_pocket"/>
+            <!-- <geom name="wagon/viz/pocket"                class="wagon/viz/pocket"      mesh="wagon_pocket"/> -->
+            <geom name="wagon/viz/pocket"                class="wagon/viz/pocket"      mesh="Cart_pocket"/>
+            <!-- <geom name="wagon/col/pocket"                class="wagon/col"      mesh="wagon_pocket"/> -->
+            <geom name="wagon/col/pocket_0"                class="wagon/col"      mesh="Cart_pocket_collision_0"/>
+            <geom name="wagon/col/pocket_1"                class="wagon/col"      mesh="Cart_pocket_collision_1"/>
+            <geom name="wagon/col/pocket_2"                class="wagon/col"      mesh="Cart_pocket_collision_2"/>
+            <geom name="wagon/col/pocket_3"                class="wagon/col"      mesh="Cart_pocket_collision_3"/>
+            <geom name="wagon/col/pocket_4"                class="wagon/col"      mesh="Cart_pocket_collision_4"/>
+            <geom name="wagon/col/pocket_5"                class="wagon/col"      mesh="Cart_pocket_collision_5"/>
+            <geom name="wagon/col/pocket_6"                class="wagon/col"      mesh="Cart_pocket_collision_6"/>
+            <geom name="wagon/col/pocket_7"                class="wagon/col"      mesh="Cart_pocket_collision_7"/>
+            <geom name="wagon/col/pocket_8"                class="wagon/col"      mesh="Cart_pocket_collision_8"/>
+            <geom name="wagon/col/pocket_9"                class="wagon/col"      mesh="Cart_pocket_collision_9"/>
+            <geom name="wagon/col/pocket_10"                class="wagon/col"      mesh="Cart_pocket_collision_10"/>
+            <geom name="wagon/col/pocket_11"                class="wagon/col"      mesh="Cart_pocket_collision_11"/>
+            <geom name="wagon/col/pocket_12"                class="wagon/col"      mesh="Cart_pocket_collision_12"/>
+            <geom name="wagon/col/pocket_13"                class="wagon/col"      mesh="Cart_pocket_collision_13"/>
+            <geom name="wagon/col/pocket_14"                class="wagon/col"      mesh="Cart_pocket_collision_14"/>
         </body>
     </body>
 

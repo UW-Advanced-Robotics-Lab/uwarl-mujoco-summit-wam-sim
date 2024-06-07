@@ -53,7 +53,7 @@
         
         <!-- Wagon -->
         <!-- -1.4 0.02 0 | 0 0 1.57079632679 -->
-        <body name="wagon" pos="2.6 0.52 0" euler="0 0 1.57079632679" >
+        <body name="wagon" pos="2.62 0.52 0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
@@ -66,10 +66,23 @@
         <!-- Origin of this box is at its geometric-center. So initialise the box above the ground. -->
         <body name="temp_obstacle" pos="7.75 0.98 0.5" euler="0 0 0">
             <joint name="temp_obstacle/free" type="free"/>
-            <geom name="box/viz" type="box" size="0.25 0.5 0.5" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"/>
-            <geom name="box/col" type="box" size="0.25 0.5 0.5" contype="1" conaffinity="1" group="0" rgba="0.9 0 0 0.7"/>
+            <inertial pos="0.0 0.0 0.0" mass="0.2" diaginertia="0.001 0.0001 0.001"/>
+            <geom name="temp_obstacle/viz" type="box" size="0.25 0.5 0.5" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"/>
+            <geom name="temp_obstacle/col" type="box" size="0.25 0.5 0.5" contype="1" conaffinity="1" group="0" rgba="0.9 0 0 0.7"/>
         </body>
 
+        <!-- Placing a brown box inside the cart -->
+        <body name="brown_box_0" pos="2.62 0.52 0.5" euler="0 0 0">
+            <joint name="brown_box_0/free" type="free"/>
+            <inertial pos="0.0 0.0 0.0" mass="0.2" diaginertia="0.001 0.0001 0.001"/>
+            <geom name="brown_box_0/viz" type="box" size="0.34 0.2 0.15" contype="0" conaffinity="0" group="1" rgba="0.6 0.4 0.3 1"/>
+            <geom name="brown_box_0/col" type="box" size="0.34 0.2 0.15" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7"/>
+            <body name="brown_box_1" pos="0 0 0.65" euler="0 0 0">
+                <inertial pos="0.0 0.0 0.0" mass="0.2" diaginertia="0.001 0.0001 0.001"/>
+                <geom name="brown_box_1/viz" type="box" size="0.34 0.4 0.5" contype="0" conaffinity="0" group="1" rgba="0.6 0.4 0.3 1"/>
+                <geom name="brown_box_1/col" type="box" size="0.34 0.4 0.5" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7"/>
+            </body>
+        </body>
 
     </worldbody>
 
