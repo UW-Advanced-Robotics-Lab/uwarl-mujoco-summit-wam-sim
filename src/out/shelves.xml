@@ -1,0 +1,77 @@
+<mujoco model="shelves">
+  <default>
+    <default class="/"/>
+    <default class="leg_rt/"/>
+    <default class="leg_lt/"/>
+    <default class="leg_lb/"/>
+    <default class="leg_rb/"/>
+    <default class="shelf_0/"/>
+    <default class="shelf_1/"/>
+    <default class="shelf_2/"/>
+    <default class="shelf_3/"/>
+    <default class="shelf_4/"/>
+    <default class="shelf_5/"/>
+  </default>
+  <worldbody>
+    <body pos="1 1 1.5249999999999999" name="leg_rt/">
+      <body name="leg_rt/leg_rt">
+        <inertial pos="0 0 0" mass="0.40000000000000002"/>
+        <geom name="leg_rt/leg_rt" class="leg_rt/" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 3.0499999999999998" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="-1 1 1.5249999999999999" name="leg_lt/">
+      <body name="leg_lt/leg_lt">
+        <inertial pos="0 0 0" mass="0.40000000000000002"/>
+        <geom name="leg_lt/leg_lt" class="leg_lt/" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 3.0499999999999998" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="-1 -1 1.5249999999999999" name="leg_lb/">
+      <body name="leg_lb/leg_lb">
+        <inertial pos="0 0 0" mass="0.40000000000000002"/>
+        <geom name="leg_lb/leg_lb" class="leg_lb/" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 3.0499999999999998" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="1 -1 1.5249999999999999" name="leg_rb/">
+      <body name="leg_rb/leg_rb">
+        <inertial pos="0 0 0" mass="0.40000000000000002"/>
+        <geom name="leg_rb/leg_rb" class="leg_rb/" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 3.0499999999999998" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="0 0 0.050000000000000003" name="shelf_0/">
+      <body name="shelf_0/shelf_0">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_0/shelf_0" class="shelf_0/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="0 0 0.65000000000000002" name="shelf_1/">
+      <body name="shelf_1/shelf_1">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_1/shelf_1" class="shelf_1/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="0 0 1.25" name="shelf_2/">
+      <body name="shelf_2/shelf_2">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_2/shelf_2" class="shelf_2/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="0 0 1.8500000000000001" name="shelf_3/">
+      <body name="shelf_3/shelf_3">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_3/shelf_3" class="shelf_3/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="0 0 2.4500000000000002" name="shelf_4/">
+      <body name="shelf_4/shelf_4">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_4/shelf_4" class="shelf_4/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body pos="0 0 3.0500000000000003" name="shelf_5/">
+      <body name="shelf_5/shelf_5">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_5/shelf_5" class="shelf_5/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

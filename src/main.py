@@ -67,10 +67,11 @@ def main():
         # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
         rate_Hz         = update_rate,
         rate_scene      = rate_plot,
-        camera_config   = {"smt/front/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":2},
-                           "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":0},
-                           "smt/pole_link/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":1},
-                           "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":3}}
+        camera_config   = {#"smt/front/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":0},
+                        #    "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":1},
+                           "smt/pole_link/camera/intel/rgb": {"width": 1980, "height":1080, "fps": 60, "id":2},
+                        #    "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":3}
+                           }
     )
 
     # Initialize variables

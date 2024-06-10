@@ -1,0 +1,57 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Arnab Joardar
+        Last edits  : Feb 20, 2024
+        
+====================================================== -->
+
+<mujocoinclude> 
+        
+        <body name="shelf" pos="0 0 0">
+            <!-- Shelves -->
+            <body name="rack_0" pos="0 0 0.05">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="rack_0" class="rack/viz" />
+            </body>
+            <body name="rack_1" pos="0 0 0.65">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="rack_1" class="rack/viz" />
+            </body>
+            <body name="rack_2" pos="0 0 1.25">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="rack_2" class="rack/viz" />
+            </body>
+            <body name="rack_3" pos="0 0 1.85">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="rack_3" class="rack/viz" />
+            </body>
+            <body name="rack_4" pos="0 0 2.45">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="rack_4" class="rack/viz" />
+            </body>
+            <body name="rack_5" pos="0 0 3.05">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="rack_5" class="rack/viz" />
+            </body>
+            <!-- Legs -->
+            <body name="leg_0" pos="0.98 0.48 1.375">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="leg_0" class="leg/viz" />
+            </body>
+            <body name="leg_1" pos="-0.98 0.48 1.375">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="leg_1" class="leg/viz" />
+            </body>
+            <body name="leg_2" pos="-0.98 -0.48 1.375">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="leg_2" class="leg/viz" />
+            </body>
+            <body name="leg_3" pos="0.98 -0.48 1.375">
+                <inertial pos="0 0 0" mass="0.1"/>
+                <geom name="leg_3" class="leg/viz" />
+            </body>
+        </body>
+        
+</mujocoinclude>
+

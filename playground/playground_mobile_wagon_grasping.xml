@@ -21,11 +21,13 @@
         ### IMPORT ###
         ############## -->
     <include file="../components/include_common.xml"/>
-    <include file="../components/include_summit_wam_bhand_Dependencies.xml"/>   
+    <include file="../components/include_summit_wam_bhand_Dependencies.xml"/> 
     <include file="../components/include_summit_wam_bhand_actuators.xml"/>
     <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/>  
     <!-- <include file="../components/include_e7_3rd_floor_Dependencies.xml"/>  -->
-    <include file="../components/include_long_corridor_Dependencies.xml"/>
+    <!-- <include file="../components/include_long_corridor_Dependencies.xml"/> -->
+    <!-- <include file="../components/include_shelves_Dependencies.xml"/> -->
+    <include file="../components/shelves_Dependencies.xml"/>
 
     <!--###############
         ### Config: ###
@@ -57,9 +59,9 @@
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
-        <!-- Long Corridor -->
-        <body name="environment" pos="-13.5 -2 0" euler="0 0 0">
-            <include file="../components/include_long_corridor.xml"/>   
+        <!-- Environment -->
+        <body name="environment" pos="0 -2 0" euler="0 0 0">
+            <include file="../components/shelves.xml"/>
         </body>
 
         <!-- Place Box along corridor -->
@@ -72,17 +74,12 @@
         </body>
 
         <!-- Placing a brown box inside the cart -->
-        <body name="brown_box_0" pos="2.62 0.52 0.5" euler="0 0 0">
+        <!-- <body name="brown_box_0" pos="2.62 0.52 0.5" euler="0 0 0">
             <joint name="brown_box_0/free" type="free"/>
             <inertial pos="0.0 0.0 0.0" mass="0.2" diaginertia="0.001 0.0001 0.001"/>
-            <geom name="brown_box_0/viz" type="box" size="0.34 0.2 0.15" contype="0" conaffinity="0" group="1" rgba="0.6 0.4 0.3 1"/>
-            <geom name="brown_box_0/col" type="box" size="0.34 0.2 0.15" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7"/>
-            <body name="brown_box_1" pos="0 0 0.65" euler="0 0 0">
-                <inertial pos="0.0 0.0 0.0" mass="0.2" diaginertia="0.001 0.0001 0.001"/>
-                <geom name="brown_box_1/viz" type="box" size="0.34 0.4 0.5" contype="0" conaffinity="0" group="1" rgba="0.6 0.4 0.3 1"/>
-                <geom name="brown_box_1/col" type="box" size="0.34 0.4 0.5" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7"/>
-            </body>
-        </body>
+            <geom name="brown_box_0/viz" type="box" size="0.32 0.2 0.15" contype="0" conaffinity="0" group="1" rgba="0.6 0.4 0.3 1"/>
+            <geom name="brown_box_0/col" type="box" size="0.32 0.2 0.15" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7"/>
+        </body> -->
 
     </worldbody>
 
