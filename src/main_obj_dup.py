@@ -104,12 +104,61 @@ class Box_Collection:
     _size_2 = [0.2,0.3,0.1]
     _size_3 = [0.1,0.3,0.25]
     _size_4 = [0.2,0.3,0.15]
+    _size_0_name = 'box_0'
+    _size_1_name = 'box_1'
+    _size_2_name = 'box_2'
+    _size_3_name = 'box_3'
+    _size_4_name = 'box_4'
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
-    def __init__(self, name, size=None):
-       # Prepare a collection of boxes
-       self.leg_rt = Legs(radius=self._leg_radius, height=shelf_total_height, name='leg_rt')
+    def __init__(self, name):
+        # Prepare a collection of boxes
+        self.box_0_0 = Boxes(name = self._size_0_name+'_0', size = self._size_0)
+        self.box_0_1 = Boxes(name = self._size_0_name+'_1', size = self._size_0)
+        self.box_0_2 = Boxes(name = self._size_0_name+'_2', size = self._size_0)
+        self.box_0_3 = Boxes(name = self._size_0_name+'_3', size = self._size_0)
+        self.box_0_4 = Boxes(name = self._size_0_name+'_4', size = self._size_0)
+        self.box_1 = Boxes(name = self._size_1_name, size = self._size_1)
+        self.box_2 = Boxes(name = self._size_2_name, size = self._size_2)
+        self.box_3_0 = Boxes(name = self._size_3_name+'_0', size = self._size_3)
+        self.box_3_1 = Boxes(name = self._size_3_name+'_1', size = self._size_3)
+        self.box_4 = Boxes(name = self._size_4_name, size = self._size_4)
+        # Make a MujoCo Root
+        self.mjcf_model = mjcf.RootElement(model=name)
+
+        # Prepare the arrangements of boxes for one shelf
+        box_0_0 = self.mjcf_model.worldbody.add('site',
+                                                pos = [-0.85, 0.2, 0.1])
+        box_1_0 = self.mjcf_model.worldbody.add('site',
+                                                pos = [-0.85, -0.2, 0.1])
+        box_2_1 = self.mjcf_model.worldbody.add('site',
+                                                pos = [-0.5, 0.2, 0.2])
+        box_3_2 = self.mjcf_model.worldbody.add('site',
+                                                pos = [-0.05, 0.1, 0.1])
+        box_4_4 = self.mjcf_model.worldbody.add('site',
+                                                pos = [-0.045, 0.15, 0.35])
+        box_5_3 = self.mjcf_model.worldbody.add('site',
+                                                pos = [0.3, 0.15, 0.25])
+        box_6_3 = self.mjcf_model.worldbody.add('site',
+                                                pos = [0.55, 0.1, 0.25])
+        box_7_0 = self.mjcf_model.worldbody.add('site',
+                                                pos = [0.8, 0.2, 0.1])
+        box_8_0 = self.mjcf_model.worldbody.add('site',
+                                                pos = [0.8, -0.05, 0.1])
+        box_9_0 = self.mjcf_model.worldbody.add('site',
+                                                pos = [0.8, 0.075, 0.3])
+        # Attach the boxes
+        box_0_0.attach(self.box_0_0.mjcf_model)
+        box_1_0.attach(self.box_0_1.mjcf_model)
+        box_2_1.attach(self.box_1.mjcf_model)
+        box_3_2.attach(self.box_2.mjcf_model)
+        box_4_4.attach(self.box_4.mjcf_model)
+        box_5_3.attach(self.box_3_0.mjcf_model)
+        box_6_3.attach(self.box_3_1.mjcf_model)
+        box_7_0.attach(self.box_0_2.mjcf_model)
+        box_8_0.attach(self.box_0_3.mjcf_model)
+        box_9_0.attach(self.box_0_4.mjcf_model)
 
 # Make a class for constructing shelves
 class Shelves:
@@ -182,9 +231,17 @@ class Shelves:
         # Attach the shelf
         for x in range(num_shelves):
             shelf_sites[x].attach(shelf[x].mjcf_model)
+        
+        # Create Box-collections
+        # Initialize empty list of box-collections
+        box_col = []
+        for x in range(num_shelves):
+            box_col.append(Box_Collection('boc_col_'+str(x)))
+        # Attach box-collections to each shelf-site
+        for x in range(num_shelves):
+            shelf_sites[x].attach(box_col[x].mjcf_model)
 
         # Delete attachment frames. The element `site` is being read by MuJoCo and, since it does not recongnize this element, it throws an error.
-        sites = self.mjcf_model.find_all('site')
         self.mjcf_model.worldbody.site.clear()
 
         # Find all classes
