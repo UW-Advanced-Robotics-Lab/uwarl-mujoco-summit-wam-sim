@@ -1,0 +1,17 @@
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <asset>
+        <!-- <a href="https://www.freepik.com/free-photo/grunge-wall-texture_1034776.htm#query=concrete%20texture&position=2&from_view=keyword&track=ais_user&uuid=c7b12d8a-c0e6-4240-88a2-0293da25146b">Image by kues1 on Freepik</a> -->
+        <texture name="concrete_wall" file="../components/texture/6108.png" type="cube"/>
+        <material name="wall" texture="concrete_wall" reflectance="0.05"/>
+    </asset>
+    <default>
+        <default class="wall/viz">
+        <geom contype="0" conaffinity="0" group="1" material="wall"/> <!--material="wall"-->
+        </default>
+    </default>
+
+</mujocoinclude>
+

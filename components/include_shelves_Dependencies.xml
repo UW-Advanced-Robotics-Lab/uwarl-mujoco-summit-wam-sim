@@ -1,23 +1,11 @@
-<mujocoinclude> 
-    <!--##############
-        ### IMPORT ###
-        ############## -->
-    <!-- Boxes -->
-    <include file="../components/include_boxes_Dependencies.xml"/> 
+<mujocoinclude>
+    <asset>
+        <!--https://www.pinterest.com/pin/822962531891993746/-->
+        <texture name="cardboard" file="../components/texture/cardboard.png" type="cube"/>
+        <material name="cardboard" texture="cardboard" reflectance="0"/>
+    </asset>
     <default>
-        <default class="rack/col">
-            <geom type="box" size="1 0.5 0.005" contype="1" conaffinity="1" group="0" rgba="0.95 0.6 0.05 0.7"/>          
-        </default>
-        <default class="rack/viz">
-            <geom type="box" size="1 0.5 0.005" contype="0" conaffinity="0" group="1" rgba="0.95 0.6 0.05 1"/>
-        </default>
-        <default class="leg/col">
-            <geom type="cylinder" size="0.02 1.525" contype="1" conaffinity="1" group="0" rgba="0.95 0.6 0.05 0.7"/>          
-        </default>
-        <default class="leg/viz">
-            <geom type="cylinder" size="0.02 1.525" contype="0" conaffinity="0" group="1" rgba="0.95 0.6 0.05 1"/>
+        <default class="default">
         </default>
     </default>
-
 </mujocoinclude>
-

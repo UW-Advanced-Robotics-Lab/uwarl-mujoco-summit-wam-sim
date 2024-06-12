@@ -1,573 +1,438 @@
 <mujoco model="shelves">
   <default>
-    <default class="/"/>
-    <default class="leg_rt/"/>
-    <default class="leg_lt/"/>
-    <default class="leg_lb/"/>
-    <default class="leg_rb/"/>
-    <default class="shelf_0/"/>
-    <default class="shelf_1/"/>
-    <default class="shelf_2/"/>
-    <default class="shelf_3/"/>
-    <default class="shelf_4/"/>
-    <default class="shelf_5/"/>
-    <default class="boc_col_0/"/>
-    <default class="boc_col_0/box_0_0/"/>
-    <default class="boc_col_0/box_0_1/"/>
-    <default class="boc_col_0/box_1/"/>
-    <default class="boc_col_0/box_2/"/>
-    <default class="boc_col_0/box_4/"/>
-    <default class="boc_col_0/box_3_0/"/>
-    <default class="boc_col_0/box_3_1/"/>
-    <default class="boc_col_0/box_0_2/"/>
-    <default class="boc_col_0/box_0_3/"/>
-    <default class="boc_col_0/box_0_4/"/>
-    <default class="boc_col_1/"/>
-    <default class="boc_col_1/box_0_0/"/>
-    <default class="boc_col_1/box_0_1/"/>
-    <default class="boc_col_1/box_1/"/>
-    <default class="boc_col_1/box_2/"/>
-    <default class="boc_col_1/box_4/"/>
-    <default class="boc_col_1/box_3_0/"/>
-    <default class="boc_col_1/box_3_1/"/>
-    <default class="boc_col_1/box_0_2/"/>
-    <default class="boc_col_1/box_0_3/"/>
-    <default class="boc_col_1/box_0_4/"/>
-    <default class="boc_col_2/"/>
-    <default class="boc_col_2/box_0_0/"/>
-    <default class="boc_col_2/box_0_1/"/>
-    <default class="boc_col_2/box_1/"/>
-    <default class="boc_col_2/box_2/"/>
-    <default class="boc_col_2/box_4/"/>
-    <default class="boc_col_2/box_3_0/"/>
-    <default class="boc_col_2/box_3_1/"/>
-    <default class="boc_col_2/box_0_2/"/>
-    <default class="boc_col_2/box_0_3/"/>
-    <default class="boc_col_2/box_0_4/"/>
-    <default class="boc_col_3/"/>
-    <default class="boc_col_3/box_0_0/"/>
-    <default class="boc_col_3/box_0_1/"/>
-    <default class="boc_col_3/box_1/"/>
-    <default class="boc_col_3/box_2/"/>
-    <default class="boc_col_3/box_4/"/>
-    <default class="boc_col_3/box_3_0/"/>
-    <default class="boc_col_3/box_3_1/"/>
-    <default class="boc_col_3/box_0_2/"/>
-    <default class="boc_col_3/box_0_3/"/>
-    <default class="boc_col_3/box_0_4/"/>
-    <default class="boc_col_4/"/>
-    <default class="boc_col_4/box_0_0/"/>
-    <default class="boc_col_4/box_0_1/"/>
-    <default class="boc_col_4/box_1/"/>
-    <default class="boc_col_4/box_2/"/>
-    <default class="boc_col_4/box_4/"/>
-    <default class="boc_col_4/box_3_0/"/>
-    <default class="boc_col_4/box_3_1/"/>
-    <default class="boc_col_4/box_0_2/"/>
-    <default class="boc_col_4/box_0_3/"/>
-    <default class="boc_col_4/box_0_4/"/>
-    <default class="boc_col_5/"/>
-    <default class="boc_col_5/box_0_0/"/>
-    <default class="boc_col_5/box_0_1/"/>
-    <default class="boc_col_5/box_1/"/>
-    <default class="boc_col_5/box_2/"/>
-    <default class="boc_col_5/box_4/"/>
-    <default class="boc_col_5/box_3_0/"/>
-    <default class="boc_col_5/box_3_1/"/>
-    <default class="boc_col_5/box_0_2/"/>
-    <default class="boc_col_5/box_0_3/"/>
-    <default class="boc_col_5/box_0_4/"/>
+    <default class="default">
+    </default>
   </default>
   <worldbody>
-    <body pos="1 1 1.5249999999999999" name="leg_rt/">
-      <body name="leg_rt/leg_rt">
+    <body name="leg_rt\" pos="1 1 1.5249999999999999">
+      <body name="leg_rt\leg_rt">
         <inertial pos="0 0 0" mass="0.40000000000000002"/>
-        <geom name="leg_rt/leg_rt" class="leg_rt/" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="leg_rt\leg_rt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="-1 1 1.5249999999999999" name="leg_lt/">
-      <body name="leg_lt/leg_lt">
+    <body name="leg_lt\" pos="-1 1 1.5249999999999999">
+      <body name="leg_lt\leg_lt">
         <inertial pos="0 0 0" mass="0.40000000000000002"/>
-        <geom name="leg_lt/leg_lt" class="leg_lt/" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="leg_lt\leg_lt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="-1 -1 1.5249999999999999" name="leg_lb/">
-      <body name="leg_lb/leg_lb">
+    <body name="leg_lb\" pos="-1 -1 1.5249999999999999">
+      <body name="leg_lb\leg_lb">
         <inertial pos="0 0 0" mass="0.40000000000000002"/>
-        <geom name="leg_lb/leg_lb" class="leg_lb/" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="leg_lb\leg_lb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="1 -1 1.5249999999999999" name="leg_rb/">
-      <body name="leg_rb/leg_rb">
+    <body name="leg_rb\" pos="1 -1 1.5249999999999999">
+      <body name="leg_rb\leg_rb">
         <inertial pos="0 0 0" mass="0.40000000000000002"/>
-        <geom name="leg_rb/leg_rb" class="leg_rb/" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="leg_rb\leg_rb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="0 0 0.050000000000000003" name="shelf_0/">
-      <body name="shelf_0/shelf_0">
+    <body name="shelf_0\" pos="0 0 0.050000000000000003">
+      <body name="shelf_0\shelf_0">
         <inertial pos="0 0 0" mass="1"/>
-        <geom name="shelf_0/shelf_0" class="shelf_0/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="shelf_0\shelf_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="0 0 0.050000000000000003" name="boc_col_0/">
-      <site name="boc_col_0//unnamed_site_0" class="boc_col_0/" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001" name="boc_col_0/box_0_0/">
-        <body name="boc_col_0/box_0_0/box_0_0">
+    <body name="box_col_0\" pos="0 0 0.050000000000000003">
+      <body name="box_col_0\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_0\box_0_0\box_0_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_0_0/box_0_0" class="boc_col_0/box_0_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_1" class="boc_col_0/" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001" name="boc_col_0/box_0_1/">
-        <body name="boc_col_0/box_0_1/box_0_1">
+      <body name="box_col_0\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_0\box_0_1\box_0_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_0_1/box_0_1" class="boc_col_0/box_0_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_2" class="boc_col_0/" pos="-0.5 0.20000000000000001 0.20000000000000001"/>
-      <body pos="-0.5 0.20000000000000001 0.20000000000000001" name="boc_col_0/box_1/">
-        <body name="boc_col_0/box_1/box_1">
+      <body name="box_col_0\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_0\box_1\box_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_1/box_1" class="boc_col_0/box_1/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_3" class="boc_col_0/" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001"/>
-      <body pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001" name="boc_col_0/box_2/">
-        <body name="boc_col_0/box_2/box_2">
+      <body name="box_col_0\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_0\box_2\box_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_2/box_2" class="boc_col_0/box_2/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_4" class="boc_col_0/" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998"/>
-      <body pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998" name="boc_col_0/box_4/">
-        <body name="boc_col_0/box_4/box_4">
+      <body name="box_col_0\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_0\box_4\box_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_4/box_4" class="boc_col_0/box_4/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_5" class="boc_col_0/" pos="0.29999999999999999 0.14999999999999999 0.25"/>
-      <body pos="0.29999999999999999 0.14999999999999999 0.25" name="boc_col_0/box_3_0/">
-        <body name="boc_col_0/box_3_0/box_3_0">
+      <body name="box_col_0\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_0\box_3_0\box_3_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_3_0/box_3_0" class="boc_col_0/box_3_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_6" class="boc_col_0/" pos="0.55000000000000004 0.10000000000000001 0.25"/>
-      <body pos="0.55000000000000004 0.10000000000000001 0.25" name="boc_col_0/box_3_1/">
-        <body name="boc_col_0/box_3_1/box_3_1">
+      <body name="box_col_0\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_0\box_3_1\box_3_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_3_1/box_3_1" class="boc_col_0/box_3_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_7" class="boc_col_0/" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001"/>
-      <body pos="0.80000000000000004 0.20000000000000001 0.10000000000000001" name="boc_col_0/box_0_2/">
-        <body name="boc_col_0/box_0_2/box_0_2">
+      <body name="box_col_0\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_0\box_0_2\box_0_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_0_2/box_0_2" class="boc_col_0/box_0_2/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_8" class="boc_col_0/" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001"/>
-      <body pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001" name="boc_col_0/box_0_3/">
-        <body name="boc_col_0/box_0_3/box_0_3">
+      <body name="box_col_0\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_0\box_0_3\box_0_3">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_0_3/box_0_3" class="boc_col_0/box_0_3/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_0//unnamed_site_9" class="boc_col_0/" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999"/>
-      <body pos="0.80000000000000004 0.074999999999999997 0.29999999999999999" name="boc_col_0/box_0_4/">
-        <body name="boc_col_0/box_0_4/box_0_4">
+      <body name="box_col_0\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_0\box_0_4\box_0_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_0/box_0_4/box_0_4" class="boc_col_0/box_0_4/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_0\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
     </body>
-    <body pos="0 0 0.65000000000000002" name="shelf_1/">
-      <body name="shelf_1/shelf_1">
+    <body name="shelf_1\" pos="0 0 0.65000000000000002">
+      <body name="shelf_1\shelf_1">
         <inertial pos="0 0 0" mass="1"/>
-        <geom name="shelf_1/shelf_1" class="shelf_1/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="shelf_1\shelf_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="0 0 0.65000000000000002" name="boc_col_1/">
-      <site name="boc_col_1//unnamed_site_0" class="boc_col_1/" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001" name="boc_col_1/box_0_0/">
-        <body name="boc_col_1/box_0_0/box_0_0">
+    <body name="box_col_1\" pos="0 0 0.65000000000000002">
+      <body name="box_col_1\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_1\box_0_0\box_0_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_0_0/box_0_0" class="boc_col_1/box_0_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_1" class="boc_col_1/" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001" name="boc_col_1/box_0_1/">
-        <body name="boc_col_1/box_0_1/box_0_1">
+      <body name="box_col_1\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_1\box_0_1\box_0_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_0_1/box_0_1" class="boc_col_1/box_0_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_2" class="boc_col_1/" pos="-0.5 0.20000000000000001 0.20000000000000001"/>
-      <body pos="-0.5 0.20000000000000001 0.20000000000000001" name="boc_col_1/box_1/">
-        <body name="boc_col_1/box_1/box_1">
+      <body name="box_col_1\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_1\box_1\box_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_1/box_1" class="boc_col_1/box_1/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_3" class="boc_col_1/" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001"/>
-      <body pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001" name="boc_col_1/box_2/">
-        <body name="boc_col_1/box_2/box_2">
+      <body name="box_col_1\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_1\box_2\box_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_2/box_2" class="boc_col_1/box_2/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_4" class="boc_col_1/" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998"/>
-      <body pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998" name="boc_col_1/box_4/">
-        <body name="boc_col_1/box_4/box_4">
+      <body name="box_col_1\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_1\box_4\box_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_4/box_4" class="boc_col_1/box_4/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_5" class="boc_col_1/" pos="0.29999999999999999 0.14999999999999999 0.25"/>
-      <body pos="0.29999999999999999 0.14999999999999999 0.25" name="boc_col_1/box_3_0/">
-        <body name="boc_col_1/box_3_0/box_3_0">
+      <body name="box_col_1\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_1\box_3_0\box_3_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_3_0/box_3_0" class="boc_col_1/box_3_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_6" class="boc_col_1/" pos="0.55000000000000004 0.10000000000000001 0.25"/>
-      <body pos="0.55000000000000004 0.10000000000000001 0.25" name="boc_col_1/box_3_1/">
-        <body name="boc_col_1/box_3_1/box_3_1">
+      <body name="box_col_1\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_1\box_3_1\box_3_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_3_1/box_3_1" class="boc_col_1/box_3_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_7" class="boc_col_1/" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001"/>
-      <body pos="0.80000000000000004 0.20000000000000001 0.10000000000000001" name="boc_col_1/box_0_2/">
-        <body name="boc_col_1/box_0_2/box_0_2">
+      <body name="box_col_1\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_1\box_0_2\box_0_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_0_2/box_0_2" class="boc_col_1/box_0_2/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_8" class="boc_col_1/" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001"/>
-      <body pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001" name="boc_col_1/box_0_3/">
-        <body name="boc_col_1/box_0_3/box_0_3">
+      <body name="box_col_1\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_1\box_0_3\box_0_3">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_0_3/box_0_3" class="boc_col_1/box_0_3/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_1//unnamed_site_9" class="boc_col_1/" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999"/>
-      <body pos="0.80000000000000004 0.074999999999999997 0.29999999999999999" name="boc_col_1/box_0_4/">
-        <body name="boc_col_1/box_0_4/box_0_4">
+      <body name="box_col_1\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_1\box_0_4\box_0_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_1/box_0_4/box_0_4" class="boc_col_1/box_0_4/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_1\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
     </body>
-    <body pos="0 0 1.25" name="shelf_2/">
-      <body name="shelf_2/shelf_2">
+    <body name="shelf_2\" pos="0 0 1.25">
+      <body name="shelf_2\shelf_2">
         <inertial pos="0 0 0" mass="1"/>
-        <geom name="shelf_2/shelf_2" class="shelf_2/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="shelf_2\shelf_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="0 0 1.25" name="boc_col_2/">
-      <site name="boc_col_2//unnamed_site_0" class="boc_col_2/" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001" name="boc_col_2/box_0_0/">
-        <body name="boc_col_2/box_0_0/box_0_0">
+    <body name="box_col_2\" pos="0 0 1.25">
+      <body name="box_col_2\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_2\box_0_0\box_0_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_0_0/box_0_0" class="boc_col_2/box_0_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_1" class="boc_col_2/" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001" name="boc_col_2/box_0_1/">
-        <body name="boc_col_2/box_0_1/box_0_1">
+      <body name="box_col_2\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_2\box_0_1\box_0_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_0_1/box_0_1" class="boc_col_2/box_0_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_2" class="boc_col_2/" pos="-0.5 0.20000000000000001 0.20000000000000001"/>
-      <body pos="-0.5 0.20000000000000001 0.20000000000000001" name="boc_col_2/box_1/">
-        <body name="boc_col_2/box_1/box_1">
+      <body name="box_col_2\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_2\box_1\box_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_1/box_1" class="boc_col_2/box_1/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_3" class="boc_col_2/" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001"/>
-      <body pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001" name="boc_col_2/box_2/">
-        <body name="boc_col_2/box_2/box_2">
+      <body name="box_col_2\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_2\box_2\box_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_2/box_2" class="boc_col_2/box_2/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_4" class="boc_col_2/" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998"/>
-      <body pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998" name="boc_col_2/box_4/">
-        <body name="boc_col_2/box_4/box_4">
+      <body name="box_col_2\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_2\box_4\box_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_4/box_4" class="boc_col_2/box_4/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_5" class="boc_col_2/" pos="0.29999999999999999 0.14999999999999999 0.25"/>
-      <body pos="0.29999999999999999 0.14999999999999999 0.25" name="boc_col_2/box_3_0/">
-        <body name="boc_col_2/box_3_0/box_3_0">
+      <body name="box_col_2\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_2\box_3_0\box_3_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_3_0/box_3_0" class="boc_col_2/box_3_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_6" class="boc_col_2/" pos="0.55000000000000004 0.10000000000000001 0.25"/>
-      <body pos="0.55000000000000004 0.10000000000000001 0.25" name="boc_col_2/box_3_1/">
-        <body name="boc_col_2/box_3_1/box_3_1">
+      <body name="box_col_2\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_2\box_3_1\box_3_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_3_1/box_3_1" class="boc_col_2/box_3_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_7" class="boc_col_2/" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001"/>
-      <body pos="0.80000000000000004 0.20000000000000001 0.10000000000000001" name="boc_col_2/box_0_2/">
-        <body name="boc_col_2/box_0_2/box_0_2">
+      <body name="box_col_2\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_2\box_0_2\box_0_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_0_2/box_0_2" class="boc_col_2/box_0_2/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_8" class="boc_col_2/" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001"/>
-      <body pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001" name="boc_col_2/box_0_3/">
-        <body name="boc_col_2/box_0_3/box_0_3">
+      <body name="box_col_2\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_2\box_0_3\box_0_3">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_0_3/box_0_3" class="boc_col_2/box_0_3/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_2//unnamed_site_9" class="boc_col_2/" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999"/>
-      <body pos="0.80000000000000004 0.074999999999999997 0.29999999999999999" name="boc_col_2/box_0_4/">
-        <body name="boc_col_2/box_0_4/box_0_4">
+      <body name="box_col_2\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_2\box_0_4\box_0_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_2/box_0_4/box_0_4" class="boc_col_2/box_0_4/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_2\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
     </body>
-    <body pos="0 0 1.8500000000000001" name="shelf_3/">
-      <body name="shelf_3/shelf_3">
+    <body name="shelf_3\" pos="0 0 1.8500000000000001">
+      <body name="shelf_3\shelf_3">
         <inertial pos="0 0 0" mass="1"/>
-        <geom name="shelf_3/shelf_3" class="shelf_3/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="shelf_3\shelf_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="0 0 1.8500000000000001" name="boc_col_3/">
-      <site name="boc_col_3//unnamed_site_0" class="boc_col_3/" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001" name="boc_col_3/box_0_0/">
-        <body name="boc_col_3/box_0_0/box_0_0">
+    <body name="box_col_3\" pos="0 0 1.8500000000000001">
+      <body name="box_col_3\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_3\box_0_0\box_0_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_0_0/box_0_0" class="boc_col_3/box_0_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_1" class="boc_col_3/" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001" name="boc_col_3/box_0_1/">
-        <body name="boc_col_3/box_0_1/box_0_1">
+      <body name="box_col_3\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_3\box_0_1\box_0_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_0_1/box_0_1" class="boc_col_3/box_0_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_2" class="boc_col_3/" pos="-0.5 0.20000000000000001 0.20000000000000001"/>
-      <body pos="-0.5 0.20000000000000001 0.20000000000000001" name="boc_col_3/box_1/">
-        <body name="boc_col_3/box_1/box_1">
+      <body name="box_col_3\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_3\box_1\box_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_1/box_1" class="boc_col_3/box_1/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_3" class="boc_col_3/" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001"/>
-      <body pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001" name="boc_col_3/box_2/">
-        <body name="boc_col_3/box_2/box_2">
+      <body name="box_col_3\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_3\box_2\box_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_2/box_2" class="boc_col_3/box_2/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_4" class="boc_col_3/" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998"/>
-      <body pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998" name="boc_col_3/box_4/">
-        <body name="boc_col_3/box_4/box_4">
+      <body name="box_col_3\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_3\box_4\box_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_4/box_4" class="boc_col_3/box_4/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_5" class="boc_col_3/" pos="0.29999999999999999 0.14999999999999999 0.25"/>
-      <body pos="0.29999999999999999 0.14999999999999999 0.25" name="boc_col_3/box_3_0/">
-        <body name="boc_col_3/box_3_0/box_3_0">
+      <body name="box_col_3\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_3\box_3_0\box_3_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_3_0/box_3_0" class="boc_col_3/box_3_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_6" class="boc_col_3/" pos="0.55000000000000004 0.10000000000000001 0.25"/>
-      <body pos="0.55000000000000004 0.10000000000000001 0.25" name="boc_col_3/box_3_1/">
-        <body name="boc_col_3/box_3_1/box_3_1">
+      <body name="box_col_3\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_3\box_3_1\box_3_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_3_1/box_3_1" class="boc_col_3/box_3_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_7" class="boc_col_3/" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001"/>
-      <body pos="0.80000000000000004 0.20000000000000001 0.10000000000000001" name="boc_col_3/box_0_2/">
-        <body name="boc_col_3/box_0_2/box_0_2">
+      <body name="box_col_3\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_3\box_0_2\box_0_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_0_2/box_0_2" class="boc_col_3/box_0_2/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_8" class="boc_col_3/" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001"/>
-      <body pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001" name="boc_col_3/box_0_3/">
-        <body name="boc_col_3/box_0_3/box_0_3">
+      <body name="box_col_3\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_3\box_0_3\box_0_3">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_0_3/box_0_3" class="boc_col_3/box_0_3/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_3//unnamed_site_9" class="boc_col_3/" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999"/>
-      <body pos="0.80000000000000004 0.074999999999999997 0.29999999999999999" name="boc_col_3/box_0_4/">
-        <body name="boc_col_3/box_0_4/box_0_4">
+      <body name="box_col_3\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_3\box_0_4\box_0_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_3/box_0_4/box_0_4" class="boc_col_3/box_0_4/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_3\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
     </body>
-    <body pos="0 0 2.4500000000000002" name="shelf_4/">
-      <body name="shelf_4/shelf_4">
+    <body name="shelf_4\" pos="0 0 2.4500000000000002">
+      <body name="shelf_4\shelf_4">
         <inertial pos="0 0 0" mass="1"/>
-        <geom name="shelf_4/shelf_4" class="shelf_4/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="shelf_4\shelf_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="0 0 2.4500000000000002" name="boc_col_4/">
-      <site name="boc_col_4//unnamed_site_0" class="boc_col_4/" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001" name="boc_col_4/box_0_0/">
-        <body name="boc_col_4/box_0_0/box_0_0">
+    <body name="box_col_4\" pos="0 0 2.4500000000000002">
+      <body name="box_col_4\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_4\box_0_0\box_0_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_0_0/box_0_0" class="boc_col_4/box_0_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_1" class="boc_col_4/" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001" name="boc_col_4/box_0_1/">
-        <body name="boc_col_4/box_0_1/box_0_1">
+      <body name="box_col_4\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_4\box_0_1\box_0_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_0_1/box_0_1" class="boc_col_4/box_0_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_2" class="boc_col_4/" pos="-0.5 0.20000000000000001 0.20000000000000001"/>
-      <body pos="-0.5 0.20000000000000001 0.20000000000000001" name="boc_col_4/box_1/">
-        <body name="boc_col_4/box_1/box_1">
+      <body name="box_col_4\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_4\box_1\box_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_1/box_1" class="boc_col_4/box_1/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_3" class="boc_col_4/" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001"/>
-      <body pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001" name="boc_col_4/box_2/">
-        <body name="boc_col_4/box_2/box_2">
+      <body name="box_col_4\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_4\box_2\box_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_2/box_2" class="boc_col_4/box_2/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_4" class="boc_col_4/" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998"/>
-      <body pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998" name="boc_col_4/box_4/">
-        <body name="boc_col_4/box_4/box_4">
+      <body name="box_col_4\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_4\box_4\box_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_4/box_4" class="boc_col_4/box_4/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_5" class="boc_col_4/" pos="0.29999999999999999 0.14999999999999999 0.25"/>
-      <body pos="0.29999999999999999 0.14999999999999999 0.25" name="boc_col_4/box_3_0/">
-        <body name="boc_col_4/box_3_0/box_3_0">
+      <body name="box_col_4\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_4\box_3_0\box_3_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_3_0/box_3_0" class="boc_col_4/box_3_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_6" class="boc_col_4/" pos="0.55000000000000004 0.10000000000000001 0.25"/>
-      <body pos="0.55000000000000004 0.10000000000000001 0.25" name="boc_col_4/box_3_1/">
-        <body name="boc_col_4/box_3_1/box_3_1">
+      <body name="box_col_4\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_4\box_3_1\box_3_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_3_1/box_3_1" class="boc_col_4/box_3_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_7" class="boc_col_4/" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001"/>
-      <body pos="0.80000000000000004 0.20000000000000001 0.10000000000000001" name="boc_col_4/box_0_2/">
-        <body name="boc_col_4/box_0_2/box_0_2">
+      <body name="box_col_4\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_4\box_0_2\box_0_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_0_2/box_0_2" class="boc_col_4/box_0_2/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_8" class="boc_col_4/" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001"/>
-      <body pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001" name="boc_col_4/box_0_3/">
-        <body name="boc_col_4/box_0_3/box_0_3">
+      <body name="box_col_4\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_4\box_0_3\box_0_3">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_0_3/box_0_3" class="boc_col_4/box_0_3/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_4//unnamed_site_9" class="boc_col_4/" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999"/>
-      <body pos="0.80000000000000004 0.074999999999999997 0.29999999999999999" name="boc_col_4/box_0_4/">
-        <body name="boc_col_4/box_0_4/box_0_4">
+      <body name="box_col_4\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_4\box_0_4\box_0_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_4/box_0_4/box_0_4" class="boc_col_4/box_0_4/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_4\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
     </body>
-    <body pos="0 0 3.0500000000000003" name="shelf_5/">
-      <body name="shelf_5/shelf_5">
+    <body name="shelf_5\" pos="0 0 3.0500000000000003">
+      <body name="shelf_5\shelf_5">
         <inertial pos="0 0 0" mass="1"/>
-        <geom name="shelf_5/shelf_5" class="shelf_5/" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+        <geom name="shelf_5\shelf_5" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
       </body>
     </body>
-    <body pos="0 0 3.0500000000000003" name="boc_col_5/">
-      <site name="boc_col_5//unnamed_site_0" class="boc_col_5/" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001" name="boc_col_5/box_0_0/">
-        <body name="boc_col_5/box_0_0/box_0_0">
+    <body name="box_col_5\" pos="0 0 3.0500000000000003">
+      <body name="box_col_5\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_5\box_0_0\box_0_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_0_0/box_0_0" class="boc_col_5/box_0_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_1" class="boc_col_5/" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001"/>
-      <body pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001" name="boc_col_5/box_0_1/">
-        <body name="boc_col_5/box_0_1/box_0_1">
+      <body name="box_col_5\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_5\box_0_1\box_0_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_0_1/box_0_1" class="boc_col_5/box_0_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_2" class="boc_col_5/" pos="-0.5 0.20000000000000001 0.20000000000000001"/>
-      <body pos="-0.5 0.20000000000000001 0.20000000000000001" name="boc_col_5/box_1/">
-        <body name="boc_col_5/box_1/box_1">
+      <body name="box_col_5\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_5\box_1\box_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_1/box_1" class="boc_col_5/box_1/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_3" class="boc_col_5/" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001"/>
-      <body pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001" name="boc_col_5/box_2/">
-        <body name="boc_col_5/box_2/box_2">
+      <body name="box_col_5\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_5\box_2\box_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_2/box_2" class="boc_col_5/box_2/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_4" class="boc_col_5/" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998"/>
-      <body pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998" name="boc_col_5/box_4/">
-        <body name="boc_col_5/box_4/box_4">
+      <body name="box_col_5\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_5\box_4\box_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_4/box_4" class="boc_col_5/box_4/" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_5" class="boc_col_5/" pos="0.29999999999999999 0.14999999999999999 0.25"/>
-      <body pos="0.29999999999999999 0.14999999999999999 0.25" name="boc_col_5/box_3_0/">
-        <body name="boc_col_5/box_3_0/box_3_0">
+      <body name="box_col_5\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_5\box_3_0\box_3_0">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_3_0/box_3_0" class="boc_col_5/box_3_0/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_6" class="boc_col_5/" pos="0.55000000000000004 0.10000000000000001 0.25"/>
-      <body pos="0.55000000000000004 0.10000000000000001 0.25" name="boc_col_5/box_3_1/">
-        <body name="boc_col_5/box_3_1/box_3_1">
+      <body name="box_col_5\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_5\box_3_1\box_3_1">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_3_1/box_3_1" class="boc_col_5/box_3_1/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_7" class="boc_col_5/" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001"/>
-      <body pos="0.80000000000000004 0.20000000000000001 0.10000000000000001" name="boc_col_5/box_0_2/">
-        <body name="boc_col_5/box_0_2/box_0_2">
+      <body name="box_col_5\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_5\box_0_2\box_0_2">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_0_2/box_0_2" class="boc_col_5/box_0_2/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_8" class="boc_col_5/" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001"/>
-      <body pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001" name="boc_col_5/box_0_3/">
-        <body name="boc_col_5/box_0_3/box_0_3">
+      <body name="box_col_5\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_5\box_0_3\box_0_3">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_0_3/box_0_3" class="boc_col_5/box_0_3/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
-      <site name="boc_col_5//unnamed_site_9" class="boc_col_5/" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999"/>
-      <body pos="0.80000000000000004 0.074999999999999997 0.29999999999999999" name="boc_col_5/box_0_4/">
-        <body name="boc_col_5/box_0_4/box_0_4">
+      <body name="box_col_5\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_5\box_0_4\box_0_4">
           <inertial pos="0 0 0" mass="0.10000000000000001"/>
-          <geom name="boc_col_5/box_0_4/box_0_4" class="boc_col_5/box_0_4/" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+          <geom name="box_col_5\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
         </body>
       </body>
     </body>

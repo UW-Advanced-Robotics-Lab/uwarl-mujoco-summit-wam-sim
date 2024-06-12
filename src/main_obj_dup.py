@@ -9,14 +9,16 @@ class Legs:
     #  C O N S T A N T  #
     #===================#
     _mass = 0.4
+    _rgba = (0.8, 0.35, 0.1, 1)
+    _material = 'orange_metal'
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
     def __init__(self, height, radius, name):
         # Make a MujoCo Root
         self.mjcf_model = mjcf.RootElement(model=name)
-        # # Add some classes
-        # leg_class = self.mjcf_model.default.add('default', dclass = 'leg_viz')
+        # Add some classes
+        leg_class = self.mjcf_model.default.add('default', dclass = 'leg_viz')
         # leg_class.site.set_attributes('geom' ,rgba = (0.95, 0.6, 0.05, 1))
         # Add a body element: No need to add position info, as that will be added based on which `site` this body is going to be attached (https://github.com/google-deepmind/dm_control/blob/main/dm_control/mjcf/README.md#attachment-frames)
         self.leg_body = self.mjcf_model.worldbody.add('body',
@@ -31,23 +33,25 @@ class Legs:
                           contype = 0,
                           conaffinity = 0,
                           group = 1,
-                          rgba = (0.95, 0.6, 0.05, 1))
+                          rgba = self._rgba,
+                          dclass = 'leg_viz')
 
 class Shelf:
     #===================#
     #  C O N S T A N T  #
     #===================#
     _mass = 1
-    _rgba = (0.95, 0.6, 0.05, 1)
+    _rgba = (0.8, 0.35, 0.1, 1)
+    _material = 'orange_metal'
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
     def __init__(self, size, name):
         # Make a MujoCo Root
         self.mjcf_model = mjcf.RootElement(model=name)
-        # # Add some classes
-        # leg_class = self.mjcf_model.default.add('default', dclass = 'rack_viz')
-        # leg_class.site.set_attributes('geom' ,rgba = (0.95, 0.6, 0.05, 1))
+        # Add some classes
+        shelf_class = self.mjcf_model.default.add('default', dclass = 'rack_viz')
+        # shelf_class.site.set_attributes('geom' ,rgba = self._rgba)
         # Add a body element: No need to add position info, as that will be added based on which `site` this body is going to be attached (https://github.com/google-deepmind/dm_control/blob/main/dm_control/mjcf/README.md#attachment-frames)
         self.shelf_body = self.mjcf_model.worldbody.add('body',
                                                         name = name)
@@ -61,7 +65,8 @@ class Shelf:
                             contype = 0,
                             conaffinity = 0,
                             group = 1,
-                            rgba = self._rgba)
+                            rgba = self._rgba,
+                            dclass = 'rack_viz')
         
 class Boxes:
     #===================#
@@ -70,7 +75,7 @@ class Boxes:
     _mass = 0.1
     _name = "boxes"
     _size = [0.05,0.05,0.05]
-    _rgba = (0.6, 0.4, 0.3, 1)
+    _material = 'cardboard'
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
@@ -80,6 +85,9 @@ class Boxes:
            self._size = size
         # Make a MujoCo Root
         self.mjcf_model = mjcf.RootElement(model=name)
+        # Add some classes
+        boxes_class = self.mjcf_model.default.add('default', dclass = 'box_viz')
+        # boxes_class.site.set_attributes('geom' ,rgba = self._rgba)
         # Add a body element: No need to add position info, as that will be added based on which `site` this body is going to be attached (https://github.com/google-deepmind/dm_control/blob/main/dm_control/mjcf/README.md#attachment-frames)
         self.shelf_body = self.mjcf_model.worldbody.add('body',
                                                         name = name)
@@ -93,79 +101,56 @@ class Boxes:
                             contype = 0,
                             conaffinity = 0,
                             group = 1,
-                            rgba = self._rgba)
+                            dclass = 'box_viz',
+                            material = self._material)
 
 class Box_Collection:
     #===================#
     #  C O N S T A N T  #
     #===================#
-    _size_0 = [0.1,0.1,0.1]
-    _size_1 = [0.2,0.3,0.2]
-    _size_2 = [0.2,0.3,0.1]
-    _size_3 = [0.1,0.3,0.25]
-    _size_4 = [0.2,0.3,0.15]
-    _size_0_name = 'box_0'
-    _size_1_name = 'box_1'
-    _size_2_name = 'box_2'
-    _size_3_name = 'box_3'
-    _size_4_name = 'box_4'
+    _size_0 = [0.2,0.4,0.25]
+    _location = [[0.8,0.05,0.25],
+                 [0.4,-0.05,0.25],
+                 [0,0,0.25],
+                 [-0.4,0.05,0.25],
+                 [-0.8,-0.05,0.25]]
+    _site_name = 'site'
+    _size_0_name = 'box'
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
     def __init__(self, name):
-        # Prepare a collection of boxes
-        self.box_0_0 = Boxes(name = self._size_0_name+'_0', size = self._size_0)
-        self.box_0_1 = Boxes(name = self._size_0_name+'_1', size = self._size_0)
-        self.box_0_2 = Boxes(name = self._size_0_name+'_2', size = self._size_0)
-        self.box_0_3 = Boxes(name = self._size_0_name+'_3', size = self._size_0)
-        self.box_0_4 = Boxes(name = self._size_0_name+'_4', size = self._size_0)
-        self.box_1 = Boxes(name = self._size_1_name, size = self._size_1)
-        self.box_2 = Boxes(name = self._size_2_name, size = self._size_2)
-        self.box_3_0 = Boxes(name = self._size_3_name+'_0', size = self._size_3)
-        self.box_3_1 = Boxes(name = self._size_3_name+'_1', size = self._size_3)
-        self.box_4 = Boxes(name = self._size_4_name, size = self._size_4)
         # Make a MujoCo Root
         self.mjcf_model = mjcf.RootElement(model=name)
+        # Add some classes
+        box_col_class = self.mjcf_model.default.add('default', dclass = 'box_col_viz')
 
         # Prepare the arrangements of boxes for one shelf
-        box_0_0 = self.mjcf_model.worldbody.add('site',
-                                                pos = [-0.85, 0.2, 0.1])
-        box_1_0 = self.mjcf_model.worldbody.add('site',
-                                                pos = [-0.85, -0.2, 0.1])
-        box_2_1 = self.mjcf_model.worldbody.add('site',
-                                                pos = [-0.5, 0.2, 0.2])
-        box_3_2 = self.mjcf_model.worldbody.add('site',
-                                                pos = [-0.05, 0.1, 0.1])
-        box_4_4 = self.mjcf_model.worldbody.add('site',
-                                                pos = [-0.045, 0.15, 0.35])
-        box_5_3 = self.mjcf_model.worldbody.add('site',
-                                                pos = [0.3, 0.15, 0.25])
-        box_6_3 = self.mjcf_model.worldbody.add('site',
-                                                pos = [0.55, 0.1, 0.25])
-        box_7_0 = self.mjcf_model.worldbody.add('site',
-                                                pos = [0.8, 0.2, 0.1])
-        box_8_0 = self.mjcf_model.worldbody.add('site',
-                                                pos = [0.8, -0.05, 0.1])
-        box_9_0 = self.mjcf_model.worldbody.add('site',
-                                                pos = [0.8, 0.075, 0.3])
+        # An empty array to hold box-sites
+        box_site = []
+        for x in range(len(self._location)):
+            box_site.append(self.mjcf_model.worldbody.add('site',
+                                                          pos = self._location[x],
+                                                          dclass = self._site_name))
+        # Create boxes
+        # Initialize empty list of boxes
+        boxes = []
+        for x in range(len(self._location)):
+            boxes.append(Boxes(name = self._size_0_name+str(x), size = self._size_0))
         # Attach the boxes
-        box_0_0.attach(self.box_0_0.mjcf_model)
-        box_1_0.attach(self.box_0_1.mjcf_model)
-        box_2_1.attach(self.box_1.mjcf_model)
-        box_3_2.attach(self.box_2.mjcf_model)
-        box_4_4.attach(self.box_4.mjcf_model)
-        box_5_3.attach(self.box_3_0.mjcf_model)
-        box_6_3.attach(self.box_3_1.mjcf_model)
-        box_7_0.attach(self.box_0_2.mjcf_model)
-        box_8_0.attach(self.box_0_3.mjcf_model)
-        box_9_0.attach(self.box_0_4.mjcf_model)
+        for x in range(len(self._location)):
+            box_site[x].attach(boxes[x].mjcf_model)
+
+        # Delete attachment frames. The element `site` is being read by MuJoCo and, since it does not recongnize this element, it throws an error.
+        self.mjcf_model.worldbody.site.clear()
 
 # Make a class for constructing shelves
 class Shelves:
     #===================#
     #  C O N S T A N T  #
     #===================#
-    _name = "shelves"
+    _name = 'shelves'
+    _site_name = 'site'
     _size = [1.0,0.5,0.01]
     _shelf_height = 0.6
     _bottom_shelf_height = 0.05
@@ -173,28 +158,41 @@ class Shelves:
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
-    def __init__(self, num_shelves, size=None):
+    def __init__(self, num_shelves, size=None, name = None):
         if(size!=None):
            # Replace the default size with the user-provided one
            self._size = size
+        if(name!=None):
+           # Replace the default name with the user-provided one
+           self._name = name
         # Make a MujoCo Root
         self.mjcf_model = mjcf.RootElement(model=self._name)
-        
+        # Add some classes
+        shelves_class = self.mjcf_model.default.add('default', dclass = 'shelves_viz')
+
         # Create attachemnt-sites for adding 4 legs
         # Height
         shelf_total_height = (num_shelves-1)*self._shelf_height+self._bottom_shelf_height
         # Right-Top leg
         leg_rt = self.mjcf_model.worldbody.add('site',
-                                              pos = [self._size[0],self._size[0],shelf_total_height/2])
+                                               name = self._site_name+'_rt',
+                                               pos = [self._size[0]-self._leg_radius*2,self._size[1]-self._leg_radius*2,shelf_total_height/2],
+                                               dclass = self._site_name)
         # Left-Top leg
         leg_lt = self.mjcf_model.worldbody.add('site',
-                                              pos = [-self._size[0],self._size[0],shelf_total_height/2])
+                                               name = self._site_name+'_lt',
+                                               pos = [-(self._size[0]-self._leg_radius*2),self._size[1]-self._leg_radius*2,shelf_total_height/2],
+                                               dclass = self._site_name)
         # Left-Bottom leg
         leg_lb = self.mjcf_model.worldbody.add('site',
-                                              pos = [-self._size[0],-self._size[0],shelf_total_height/2])
+                                               name = self._site_name+'_lb',
+                                               pos = [-(self._size[0]-self._leg_radius*2),-(self._size[1]-self._leg_radius*2),shelf_total_height/2],
+                                               dclass = self._site_name)
         # Right-Bottom leg
         leg_rb = self.mjcf_model.worldbody.add('site',
-                                              pos = [self._size[0],-self._size[0],shelf_total_height/2])
+                                               name = self._site_name+'_rb',
+                                               pos = [self._size[0]-self._leg_radius*2,-(self._size[1]-self._leg_radius*2),shelf_total_height/2],
+                                               dclass = self._site_name)
         # Create leg-objects
         # Right-Top leg
         self.leg_rt = Legs(radius=self._leg_radius, height=shelf_total_height, name='leg_rt')
@@ -221,7 +219,8 @@ class Shelves:
         curr_shelf_height = self._bottom_shelf_height
         for x in range(num_shelves):
             shelf_sites.append(self.mjcf_model.worldbody.add('site',
-                                                            pos = [0,0,curr_shelf_height]))
+                                                             pos = [0,0,curr_shelf_height],
+                                                             dclass = self._site_name))
             curr_shelf_height = curr_shelf_height+self._shelf_height
         # Create shelves
         # Initialize empty list of shelves
@@ -236,7 +235,7 @@ class Shelves:
         # Initialize empty list of box-collections
         box_col = []
         for x in range(num_shelves):
-            box_col.append(Box_Collection('boc_col_'+str(x)))
+            box_col.append(Box_Collection('box_col_'+str(x)))
         # Attach box-collections to each shelf-site
         for x in range(num_shelves):
             shelf_sites[x].attach(box_col[x].mjcf_model)
@@ -252,19 +251,86 @@ class Shelves:
         # print(classes[0].dclass)
         # del classes[0].dclass
 
-# class Environment:
-#    #===================#
-#     #  C O N S T A N T  #
-#     #===================#
-#     _name = "shelves"
-#     _size = [1.0,0.5,0.01]
-#     _shelf_height = 0.6
-#     _bottom_shelf_height = 0.05
-#     _leg_radius = 0.03
-#     #===============================#
-#     #  I N I T I A L I Z A T I O N  #
-#     #===============================#
-#     def __init__(self, num_shelves, size=None):
+class Shelf_Wall:
+   #===================#
+    #  C O N S T A N T  #
+    #===================#
+    _shelf_locations = [[-4,0,0],
+                        [-2,0,0],
+                        [0,0,0],
+                        [2,0,0],
+                        [4,0,0]]
+    _num_racks = 6
+    _name = 'shelf_wall'
+    _site_name = 'site'
+    #===============================#
+    #  I N I T I A L I Z A T I O N  #
+    #===============================#
+    def __init__(self, name):
+        if(name!=None):
+           # Replace the default name with the user-provided one
+           self._name = name
+        # Make a MujoCo Root
+        self.mjcf_model = mjcf.RootElement(model=self._name)
+
+        # Set-up at all the locations
+        # Create attachemnt-sites for adding a shelf
+        # Initilaize empty list of shelf-sites
+        shelf_sites = []
+        for x in range(len(self._shelf_locations)):
+            shelf_sites.append(self.mjcf_model.worldbody.add('site',
+                                                             pos = self._shelf_locations[x],
+                                                             dclass = self._site_name))
+        # Create shelves
+        # Initialize empty list of shelves
+        shelves = []
+        for x in range(len(self._shelf_locations)):
+            shelves.append(Shelves(num_shelves = self._num_racks, name = 'shelves_'+str(x)))
+        # Attach the shelf
+        for x in range(len(self._shelf_locations)):
+            shelf_sites[x].attach(shelves[x].mjcf_model)
+
+        # Delete attachment frames. The element `site` is being read by MuJoCo and, since it does not recongnize this element, it throws an error.
+        self.mjcf_model.worldbody.site.clear()
+
+class Environment:
+   #===================#
+    #  C O N S T A N T  #
+    #===================#
+    _shelf_locations = [[-14,0,0],
+                        [0,0,0],
+                        [14,0,0],
+                        [-14,4,0],
+                        [0,4,0],
+                        [14,4,0]]
+    _name = 'shelf_env'
+    _site_name = 'site'
+    #===============================#
+    #  I N I T I A L I Z A T I O N  #
+    #===============================#
+    def __init__(self):
+        # Make a MujoCo Root
+        self.mjcf_model = mjcf.RootElement(model=self._name)
+
+        # Set-up at all the locations
+        # Create attachemnt-sites for adding a shelf-wall
+        # Initilaize empty list of shelf-wall-sites
+        shelf_wall_sites = []
+        for x in range(len(self._shelf_locations)):
+            shelf_wall_sites.append(self.mjcf_model.worldbody.add('site',
+                                                                  pos = self._shelf_locations[x],
+                                                                  dclass = self._site_name))
+        # Create shelves
+        # Initialize empty list of shelves
+        shelf_wall = []
+        for x in range(len(self._shelf_locations)):
+            shelf_wall.append(Shelf_Wall(name = 'shelf_wall_'+str(x)))
+        # Attach the shelf
+        for x in range(len(self._shelf_locations)):
+            shelf_wall_sites[x].attach(shelf_wall[x].mjcf_model)
+
+        # Delete attachment frames. The element `site` is being read by MuJoCo and, since it does not recongnize this element, it throws an error.
+        self.mjcf_model.worldbody.site.clear()
 
 def export_with_assets(mjcf_model, out_dir, out_file_name=None,
                        *,
@@ -306,5 +372,25 @@ def export_with_assets(mjcf_model, out_dir, out_file_name=None,
       f.write(util.to_binary_string(contents))
 
 # Create a shelf
-shelf_body = Shelves(6)
-export_with_assets(mjcf_model = shelf_body.mjcf_model, out_dir='/home/arnab/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/src/out')
+# shelf_body = Shelves(6)
+env_body = Environment()
+folder_name = '/home/arnab/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/src/out'
+export_with_assets(mjcf_model = env_body.mjcf_model, out_dir=folder_name)
+
+# Read the created file
+filename = folder_name+'/shelf_env.xml'
+mjcf_model = mjcf.from_path(filename, escape_separators=True)
+
+geoms = mjcf_model.find_all('geom')
+# print(classes[0].name)
+# print(classes[0].dclass)
+
+# Set classes to one name
+for geom in geoms:
+  geom.dclass = 'default'
+  # Check if geom has a material type with `cardboard` in it
+  if geom.material is not None:
+    if 'cardboard' in geom.material:
+        geom.material = 'cardboard'
+  
+export_with_assets(mjcf_model = mjcf_model, out_dir=folder_name)
