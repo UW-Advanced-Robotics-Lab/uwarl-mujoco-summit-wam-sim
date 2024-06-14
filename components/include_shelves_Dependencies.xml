@@ -1,7 +1,7 @@
 <mujocoinclude>
     <asset>
         <!--https://www.pinterest.com/pin/822962531891993746/-->
-        <texture name="cardboard" file="../components/texture/cardboard.png" type="cube"/>
+        <texture name="cardboard" file="../components/texture/cardboard_resized_450.png" type="cube"/>
         <material name="cardboard" texture="cardboard" reflectance="0"/>
     </asset>
     <default>

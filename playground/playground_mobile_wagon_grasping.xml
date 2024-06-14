@@ -82,11 +82,11 @@
         </body>
 
         <!-- Placing a brown box inside the cart -->
-        <body name="brown_box_0" pos="2.62 0.52 0.5" euler="0 0 0">
+        <body name="brown_box_0" pos="2.60 0.52 0.5" euler="0 0 0">
             <joint name="brown_box_0/free" type="free"/>
-            <inertial pos="0.0 0.0 0.0" mass="2" diaginertia="0.001 0.0001 0.001"/>
-            <geom name="brown_box_0/viz" type="box" size="0.2 0.2 0.2" contype="0" conaffinity="0" group="1" material="cardboard"/>
-            <geom name="brown_box_0/col" type="box" size="0.2 0.2 0.2" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7"/>
+            <inertial pos="0.0 0.0 0.0" mass="8" diaginertia="0.1 0.1 0.1"/>
+            <geom name="brown_box_0/viz" type="box" size="0.34 0.2 0.2" contype="0" conaffinity="0" group="1" material="cardboard"/>
+            <geom name="brown_box_0/col" type="box" size="0.34 0.2 0.2" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7" solref="0.02 1"/>
         </body>
 
     </worldbody>
