@@ -163,11 +163,11 @@
                                     
                                     
                                     <!-- [Optional] Intel Lidar Camera (*4) -->
-                                    <body name="wam/sensor/intel" pos="0 0.085 0.02">
+                                    <body name="wam/camera" pos="0 0.085 0.02">
                                         <inertial               pos="0 0 0.015" mass="0.095"/>
                                         <geom                   class="wam/viz" mesh="intel_realsense_l515"/>
                                         <geom                   class="wam/col" mesh="intel_realsense_l515_collision_mesh"/>
-                                        <camera name="camera/intel/rgb" quat="0 0 1 0" fovy="55"/><!-- quant=w x y z -->
+                                        <camera name="wam/camera/intel/rgb" quat="0 0 1 0" fovy="55"/><!-- quant=w x y z -->
                                     </body>
                                     
                                     <!-- ### T-S Sensor (*3) Ref: (*3) unit: [m, kg, kg * m^2] 
