@@ -25,134 +25,134 @@
   <worldbody>
     <body name="smt_0" pos="0 0 0">
       <inertial pos="0 0 0.37" mass="125" diaginertia="1.391 6.8529999999999998 6.125"/>
-      <geom name="smt_0\\viz\\base_link" class="summit\\body\\viz" mesh="base_link_summit"/>
-      <body name="smt_0\\front\\camera\\intel\" pos="0 0.36199999999999999 0.373" quat="0 0 0.70710700000000004 0.70710700000000004">
-        <body name="smt_0\\front\\camera\\intel\smt_0\\front\\camera\\intel">
+      <geom name="smt_0\viz\base_link" class="summit\\body\\viz" mesh="base_link_summit"/>
+      <body name="smt_0\front\camera\intel\" pos="0 0.36199999999999999 0.373" quat="0 0 0.70710700000000004 0.70710700000000004">
+        <body name="smt_0\front\camera\intel\smt_0\front\camera\intel">
           <inertial pos="0 0 0.014999999999999999" mass="0.095000000000000001"/>
-          <geom name="smt_0\\front\\camera\\intel\\unnamed_geom_0" class="smt_0\\front\\camera\\intel\wam\\viz" mesh="intel_realsense_l515"/>
-          <camera name="smt_0\\front\\camera\\intel\smt_0\\front\\camera\\intel\\rgb" class="smt_0\\front\\camera\\intel\" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
+          <geom name="smt_0\front\camera\intel\unnamed_geom_0" class="smt_0\front\camera\intel\wam\viz" mesh="intel_realsense_l515"/>
+          <camera name="smt_0\front\camera\intel\smt_0\front\camera\intel\rgb" class="smt_0\\front\\camera\\intel\" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
         </body>
       </body>
-      <body name="smt_0\\rear\\camera\\intel\" pos="0 -0.73499999999999999" quat="0.70710700000000004 0.70710700000000004 0 0">
-        <body name="smt_0\\rear\\camera\\intel\smt_0\\rear\\camera\\intel">
+      <body name="smt_0\rear\camera\intel\" pos="0 -0.73499999999999999" quat="0.70710700000000004 0.70710700000000004 0 0">
+        <body name="smt_0\rear\camera\intel\smt_0\rear\camera\intel">
           <inertial pos="0 0 0.014999999999999999" mass="0.095000000000000001"/>
-          <geom name="smt_0\\rear\\camera\\intel\\unnamed_geom_0" class="smt_0\\rear\\camera\\intel\wam\\viz" mesh="intel_realsense_l515"/>
-          <camera name="smt_0\\rear\\camera\\intel\smt_0\\rear\\camera\\intel\\rgb" class="smt_0\\rear\\camera\\intel\" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
+          <geom name="smt_0\rear\camera\intel\unnamed_geom_0" class="smt_0\rear\camera\intel\wam\viz" mesh="intel_realsense_l515"/>
+          <camera name="smt_0\rear\camera\intel\smt_0\rear\camera\intel\rgb" class="smt_0\\rear\\camera\\intel\" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
         </body>
       </body>
-      <body name="smt_0\\pole_link" pos="0 0.32000000000000001 1">
-        <geom name="smt_0\\viz\\pole_link" class="summit\\wheel\\viz" type="cylinder" size="0.0050000000000000001 0.41999999999999998"/>
-        <body name="smt_0\\pole_link\\camera\\intel\" pos="0 0 0.44" quat="0.70710700000000004 0.70710700000000004 0 0">
-          <body name="smt_0\\pole_link\\camera\\intel\smt_0\\pole_link\\camera\\intel">
+      <body name="smt_0\pole_link" pos="0 0.32000000000000001 1">
+        <geom name="smt_0\viz\pole_link" class="summit\wheel\viz" type="cylinder" size="0.0050000000000000001 0.41999999999999998"/>
+        <body name="smt_0\pole_link\camera\intel\" pos="0 0 0.44" quat="0.70710700000000004 0.70710700000000004 0 0">
+          <body name="smt_0\pole_link\camera\intel\smt_0\pole_link\camera\intel">
             <inertial pos="0 0 0.014999999999999999" mass="0.095000000000000001"/>
-            <geom name="smt_0\\pole_link\\camera\\intel\\unnamed_geom_0" class="smt_0\\pole_link\\camera\\intel\wam\\viz" mesh="intel_realsense_l515"/>
-            <camera name="smt_0\\pole_link\\camera\\intel\smt_0\\pole_link\\camera\\intel\\rgb" class="smt_0\\pole_link\\camera\\intel\" fovy="90" pos="0 0 0" quat="0 0 1 0"/>
+            <geom name="smt_0\pole_link\camera\intel\unnamed_geom_0" class="smt_0\pole_link\camera\intel\wam\viz" mesh="intel_realsense_l515"/>
+            <camera name="smt_0\pole_link\camera\intel\smt_0\pole_link\camera\intel\rgb" class="smt_0\\pole_link\\camera\\intel\" fovy="90" pos="0 0 0" quat="0 0 1 0"/>
           </body>
         </body>
       </body>
-      <geom name="smt_0\\col\\base_link\\box_body" class="summit\col" type="box" size="0.23999999999999999 0.32000000000000001 0.16" pos="0 0 0.41999999999999998"/>
-      <geom name="smt_0\\col\\base_link\\arm_rest" class="summit\col" pos="0 0.098000000000000004 0.55000000000000004" quat="0.5 0.5 -0.5 -0.5" mesh="arm_rest"/>
-      <geom name="smt_0\\col\\base_link\\cylinder_lidar" class="summit\col" type="cylinder" size="0.059999999999999998 0.043999999999999997" pos="0.246 0.36199999999999999 0.313"/>
-      <joint name="smt_0\\world_x" class="\" type="slide" pos="0 0 0" axis="0 1 0" armature="0.0001" damping="100000000000"/>
-      <joint name="smt_0\\world_y" class="\" type="slide" pos="0 0 0" axis="-1 0 0" armature="0.0001" damping="100000000000"/>
-      <joint name="smt_0\\world_z" class="\" type="slide" pos="0 0 0" axis="0 0 1" armature="0.0001" damping="1"/>
-      <joint name="smt_0\\pose\\x" class="\" type="slide" pos="0 0 0.40000000000000002" axis="0 1 0" damping="15"/>
-      <joint name="smt_0\\pose\\y" class="\" type="slide" pos="0 0 0.40000000000000002" axis="-1 0 0" damping="15"/>
-      <joint name="smt_0\\orie\\z" class="\" type="hinge" pos="0 0 0.40000000000000002" axis="0 0 1" damping="10"/>
-      <body name="smt_0\\whl\\LF_link\" pos="-0.22 0.222 0.128" quat="0.70710700000000004 0 0.70710600000000001 0">
-        <body name="smt_0\\whl\\LF_link\smt_0\\whl\\LF_link">
-          <geom name="smt_0\\whl\\LF_link\smt_0\\viz\\whl\\LF" class="smt_0\\whl\\LF_link\summit\\wheel\\viz" mesh="mecanum_LF_1"/>
-          <geom name="smt_0\\whl\\LF_link\smt_0\\viz\\whl\\LF_cylinder" class="summit\col" type="cylinder" size="0.13 0.050000000000000003" friction="0.0001 0.001 0.001"/>
+      <geom name="smt_0\col\base_link\box_body" class="summit\col" type="box" size="0.23999999999999999 0.32000000000000001 0.16" pos="0 0 0.41999999999999998"/>
+      <geom name="smt_0\col\base_link\arm_rest" class="summit\col" pos="0 0.098000000000000004 0.55000000000000004" quat="0.5 0.5 -0.5 -0.5" mesh="arm_rest"/>
+      <geom name="smt_0\col\base_link\cylinder_lidar" class="summit\col" type="cylinder" size="0.059999999999999998 0.043999999999999997" pos="0.246 0.36199999999999999 0.313"/>
+      <joint name="smt_0\world_x" class="rand" type="slide" pos="0 0 0" axis="0 1 0" armature="0.0001" damping="100000000000"/>
+      <joint name="smt_0\world_y" class="rand" type="slide" pos="0 0 0" axis="-1 0 0" armature="0.0001" damping="100000000000"/>
+      <joint name="smt_0\world_z" class="rand" type="slide" pos="0 0 0" axis="0 0 1" armature="0.0001" damping="1"/>
+      <joint name="smt_0\pose\x" class="rand" type="slide" pos="0 0 0.40000000000000002" axis="0 1 0" damping="15"/>
+      <joint name="smt_0\pose\y" class="rand" type="slide" pos="0 0 0.40000000000000002" axis="-1 0 0" damping="15"/>
+      <joint name="smt_0\orie\z" class="rand" type="hinge" pos="0 0 0.40000000000000002" axis="0 0 1" damping="10"/>
+      <body name="smt_0\whl\LF_link\" pos="-0.22 0.222 0.128" quat="0.70710700000000004 0 0.70710600000000001 0">
+        <body name="smt_0\whl\LF_link\smt_0\whl\LF_link">
+          <geom name="smt_0\whl\LF_link\smt_0\viz\whl\LF" class="smt_0\whl\LF_link\summit\wheel\viz" mesh="mecanum_LF_1"/>
+          <geom name="smt_0\whl\LF_link\smt_0\viz\whl\LF_cylinder" class="summit\col" type="cylinder" size="0.13 0.050000000000000003" friction="0.0001 0.001 0.001"/>
           <inertial pos="0 0 0" mass="10" diaginertia="0.044110000000000003 0.024670000000000001 0.024670000000000001"/>
-          <joint name="smt_0\\whl\\LF_link\smt_0\\whl_LF" class="smt_0\\whl\\LF_link\summit\\whl" pos="0 0 0"/>
+          <joint name="smt_0\whl\LF_link\smt_0\whl_LF" class="rand" pos="0 0 0"/>
         </body>
       </body>
-      <body name="smt_0\\whl\\LR_link\" pos="-0.22 -0.223 0.128" quat="0.70710700000000004 0 0.70710600000000001 0">
-        <body name="smt_0\\whl\\LR_link\smt_0\\whl\\LR_link">
-          <geom name="smt_0\\whl\\LR_link\smt_0\\viz\\whl\\LR" class="smt_0\\whl\\LR_link\summit\\wheel\\viz" mesh="mecanum_LR_1"/>
-          <geom name="smt_0\\whl\\LR_link\smt_0\\viz\\whl\\LR_cylinder" class="summit\col" type="cylinder" size="0.13 0.050000000000000003" friction="0.0001 0.001 0.001"/>
+      <body name="smt_0\whl\LR_link\" pos="-0.22 -0.223 0.128" quat="0.70710700000000004 0 0.70710600000000001 0">
+        <body name="smt_0\whl\LR_link\smt_0\whl\LR_link">
+          <geom name="smt_0\whl\LR_link\smt_0\viz\whl\LR" class="smt_0\whl\LR_link\summit\wheel\viz" mesh="mecanum_LR_1"/>
+          <geom name="smt_0\whl\LR_link\smt_0\viz\whl\LR_cylinder" class="summit\col" type="cylinder" size="0.13 0.050000000000000003" friction="0.0001 0.001 0.001"/>
           <inertial pos="0 0 0" mass="10" diaginertia="0.044110000000000003 0.024670000000000001 0.024670000000000001"/>
-          <joint name="smt_0\\whl\\LR_link\smt_0\\whl_LR" class="smt_0\\whl\\LR_link\summit\\whl" pos="0 0 0"/>
+          <joint name="smt_0\whl\LR_link\smt_0\whl_LR" class="rand" pos="0 0 0"/>
         </body>
       </body>
       <body name="wam_7dof_bhand_0\" pos="0 0.14000000000000001 0.40500000000000003" quat="0.70699999999999996 0 0 0.70699999999999996">
-        <body name="wam_7dof_bhand_0\wam\\base_link" pos="0 0 0">
-          <body name="wam_7dof_bhand_0\wam\\base\" pos="0 0 0">
-            <body name="wam_7dof_bhand_0\wam\\base\wam\\base">
+        <body name="wam_7dof_bhand_0\wam\base_link" pos="0 0 0">
+          <body name="wam_7dof_bhand_0\wam\base\" pos="0 0 0">
+            <body name="wam_7dof_bhand_0\wam\base\wam\base">
               <inertial pos="-0.14071719999999999 -0.02017671 0.07995294" mass="9.9705958399999997" fullinertia="0.11760385 0.10916849000000001 0.18294303000000001 0.025578739999999999 0.00161433 0.0064026999999999999"/>
-              <geom name="wam_7dof_bhand_0\wam\\base\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\base\wam\\base\\viz" mesh="base_link_fine"/>
-              <geom name="wam_7dof_bhand_0\wam\\base\\unnamed_geom_1" class="wam\col" mesh="base_link_convex"/>
+              <geom name="wam_7dof_bhand_0\wam\base\unnamed_geom_0" class="wam\base\viz" mesh="base_link_fine"/>
+              <geom name="wam_7dof_bhand_0\wam\base\unnamed_geom_1" class="wam\col" mesh="base_link_convex"/>
             </body>
           </body>
-          <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\" pos="0 0 0.34599999999999997">
-            <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_yaw_link">
+          <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\" pos="0 0 0.34599999999999997">
+            <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_yaw_link">
               <inertial pos="-0.00443422 -0.00066489000000000001 -0.12189039" mass="10.767687670000001" fullinertia="0.13488032999999999 0.090463299999999996 0.11328369000000001 -0.00012485 0.0021304100000000001 -0.00068555000000000005"/>
-              <joint name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\J1" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\" range="-2.6000000000000001 2.6000000000000001" damping="1000" frictionloss="1000"/>
-              <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_yaw_link\\viz" mesh="shoulder_link_fine"/>
-              <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\\unnamed_geom_1" class="wam\col" mesh="shoulder_link_convex_decomposition_p1"/>
-              <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\\unnamed_geom_2" class="wam\col" mesh="shoulder_link_convex_decomposition_p2"/>
-              <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\\unnamed_geom_3" class="wam\col" mesh="shoulder_link_convex_decomposition_p3"/>
+              <joint name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\J1" class="rand" range="-2.6000000000000001 2.6000000000000001" damping="1000" frictionloss="1000"/>
+              <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="shoulder_link_fine"/>
+              <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\unnamed_geom_1" class="wam\col" mesh="shoulder_link_convex_decomposition_p1"/>
+              <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\unnamed_geom_2" class="wam\col" mesh="shoulder_link_convex_decomposition_p2"/>
+              <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\unnamed_geom_3" class="wam\col" mesh="shoulder_link_convex_decomposition_p3"/>
             </body>
-            <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\" pos="0 0 0">
-              <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\shoulder_pitch_link">
+            <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\" pos="0 0 0">
+              <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\shoulder_pitch_link">
                 <inertial pos="-0.0023698299999999999 -0.01542114 0.031056139999999999" mass="3.8748999999999998" fullinertia="0.021409580000000001 0.01558906 0.013778749999999999 -2.461e-05 0.00027171999999999998 0.0018192"/>
-                <joint name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\J2" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\" range="-2 2" damping="1000" frictionloss="1000"/>
-                <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\shoulder_pitch_link\\viz" mesh="shoulder_pitch_link_fine"/>
-                <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\\unnamed_geom_1" class="wam\col" mesh="shoulder_pitch_link_convex"/>
+                <joint name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\J2" class="rand" range="-2 2" damping="1000" frictionloss="1000"/>
+                <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="shoulder_pitch_link_fine"/>
+                <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\unnamed_geom_1" class="wam\col" mesh="shoulder_pitch_link_convex"/>
               </body>
-              <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\" pos="0 0 0">
-                <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\upper_arm_link">
+              <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\" pos="0 0 0">
+                <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\upper_arm_link">
                   <inertial pos="0.0067414199999999997 -3.3090000000000003e-05 0.34249230000000003" mass="1.8028141" fullinertia="0.05911077 0.059270429999999999 0.0032455000000000001 -7.3799999999999996e-06 0.0024961200000000001 -1.7669999999999999e-05"/>
-                  <joint name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\J3" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\" range="-2.7999999999999998 2.7999999999999998" damping="500" frictionloss="1000"/>
-                  <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\upper_arm_link\\viz" mesh="upper_arm_link_fine"/>
-                  <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\\unnamed_geom_1" class="wam\col" mesh="upper_arm_link_convex_decomposition_p1"/>
-                  <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\\unnamed_geom_2" class="wam\col" mesh="upper_arm_link_convex_decomposition_p2"/>
+                  <joint name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\J3" class="rand" range="-2.7999999999999998 2.7999999999999998" damping="500" frictionloss="1000"/>
+                  <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="upper_arm_link_fine"/>
+                  <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\unnamed_geom_1" class="wam\col" mesh="upper_arm_link_convex_decomposition_p1"/>
+                  <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\unnamed_geom_2" class="wam\col" mesh="upper_arm_link_convex_decomposition_p2"/>
                 </body>
-                <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\" pos="0.044999999999999998 0 0.55000000000000004">
-                  <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\forearm_link">
+                <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\" pos="0.044999999999999998 0 0.55000000000000004">
+                  <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\forearm_link">
                     <inertial pos="-0.040014880000000003 -0.13271620000000001 -0.00022942000000000001" mass="2.4001680400000001" fullinertia="0.01491672 0.0029446300000000002 0.014829220000000001 0.0015060399999999999 1.7410000000000001e-05 2.109e-05"/>
-                    <joint name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\J4" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\" range="-0.90000000000000002 3.1000000000000001" damping="100" frictionloss="1000"/>
-                    <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\elbow_link\\viz" mesh="elbow_link_fine"/>
-                    <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\\unnamed_geom_1" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\fore_arm_link\\viz" mesh="forearm_link_fine"/>
-                    <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\\unnamed_geom_2" class="wam\col" mesh="elbow_link_convex"/>
-                    <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\\unnamed_geom_3" class="wam\col" mesh="forearm_link_convex_decomposition_p1"/>
-                    <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\\unnamed_geom_4" class="wam\col" mesh="forearm_link_convex_decomposition_p2"/>
+                    <joint name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\J4" class="rand" range="-0.90000000000000002 3.1000000000000001" damping="100" frictionloss="1000"/>
+                    <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="elbow_link_fine"/>
+                    <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\unnamed_geom_1" class="wam\shoulder_yaw_link\viz" mesh="forearm_link_fine"/>
+                    <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\unnamed_geom_2" class="wam\col" mesh="elbow_link_convex"/>
+                    <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\unnamed_geom_3" class="wam\col" mesh="forearm_link_convex_decomposition_p1"/>
+                    <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\unnamed_geom_4" class="wam\col" mesh="forearm_link_convex_decomposition_p2"/>
                   </body>
-                  <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\" pos="-0.044999999999999998 -0.29999999999999999 0">
-                    <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_yaw_link">
+                  <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\" pos="-0.044999999999999998 -0.29999999999999999 0">
+                    <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_yaw_link">
                       <inertial pos="8.9209999999999995e-05 0.0043582400000000002 -0.0051121700000000001" mass="0.12376019000000001" fullinertia="5.0290000000000001e-05 6.2700000000000006e-05 7.5820000000000003e-05 -4.9999999999999998e-08 -1.9999999999999999e-07 3.5899999999999999e-06"/>
-                      <joint name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\J5" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\" range="-4.7999999999999998 1.3" damping="50" frictionloss="1000"/>
-                      <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_yaw_link\\viz" mesh="wrist_yaw_link_fine"/>
-                      <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\\unnamed_geom_1" class="wam\col" mesh="wrist_yaw_link_convex_decomposition_p1"/>
-                      <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\\unnamed_geom_2" class="wam\col" mesh="wrist_yaw_link_convex_decomposition_p2"/>
+                      <joint name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\J5" class="rand" range="-4.7999999999999998 1.3" damping="50" frictionloss="1000"/>
+                      <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="wrist_yaw_link_fine"/>
+                      <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\unnamed_geom_1" class="wam\col" mesh="wrist_yaw_link_convex_decomposition_p1"/>
+                      <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\unnamed_geom_2" class="wam\col" mesh="wrist_yaw_link_convex_decomposition_p2"/>
                     </body>
-                    <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\" pos="0 0 0">
-                      <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_pitch_link">
+                    <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\" pos="0 0 0">
+                      <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_pitch_link">
                         <inertial pos="-0.00012261999999999999 -0.024683360000000001 -0.017031939999999999" mass="0.41797363999999998" fullinertia="0.00055515999999999996 0.00045357999999999998 0.00024367 7.4000000000000001e-07 6.0999999999999998e-07 4.5899999999999998e-05"/>
-                        <joint name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\J6" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\" range="-1.6000000000000001 1.6000000000000001" damping="50" frictionloss="1000"/>
-                        <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_pitch_link\\viz" mesh="wrist_pitch_link_fine"/>
-                        <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\\unnamed_geom_1" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p1"/>
-                        <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\\unnamed_geom_2" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p2"/>
-                        <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\\unnamed_geom_3" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p3"/>
+                        <joint name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\J6" class="rand" range="-1.6000000000000001 1.6000000000000001" damping="50" frictionloss="1000"/>
+                        <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="wrist_pitch_link_fine"/>
+                        <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\unnamed_geom_1" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p1"/>
+                        <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\unnamed_geom_2" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p2"/>
+                        <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\unnamed_geom_3" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p3"/>
                       </body>
-                      <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\" pos="0 0 0">
-                        <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\wrist_palm_link">
+                      <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\" pos="0 0 0">
+                        <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\wrist_palm_link">
                           <inertial pos="-7.9740000000000006e-05 0.00016129999999999999 0.051764480000000002" mass="0.068647529999999998" fullinertia="3.773e-05 3.8059999999999998e-05 7.4079999999999995e-05 -1.9000000000000001e-07 0 0"/>
-                          <joint name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\J7" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\" range="-2.2000000000000002 2.2000000000000002" damping="10" frictionloss="1000"/>
-                          <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\wrist_palm_link\\viz" mesh="wrist_palm_link_fine"/>
-                          <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\\unnamed_geom_1" class="wam\col" mesh="wrist_palm_link_convex"/>
+                          <joint name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\J7" class="rand" range="-2.2000000000000002 2.2000000000000002" damping="10" frictionloss="1000"/>
+                          <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="wrist_palm_link_fine"/>
+                          <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\unnamed_geom_1" class="wam\col" mesh="wrist_palm_link_convex"/>
                         </body>
-                        <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\camera\" pos="0 0.085000000000000006 0.02">
-                          <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\camera\wam\\camera">
+                        <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\camera\" pos="0 0.085000000000000006 0.02">
+                          <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\camera\wam\camera">
                             <inertial pos="0 0 0.014999999999999999" mass="0.095000000000000001"/>
-                            <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\camera\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\camera\wam\\viz" mesh="intel_realsense_l515"/>
-                            <camera name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\camera\wam\\camera\\rgb" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\camera\" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
+                            <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\camera\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="intel_realsense_l515"/>
+                            <camera name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\camera\wam\camera\rgb" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\camera\" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
                           </body>
                         </body>
-                        <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\" pos="0 0 0.059999999999999998" quat="0.70710700000000004 0.70710700000000004 0 0">
-                          <body name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\torque_sensor_link">
+                        <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\" pos="0 0 0.059999999999999998" quat="0.70710700000000004 0.70710700000000004 0 0">
+                          <body name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\torque_sensor_link">
                             <inertial pos="0 0.0085000000000000006 0" mass="0.13327800000000001" fullinertia="7.551e-05 0.0001462 7.5080000000000006e-05 -7.0020000000000001e-08 -1.1990000000000001e-07 -5.3699999999999998e-08"/>
-                            <geom name="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\\unnamed_geom_0" class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\torque_sensor_link\\viz" mesh="torque_sensor_plate"/>
+                            <geom name="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\unnamed_geom_0" class="wam\shoulder_yaw_link\viz" mesh="torque_sensor_plate"/>
                           </body>
                         </body>
                       </body>

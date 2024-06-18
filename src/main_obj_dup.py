@@ -255,12 +255,8 @@ class Shelf_Wall:
    #===================#
     #  C O N S T A N T  #
     #===================#
-    _shelf_locations = [[-4,0,0],
-                        [-2,0,0],
-                        [0,0,0],
-                        [2,0,0],
-                        [4,0,0]]
-    _num_racks = 6
+    _shelf_locations = [[0,0,0]]
+    _num_racks = 2
     _name = 'shelf_wall'
     _site_name = 'site'
     #===============================#

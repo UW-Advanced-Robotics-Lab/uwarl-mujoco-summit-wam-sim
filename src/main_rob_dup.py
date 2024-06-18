@@ -63,7 +63,8 @@ class Link_w_Joints:
                            name = joint_name,
                            range = joint_range, 
                            damping = joint_damping,
-                           frictionloss = joint_frictionloss)
+                           frictionloss = joint_frictionloss,
+                           dclass = 'rand')
         # Add the Geometry (https://github.com/google-deepmind/dm_control/blob/ed424509c0a0e8ddf7a43824924de483026ad9cc/dm_control/locomotion/soccer/humanoid.py#L50)
         # For visualization
         self.link_body.add('geom',
@@ -100,7 +101,8 @@ class Forearm_link:
                            name = joint_name,
                            range = joint_range, 
                            damping = joint_damping,
-                           frictionloss = joint_frictionloss)
+                           frictionloss = joint_frictionloss,
+                           dclass = 'rand')
         # Add the Geometry (https://github.com/google-deepmind/dm_control/blob/ed424509c0a0e8ddf7a43824924de483026ad9cc/dm_control/locomotion/soccer/humanoid.py#L50)
         # For visualization
         for x in range(len(viz_meshes)):
@@ -145,7 +147,64 @@ class Link_wo_Joints:
                                 dclass = self._dclass_col,
                                 mesh = col_meshes[x])
 
-# Make a class for constructing 
+# Make a class for constructing the BHand
+class Bhand:
+    #===================#
+    #  C O N S T A N T  #
+    #===================#
+    _bhand_name = 'bhand'
+    _col_mesh_name = [['bhand_palm_link_convex_decomposition_p1',
+                       'bhand_palm_link_convex_decomposition_p2',
+                       'bhand_palm_link_convex_decomposition_p3',
+                       'bhand_palm_link_convex_decomposition_p4'],
+                      ['bhand_finger_prox_link_convex_decomposition_p1',
+                       'bhand_finger_prox_link_convex_decomposition_p2',
+                       'bhand_finger_prox_link_convex_decomposition_p3'],
+                      'bhand_finger_med_link_convex',
+                      'bhand_finger_dist_link_convex']
+    _com_pos = [[5.0019e-005,  0.0044561, 0.037268],
+                [0.030616, 7.3219e-005, 0.011201],
+                [0.023133, 0.00078642, 0.00052792],
+                [0.02295, 0.0010739, 0.00041752]]
+    _euler_dist = [0, 0, -0.84]
+    _finger_name = 'finger'
+    _inertial = [[0.0006986, 0.00050354, 0.00062253, 2.7577e-007, -7.8138e-007, -6.44e-005],
+                 [2.0672e-005, 7.4105e-005, 6.8207e-005, 2.6024e-007, 6.3481e-006, 1.7118e-008],
+                 [4.8162e-006, 4.3317e-005, 4.4441e-005, 5.7981e-007, -7.2483e-007, -2.6653e-009],
+                 [3.1199e-006, 1.6948e-005, 1.5809e-005, 4.5115e-007, -2.9813e-007, -1.8635e-008]]
+    _joint_axis = [[0, 0, -1],
+                   [0, 0, 1],
+                   [0, 0, 1]]
+    _joint_damping = 0.1
+    _joint_frictionloss = 0.1
+    _joint_name = ['\\prox',
+                   '\\med',
+                   '\\dist']
+    _joint_range = [[-0.1, 3.2],
+                    [-0.1, 2.5],
+                    [-0.1, 0.9]]
+    _mass = [0.60858,
+             0.14109,
+             0.062139,
+             0.04166]
+    _quat = [[0.707107, 0, 0, -0.707107],
+             [0.707107, 0.707107, 0, 0],
+             [0.92388, 0, 0, 0.382683]]
+    _viz_mesh_name = ['bhand_palm_fine',
+                      'bhand_finger_prox_link_fine',
+                      'bhand_finger_med_link_fine',
+                      'bhand_finger_dist_link_fine']
+    _wam_name = 'wam'
+    #===============================#
+    #  I N I T I A L I Z A T I O N  #
+    #===============================#
+    def __init__(self, name):
+        # Make a MujoCo Root
+        self.mjcf_model = mjcf.RootElement(model=name)
+        # Add 'base_link' element:
+        self.base_link = self.mjcf_model.worldbody.add('body',
+                                                       name = self._wam_name+'\\'+self._body_name[0],
+                                                       pos = (0, 0, 0))
 
 # Make a class for constructing the WAM
 class WAM:
@@ -430,19 +489,19 @@ class WAM:
         # Attach 'torque_sensor_link'
         self.wrist_torque_link_site.attach(self.wrist_torque_link.mjcf_model)
 
-        # # Attach site for 'bhand'
-        # self.bhand_site = self.wrist_torque_link.mjcf_model.worldbody.add('site',
-        #                                                                   pos = self._pos[8],
-        #                                                                   quat = self._wrist_torque_sensor_quat,
-        #                                                                   dclass = self._site_name)
-        # # Create link 'torque_sensor_link'
-        # self.bhand_link = Bhand(com_pos = self._com_pos[8],
-        #                                         inertia = self._inertial[8],
-        #                                         mass = self._mass[8],
-        #                                         name = self._wam_name+'\\'+self._body_name[9],
-        #                                         viz_meshes = self._viz_mesh_names[9])
-        # # Attach 'torque_sensor_link'
-        # self.bhand_site.attach(self.bhand_link.mjcf_model)
+        # Attach site for 'bhand'
+        self.bhand_site = self.wrist_torque_link.mjcf_model.worldbody.add('site',
+                                                                          pos = self._pos[8],
+                                                                          quat = self._wrist_torque_sensor_quat,
+                                                                          dclass = self._site_name)
+        # Create link 'torque_sensor_link'
+        self.bhand_link = Bhand(com_pos = self._com_pos[8],
+                                                inertia = self._inertial[8],
+                                                mass = self._mass[8],
+                                                name = self._wam_name+'\\'+self._body_name[9],
+                                                viz_meshes = self._viz_mesh_names[9])
+        # Attach 'torque_sensor_link'
+        self.bhand_site.attach(self.bhand_link.mjcf_model)
 
         # Delete attachment frames. The element `site` is being read by MuJoCo and, since it does not recongnize this element, it throws an error.
         self.base_link.site.clear()
@@ -625,40 +684,46 @@ class Summit:
                              axis = (0, 1, 0),
                              damping = 1e+11,
                              pos = (0, 0, 0),
-                             type = 'slide')
+                             type = 'slide',
+                             dclass = 'rand')
         self.summit_body.add('joint',
                              name = self._name_summit+'_'+prefix+'\\world_y',
                              armature = 0.0001,
                              axis = (-1, 0, 0),
                              damping = 1e+11,
                              pos = (0, 0, 0),
-                             type = 'slide')
+                             type = 'slide',
+                             dclass = 'rand')
         self.summit_body.add('joint',
                              name = self._name_summit+'_'+prefix+'\\world_z',
                              armature = 0.0001,
                              axis = (0, 0, 1),
                              damping = 1e+0,
                              pos = (0, 0, 0),
-                             type = 'slide')
+                             type = 'slide',
+                             dclass = 'rand')
         # Control summit base
         self.summit_body.add('joint',
                              name = self._name_summit+'_'+prefix+'\\pose\\x',
                              axis = (0, 1, 0),
                              damping = 15,
                              pos = (0, 0, 0.4),
-                             type = 'slide')
+                             type = 'slide',
+                             dclass = 'rand')
         self.summit_body.add('joint',
                              name = self._name_summit+'_'+prefix+'\\pose\\y',
                              axis = (-1, 0, 0),
                              damping = 15,
                              pos = (0, 0, 0.4),
-                             type = 'slide')
+                             type = 'slide',
+                             dclass = 'rand')
         self.summit_body.add('joint',
                              name = self._name_summit+'_'+prefix+'\\orie\\z',
                              axis = (0, 0, 1),
                              damping = 10,
                              pos = (0, 0, 0.4),
-                             type = 'hinge')
+                             type = 'hinge',
+                             dclass = 'rand')
         
         # Add wheels
         # An empty array to hold box-sites
@@ -738,7 +803,10 @@ export_with_assets(mjcf_model = summit_body.mjcf_model, out_dir=folder_name)
 filename = folder_name+'/smt_0\\base_link.xml'
 mjcf_model = mjcf.from_path(filename, escape_separators=True)
 
+bodies = mjcf_model.find_all('body')
+cameras = mjcf_model.find_all('camera')
 geoms = mjcf_model.find_all('geom')
+joints = mjcf_model.find_all('joint')
 
 mesh_file_names = ['mecanum_LF_1',
                    'mecanum_LR_1',
@@ -772,9 +840,17 @@ mesh_file_names = ['mecanum_LF_1',
                    'wrist_palm_link_convex',
                    'intel_realsense_l515']
 
-print(geoms[13].dclass)
-print('wam\\\\col')
-print('wam\\\\col' in geoms[13].dclass)
+class_names = ['base',
+               'shoulder_yaw_link',
+               'shoulder_pitch_link',
+               'upper_arm_link',
+               'elbow_link',
+               'fore_arm_link',
+               'wrist_yaw_link',
+               'wrist_pitch_link',
+               'wrist_palm_link',
+               'torque_sensor_link']
+
 # Set classes to one name
 for geom in geoms:
   if type(geom.dclass) is str:
@@ -787,10 +863,50 @@ for geom in geoms:
     # Check if geom has a class type having the sub-string `summit\\wheel\\viz` in it
     if 'summit\\\\wheel\\viz' in geom.dclass:
         geom.dclass = 'summit\\wheel\\viz'
+    for class_name in class_names:
+       if class_name in geom.dclass:
+          geom.dclass = 'wam\\'+class_name+'\\viz'
   # Check if geom has a mesh-type in it
   if geom.mesh is not None:
     for mesh_name in mesh_file_names:
       if mesh_name in geom.mesh:
           geom.mesh = mesh_name
+
+# Remove class-attribute from 'joint' heading
+for joint in joints:
+   if type(joint.dclass) is str:
+       joint.dclass = 'rand'
+
+temp_string = ""
+
+# Replace '\\' instances in names with '\'
+for body in bodies:
+  if type(body.name) is str:
+     if '\\\\' in body.name:
+        temp_string = body.name.replace('\\\\','\\')
+        body.name = temp_string
+for camera in cameras:
+  if type(camera.name) is str:
+     if '\\\\' in camera.name:
+        temp_string = camera.name.replace('\\\\','\\')
+        camera.name = temp_string
+  if type(camera.dclass) is str:
+     if '\\\\' in camera.dclass:
+        temp_string = camera.dclass.replace('\\\\','\\')
+        camera.dclass = temp_string
+for geom in geoms:
+  if type(geom.name) is str:
+     if '\\\\' in geom.name:
+        temp_string = geom.name.replace('\\\\','\\')
+        geom.name = temp_string
+  if type(geom.dclass) is str:
+     if '\\\\' in geom.dclass:
+        temp_string = geom.dclass.replace('\\\\','\\')
+        geom.dclass = temp_string
+for joint in joints:
+  if type(joint.name) is str:
+     if '\\\\' in joint.name:
+        temp_string = joint.name.replace('\\\\','\\')
+        joint.name = temp_string
   
 export_with_assets(mjcf_model = mjcf_model, out_dir=folder_name)
