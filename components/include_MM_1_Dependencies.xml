@@ -1,0 +1,138 @@
+<!-- ======================================================
+    This file is part of modified version based on the official MuJoCo WAM model.
+    Copyright UWARL (UW Mechanical and Control Lab).
+    
+    Model       :: WAM Arm from Barrett technologies
+        Source      : https://github.com/jhu-lcsr/barrett_model
+        Downloaded  : Oct 10, 2015
+        
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 1.31
+
+    Original    :: Vikash kumar
+        Source      : https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/
+        Downloaded  : Jun 13, 2022
+        Contacts    : kumar@roboti.us
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+====================================================== -->
+
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- MM -->
+    
+    
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT -->
+    <default>
+        <!-- Summit -->
+        <!-- The class0name being specified under default maps back to the class-names being specified for a body (childclass/class) , or  -->
+        <!-- These names have to be unique; it must not clash with class-names for un-intended bodies/joints/geometries -->
+        <default class="rand">
+        </default>
+        <default class="summit\whl">
+            <joint axis="1 0 0" damping="0.55"/>
+        </default>
+        <default class="summit\col">
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
+        </default>
+        <default class="summit\body\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+        </default>
+        <default class="summit\wheel\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+        </default>
+        <!-- WAM -->
+        <default class="wam\col">
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.6"/>
+        </default>
+        <default class="wam\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+        </default>
+        <default class="wam\base\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+        </default>
+        <default class="wam\shoulder_yaw_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0.8 0.8 1"/>
+        </default>
+        <default class="wam\shoulder_pitch_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam\upper_arm_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+        </default>
+        <default class="wam\elbow_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam\fore_arm_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0.8 0.8 1"/>
+        </default>
+        <default class="wam\wrist_yaw_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+        </default>
+        <default class="wam\wrist_pitch_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0.8 0.8 1"/>
+        </default>
+        <default class="wam\wrist_palm_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+        </default>
+        <default class="wam\torque_sensor_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.5 0.7 1"/>
+        </default>
+        <!-- Bhand -->
+        <default class="wam\bhand">
+            <joint type="hinge" limited="true" pos="0 0 0" axis="0 0 1"  frictionloss=".001"/>
+        </default>
+        <default class="wam\bhand\col">
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.7"/>          
+        </default>
+        <default class="wam\bhand\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam\bhand\bhand_palm_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam\bhand\bhand_finger_prox_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam\bhand\bhand_finger_med_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.2 0.4 0.65 1"/>
+        </default>
+        <default class="wam\bhand\bhand_finger_dist_link\viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.05 0.4 0.8 1"/>
+        </default>
+    </default>
+    
+    <!-- CONTACT -->
+    <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+        <!-- WAM -->
+        <exclude body1="wam_7dof_bhand_0\wam\base\" 
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_yaw_link"/>
+        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_yaw_link" 
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\upper_arm_link"/>
+        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\forearm_link" 
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_pitch_link"/>
+        <exclude body1="smt_0\base_link" 
+                 body2="smt_0\whl\LF_link\smt_0\whl\LF_link"/>
+        <exclude body1="smt_0\base_link" 
+                 body2="smt_0\whl\LR_link\smt_0\whl\LR_link"/>
+        <exclude body1="smt_0\base_link" 
+                 body2="smt_0\whl\RF_link\smt_0\whl\RF_link"/>
+        <exclude body1="smt_0\base_link" 
+                 body2="smt_0\whl\RR_link\smt_0\whl\RR_link"/>
+        <!-- Bhand -->
+        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\bhand_palm_link" 
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_1\prox_link\wam\bhand\finger_1\med_link\wam\bhand\finger_1\med_link"/>
+        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\bhand_palm_link" 
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_2\prox_link\wam\bhand\finger_2\med_link\wam\bhand\finger_2\med_link"/>
+    </contact>
+
+</mujocoinclude>

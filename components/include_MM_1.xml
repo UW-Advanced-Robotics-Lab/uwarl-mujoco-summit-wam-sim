@@ -1,38 +1,51 @@
-<mujoco model="smt_0\base_link">
-  <default>
-    <default class="/">
-      <default class="\"/>
-      <default class="smt_0\\front\\camera\"/>
-      <default class="smt_0\\rear\\camera\"/>
-      <default class="smt_0\\pole_link\\camera\"/>
-      <default class="smt_0\\whl\\LF_link\"/>
-      <default class="smt_0\\whl\\LR_link\"/>
-      <default class="smt_0\\whl\\RF_link\"/>
-      <default class="smt_0\\whl\\RR_link\"/>
-      <default class="wam_7dof_bhand_0\"/>
-      <default class="wam_7dof_bhand_0\wam\\base\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\camera\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\wam\\bhand\\finger_1\\prox_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\wam\\bhand\\finger_1\\prox_link\wam\\bhand\\finger_1\\med_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\wam\\bhand\\finger_1\\prox_link\wam\\bhand\\finger_1\\med_link\wam\\bhand\\finger_1\\dist_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\wam\\bhand\\finger_2\\prox_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\wam\\bhand\\finger_2\\prox_link\wam\\bhand\\finger_2\\med_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\wam\\bhand\\finger_2\\prox_link\wam\\bhand\\finger_2\\med_link\wam\\bhand\\finger_2\\dist_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\wam\\bhand\\finger_3\\med_link\"/>
-      <default class="wam_7dof_bhand_0\wam\\shoulder_yaw_link\wam\\shoulder_pitch_link\wam\\upper_arm_link\wam\\forearm_link\wam\\wrist_yaw_link\wam\\wrist_pitch_link\wam\\wrist_palm_link\wam\\torque_sensor_link\wam\\bhand\wam\\bhand\\bhand_palm_link\wam\\bhand\\finger_3\\med_link\wam\\bhand\\finger_3\\dist_link\"/>
-    </default>
-  </default>
-  <worldbody>
+<!-- ======================================================
+    This file is part of modified version based on the official MuJoCo WAM model.
+    Copyright UWARL (UW Mechanical and Control Lab).
+    
+    Model       :: WAM Arm from Barrett technologies
+        Source      : https://github.com/jhu-lcsr/barrett_model
+        Downloaded  : Oct 10, 2015
+        
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 1.31
+
+    Original    :: Vikash kumar
+        Source      : https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/
+        Downloaded  : Jun 13, 2022
+        Contacts    : kumar@roboti.us
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+    
+    Spec        :: WAM Inertial Spec (*1)
+        Source      : https://web.barrett.com/support/WAM_Documentation/WAM_InertialSpecifications_AC-02.pdf
+        Correction  : Jack @ Jun 20, 2022
+        
+    Spec        :: WAM Joint Range Spec (*2)
+        Source      : https://support.barrett.com/wiki/WAM/KinematicsJointRangesConversionFactors
+        Correction  : Jack @ Jun 22, 2022
+        
+    Spec        :: WAM Torque Sensor Spec (*3)
+        Source      : https://web.barrett.com/supportFiles/wikiFiles/B4066Documentation.PDF
+        Correction  : Jack @ Jun 22, 2022
+    
+    Spec        :: Intel L515 (*4)
+        Source      : https://dev.intelrealsense.com/docs/lidar-camera-l515-datasheet
+        Correction  : Jack @ Aug 05, 2022
+        
+    Updates:
+        - [June 22, 2022] mass and inertial parameters re-populated based on (*1)
+        - [June 22, 2022] range limits revised based on (*2)
+        - [June 22, 2022] [IMPORTANT] T-S Sensor Plate has been added!!!
+        - [June 23, 2022] fullinertia matrix (based on spec *1, *3)
+        - [June 24, 2022] ZED Camera / Intel Realsense Eye on forearm
+        - [ ] TODO: We need to calibrate / measure the damping / friction values
+====================================================== -->
+
+<mujocoinclude>
+
     <body name="smt_0\base_link" pos="0 0 0">
       <inertial pos="0 0 0.37" mass="125" diaginertia="1.391 6.8529999999999998 6.125"/>
       <geom name="//unnamed_geom_0" class="summit\body\viz" mesh="base_link_summit"/>
@@ -273,5 +286,5 @@
         </body>
       </body>
     </body>
-  </worldbody>
-</mujoco>
+
+</mujocoinclude>

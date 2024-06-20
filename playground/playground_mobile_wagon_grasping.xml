@@ -29,6 +29,7 @@
     <!-- <include file="../components/include_shelves_Dependencies.xml"/> -->
     <include file="../components/include_shelves_Dependencies.xml"/>
     <include file="../components/include_walls_Dependencies.xml"/>
+    <include file="../components/include_MM_1_Dependencies.xml"/>
 
     <!--###############
         ### Config: ###
@@ -87,6 +88,11 @@
             <inertial pos="0.0 0.0 0.0" mass="8" diaginertia="0.1 0.1 0.1"/>
             <geom name="brown_box_0/viz" type="box" size="0.34 0.2 0.2" contype="0" conaffinity="0" group="1" material="cardboard"/>
             <geom name="brown_box_0/col" type="box" size="0.34 0.2 0.2" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7" solref="0.02 1"/>
+        </body>
+
+        <!-- Placing a robot behind the Cart-MM -->
+        <body name="waterloo_steel_1" pos="4 0.5 0" euler="0 0 -1.57079632679">
+            <include file="../components/include_MM_1.xml"/>
         </body>
 
     </worldbody>
