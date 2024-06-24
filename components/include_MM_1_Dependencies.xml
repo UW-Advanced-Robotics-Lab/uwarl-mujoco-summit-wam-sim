@@ -115,24 +115,24 @@
     <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
         <!-- WAM -->
         <exclude body1="wam_7dof_bhand_0\wam\base\" 
-                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_yaw_link"/>
-        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_yaw_link" 
-                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\upper_arm_link"/>
-        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\forearm_link" 
-                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_pitch_link"/>
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\"/>
+        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\" 
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\"/>
+        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\" 
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\"/>
         <exclude body1="smt_0\base_link" 
-                 body2="smt_0\whl\LF_link\smt_0\whl\LF_link"/>
+                 body2="smt_0\whl\LF_link\"/>
         <exclude body1="smt_0\base_link" 
-                 body2="smt_0\whl\LR_link\smt_0\whl\LR_link"/>
+                 body2="smt_0\whl\LR_link\"/>
         <exclude body1="smt_0\base_link" 
-                 body2="smt_0\whl\RF_link\smt_0\whl\RF_link"/>
+                 body2="smt_0\whl\RF_link\"/>
         <exclude body1="smt_0\base_link" 
-                 body2="smt_0\whl\RR_link\smt_0\whl\RR_link"/>
+                 body2="smt_0\whl\RR_link\"/>
         <!-- Bhand -->
-        <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\bhand_palm_link" 
+        <!-- <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\bhand_palm_link" 
                  body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_1\prox_link\wam\bhand\finger_1\med_link\wam\bhand\finger_1\med_link"/>
         <exclude body1="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\bhand_palm_link" 
-                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_2\prox_link\wam\bhand\finger_2\med_link\wam\bhand\finger_2\med_link"/>
+                 body2="wam_7dof_bhand_0\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_2\prox_link\wam\bhand\finger_2\med_link\wam\bhand\finger_2\med_link"/> -->
     </contact>
 
 </mujocoinclude>

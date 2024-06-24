@@ -84,7 +84,16 @@ class Forearm_link:
     #===================#
     #  C O N S T A N T  #
     #===================#
-
+    _col_mesh_euler = [[0, 0, 0],
+                       [1.57, 0, 0],
+                       [1.57, 0, 0]]
+    _col_mesh_pos = [[0, 0, 0],
+                     [-0.045, -0.073, 0],
+                     [-0.045, -0.073, 0]]
+    _viz_mesh_euler = [[0, 0, 0],
+                       [1.57, 0, 0]]
+    _viz_mesh_pos = [[0, 0, 0],
+                     [-0.045, -0.073, 0]]
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
@@ -111,12 +120,16 @@ class Forearm_link:
         for x in range(len(viz_meshes)):
             self.link_body.add('geom',
                               dclass = viz_dclass_name[x]+'\\viz',
-                              mesh = viz_meshes[x])
+                              euler = self._viz_mesh_euler[x],
+                              mesh = viz_meshes[x],
+                              pos = self._viz_mesh_pos[x])
         # For Collision
         for x in range(len(col_meshes)):
             self.link_body.add('geom',
                                dclass = dclass_col,
-                               mesh = col_meshes[x])
+                               euler = self._col_mesh_euler[x],
+                               mesh = col_meshes[x],
+                              pos = self._col_mesh_pos[x])
 
 # Make a class for constructing a link without joints
 class Link_wo_Joints:
@@ -203,7 +216,7 @@ class Bhand:
             [0, 0.05, 0.0754],
             [0.05, 0, 0.0339],
             [0.06994, 0.003, 0]]
-    _quat = [[0, 1, 0, 0], # quant=w x y z
+    _quat = [[1, 0, 0, 0], # quant=w x y z
              [0.707107, 0, 0, -0.707107],
              [0.707107, 0, 0, -0.707107],
              [0.5, 0.5, 0.5, 0.5],
@@ -281,8 +294,8 @@ class Bhand:
           else:
              # Attach site for 'finger 1 med link' at 'palm link'
             self.finger_index_med_link_site.append(self.palm_link.mjcf_model.worldbody.add('site',
-                                                                                 pos = self._pos[4],
-                                                                                 quat = self._quat[4],
+                                                                                 pos = self._pos[1+finger_index],
+                                                                                 quat = self._quat[1+finger_index],
                                                                                  dclass = self._site_name))
           # Create 'finger 1 med link' 
           self.finger_index_med_link.append(Link_w_Joints(col_meshes = self._col_mesh_name[2],
@@ -346,7 +359,6 @@ class WAM:
                   'wrist_pitch_link',
                   'wrist_palm_link',
                   'torque_sensor_link']
-    _bhand_quat = [0, 0, 0.707107, 0.707107]
     _bhand_name = 'bhand'
     _dclass_col = 'wam\\col'
     _camera_pos = [0, 0.085, 0.02]
@@ -427,6 +439,17 @@ class WAM:
             [0, 0, 0],
             [0, 0, 0.06],
             [0, 0.01, 0]]
+    # quant=w x y z 
+    _quat = [[1, 0, 0, 0],
+             [1, 0, 0, 0],
+             [0.707107, -0.707107, 0, 0],
+             [0.707107,  0.707107, 0, 0],
+             [0.707107, -0.707107, 0, 0],
+             [0.707107, 0.707107, 0, 0],
+             [0.707107, -0.707107, 0, 0],
+             [0.707107, 0.707107, 0, 0],
+             [0.707107, 0.707107, 0, 0],
+             [0, 0, 0.707107, 0.707107]]
     _site_name = 'site'
     _viz_mesh_names = ['base_link_fine',
                        'shoulder_link_fine',
@@ -439,7 +462,6 @@ class WAM:
                        'wrist_palm_link_fine',
                        'torque_sensor_plate']
     _wam_name = 'wam'
-    _wrist_torque_sensor_quat = [0.707107, 0.707107, 0, 0] # quant=w x y z 
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
@@ -454,6 +476,7 @@ class WAM:
         # Attach site for 'base'
         self.base_site = self.base_link.add('site',
                                             pos = self._pos[0],
+                                            quat = self._quat[0],
                                             dclass = self._site_name)
         # Create link 'base'
         self.base = Link_wo_Joints(col_meshes = self._col_mesh_names[0],
@@ -469,6 +492,7 @@ class WAM:
         # Attach site for 'shoulder_yaw_link'
         self.shoulder_yaw_link_site = self.base_link.add('site',
                                                          pos = self._pos[1],
+                                                         quat = self._quat[1],
                                                          dclass = self._site_name)
         # Create link 'shoulder_yaw_link'
         self.shoulder_yaw_link = Link_w_Joints(col_meshes = self._col_mesh_names[1],
@@ -488,6 +512,7 @@ class WAM:
         # Attach site for 'shoulder_pitch_link'
         self.shoulder_pitch_link_site = self.shoulder_yaw_link.mjcf_model.worldbody.add('site',
                                                                                         pos = self._pos[2],
+                                                                                        quat = self._quat[2],
                                                                                         dclass = self._site_name)
         # Create link 'shoulder_pitch_link'
         self.shoulder_pitch_link = Link_w_Joints(col_meshes = self._col_mesh_names[2],
@@ -507,6 +532,7 @@ class WAM:
         # Attach site for 'upper_arm_link'
         self.upper_arm_link_site = self.shoulder_pitch_link.mjcf_model.worldbody.add('site',
                                                                                      pos = self._pos[3],
+                                                                                     quat = self._quat[3],
                                                                                      dclass = self._site_name)
         # Create link 'upper_arm_link'
         self.upper_arm_link = Link_w_Joints(col_meshes = self._col_mesh_names[3],
@@ -526,6 +552,7 @@ class WAM:
         # Attach site for 'forearm_link'
         self.forearm_link_site = self.upper_arm_link.mjcf_model.worldbody.add('site',
                                                                               pos = self._pos[4],
+                                                                              quat = self._quat[4],
                                                                               dclass = self._site_name)
         # Create link 'forearm_link'
         self.forearm_link = Forearm_link(col_meshes = self._col_mesh_names[4],
@@ -547,6 +574,7 @@ class WAM:
         # Attach site for 'wrist_yaw_link'
         self.wrist_yaw_link_site = self.forearm_link.mjcf_model.worldbody.add('site',
                                                                               pos = self._pos[5],
+                                                                              quat = self._quat[5],
                                                                               dclass = self._site_name)
         # Create link 'wrist_yaw_link'
         self.wrist_yaw_link = Link_w_Joints(col_meshes = self._col_mesh_names[5],
@@ -566,6 +594,7 @@ class WAM:
         # Attach site for 'wrist_pitch_link'
         self.wrist_pitch_link_site = self.wrist_yaw_link.mjcf_model.worldbody.add('site',
                                                                                   pos = self._pos[6],
+                                                                                  quat = self._quat[6],
                                                                                   dclass = self._site_name)
         # Create link 'wrist_pitch_link'
         self.wrist_pitch_link = Link_w_Joints(col_meshes = self._col_mesh_names[6],
@@ -585,6 +614,7 @@ class WAM:
         # Attach site for 'wrist_palm_link'
         self.wrist_palm_link_site = self.wrist_pitch_link.mjcf_model.worldbody.add('site',
                                                                                    pos = self._pos[7],
+                                                                                   quat = self._quat[7],
                                                                                    dclass = self._site_name)
         # Create link 'wrist_palm_link'
         self.wrist_palm_link = Link_w_Joints(col_meshes = self._col_mesh_names[7],
@@ -614,7 +644,7 @@ class WAM:
         # Attach site for 'torque_sensor_link'
         self.wrist_torque_link_site = self.wrist_palm_link.mjcf_model.worldbody.add('site',
                                                                                     pos = self._pos[8],
-                                                                                    quat = self._wrist_torque_sensor_quat,
+                                                                                    quat = self._quat[8],
                                                                                     dclass = self._site_name)
         # Create link 'torque_sensor_link'
         self.wrist_torque_link = Link_wo_Joints(com_pos = self._com_pos[8],
@@ -629,7 +659,7 @@ class WAM:
         # Attach site for 'bhand'
         self.bhand_site = self.wrist_torque_link.mjcf_model.worldbody.add('site',
                                                                           pos = self._pos[9],
-                                                                          quat = self._bhand_quat,
+                                                                          quat = self._quat[9],
                                                                           dclass = self._site_name)
         # Create link 'torque_sensor_link'
         self.bhand_link = Bhand(name = self._wam_name+'\\'+self._bhand_name)
@@ -662,7 +692,7 @@ class Wheel:
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
-    def __init__(self, mesh, prefix, wheel_name):
+    def __init__(self, mesh, orientation, position, prefix, wheel_name):
         # Make a MujoCo Root
         self.mjcf_model = mjcf.RootElement(model=prefix+'\\'+wheel_name+'_link')
         # Add a body element:
@@ -677,19 +707,21 @@ class Wheel:
         self.summit_body.add('geom',
                              name = prefix+'\\viz\\'+wheel_name+'_cylinder',
                              dclass = self._dclass_col,
+                             pos = position,
+                             quat = orientation,
                              size = self._size,
                              type = 'cylinder',
                              friction = self._friction)
         # Add Inertial properties
         self.summit_body.add('inertial',
-                             pos = (0, 0, 0), 
+                             pos = position, 
                              mass = self._mass,
                              diaginertia = self._inertia)
         # Add Joint
         self.summit_body.add('joint',
                              name = prefix+'\\'+wheel_name.replace("\\","_"),
                              dclass = self._dclass_joint,
-                             pos = (0,0,0))
+                             pos = position)
         
 # Make a class for constructing the Summit body
 class Summit:
@@ -864,14 +896,15 @@ class Summit:
         wheel_site = []
         for x in range(len(self._wheel_pos)):
             wheel_site.append(self.summit_body.add('site',
-                                                   pos = self._wheel_pos[x],
-                                                   quat = self._wheel_quat,
+                                                   pos = (0, 0, 0),
                                                    dclass = self._site_name))
         # Create wheels
         # Initialize empty list of wheels
         wheels = []
         for x in range(len(self._wheel_pos)):
-            wheels.append(Wheel(prefix = self._name_summit+'_'+prefix, 
+            wheels.append(Wheel(orientation = self._wheel_quat,
+                                position = self._wheel_pos[x],
+                                prefix = self._name_summit+'_'+prefix,
                                 wheel_name = self._wheel_name[x],
                                 mesh = self._wheel_mesh[x]))
         # Attach the boxes
@@ -1064,14 +1097,17 @@ for geom in geoms:
      if 'whl' not in geom.name:
         del geom.name
 
-for geom in geoms:
-   print(geom.dclass)
+# for geom in geoms:
+#    print(geom.dclass)
 
 # Remove class-attribute from 'joint' heading
 for joint in joints:
    # Unite unnescessary class-names
    if type(joint.dclass) is str:
-       joint.dclass = 'rand'
+       if 'summit\\\\whl' in joint.dclass:
+          joint.dclass = 'summit\\whl'
+       else:
+          joint.dclass = 'rand'
    if joint.name is not None:
       if '\\\\' in joint.name:
          temp_string = joint.name.replace('\\\\','\\')
@@ -1088,6 +1124,7 @@ for body in bodies:
      if '\\\\' in body.name:
         temp_string = body.name.replace('\\\\','\\')
         body.name = temp_string
+
 for camera in cameras:
   if type(camera.name) is str:
      if '\\\\' in camera.name:
@@ -1102,6 +1139,7 @@ for camera in cameras:
     #  if '\\\\' in camera.dclass:
     #     temp_string = camera.dclass.replace('\\\\','\\')
     #     camera.dclass = temp_string
+
 for geom in geoms:
   if type(geom.name) is str:
      if '\\\\' in geom.name:
@@ -1111,6 +1149,7 @@ for geom in geoms:
      if '\\\\' in geom.dclass:
         temp_string = geom.dclass.replace('\\\\','\\')
         geom.dclass = temp_string
+
 for joint in joints:
   if type(joint.name) is str:
      if '\\\\' in joint.name:

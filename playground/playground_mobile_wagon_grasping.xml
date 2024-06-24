@@ -91,7 +91,7 @@
         </body>
 
         <!-- Placing a robot behind the Cart-MM -->
-        <body name="waterloo_steel_1" pos="4 0.5 0" euler="0 0 -1.57079632679">
+        <body name="waterloo_steel_1" pos="-1 0.5 0" euler="0 0 -1.57079632679">
             <include file="../components/include_MM_1.xml"/>
         </body>
 
