@@ -1,0 +1,268 @@
+<!-- ======================================================
+    This file is part of modified version based on the official MuJoCo WAM model.
+    Copyright UWARL (UW Mechanical and Control Lab).
+    
+    Model       :: WAM Arm from Barrett technologies
+        Source      : https://github.com/jhu-lcsr/barrett_model
+        Downloaded  : Oct 10, 2015
+        
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 1.31
+
+    Original    :: Vikash kumar
+        Source      : https://roboti.us/forum/index.php?resources/wam-and-barrett-hand.20/
+        Downloaded  : Jun 13, 2022
+        Contacts    : kumar@roboti.us
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+    
+    Spec        :: WAM Inertial Spec (*1)
+        Source      : https://web.barrett.com/support/WAM_Documentation/WAM_InertialSpecifications_AC-02.pdf
+        Correction  : Jack @ Jun 20, 2022
+        
+    Spec        :: WAM Joint Range Spec (*2)
+        Source      : https://support.barrett.com/wiki/WAM/KinematicsJointRangesConversionFactors
+        Correction  : Jack @ Jun 22, 2022
+        
+    Spec        :: WAM Torque Sensor Spec (*3)
+        Source      : https://web.barrett.com/supportFiles/wikiFiles/B4066Documentation.PDF
+        Correction  : Jack @ Jun 22, 2022
+    
+    Spec        :: Intel L515 (*4)
+        Source      : https://dev.intelrealsense.com/docs/lidar-camera-l515-datasheet
+        Correction  : Jack @ Aug 05, 2022
+        
+    Updates:
+        - [June 22, 2022] mass and inertial parameters re-populated based on (*1)
+        - [June 22, 2022] range limits revised based on (*2)
+        - [June 22, 2022] [IMPORTANT] T-S Sensor Plate has been added!!!
+        - [June 23, 2022] fullinertia matrix (based on spec *1, *3)
+        - [June 24, 2022] ZED Camera / Intel Realsense Eye on forearm
+        - [ ] TODO: We need to calibrate / measure the damping / friction values
+====================================================== -->
+
+<mujocoinclude>
+
+    <body name="smt_1\base_link" pos="0 0 0">
+      <inertial pos="0 0 0.37" mass="125" diaginertia="1.391 6.8529999999999998 6.125"/>
+      <geom name="//unnamed_geom_0" class="summit\body\viz" mesh="base_link_summit"/>
+      <body name="smt_1\front\camera\" pos="0 0.36199999999999999 0.373" quat="0 0 0.70710700000000004 0.70710700000000004">
+        <body name="smt_1\front\camera\smt_1\front\camera">
+          <inertial pos="0 0 0.014999999999999999" mass="0.095000000000000001"/>
+          <geom name="//unnamed_geom_1" class="wam\viz" mesh="intel_realsense_l515"/>
+          <camera name="smt_1\front\camera\intel\rgb" class="rand" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
+        </body>
+      </body>
+      <body name="smt_1\rear\camera\" pos="0 -0.36199999999999999 0.373" quat="0.70710700000000004 0.70710700000000004 0 0">
+        <body name="smt_1\rear\camera\smt_1\rear\camera">
+          <inertial pos="0 0 0.014999999999999999" mass="0.095000000000000001"/>
+          <geom name="//unnamed_geom_2" class="wam\viz" mesh="intel_realsense_l515"/>
+          <camera name="smt_1\rear\camera\intel\rgb" class="rand" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
+        </body>
+      </body>
+      <body name="smt_1\pole_link" pos="0 0.32000000000000001 1">
+        <geom name="//unnamed_geom_3" class="summit\wheel\viz" type="cylinder" size="0.0050000000000000001 0.41999999999999998"/>
+        <body name="smt_1\pole_link\camera\" pos="0 0 0.44" quat="0.70710700000000004 0.70710700000000004 0 0">
+          <body name="smt_1\pole_link\camera\smt_1\pole_link\camera">
+            <inertial pos="0 0 0.014999999999999999" mass="0.095000000000000001"/>
+            <geom name="//unnamed_geom_4" class="wam\viz" mesh="intel_realsense_l515"/>
+            <camera name="smt_1\pole_link\camera\intel\rgb" class="rand" fovy="90" pos="0 0 0" quat="0 0 1 0"/>
+          </body>
+        </body>
+      </body>
+      <geom name="//unnamed_geom_5" class="summit\col" type="box" size="0.23999999999999999 0.32000000000000001 0.16" pos="0 0 0.41999999999999998"/>
+      <geom name="//unnamed_geom_6" class="summit\col" pos="0 0.098000000000000004 0.55000000000000004" quat="0.5 0.5 -0.5 -0.5" mesh="arm_rest"/>
+      <geom name="//unnamed_geom_7" class="summit\col" type="cylinder" size="0.059999999999999998 0.043999999999999997" pos="0.246 0.36199999999999999 0.313"/>
+      <joint name="smt_1\world_x" class="rand" type="slide" pos="0 0 0" axis="0 1 0" armature="0.0001" damping="100000000000"/>
+      <joint name="smt_1\world_y" class="rand" type="slide" pos="0 0 0" axis="-1 0 0" armature="0.0001" damping="100000000000"/>
+      <joint name="smt_1\world_z" class="rand" type="slide" pos="0 0 0" axis="0 0 1" armature="0.0001" damping="1"/>
+      <joint name="smt_1\pose\x" class="rand" type="slide" pos="0 0 0.40000000000000002" axis="0 1 0" damping="15"/>
+      <joint name="smt_1\pose\y" class="rand" type="slide" pos="0 0 0.40000000000000002" axis="-1 0 0" damping="15"/>
+      <joint name="smt_1\orie\z" class="rand" type="hinge" pos="0 0 0.40000000000000002" axis="0 0 1" damping="10"/>
+      <body name="smt_1\whl\LF_link\" pos="0 0 0">
+
+        <geom name="smt_1\whl\LF_link\smt_1\viz\whl\LF" class="summit\wheel\viz" mesh="mecanum_LF_1"/>
+        <geom name="smt_1\whl\LF_link\smt_1\viz\whl\LF_cylinder" class="summit\col" type="cylinder" size="0.13 0.050000000000000003" friction="0.0001 0.001 0.001" pos="-0.22 0.222 0.128" quat="0.70710700000000004 0 0.70710600000000001 0"/>
+        <inertial pos="-0.22 0.222 0.128" mass="10" diaginertia="0.044110000000000003 0.024670000000000001 0.024670000000000001"/>
+        <joint name="smt_1\whl\LF_link\smt_1\whl_LF" class="summit\whl" pos="-0.22 0.222 0.128"/>
+
+      </body>
+      <body name="smt_1\whl\LR_link\" pos="0 0 0">
+
+        <geom name="smt_1\whl\LR_link\smt_1\viz\whl\LR" class="summit\wheel\viz" mesh="mecanum_LR_1"/>
+        <geom name="smt_1\whl\LR_link\smt_1\viz\whl\LR_cylinder" class="summit\col" type="cylinder" size="0.13 0.050000000000000003" friction="0.0001 0.001 0.001" pos="-0.22 -0.223 0.128" quat="0.70710700000000004 0 0.70710600000000001 0"/>
+        <inertial pos="-0.22 -0.223 0.128" mass="10" diaginertia="0.044110000000000003 0.024670000000000001 0.024670000000000001"/>
+        <joint name="smt_1\whl\LR_link\smt_1\whl_LR" class="summit\whl" pos="-0.22 -0.223 0.128"/>
+
+      </body>
+      <body name="smt_1\whl\RF_link\" pos="0 0 0">
+
+        <geom name="smt_1\whl\RF_link\smt_1\viz\whl\RF" class="summit\wheel\viz" mesh="mecanum_RF_1"/>
+        <geom name="smt_1\whl\RF_link\smt_1\viz\whl\RF_cylinder" class="summit\col" type="cylinder" size="0.13 0.050000000000000003" friction="0.0001 0.001 0.001" pos="0.22 0.222 0.128" quat="0.70710700000000004 0 0.70710600000000001 0"/>
+        <inertial pos="0.22 0.222 0.128" mass="10" diaginertia="0.044110000000000003 0.024670000000000001 0.024670000000000001"/>
+        <joint name="smt_1\whl\RF_link\smt_1\whl_RF" class="summit\whl" pos="0.22 0.222 0.128"/>
+
+      </body>
+      <body name="smt_1\whl\RR_link\" pos="0 0 0">
+
+        <geom name="smt_1\whl\RR_link\smt_1\viz\whl\RR" class="summit\wheel\viz" mesh="mecanum_RR_1"/>
+        <geom name="smt_1\whl\RR_link\smt_1\viz\whl\RR_cylinder" class="summit\col" type="cylinder" size="0.13 0.050000000000000003" friction="0.0001 0.001 0.001" pos="0.22 -0.223 0.128" quat="0.70710700000000004 0 0.70710600000000001 0"/>
+        <inertial pos="0.22 -0.223 0.128" mass="10" diaginertia="0.044110000000000003 0.024670000000000001 0.024670000000000001"/>
+        <joint name="smt_1\whl\RR_link\smt_1\whl_RR" class="summit\whl" pos="0.22 -0.223 0.128"/>
+
+      </body>
+      <body name="wam_7dof_bhand_1\" pos="0 0.14000000000000001 0.40500000000000003" quat="0.70699999999999996 0 0 0.70699999999999996">
+        <body name="wam_7dof_bhand_1\wam\base_link" pos="0 0 0">
+          <body name="wam_7dof_bhand_1\wam\base\" pos="0 0 0" quat="1 0 0 0">
+
+            <inertial pos="-0.14071719999999999 -0.02017671 0.07995294" mass="9.9705958399999997" fullinertia="0.11760385 0.10916849000000001 0.18294303000000001 0.025578739999999999 0.00161433 0.0064026999999999999"/>
+            <geom name="//unnamed_geom_16" class="wam\base\viz" mesh="base_link_fine"/>
+            <geom name="//unnamed_geom_17" class="wam\col" mesh="base_link_convex"/>
+
+          </body>
+          <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\" pos="0 0 0.34599999999999997" quat="1 0 0 0">
+
+            <inertial pos="-0.00443422 -0.00066489000000000001 -0.12189039" mass="10.767687670000001" fullinertia="0.13488032999999999 0.090463299999999996 0.11328369000000001 -0.00012485 0.0021304100000000001 -0.00068555000000000005"/>
+            <joint name="wam\J1" class="rand" axis="0 0 1" range="-2.6000000000000001 2.6000000000000001" damping="1000" frictionloss="1000"/>
+            <geom name="//unnamed_geom_18" class="wam\shoulder_yaw_link\viz" mesh="shoulder_link_fine"/>
+            <geom name="//unnamed_geom_19" class="wam\col" mesh="shoulder_link_convex_decomposition_p1"/>
+            <geom name="//unnamed_geom_20" class="wam\col" mesh="shoulder_link_convex_decomposition_p2"/>
+            <geom name="//unnamed_geom_21" class="wam\col" mesh="shoulder_link_convex_decomposition_p3"/>
+
+            <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\" pos="0 0 0" quat="0.70710700000000004 -0.70710700000000004 0 0">
+
+              <inertial pos="-0.0023698299999999999 -0.01542114 0.031056139999999999" mass="3.8748999999999998" fullinertia="0.021409580000000001 0.01558906 0.013778749999999999 -2.461e-05 0.00027171999999999998 0.0018192"/>
+              <joint name="wam\J2" class="rand" axis="0 0 1" range="-2 2" damping="1000" frictionloss="1000"/>
+              <geom name="//unnamed_geom_22" class="wam\shoulder_pitch_link\viz" mesh="shoulder_pitch_link_fine"/>
+              <geom name="//unnamed_geom_23" class="wam\col" mesh="shoulder_pitch_link_convex"/>
+
+              <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\" pos="0 0 0" quat="0.70710700000000004 0.70710700000000004 0 0">
+
+                <inertial pos="0.0067414199999999997 -3.3090000000000003e-05 0.34249230000000003" mass="1.8028141" fullinertia="0.05911077 0.059270429999999999 0.0032455000000000001 -7.3799999999999996e-06 0.0024961200000000001 -1.7669999999999999e-05"/>
+                <joint name="wam\J3" class="rand" axis="0 0 1" range="-2.7999999999999998 2.7999999999999998" damping="500" frictionloss="1000"/>
+                <geom name="//unnamed_geom_24" class="wam\upper_arm_link\viz" mesh="upper_arm_link_fine"/>
+                <geom name="//unnamed_geom_25" class="wam\col" mesh="upper_arm_link_convex_decomposition_p1"/>
+                <geom name="//unnamed_geom_26" class="wam\col" mesh="upper_arm_link_convex_decomposition_p2"/>
+
+                <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\" pos="0.044999999999999998 0 0.55000000000000004" quat="0.70710700000000004 -0.70710700000000004 0 0">
+
+                  <inertial pos="-0.040014880000000003 -0.13271620000000001 -0.00022942000000000001" mass="2.4001680400000001" fullinertia="0.01491672 0.0029446300000000002 0.014829220000000001 0.0015060399999999999 1.7410000000000001e-05 2.109e-05"/>
+                  <joint name="wam\J4" class="rand" range="-0.90000000000000002 3.1000000000000001" damping="100" frictionloss="1000"/>
+                  <geom name="//unnamed_geom_27" class="wam\elbow_link\viz" pos="0 0 0" euler="0 0 0" mesh="elbow_link_fine"/>
+                  <geom name="//unnamed_geom_28" class="wam\fore_arm_link\viz" pos="-0.044999999999999998 -0.072999999999999995 0" euler="1.5700000000000001 0 0" mesh="forearm_link_fine"/>
+                  <geom name="//unnamed_geom_29" class="wam\col" pos="0 0 0" euler="0 0 0" mesh="elbow_link_convex"/>
+                  <geom name="//unnamed_geom_30" class="wam\col" pos="-0.044999999999999998 -0.072999999999999995 0" euler="1.5700000000000001 0 0" mesh="forearm_link_convex_decomposition_p1"/>
+                  <geom name="//unnamed_geom_31" class="wam\col" pos="-0.044999999999999998 -0.072999999999999995 0" euler="1.5700000000000001 0 0" mesh="forearm_link_convex_decomposition_p2"/>
+
+                  <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\" pos="-0.044999999999999998 -0.29999999999999999 0" quat="0.70710700000000004 0.70710700000000004 0 0">
+
+                    <inertial pos="8.9209999999999995e-05 0.0043582400000000002 -0.0051121700000000001" mass="0.12376019000000001" fullinertia="5.0290000000000001e-05 6.2700000000000006e-05 7.5820000000000003e-05 -4.9999999999999998e-08 -1.9999999999999999e-07 3.5899999999999999e-06"/>
+                    <joint name="wam\J5" class="rand" axis="0 0 1" range="-4.7999999999999998 1.3" damping="50" frictionloss="1000"/>
+                    <geom name="//unnamed_geom_32" class="wam\wrist_yaw_link\viz" mesh="wrist_yaw_link_fine"/>
+                    <geom name="//unnamed_geom_33" class="wam\col" mesh="wrist_yaw_link_convex_decomposition_p1"/>
+                    <geom name="//unnamed_geom_34" class="wam\col" mesh="wrist_yaw_link_convex_decomposition_p2"/>
+
+                    <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\" pos="0 0 0" quat="0.70710700000000004 -0.70710700000000004 0 0">
+
+                      <inertial pos="-0.00012261999999999999 -0.024683360000000001 -0.017031939999999999" mass="0.41797363999999998" fullinertia="0.00055515999999999996 0.00045357999999999998 0.00024367 7.4000000000000001e-07 6.0999999999999998e-07 4.5899999999999998e-05"/>
+                      <joint name="wam\J6" class="rand" axis="0 0 1" range="-1.6000000000000001 1.6000000000000001" damping="50" frictionloss="1000"/>
+                      <geom name="//unnamed_geom_35" class="wam\wrist_pitch_link\viz" mesh="wrist_pitch_link_fine"/>
+                      <geom name="//unnamed_geom_36" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p1"/>
+                      <geom name="//unnamed_geom_37" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p2"/>
+                      <geom name="//unnamed_geom_38" class="wam\col" mesh="wrist_pitch_link_convex_decomposition_p3"/>
+
+                      <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\" pos="0 0 0" quat="0.70710700000000004 0.70710700000000004 0 0">
+                        <inertial pos="-7.9740000000000006e-05 0.00016129999999999999 0.051764480000000002" mass="0.068647529999999998" fullinertia="3.773e-05 3.8059999999999998e-05 7.4079999999999995e-05 -1.9000000000000001e-07 0 0"/>
+                        <joint name="wam\J7" class="rand" axis="0 0 1" range="-2.2000000000000002 2.2000000000000002" damping="10" frictionloss="1000"/>
+                        <geom name="//unnamed_geom_39" class="wam\wrist_palm_link\viz" mesh="wrist_palm_link_fine"/>
+                        <geom name="//unnamed_geom_40" class="wam\col" mesh="wrist_palm_link_convex"/>
+                        <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\camera\" pos="0 0.085000000000000006 0.02">
+                          <inertial pos="0 0 0.014999999999999999" mass="0.095000000000000001"/>
+                          <geom name="//unnamed_geom_41" class="wam\wrist_palm_link\viz" mesh="intel_realsense_l515"/>
+                          <camera name="wam\camera\intel\rgb" class="rand" fovy="55" pos="0 0 0" quat="0 0 1 0"/>
+                        </body>
+                        <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\" pos="0 0 0.059999999999999998" quat="0.70710700000000004 0.70710700000000004 0 0">
+                          <inertial pos="0 0.0085000000000000006 0" mass="0.13327800000000001" fullinertia="7.551e-05 0.0001462 7.5080000000000006e-05 -7.0020000000000001e-08 -1.1990000000000001e-07 -5.3699999999999998e-08"/>
+                          <geom name="//unnamed_geom_42" class="wam\torque_sensor_link\viz" mesh="torque_sensor_plate"/>
+                          <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\" pos="0 0.01 0" quat="0 0 0.70710700000000004 0.70710700000000004">
+                            <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\BH8-280">
+                              <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\" pos="0 0 0" quat="1 0 0 0">
+                                <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\bhand_palm_link">
+                                  <inertial pos="5.0018999999999997e-05 0.0044561000000000002 0.037268000000000003" mass="0.60858000000000001" fullinertia="0.00069859999999999996 0.00050354000000000002 0.00062253000000000005 2.7576999999999999e-07 -7.8138000000000003e-07 -6.4399999999999993e-05"/>
+                                  <geom name="//unnamed_geom_43" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_palm_fine"/>
+                                  <geom name="//unnamed_geom_44" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_palm_link_convex_decomposition_p1"/>
+                                  <geom name="//unnamed_geom_45" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_palm_link_convex_decomposition_p2"/>
+                                  <geom name="//unnamed_geom_46" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_palm_link_convex_decomposition_p3"/>
+                                  <geom name="//unnamed_geom_47" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_palm_link_convex_decomposition_p4"/>
+                                </body>
+                                <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_1\prox_link\" pos="-0.025000000000000001 0 0.041500000000000002" quat="0.70710700000000004 0 0 -0.70710700000000004">
+                                  <inertial pos="0.030616000000000001 7.3219000000000005e-05 0.011200999999999999" mass="0.14108999999999999" fullinertia="2.0672000000000001e-05 7.4104999999999996e-05 6.8207000000000006e-05 2.6024000000000001e-07 6.3481000000000003e-06 1.7118000000000001e-08"/>
+                                  <joint name="bhand\f1\prox" class="rand" axis="0 0 -1" range="-0.10000000000000001 3.2000000000000002" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+                                  <geom name="//unnamed_geom_48" class="wam\bhand\bhand_finger_prox_link\viz" mesh="bhand_finger_prox_link_fine"/>
+                                  <geom name="//unnamed_geom_49" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_prox_link_convex_decomposition_p1"/>
+                                  <geom name="//unnamed_geom_50" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_prox_link_convex_decomposition_p2"/>
+                                  <geom name="//unnamed_geom_51" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_prox_link_convex_decomposition_p3"/>
+                                  <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_1\prox_link\wam\bhand\finger_1\med_link\" pos="0.050000000000000003 0 0.0339" quat="0.70710700000000004 0.70710700000000004 0 0">
+                                    <inertial pos="0.023133000000000001 0.00078642000000000002 0.00052791999999999997" mass="0.062139" fullinertia="4.8161999999999997e-06 4.3316999999999999e-05 4.4440999999999997e-05 5.7981e-07 -7.2483000000000001e-07 -2.6652999999999999e-09"/>
+                                    <joint name="bhand\f1\med" class="rand" axis="0 0 1" range="-0.10000000000000001 2.5" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+                                    <geom name="//unnamed_geom_52" class="wam\bhand\bhand_finger_med_link\viz" mesh="bhand_finger_med_link_fine"/>
+                                    <geom name="//unnamed_geom_53" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_med_link_convex"/>
+                                    <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_1\prox_link\wam\bhand\finger_1\med_link\wam\bhand\finger_1\dist_link\" pos="0.069940000000000002 0.0030000000000000001 0" quat="0.92388000000000003 0 0 0.382683">
+                                      <inertial pos="0.022950000000000002 0.0010739 0.00041752" mass="0.041660000000000003" fullinertia="3.1199e-06 1.6948000000000001e-05 1.5809000000000001e-05 4.5115000000000001e-07 -2.9812999999999998e-07 -1.8635000000000001e-08"/>
+                                      <joint name="bhand\f1\dist" class="rand" axis="0 0 1" range="-0.10000000000000001 0.90000000000000002" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+                                      <geom name="//unnamed_geom_54" class="wam\bhand\bhand_finger_dist_link\viz" mesh="bhand_finger_dist_link_fine"/>
+                                      <geom name="//unnamed_geom_55" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_dist_link_convex"/>
+                                    </body>
+                                  </body>
+                                </body>
+                                <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_2\prox_link\" pos="0.025000000000000001 0 0.041500000000000002" quat="0.70710700000000004 0 0 -0.70710700000000004">
+                                  <inertial pos="0.030616000000000001 7.3219000000000005e-05 0.011200999999999999" mass="0.14108999999999999" fullinertia="2.0672000000000001e-05 7.4104999999999996e-05 6.8207000000000006e-05 2.6024000000000001e-07 6.3481000000000003e-06 1.7118000000000001e-08"/>
+                                  <joint name="bhand\f2\prox" class="rand" axis="0 0 -1" range="-0.10000000000000001 3.2000000000000002" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+                                  <geom name="//unnamed_geom_56" class="wam\bhand\bhand_finger_prox_link\viz" mesh="bhand_finger_prox_link_fine"/>
+                                  <geom name="//unnamed_geom_57" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_prox_link_convex_decomposition_p1"/>
+                                  <geom name="//unnamed_geom_58" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_prox_link_convex_decomposition_p2"/>
+                                  <geom name="//unnamed_geom_59" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_prox_link_convex_decomposition_p3"/>
+                                  <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_2\prox_link\wam\bhand\finger_2\med_link\" pos="0.050000000000000003 0 0.0339" quat="0.70710700000000004 0.70710700000000004 0 0">
+                                    <inertial pos="0.023133000000000001 0.00078642000000000002 0.00052791999999999997" mass="0.062139" fullinertia="4.8161999999999997e-06 4.3316999999999999e-05 4.4440999999999997e-05 5.7981e-07 -7.2483000000000001e-07 -2.6652999999999999e-09"/>
+                                    <joint name="bhand\f2\med" class="rand" axis="0 0 1" range="-0.10000000000000001 2.5" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+                                    <geom name="//unnamed_geom_60" class="wam\bhand\bhand_finger_med_link\viz" mesh="bhand_finger_med_link_fine"/>
+                                    <geom name="//unnamed_geom_61" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_med_link_convex"/>
+                                    <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_2\prox_link\wam\bhand\finger_2\med_link\wam\bhand\finger_2\dist_link\" pos="0.069940000000000002 0.0030000000000000001 0" quat="0.92388000000000003 0 0 0.382683">
+                                      <inertial pos="0.022950000000000002 0.0010739 0.00041752" mass="0.041660000000000003" fullinertia="3.1199e-06 1.6948000000000001e-05 1.5809000000000001e-05 4.5115000000000001e-07 -2.9812999999999998e-07 -1.8635000000000001e-08"/>
+                                      <joint name="bhand\f2\dist" class="rand" axis="0 0 1" range="-0.10000000000000001 0.90000000000000002" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+                                      <geom name="//unnamed_geom_62" class="wam\bhand\bhand_finger_dist_link\viz" mesh="bhand_finger_dist_link_fine"/>
+                                      <geom name="//unnamed_geom_63" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_dist_link_convex"/>
+                                    </body>
+                                  </body>
+                                </body>
+                                <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_3\med_link\" pos="0 0.050000000000000003 0.075399999999999995" quat="0.5 0.5 0.5 0.5">
+                                  <inertial pos="0.023133000000000001 0.00078642000000000002 0.00052791999999999997" mass="0.062139" fullinertia="4.8161999999999997e-06 4.3316999999999999e-05 4.4440999999999997e-05 5.7981e-07 -7.2483000000000001e-07 -2.6652999999999999e-09"/>
+                                  <joint name="bhand\f3\med" class="rand" axis="0 0 1" range="-0.10000000000000001 2.5" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+                                  <geom name="//unnamed_geom_64" class="wam\bhand\bhand_finger_med_link\viz" mesh="bhand_finger_med_link_fine"/>
+                                  <geom name="//unnamed_geom_65" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_med_link_convex"/>
+                                  <body name="wam_7dof_bhand_1\wam\shoulder_yaw_link\wam\shoulder_pitch_link\wam\upper_arm_link\wam\forearm_link\wam\wrist_yaw_link\wam\wrist_pitch_link\wam\wrist_palm_link\wam\torque_sensor_link\wam\bhand\wam\bhand\bhand_palm_link\wam\bhand\finger_3\med_link\wam\bhand\finger_3\dist_link\" pos="0.069940000000000002 0.0030000000000000001 0" quat="0.92388000000000003 0 0 0.382683">
+                                    <inertial pos="0.022950000000000002 0.0010739 0.00041752" mass="0.041660000000000003" fullinertia="3.1199e-06 1.6948000000000001e-05 1.5809000000000001e-05 4.5115000000000001e-07 -2.9812999999999998e-07 -1.8635000000000001e-08"/>
+                                    <joint name="bhand\f3\dist" class="rand" axis="0 0 1" range="-0.10000000000000001 0.90000000000000002" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+                                    <geom name="//unnamed_geom_66" class="wam\bhand\bhand_finger_dist_link\viz" mesh="bhand_finger_dist_link_fine"/>
+                                    <geom name="//unnamed_geom_67" class="wam\bhand\bhand_palm_link\viz" mesh="bhand_finger_dist_link_convex"/>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+
+</mujocoinclude>

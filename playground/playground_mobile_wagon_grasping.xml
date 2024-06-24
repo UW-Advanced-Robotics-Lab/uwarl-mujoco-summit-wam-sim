@@ -30,6 +30,7 @@
     <include file="../components/include_shelves_Dependencies.xml"/>
     <include file="../components/include_walls_Dependencies.xml"/>
     <include file="../components/include_MM_1_Dependencies.xml"/>
+    <include file="../components/include_MM_2_Dependencies.xml"/>
 
     <!--###############
         ### Config: ###
@@ -57,13 +58,13 @@
         <geom name="ground" type="plane" pos="0 0 0" size="24 24 1" conaffinity="1" contype="1" material="floor" friction="0.0001 0.001 0.001" group="1"/>
 
         <!-- Robot -->
-        <body name="waterloo_steel" pos="4 0.5 0" euler="0 0 -1.57079632679">
+        <body name="waterloo_steel" pos="3 0.5 0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
         <!-- Wagon -->
         <!-- -1.4 0.02 0 | 0 0 1.57079632679 -->
-        <body name="wagon" pos="2.62 0.52 0" euler="0 0 1.57079632679" >
+        <body name="wagon" pos="1.62 0.52 0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
@@ -90,10 +91,15 @@
             <geom name="brown_box_0/col" type="box" size="0.34 0.2 0.2" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7" solref="0.02 1"/>
         </body>
 
-        <!-- Placing a robot behind the Cart-MM -->
-        <body name="waterloo_steel_1" pos="-1 0.5 0" euler="0 0 -1.57079632679">
+        <!-- Placing robot 1 behind the Cart-MM -->
+        <body name="waterloo_steel_1" pos="-2.5 0.5 0" euler="0 0 -1.57079632679">
             <include file="../components/include_MM_1.xml"/>
         </body>
+
+        <!-- Placing robot 2 behind the Cart-MM -->
+        <!-- <body name="waterloo_steel_2" pos="-5 0.5 0" euler="0 0 -1.57079632679">
+            <include file="../components/include_MM_2.xml"/>
+        </body> -->
 
     </worldbody>
 
