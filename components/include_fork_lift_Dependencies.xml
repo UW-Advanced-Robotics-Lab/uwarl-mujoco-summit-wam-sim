@@ -1,0 +1,57 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+====================================================== -->
+
+
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- SUMMIT -->
+    <asset>
+        <mesh file="meshes_forklift/base_link.STL"/>
+        <mesh file="meshes_forklift/Front_Left_Tire_Link.STL"/>
+        <mesh file="meshes_forklift/Front_Left_Rim_Link.STL"/>
+        <mesh file="meshes_forklift/Rear_Left_Tire_Link.STL"/>
+        <mesh file="meshes_forklift/Rear_Left_Rim_Link.STL"/>
+        <mesh file="meshes_forklift/Front_Right_Tire_Link.STL"/>
+        <mesh file="meshes_forklift/Front_Right_Rim_Link.STL"/>
+        <mesh file="meshes_forklift/Rear_Right_Tire_Link.STL"/>
+        <mesh file="meshes_forklift/Rear_Right_Rim_Link.STL"/>
+    </asset>
+    
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT -->
+    <default>
+        <!-- The class-name being specified under default maps back to the class-names being specified for a body (childclass/class) , or  -->
+        <!-- These names have to be unique; it must not clash with class-names for un-intended bodies/joints/geometries -->
+        <default class="fork_lift">
+        </default>
+        <default class="fork_lift/rim">
+            <!-- class-names for joints -->
+            <joint axis="1 0 0" damping="0.55"/>
+            <!-- By default, hinge-type is the default joint type -->
+            <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-joint -->
+        </default>
+        <default class="fork_lift/col">
+            <!-- class-names for geometry-type -->
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
+        </default>
+        <default class="fork_lift/body/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+        </default>
+        <default class="fork_lift/wheel/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+        </default>
+        <default class="fork_lift/rim/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+        </default>
+    </default>
+</mujocoinclude>
+

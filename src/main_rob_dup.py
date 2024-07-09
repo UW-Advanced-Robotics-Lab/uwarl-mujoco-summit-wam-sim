@@ -231,7 +231,7 @@ class Bhand:
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
-    def __init__(self, name):
+    def __init__(self, name, prefix):
         # Make a MujoCo Root
         self.mjcf_model = mjcf.RootElement(model=name)
         # Add 'base_link' element:
@@ -406,13 +406,13 @@ class WAM:
                       50,
                       10]
     _joint_frictionloss = 1000
-    _joint_name = ['wam\\J1',
-                   'wam\\J2',
-                   'wam\\J3',
-                   'wam\\J4',
-                   'wam\\J5',
-                   'wam\\J6',
-                   'wam\\J7']
+    _joint_name = ['\\J1',
+                   '\\J2',
+                   '\\J3',
+                   '\\J4',
+                   '\\J5',
+                   '\\J6',
+                   '\\J7']
     _joint_range = [[-2.6, 2.6],
                     [-2.0, 2.0],
                     [-2.8, 2.8],
@@ -465,12 +465,12 @@ class WAM:
     #===============================#
     #  I N I T I A L I Z A T I O N  #
     #===============================#
-    def __init__(self, name):
+    def __init__(self, name, prefix):
         # Make a MujoCo Root
-        self.mjcf_model = mjcf.RootElement(model=name)
+        self.mjcf_model = mjcf.RootElement(model=name+'_'+prefix)
         # Add 'base_link' element:
         self.base_link = self.mjcf_model.worldbody.add('body',
-                                                       name = self._wam_name+'\\'+self._body_name[0],
+                                                       name = self._wam_name+'_'+prefix+'\\'+self._body_name[0],
                                                        pos = (0, 0, 0))
         
         # Attach site for 'base'
@@ -484,7 +484,7 @@ class WAM:
                                    dclass_col = 'wam\\col',
                                    inertia = self._inertial[0],
                                    mass = self._mass[0],
-                                   name = self._wam_name+'\\'+self._body_name[1],
+                                   name = self._wam_name+'_'+prefix+'\\'+self._body_name[1],
                                    viz_meshes = self._viz_mesh_names[0])
         # Attach 'base'
         self.base_site.attach(self.base.mjcf_model)
@@ -501,10 +501,10 @@ class WAM:
                                                inertia = self._inertial[1], 
                                                joint_damping = self._joint_damping[0],
                                                joint_frictionloss = self._joint_frictionloss,
-                                               joint_name = self._joint_name[0],
+                                               joint_name = self._wam_name+'_'+prefix+self._joint_name[0],
                                                joint_range = self._joint_range[0],
                                                mass = self._mass[1],
-                                               name = self._wam_name+'\\'+self._body_name[2],
+                                               name = self._wam_name+'_'+prefix+'\\'+self._body_name[2],
                                                viz_meshes = self._viz_mesh_names[1])
         # Attach 'shoulder_yaw_link'
         self.shoulder_yaw_link_site.attach(self.shoulder_yaw_link.mjcf_model)
@@ -521,10 +521,10 @@ class WAM:
                                                  inertia = self._inertial[2], 
                                                  joint_damping = self._joint_damping[1],
                                                  joint_frictionloss = self._joint_frictionloss,
-                                                 joint_name = self._joint_name[1],
+                                                 joint_name = self._wam_name+'_'+prefix+self._joint_name[1],
                                                  joint_range = self._joint_range[1],
                                                  mass = self._mass[2],
-                                                 name = self._wam_name+'\\'+self._body_name[3],
+                                                 name = self._wam_name+'_'+prefix+'\\'+self._body_name[3],
                                                  viz_meshes = self._viz_mesh_names[2])
         # Attach 'shoulder_pitch_link'
         self.shoulder_pitch_link_site.attach(self.shoulder_pitch_link.mjcf_model)
@@ -541,10 +541,10 @@ class WAM:
                                             inertia = self._inertial[3], 
                                             joint_damping = self._joint_damping[2],
                                             joint_frictionloss = self._joint_frictionloss,
-                                            joint_name = self._joint_name[2],
+                                            joint_name = self._wam_name+'_'+prefix+self._joint_name[2],
                                             joint_range = self._joint_range[2],
                                             mass = self._mass[3],
-                                            name = self._wam_name+'\\'+self._body_name[4],
+                                            name = self._wam_name+'_'+prefix+'\\'+self._body_name[4],
                                             viz_meshes = self._viz_mesh_names[3])
         # Attach 'upper_arm_link'
         self.upper_arm_link_site.attach(self.upper_arm_link.mjcf_model)
@@ -561,12 +561,12 @@ class WAM:
                                          inertia = self._inertial[4], 
                                          joint_damping = self._joint_damping[3],
                                          joint_frictionloss = self._joint_frictionloss,
-                                         joint_name = self._joint_name[3],
+                                         joint_name = self._wam_name+'_'+prefix+self._joint_name[3],
                                          joint_range = self._joint_range[3],
                                          mass = self._mass[4],
-                                         name = self._wam_name+'\\'+self._body_name[5],
-                                         viz_dclass_name = [self._wam_name+'\\elbow_link',
-                                                            self._wam_name+'\\fore_arm_link'],
+                                         name = self._wam_name+'_'+prefix+'\\'+self._body_name[5],
+                                         viz_dclass_name = [self._wam_name+'_'+prefix+'\\elbow_link',
+                                                            self._wam_name+'_'+prefix+'\\fore_arm_link'],
                                          viz_meshes = self._viz_mesh_names[4:6])
         # Attach 'forearm_link'
         self.forearm_link_site.attach(self.forearm_link.mjcf_model)
@@ -583,10 +583,10 @@ class WAM:
                                             inertia = self._inertial[5], 
                                             joint_damping = self._joint_damping[4],
                                             joint_frictionloss = self._joint_frictionloss,
-                                            joint_name = self._joint_name[4],
+                                            joint_name = self._wam_name+'_'+prefix+self._joint_name[4],
                                             joint_range = self._joint_range[4],
                                             mass = self._mass[5],
-                                            name = self._wam_name+'\\'+self._body_name[6],
+                                            name = self._wam_name+'_'+prefix+'\\'+self._body_name[6],
                                             viz_meshes = self._viz_mesh_names[6])
         # Attach 'wrist_yaw_link'
         self.wrist_yaw_link_site.attach(self.wrist_yaw_link.mjcf_model)
@@ -603,10 +603,10 @@ class WAM:
                                               inertia = self._inertial[6], 
                                               joint_damping = self._joint_damping[5],
                                               joint_frictionloss = self._joint_frictionloss,
-                                              joint_name = self._joint_name[5],
+                                              joint_name = self._wam_name+'_'+prefix+self._joint_name[5],
                                               joint_range = self._joint_range[5],
                                               mass = self._mass[6],
-                                              name = self._wam_name+'\\'+self._body_name[7],
+                                              name = self._wam_name+'_'+prefix+'\\'+self._body_name[7],
                                               viz_meshes = self._viz_mesh_names[7])
         # Attach 'wrist_pitch_link'
         self.wrist_pitch_link_site.attach(self.wrist_pitch_link.mjcf_model)
@@ -623,10 +623,10 @@ class WAM:
                                              inertia = self._inertial[7], 
                                              joint_damping = self._joint_damping[6],
                                              joint_frictionloss = self._joint_frictionloss,
-                                             joint_name = self._joint_name[6],
+                                             joint_name = self._wam_name+'_'+prefix+self._joint_name[6],
                                              joint_range = self._joint_range[6],
                                              mass = self._mass[7],
-                                             name = self._wam_name+'\\'+self._body_name[8],
+                                             name = self._wam_name+'_'+prefix+'\\'+self._body_name[8],
                                              viz_meshes = self._viz_mesh_names[8])
         # Attach 'wrist_palm_link'
         self.wrist_palm_link_site.attach(self.wrist_palm_link.mjcf_model)
@@ -636,7 +636,7 @@ class WAM:
                                                                                pos = self._camera_pos,
                                                                                dclass = self._site_name)
         # Create camera 'camera'
-        self.wrist_camera = Camera(name = self._wam_name+'\\'+self._camera_name,
+        self.wrist_camera = Camera(name = self._wam_name+'_'+prefix+'\\'+self._camera_name,
                                    fovy = self._camera_fovy)
         # Attach 'camera'
         self.wrist_camera_site.attach(self.wrist_camera.mjcf_model)
@@ -651,7 +651,7 @@ class WAM:
                                                 dclass_col = 'wam\\col',
                                                 inertia = self._inertial[8],
                                                 mass = self._mass[8],
-                                                name = self._wam_name+'\\'+self._body_name[9],
+                                                name = self._wam_name+'_'+prefix+'\\'+self._body_name[9],
                                                 viz_meshes = self._viz_mesh_names[9])
         # Attach 'torque_sensor_link'
         self.wrist_torque_link_site.attach(self.wrist_torque_link.mjcf_model)
@@ -662,7 +662,8 @@ class WAM:
                                                                           quat = self._quat[9],
                                                                           dclass = self._site_name)
         # Create link 'torque_sensor_link'
-        self.bhand_link = Bhand(name = self._wam_name+'\\'+self._bhand_name)
+        self.bhand_link = Bhand(name = self._wam_name+'_'+prefix+'\\'+self._bhand_name,
+                                prefix = prefix)
         # Attach 'torque_sensor_link'
         self.bhand_site.attach(self.bhand_link.mjcf_model)
 
@@ -915,7 +916,8 @@ class Summit:
         wam_site = self.summit_body.add('site',
                                         pos = self._wam_position,
                                         quat = self._wam_quat)
-        wam = WAM(name = self._wam_name+'_'+prefix)
+        wam = WAM(name = self._wam_name,
+                  prefix = prefix)
         wam_site.attach(wam.mjcf_model)
 
         # Delete attachment frames. The element `site` is being read by MuJoCo and, since it does not recongnize this element, it throws an error.
@@ -963,13 +965,13 @@ def export_with_assets(mjcf_model, out_dir, out_file_name=None,
       f.write(util.to_binary_string(contents))
 
 # Create a Summit
-prefix = '0'
+prefix = '1'
 summit_body = Summit(prefix = prefix)
 folder_name = '/home/arnab/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/components'
 export_with_assets(mjcf_model = summit_body.mjcf_model, out_dir=folder_name)
 
 # Read the created file
-filename = folder_name+'/smt_0\\base_link.xml'
+filename = folder_name+'/smt_'+prefix+'\\base_link.xml'
 mjcf_model = mjcf.from_path(filename, escape_separators=True)
 
 bodies = mjcf_model.find_all('body')
@@ -1127,6 +1129,7 @@ for body in bodies:
 
 for camera in cameras:
   if type(camera.name) is str:
+     print(camera.name)
      if '\\\\' in camera.name:
         temp_string = camera.name.replace('\\\\','\\')
         camera.name = temp_string
