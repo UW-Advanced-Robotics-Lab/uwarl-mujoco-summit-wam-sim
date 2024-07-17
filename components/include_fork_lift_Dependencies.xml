@@ -13,15 +13,31 @@
         ############## -->
     <!-- SUMMIT -->
     <asset>
-        <mesh file="meshes_forklift/base_link.STL"/>
-        <mesh file="meshes_forklift/Front_Left_Tire_Link.STL"/>
-        <mesh file="meshes_forklift/Front_Left_Rim_Link.STL"/>
-        <mesh file="meshes_forklift/Rear_Left_Tire_Link.STL"/>
-        <mesh file="meshes_forklift/Rear_Left_Rim_Link.STL"/>
-        <mesh file="meshes_forklift/Front_Right_Tire_Link.STL"/>
-        <mesh file="meshes_forklift/Front_Right_Rim_Link.STL"/>
-        <mesh file="meshes_forklift/Rear_Right_Tire_Link.STL"/>
-        <mesh file="meshes_forklift/Rear_Right_Rim_Link.STL"/>
+        <mesh file="meshes_forklift/base_link.stl"/>
+        <mesh file="meshes_forklift/Front_Left_Tire_Link.stl"/>
+        <mesh file="meshes_forklift/Front_Left_Rim_Link.stl"/>
+        <mesh file="meshes_forklift/Rear_Left_Tire_Link.stl"/>
+        <mesh file="meshes_forklift/Rear_Left_Rim_Link.stl"/>
+        <mesh file="meshes_forklift/Front_Right_Tire_Link.stl"/>
+        <mesh file="meshes_forklift/Front_Right_Rim_Link.stl"/>
+        <mesh file="meshes_forklift/Rear_Right_Tire_Link.stl"/>
+        <mesh file="meshes_forklift/Rear_Right_Rim_Link.stl"/>
+        <mesh file="meshes_forklift/Dashboard_Link.stl"/>
+        <mesh file="meshes_forklift/Steering_wheel_Link.stl"/>
+        <mesh file="meshes_forklift/Seat_Link.stl"/>
+        <mesh file="meshes_forklift/Outer_Frame_Left_Hydraulic_Cylinder_Link.stl"/>
+        <mesh file="meshes_forklift/Outer_Frame_Left_Hydraulic_Piston_Link.stl"/>
+        <mesh file="meshes_forklift/Outer_Frame_Right_Hydraulic_Cylinder_Link.stl"/>
+        <mesh file="meshes_forklift/Outer_Frame_Right_Hydraulic_Piston_Link.stl"/>
+        <mesh file="meshes_forklift/Middle_Frame_Left_Hydraulic_Cylinder_Link.stl"/>
+        <mesh file="meshes_forklift/Middle_Frame_Left_Hydraulic_Piston_Link.stl"/>
+        <mesh file="meshes_forklift/Middle_Frame_Right_Hydraulic_Cylinder_Link.stl"/>
+        <mesh file="meshes_forklift/Middle_Frame_Right_Hydraulic_Piston_Link.stl"/>
+        <mesh file="meshes_forklift/Outer_Frame_Link.stl"/>
+        <mesh file="meshes_forklift/Middle_Frame_Link.stl"/>
+        <mesh file="meshes_forklift/Inner_Frame_Link.stl"/>
+        <mesh file="meshes_forklift/Left_Fork_Link.stl"/>
+        <mesh file="meshes_forklift/Right_Fork_Link.stl"/>
     </asset>
     
     <!--###############
@@ -39,18 +55,81 @@
             <!-- By default, hinge-type is the default joint type -->
             <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-joint -->
         </default>
+        <default class="fork_lift/cylinder">
+            <!-- class-names for joints -->
+            <joint axis="0 1 0" damping="0.55"/>
+            <!-- By default, hinge-type is the default joint type -->
+            <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-joint -->
+        </default>
+        <default class="fork_lift/piston/outer_frame">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 0 1" damping="0.55" limited="true" range="0.15582 0.24418"/>
+        </default>
+        <default class="fork_lift/piston/middle_frame">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 0 1" damping="0.55" limited="true" range="0 1.6"/>
+        </default>
+        <default class="fork_lift/frame/outer">
+            <!-- class-names for joints -->
+            <joint axis="1 0 0" damping="0.55"/>
+            <!-- By default, hinge-type is the default joint type -->
+            <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-joint -->
+        </default>
+        <default class="fork_lift/frame/middle">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 1 0" damping="0.55" limited="true" range="0 1.7"/>
+        </default>
+        <default class="fork_lift/frame/inner">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 1 0" damping="0.55" limited="true" range="0 1.7"/>
+        </default>
+        <default class="fork_lift/fork/left">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="1 0 0" damping="0.55" limited="true" range="-0.6 0.04"/>
+        </default>
+        <default class="fork_lift/fork/right">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="1 0 0" damping="0.55" limited="true" range="-0.04 0.6"/>
+        </default>
         <default class="fork_lift/col">
             <!-- class-names for geometry-type -->
             <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
         </default>
         <default class="fork_lift/body/viz">
-            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.9 0.8 0.33 1"/>
         </default>
         <default class="fork_lift/wheel/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
         </default>
         <default class="fork_lift/rim/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.5 0.5 0.6 1"/>
+        </default>
+        <default class="fork_lift/dashboard/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.45 0.53 1"/>
+        </default>
+        <default class="fork_lift/steering_wheel/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+        </default>
+        <default class="fork_lift/seat/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.54 0.5 0.43 1"/>
+        </default>
+        <default class="fork_lift/cylinder/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.9 0.8 0.33 0.1"/>
+        </default>
+        <default class="fork_lift/piston/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.5 0.5 0.6 1"/>
+        </default>
+        <default class="fork_lift/frame/outer/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.650980392156863 0.619607843137255 0.588235294117647 1"/>
+        </default>
+        <default class="fork_lift/frame/middle/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.9 0.8 0.33 0.1"/>
+        </default>
+        <default class="fork_lift/frame/inner/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.650980392156863 0.619607843137255 0.588235294117647 1"/>
+        </default>
+        <default class="fork_lift/fork/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.650980392156863 0.619607843137255 0.588235294117647 1"/>
         </default>
     </default>
 </mujocoinclude>
