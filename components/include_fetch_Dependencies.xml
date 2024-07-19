@@ -1,0 +1,130 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+====================================================== -->
+
+
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- SUMMIT -->
+    <asset>
+        <mesh file="meshes_forklift/base_link.dae"/>
+        <mesh file="meshes_forklift/base_link_collision.stl"/>
+        <mesh file="meshes_forklift/l_wheel_link.stl"/>
+        <mesh file="meshes_forklift/l_wheel_link_collision.stl"/>
+        <mesh file="meshes_forklift/r_wheel_link.stl"/>
+        <mesh file="meshes_forklift/r_wheel_link_collision.stl"/>
+        <mesh file="meshes_forklift/torso_lift_link.dae"/>
+        <mesh file="meshes_forklift/torso_lift_link_collision.stl"/>
+        <mesh file="meshes_forklift/bellows_link.stl"/>
+        <mesh file="meshes_forklift/bellows_link_collision.stl"/>
+        <mesh file="meshes_forklift/estop_link.dae"/>
+        <mesh file="meshes_forklift/estop_link_collision.stl"/>
+        <mesh file="meshes_forklift/laser_link.stl"/>
+        <mesh file="meshes_forklift/laser_link_collision.stl"/>
+        <mesh file="meshes_forklift/torso_fixed_link.dae"/>
+        <mesh file="meshes_forklift/torso_fixed_link_collision.stl"/>
+        <mesh file="meshes_forklift/head_pan_link.dae"/>
+        <mesh file="meshes_forklift/head_pan_link_collision.stl"/>
+        <mesh file="meshes_forklift/head_tilt_link.dae"/>
+        <mesh file="meshes_forklift/head_tilt_link_collision.stl"/>
+        <mesh file="meshes_forklift/shoulder_pan_link.dae"/>
+        <mesh file="meshes_forklift/shoulder_pan_link_collision.stl"/>
+        <mesh file="meshes_forklift/shoulder_lift_link.dae"/>
+        <mesh file="meshes_forklift/shoulder_lift_link_collision.stl"/>
+        <mesh file="meshes_forklift/upperarm_roll_link.dae"/>
+        <mesh file="meshes_forklift/upperarm_roll_link_collision.stl"/>
+    </asset>
+    
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT -->
+    <default>
+        <!-- The class-name being specified under default maps back to the class-names being specified for a body (childclass/class) , or  -->
+        <!-- These names have to be unique; it must not clash with class-names for un-intended bodies/joints/geometries -->
+        <default class="fetch">
+        </default>
+        <default class="fetch/whl">
+            <!-- class-names for joints -->
+            <joint axis="0 1 0" damping="0.55"/>
+            <!-- By default, hinge-type is the default joint type -->
+            <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-joint -->
+        </default>
+        <default class="fetch/torso">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 0 1" damping="0.55" limited="true" range="0 0.38615"/>
+        </default>
+        <default class="fetch/bellows">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 0 -1" damping="0.55" limited="true" range="0 0.4"/>
+        </default>
+        <default class="fetch/head_pan">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 0 1" damping="0.55" limited="true" range="-1.57 1.57"/>
+        </default>
+        <default class="fetch/head_tilt">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 1 0" damping="0.55" limited="true" range="-0.76 1.45"/>
+        </default>
+        <default class="fetch/shoulder_pan">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 0 1" damping="0.55" limited="true" range="-1.6056 1.6056"/>
+        </default>
+        <default class="fetch/shoulder_lift">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 1 0" damping="0.55" limited="true" range="-1.221 1.518"/>
+        </default>
+        <default class="fetch/upper_arm_roll">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="1 0 0" damping="0.55" limited="false"/>
+        </default>
+
+        <default class="fetch/col">
+            <!-- class-names for geometry-type -->
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
+        </default>
+        <default class="fetch/body/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.356 0.361 0.376 1"/>
+        </default>
+        <default class="fetch/whl/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/torso_lift_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1"/>
+        </default>
+        <default class="fetch/bellows_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0 0 0 1"/>
+        </default>
+        <default class="fetch/e_stop_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0 0 1"/>
+        </default>
+        <default class="fetch/laser_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+        </default>
+        <default class="fetch/torso_fixed_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/head_pan_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.356 0.361 0.376 1"/>
+        </default>
+        <default class="fetch/head_tilt_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/shoulder_pan_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1"/>
+        </default>
+        <default class="fetch/shoulder_lift_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/upper_arm_roll_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+    </default>
+</mujocoinclude>
+
