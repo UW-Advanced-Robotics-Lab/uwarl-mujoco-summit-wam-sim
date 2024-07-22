@@ -13,31 +13,31 @@
         ############## -->
     <!-- SUMMIT -->
     <asset>
-        <mesh file="meshes_forklift/base_link.stl"/>
-        <mesh file="meshes_forklift/Front_Left_Tire_Link.stl"/>
-        <mesh file="meshes_forklift/Front_Left_Rim_Link.stl"/>
-        <mesh file="meshes_forklift/Rear_Left_Tire_Link.stl"/>
-        <mesh file="meshes_forklift/Rear_Left_Rim_Link.stl"/>
-        <mesh file="meshes_forklift/Front_Right_Tire_Link.stl"/>
-        <mesh file="meshes_forklift/Front_Right_Rim_Link.stl"/>
-        <mesh file="meshes_forklift/Rear_Right_Tire_Link.stl"/>
-        <mesh file="meshes_forklift/Rear_Right_Rim_Link.stl"/>
-        <mesh file="meshes_forklift/Dashboard_Link.stl"/>
-        <mesh file="meshes_forklift/Steering_wheel_Link.stl"/>
-        <mesh file="meshes_forklift/Seat_Link.stl"/>
-        <mesh file="meshes_forklift/Outer_Frame_Left_Hydraulic_Cylinder_Link.stl"/>
-        <mesh file="meshes_forklift/Outer_Frame_Left_Hydraulic_Piston_Link.stl"/>
-        <mesh file="meshes_forklift/Outer_Frame_Right_Hydraulic_Cylinder_Link.stl"/>
-        <mesh file="meshes_forklift/Outer_Frame_Right_Hydraulic_Piston_Link.stl"/>
-        <mesh file="meshes_forklift/Middle_Frame_Left_Hydraulic_Cylinder_Link.stl"/>
-        <mesh file="meshes_forklift/Middle_Frame_Left_Hydraulic_Piston_Link.stl"/>
-        <mesh file="meshes_forklift/Middle_Frame_Right_Hydraulic_Cylinder_Link.stl"/>
-        <mesh file="meshes_forklift/Middle_Frame_Right_Hydraulic_Piston_Link.stl"/>
-        <mesh file="meshes_forklift/Outer_Frame_Link.stl"/>
-        <mesh file="meshes_forklift/Middle_Frame_Link.stl"/>
-        <mesh file="meshes_forklift/Inner_Frame_Link.stl"/>
-        <mesh file="meshes_forklift/Left_Fork_Link.stl"/>
-        <mesh file="meshes_forklift/Right_Fork_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_base_link.stl"/>
+        <mesh file="meshes_forklift/forklift_Front_Left_Tire_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Front_Left_Rim_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Rear_Left_Tire_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Rear_Left_Rim_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Front_Right_Tire_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Front_Right_Rim_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Rear_Right_Tire_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Rear_Right_Rim_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Dashboard_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Steering_wheel_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Seat_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Outer_Frame_Left_Hydraulic_Cylinder_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Outer_Frame_Left_Hydraulic_Piston_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Outer_Frame_Right_Hydraulic_Cylinder_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Outer_Frame_Right_Hydraulic_Piston_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Middle_Frame_Left_Hydraulic_Cylinder_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Middle_Frame_Left_Hydraulic_Piston_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Middle_Frame_Right_Hydraulic_Cylinder_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Middle_Frame_Right_Hydraulic_Piston_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Outer_Frame_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Middle_Frame_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Inner_Frame_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Left_Fork_Link.stl"/>
+        <mesh file="meshes_forklift/forklift_Right_Fork_Link.stl"/>
     </asset>
     
     <!--###############

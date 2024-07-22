@@ -30,6 +30,7 @@
     <include file="../components/include_shelves_Dependencies.xml"/>
     <include file="../components/include_walls_Dependencies.xml"/>
     <include file="../components/include_fork_lift_Dependencies.xml"/>
+    <include file="../components/include_fetch_Dependencies.xml"/>
 
     <!--###############
         ### Config: ###
@@ -76,29 +77,29 @@
         <!-- Place Box along corridor -->
         <!-- Origin of this box is at its geometric-center. So initialise the box above the ground. -->
         <body name="temp_obstacle" pos="7.75 0.98 0.5" euler="0 0 0">
-            <joint name="temp_obstacle/free" type="free"/>
-            <inertial pos="0.0 0.0 0.0" mass="0.2" diaginertia="0.001 0.0001 0.001"/>
+            <!-- <joint name="temp_obstacle/free" type="free"/> -->
+            <inertial pos="0.0 0.0 0.0" mass="10" diaginertia="1 1 1"/>
             <geom name="temp_obstacle/viz" type="box" size="0.25 0.5 0.5" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"/>
             <geom name="temp_obstacle/col" type="box" size="0.25 0.5 0.5" contype="1" conaffinity="1" group="0" rgba="0.9 0 0 0.7"/>
         </body>
 
         <!-- Placing a brown box inside the cart -->
-        <body name="brown_box_0" pos="2.60 0.52 0.5" euler="0 0 0">
+        <body name="brown_box_0" pos="1.60 0.52 0.5" euler="0 0 0">
             <joint name="brown_box_0/free" type="free"/>
             <inertial pos="0.0 0.0 0.0" mass="8" diaginertia="0.1 0.1 0.1"/>
-            <geom name="brown_box_0/viz" type="box" size="0.34 0.2 0.2" contype="0" conaffinity="0" group="1" material="cardboard"/>
-            <geom name="brown_box_0/col" type="box" size="0.34 0.2 0.2" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7" solref="0.02 1"/>
+            <geom name="brown_box_0/viz" type="box" size="0.3 0.15 0.15" contype="0" conaffinity="0" group="1" material="cardboard"/>
+            <geom name="brown_box_0/col" type="box" size="0.3 0.15 0.15" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7" solref="0.02 1"/>
         </body>
 
-        <!-- Placing robot 1 behind the Cart-MM -->
-        <body name="fork_lift_1" pos="-3.5 0 1" euler="0 0 -1.57079632679">
+        <!-- Placing Fork lift 1 behind the Cart-MM -->
+        <body name="fork_lift_1" pos="-4.5 -0.5 1" euler="0 0 1.57079632679">
             <include file="../components/include_fork_lift_constrained.xml"/>
         </body>
 
-        <!-- Placing robot 2 behind the Cart-MM -->
-        <!-- <body name="waterloo_steel_2" pos="-5 0.5 0" euler="0 0 -1.57079632679">
-            <include file="../components/include_MM_2.xml"/>
-        </body> -->
+        <!-- Placing fetch behind the Cart-MM -->
+        <body name="fetch_1" pos="-1 -0.5 0" euler="0 0 0">
+            <include file="../components/include_fetch.xml"/>
+        </body>
 
     </worldbody>
 
