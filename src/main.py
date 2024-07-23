@@ -52,6 +52,7 @@ def main():
     home_path = os.environ["HOME"]
     # Get update frequency of engine from launch file "mujocolaunch.launch"
     freq_muj = rospy.get_param("sim_frequency_mujoco")
+    xml_path = rospy.get_param("robot_model_path")+".xml"
     update_rate = int(freq_muj)
     steptime = 1.0/float(update_rate)
     r = rospy.Rate(update_rate)
@@ -64,7 +65,7 @@ def main():
     rospy.sleep(1.0)
 
     Engine = jx.Mujoco_Engine(
-        xml_path        = home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_grasping.xml",
+        xml_path        = xml_path,#home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_grasping.xml",
         # xml_path        = home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
         # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
         rate_Hz         = update_rate,

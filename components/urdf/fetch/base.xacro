@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="base">
+    <!-- Mesh from https://www.blendswap.com/blends/view/74733-->
+
+    <xacro:macro name="base" params="prefix">
+
+        <link name="${prefix}_base_footprint"/>
+
+        <joint name="${prefix}_base_footprint_joint" type="fixed">
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <parent link="${prefix}_base_footprint" />
+            <child link="${prefix}_base_link" />
+        </joint>
+
+        <link name="${prefix}_base_link">
+            <inertial>
+                <origin rpy="0 0 0" xyz="-0.0036 0.0 0.0014" />
+                <mass value="70.1294" />
+                <inertia ixx="1.225" ixy="0.0099" ixz="0.0062" iyy="1.2853" iyz="-0.0034" izz="0.987" />
+            </inertial>
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/base_link.dae" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.356 0.361 0.376 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/base_link_collision.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+
+        <link name="${prefix}_r_wheel_link">
+            <inertial>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <mass value="4.3542" />
+                <inertia ixx="0.0045" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.0045" />
+            </inertial>
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/r_wheel_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.086 0.506 0.767 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/r_wheel_link_collision.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+
+
+        <joint name="${prefix}_r_wheel_joint" type="continuous">
+            <origin rpy="-6.123E-17 0 0" xyz="0.0012914 ${-1*wheel_center_dist_y} 0.055325" />
+            <parent link="${prefix}_base_link" />
+            <child link="${prefix}_r_wheel_link" />
+            <axis xyz="0 1 0" />
+            <limit effort="8.85" velocity="17.4" />
+        </joint>
+
+        <link name="${prefix}_l_wheel_link">
+            <inertial>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <mass value="4.3542" />
+                <inertia ixx="0.0045" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.0045" />
+            </inertial>
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/l_wheel_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.086 0.506 0.767 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/l_wheel_link_collision.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="${prefix}_l_wheel_joint" type="continuous">
+            <origin rpy="-6.123E-17 0 0" xyz="0.0012914 ${wheel_center_dist_y} 0.055325" />
+            <parent link="${prefix}_base_link" />
+            <child link="${prefix}_l_wheel_link" />
+            <axis xyz="0 1 0" />
+            <limit effort="8.85" velocity="17.4" />
+        </joint>
+
+
+        <gazebo>
+            <plugin name="differential_drive_controller"
+                filename="libgazebo_ros_diff_drive.so">
+
+            <robotNamespace>/</robotNamespace>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>100</updateRate>
+            <leftJoint>l_wheel_joint</leftJoint>
+            <rightJoint>r_wheel_joint</rightJoint>
+            <wheelSeparation>${2*wheel_center_dist_y}</wheelSeparation>
+            <wheelDiameter>${wheel_diameter}</wheelDiameter>
+            <torque>20</torque>
+            <commandTopic>/cmd_vel</commandTopic>
+            <odometryTopic>/odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+
+            <legacyMode>false</legacyMode>
+
+            <rosDebugLevel>Debug</rosDebugLevel>
+            <publishWheelTF>true</publishWheelTF>
+            <publishWheelJointState>true</publishWheelJointState>
+            <wheelAcceleration>5</wheelAcceleration>
+            <wheelTorque>20</wheelTorque>
+            <publishTf>1</publishTf>
+            <odometrySource>world</odometrySource>
+            </plugin>
+        </gazebo>
+
+
+    </xacro:macro>
+
+</robot>
