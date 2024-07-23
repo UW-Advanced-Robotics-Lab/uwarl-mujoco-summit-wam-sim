@@ -55,6 +55,8 @@ def main():
     update_rate = int(freq_muj)
     steptime = 1.0/float(update_rate)
     r = rospy.Rate(update_rate)
+    # Write camera images to a folder
+    write_to = home_path+"/Pictures/MuJoCo_Camera"
 
     # Define viewer refresh rate
     rate_plot = 10
@@ -73,6 +75,7 @@ def main():
                         #    "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":3}
                            },
         CAMERA_V_FACTOR = 1,
+        write_to = write_to
     )
 
     # Initialize variables
