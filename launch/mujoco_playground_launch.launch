@@ -5,7 +5,13 @@
 
 <launch>
     <!-- Default values -->
-    <arg name="id_robot" default="robot_1"/>
+    <!-- Give simulation update frequency to synch between engine and hw_sim_int 
+
+         !!!!! Make sure the node steptime is a multiple of the MjModel steptime !!!!! 
+         
+         -->
+    <arg name="sim_freq_mujoco" default = "200"/>
+    
     <!-- Publish clock -->
     <node pkg="uwarl-mujoco-summit-wam-sim" type="clockpub.py" name="ClockPublisher" output="screen">\
     </node>
@@ -14,29 +20,9 @@
     <arg name="xacro_robot_package" value="uwarl-mujoco-summit-wam-sim"/>
     <!-- Mujoco simulation environment description file location -->
     <arg name="robot_model_path" value="/playground/playground_mobile_wagon_grasping"/>
-    <!-- Give simulation update frequency to synch between engine and hw_sim_int 
-
-         !!!!! Make sure the node steptime is a multiple of the MjModel steptime !!!!! 
-         
-         -->
-    <arg name="sim_freq_mujoco" value = "200"/>
-    <param name="sim_frequency_mujoco" value = "$(arg sim_freq_mujoco)" type="int"/>
-    <!-- Summit -->
-    <arg name="xacro_robot_a" value="$(optenv ROBOT_XML waterloo_steel_mujoco.urdf.xacro)"/>
-    <arg name="xacro_path_robot_a" value="$(eval find(xacro_robot_package) + '/components/robots/' + xacro_robot_a)"/>
-
-    <!-- Launch each robots' urdf-file for the purpose of controlling it -->
-    <!-- Run mujoco waterloo_steel_complete file -->
-    <include file="$(eval find(xacro_robot_package)+'/launch/mujoco_one_robot_launch.launch')">
-        <arg name="id_robot" value="$(arg id_robot)"/>
-        <arg name="xacro_robot_path" value="$(arg xacro_path_robot_a)"/>
-        <arg name="debug" value="false"/>
-        <arg name="use_sim_time" value="true"/>
-        <arg name="robot_model_path" value="$(arg robot_model_path)"/>
-        <arg name="sim_freq_mujoco" value = "$(arg sim_freq_mujoco)"/>
-    </include>
-
     
+    <param name="sim_frequency_mujoco" value = "$(arg sim_freq_mujoco)" type="int"/>
+
     <!-- Mujoco simulation environment description file location complete address-->
     <param name="robot_model_path" value="$(eval find(xacro_robot_package) + robot_model_path)"/>
     <!-- Launch MoJoCo simulation environment -->
