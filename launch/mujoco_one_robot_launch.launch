@@ -6,6 +6,7 @@
 <launch>
     <!-- Default arguments -->
     <arg name="id_robot" default="robot_1"/>
+    <arg name="prefix" default="robot_1"/>
     <arg name="xacro_robot_path" default="summit"/>
     <arg name="debug" default="false"/>
     <arg name="use_sim_time" default="true"/>
@@ -15,7 +16,9 @@
     <group ns="$(arg id_robot)">
 
         <!-- Launch into param server of ROS -->
-        <param name="robot_description" command="$(find xacro)/xacro '$(arg xacro_robot_path)'" />
+        <param name="robot_description" command="$(find xacro)/xacro --inorder
+                                                '$(arg xacro_robot_path)' 
+                                                prefix:=$(arg prefix)" />
 
         <!-- Give simulation update frequency to synch between engine and hw_sim_int 
 
