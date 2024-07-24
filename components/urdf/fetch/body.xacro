@@ -4,7 +4,7 @@
 
     <xacro:macro name="body" params="prefix">
 
-        <link name="${prefix}_torso_lift_link">
+        <link name="${prefix}/torso_lift_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="-0.0013 -0.0009 0.2935" />
                 <mass value="10.7796" />
@@ -27,28 +27,28 @@
             </collision>
         </link>
 
-        <joint name="${prefix}_torso_lift_joint" type="prismatic">
+        <joint name="${prefix}/torso_lift" type="prismatic">
             <origin rpy="-6.123E-17 0 0" xyz="-0.086875 0 0.37743" />
-            <parent link="${prefix}_base_link" />
-            <child link="${prefix}_torso_lift_link" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/torso_lift_link" />
             <axis xyz="0 0 1" />
             <limit effort="450.0" lower="0" upper="0.38615" velocity="0.1" />
             <dynamics damping="100.0" />
         </joint>
 
-        <transmission name="${prefix}_torso_lift_joint_tran">
+        <transmission name="${prefix}/torso_lift_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}_torso_lift_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <joint name="${prefix}/torso_lift">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}_torso_lift_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <actuator name="${prefix}/torso_lift_joint_motor">
+                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
 
-        <link name="${prefix}_bellows_link">
+        <link name="${prefix}/bellows_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.0191320000286228 -1.67219873481315E-16 -0.134861625443387" />
                 <mass value="0.169374038216602" />
@@ -72,26 +72,14 @@
         </link>
 
 
-        <joint name="${prefix}_bellows_joint" type="prismatic">
+        <joint name="${prefix}/bellows_joint" type="fixed">
             <origin rpy="0 0 0" xyz="0 0 0" />
-            <parent link="${prefix}_torso_lift_link" />
-            <child link="${prefix}_bellows_link" />
-            <axis xyz="0 0 1" />
-            <limit effort="5.0" lower="0" upper="0.4" velocity="0.1" />
+            <parent link="${prefix}/torso_lift_link" />
+            <child link="${prefix}/bellows_link" />
         </joint>
 
-        <transmission name="${prefix}_bellows_joint_tran">
-            <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}_bellows_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
-            </joint>
-            <actuator name="${prefix}_bellows_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
-                <mechanicalReduction>1</mechanicalReduction>
-            </actuator>
-        </transmission>
 
-        <link name="${prefix}_bellows_link2">
+        <link name="${prefix}/bellows_2_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.0191320000286228 -1.67219873481315E-16 -0.134861625443387" />
                 <mass value="0.169374038216602" />
@@ -114,16 +102,13 @@
             </collision>
         </link>
 
-        <joint name="${prefix}_bellows_joint2" type="prismatic">
+        <joint name="${prefix}/bellows_2_joint" type="fixed">
             <origin rpy="0 0 3.1415927" xyz="-0.14 0 0" />
-            <parent link="${prefix}_torso_lift_link" />
-            <child link="${prefix}_bellows_link2" />
-            <axis xyz="0 0 1" />
-            <limit effort="5.0" lower="0" upper="0.4" velocity="0.1" />
+            <parent link="${prefix}/torso_lift_link" />
+            <child link="${prefix}/bellows_2_link" />
         </joint>
 
-
-        <link name="${prefix}_estop_link">
+        <link name="${prefix}/e_stop_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.002434512737072 -0.00330608315239905 0.00665139196650039" />
                 <mass value="0.00196130439134723" />
@@ -146,14 +131,14 @@
             </collision>
         </link>
 
-        <joint name="${prefix}_estop_joint" type="fixed">
+        <joint name="${prefix}/e_stop_joint" type="fixed">
             <origin rpy="1.5708 0 0" xyz="-0.12465 0.23892 0.31127" />
-            <parent link="${prefix}_base_link" />
-            <child link="${prefix}_estop_link" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/e_stop_link" />
         <axis xyz="0 0 0" />
         </joint>
 
-        <link name="${prefix}_laser_link">
+        <link name="${prefix}/laser_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="-0.0306228970175641 0.0007091682908278 0.0551974119471302" />
                 <mass value="0.00833634573995571" />
@@ -176,14 +161,14 @@
             </collision>
         </link>
 
-        <joint name="${prefix}_laser_joint" type="fixed">
+        <joint name="${prefix}/laser_joint" type="fixed">
             <origin rpy="3.14159265359 0 0" xyz="0.235 0 0.2878" />
-            <parent link="${prefix}_base_link" />
-            <child link="${prefix}_laser_link" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/laser_link" />
             <axis xyz="0 0 0" />
         </joint>
 
-        <link name="${prefix}_torso_fixed_link">
+        <link name="${prefix}/torso_fixed_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="-0.0722 0.0057 0.2656" />
                 <mass value="13.2775" />
@@ -206,10 +191,10 @@
             </collision>
         </link>
 
-        <joint name="${prefix}_torso_fixed_joint" type="fixed">
+        <joint name="${prefix}/torso_fixed_joint" type="fixed">
             <origin rpy="-6.12303176911189E-17 0 0" xyz="-0.086875 0 0.377425" />
-            <parent link="${prefix}_base_link" />
-            <child link="${prefix}_torso_fixed_link" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/torso_fixed_link" />
             <axis xyz="0 1 0" />
         </joint>
 

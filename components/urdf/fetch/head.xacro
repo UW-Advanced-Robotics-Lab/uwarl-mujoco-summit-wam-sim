@@ -4,7 +4,7 @@
 
     <xacro:macro name="head" params="prefix">
 
-        <link name="${prefix}_head_pan_link">
+        <link name="${prefix}/head_pan_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.0321 0.0161 0.0390" />
                 <mass value="2.2556" />
@@ -27,27 +27,27 @@
             </collision>
         </link>
 
-        <joint name="${prefix}_head_pan_joint" type="revolute">
+        <joint name="${prefix}/head_pan" type="revolute">
             <origin rpy="0 0 0" xyz="0.053125 0 0.603001417713939" />
-            <parent link="${prefix}_torso_lift_link" />
-            <child link="${prefix}_head_pan_link" />
+            <parent link="${prefix}/torso_lift_link" />
+            <child link="${prefix}/head_pan_link" />
             <axis xyz="0 0 1" />
             <limit effort="0.32" lower="-1.57" upper="1.57" velocity="1.57" />
         </joint>
 
-        <transmission name="${prefix}_head_pan_joint_tran">
+        <transmission name="${prefix}/head_pan_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}_head_pan_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <joint name="${prefix}/head_pan">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}_head_pan_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <actuator name="${prefix}head_pan_joint_motor">
+                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
 
-        <link name="${prefix}_head_tilt_link">
+        <link name="${prefix}/head_tilt_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.0081 0.0025 0.0113" />
                 <mass value="0.9087" />
@@ -70,64 +70,64 @@
             </collision>
         </link>
 
-        <joint name="${prefix}_head_tilt_joint" type="revolute">
+        <joint name="${prefix}/head_tilt" type="revolute">
             <origin rpy="0 0 0" xyz="0.14253 0 0.057999" />
-            <parent link="${prefix}_head_pan_link" />
-            <child link="${prefix}_head_tilt_link" />
+            <parent link="${prefix}/head_pan_link" />
+            <child link="${prefix}/head_tilt_link" />
             <axis xyz="0 1 0" />
             <limit effort="0.68" lower="-0.76" upper="1.45" velocity="1.57" />
         </joint>
 
-        <transmission name="${prefix}_head_tilt_joint_tran">
+        <transmission name="${prefix}head_tilt_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}_head_tilt_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <joint name="${prefix}/head_tilt">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}_head_tilt_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <actuator name="${prefix}head_tilt_joint_motor">
+                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
 
-        <link name="${prefix}_head_camera_link" />
+        <link name="${prefix}/head_camera_link" />
 
-        <joint name="${prefix}_head_camera_joint" type="fixed">
+        <joint name="${prefix}/head_camera_joint" type="fixed">
             <origin rpy="0 0 0" xyz="0.055 0 0.0225" />
-            <parent link="head_tilt_link" />
-            <child link="head_camera_link" />
+            <parent link="${prefix}/head_tilt_link" />
+            <child link="${prefix}/head_camera_link" />
         </joint>
 
-        <link name="${prefix}_head_camera_rgb_frame" />
+        <link name="${prefix}/head_camera_rgb_frame" />
 
-        <joint name="${prefix}_head_camera_rgb_joint" type="fixed">
+        <joint name="${prefix}/head_camera_rgb_joint" type="fixed">
             <origin rpy="0 0 0" xyz="0 0.02 0" />
-            <parent link="${prefix}_head_camera_link" />
-            <child link="${prefix}_head_camera_rgb_frame" />
+            <parent link="${prefix}/head_camera_link" />
+            <child link="${prefix}/head_camera_rgb_frame" />
         </joint>
 
-        <link name="${prefix}_head_camera_rgb_optical_frame" />
+        <link name="${prefix}/head_camera_rgb_optical_frame" />
 
-        <joint name="${prefix}_head_camera_rgb_optical_joint" type="fixed">
+        <joint name="${prefix}/head_camera_rgb_optical_joint" type="fixed">
             <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0" />
-            <parent link="${prefix}_head_camera_rgb_frame" />
-            <child link="${prefix}_head_camera_rgb_optical_frame" />
+            <parent link="${prefix}/head_camera_rgb_frame" />
+            <child link="${prefix}/head_camera_rgb_optical_frame" />
         </joint>
 
-        <link name="${prefix}_head_camera_depth_frame" />
+        <link name="${prefix}/head_camera_depth_frame" />
 
-        <joint name="${prefix}_head_camera_depth_joint" type="fixed">
+        <joint name="${prefix}/head_camera_depth_joint" type="fixed">
             <origin rpy="0 0 0" xyz="0 0.045 0" />
-            <parent link="${prefix}_head_camera_link" />
-            <child link="${prefix}_head_camera_depth_frame" />
+            <parent link="${prefix}/head_camera_link" />
+            <child link="${prefix}/head_camera_depth_frame" />
         </joint>
 
-        <link name="${prefix}_head_camera_depth_optical_frame" />
+        <link name="${prefix}/head_camera_depth_optical_frame" />
 
-        <joint name="${prefix}_head_camera_depth_optical_joint" type="fixed">
+        <joint name="${prefix}/head_camera_depth_optical_joint" type="fixed">
             <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0" />
-            <parent link="${prefix}_head_camera_depth_frame" />
-            <child link="${prefix}_head_camera_depth_optical_frame" />
+            <parent link="${prefix}/head_camera_depth_frame" />
+            <child link="${prefix}/head_camera_depth_optical_frame" />
         </joint>
 
 

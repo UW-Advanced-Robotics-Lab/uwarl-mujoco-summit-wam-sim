@@ -62,8 +62,7 @@
                 <geom name="fetch/viz/bellows_link"     class="fetch/bellows_link/viz" mesh="fetch_bellows_link"/>
                 <!-- <geom name="fetch/col/bellows_link"     class="fetch/col" mesh="fetch_bellows_link_collision"/> -->
                 <inertial                               pos="0.0191320000286228 0 -0.134861625443387" mass="0.169374038216602" 
-                                                        fullinertia="0.00331159128762117 0.00174447292786627 0.00169417568121457 0 0 0"/>
-                <joint name="fetch/bellows"        class="fetch/bellows" pos="0 0 0"/>                
+                                                        fullinertia="0.00331159128762117 0.00174447292786627 0.00169417568121457 0 0 0"/>               
             </body>
 
             <!-- === Bellows 2 Link === -->
@@ -72,7 +71,6 @@
                 <!-- <geom name="fetch/col/bellows_2_link"   class="fetch/col" mesh="fetch_bellows_link_collision"/> -->
                 <inertial                              pos="0.0191320000286228 0 -0.134861625443387" mass="0.169374038216602" 
                                                        fullinertia="0.00331159128762117 0.00174447292786627 0.00169417568121457 0 0 0"/>
-                <joint name="fetch/bellows_2"          class="fetch/bellows" pos="0 0 0"/>
             </body>
 
             <!-- === Head Pan Link === -->
@@ -91,6 +89,8 @@
                                                             fullinertia="0.0061 0.0014 0.0061 0 0.0002 -0.0001"/>
                     <joint name="fetch/head_tilt"      class="fetch/head_tilt" pos="0 0 0"/>
                 </body>
+
+                <!-- For camera-mounting, copy the corresponding links from this robots' corresponding urdf file -->
             </body>
 
             <!-- === Shoulder Pan Link === -->
@@ -156,14 +156,22 @@
                                                                                 fullinertia="0.0013 0.0019 0.0024 0 0 0"/>
                                             
                                             <!-- Right Gripper Finger Link -->
-                                            <!-- <body name="fetch/gripper_link" pos="0.1385 0 0" quat="1 0 0 0">
-                                                <geom name="fetch/viz/gripper_link"  class="fetch/gripper_link/viz" mesh="fetch_gripper_link"/>
-                                                <geom name="fetch/col/gripper_link"  class="fetch/col" mesh="fetch_gripper_link_collision"/>
-                                                <inertial                               pos="-0.01 0 0" mass="0.0798" 
-                                                                                        fullinertia="0.0001 0.0001 0.0001 0 0 0"/>
-                                                <joint name="fetch/wrist_roll"          class="fetch/gripper" pos="0 0 0"/>
+                                            <body name="fetch/right_gripper_finger_link" pos="0 0.015425 0" quat="1 0 0 0">
+                                                <geom name="fetch/viz/right_gripper_finger_link"    class="fetch/gripper_finger_link/viz" mesh="fetch_r_gripper_finger_link"/>
+                                                <geom name="fetch/col/right_gripper_finger_link"    class="fetch/col" mesh="fetch_r_gripper_finger_link"/>
+                                                <inertial                                           pos="-0.01 0 0" mass="0.0798" 
+                                                                                                    fullinertia="0.002 0.001 0.001 0 0 0"/>
+                                                <joint name="fetch/right_gripper_finger"            class="fetch/gripper_right_finger" pos="0 0 0"/>
+                                            </body>
 
-                                            </body> -->
+                                            <!-- Left Gripper Finger Link -->
+                                            <body name="fetch/left_gripper_finger_link" pos="0 0.015425 0" quat="1 0 0 0">
+                                                <geom name="fetch/viz/left_gripper_finger_link" class="fetch/gripper_finger_link/viz" mesh="fetch_l_gripper_finger_link"/>
+                                                <geom name="fetch/col/left_gripper_finger_link" class="fetch/col" mesh="fetch_l_gripper_finger_link"/>
+                                                <inertial                                       pos="-0.01 0 0" mass="0.0798" 
+                                                                                                fullinertia="0.002 0.001 0.001 0 0 0"/>
+                                                <joint name="fetch/left_gripper_finger"         class="fetch/gripper_left_finger" pos="0 0 0"/>
+                                            </body>
                                         </body>
                                     </body>
                                 </body>

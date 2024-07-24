@@ -11,10 +11,12 @@
     <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/fetch_gazebo.xacro"/>
 
     <!-- Construct Fetch Base -->
-    <xacro:base prefix="fetch"/>
-    <xacro:body prefix="fetch"/>
-    <xacro:head prefix="fetch"/>
-    <xacro:arm prefix="fetch"/>
-    <xacro:gripper prefix="fetch"/>
+    <!-- https://answers.ros.org/question/282902/pass-parameters-to-xacro-from-launch-file-or-otherwise/ -->
+    <xacro:arg name="prefix" default="fetch" />
+    <xacro:base prefix="$(arg prefix)"/>
+    <xacro:body prefix="$(arg prefix)"/>
+    <xacro:head prefix="$(arg prefix)"/>
+    <xacro:arm prefix="$(arg prefix)"/>
+    <xacro:gripper prefix="$(arg prefix)"/>
 
 </robot>

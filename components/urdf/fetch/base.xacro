@@ -4,15 +4,15 @@
 
     <xacro:macro name="base" params="prefix">
 
-        <link name="${prefix}_base_footprint"/>
+        <link name="${prefix}/base_footprint"/>
 
-        <joint name="${prefix}_base_footprint_joint" type="fixed">
+        <joint name="${prefix}/base_footprint_joint" type="fixed">
             <origin rpy="0 0 0" xyz="0 0 0" />
-            <parent link="${prefix}_base_footprint" />
-            <child link="${prefix}_base_link" />
+            <parent link="${prefix}/base_footprint" />
+            <child link="${prefix}/base_link" />
         </joint>
 
-        <link name="${prefix}_base_link">
+        <link name="${prefix}/base_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="-0.0036 0.0 0.0014" />
                 <mass value="70.1294" />
@@ -35,8 +35,7 @@
             </collision>
         </link>
 
-
-        <link name="${prefix}_r_wheel_link">
+        <link name="${prefix}/whl/R_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0 0 0" />
                 <mass value="4.3542" />
@@ -59,17 +58,15 @@
             </collision>
         </link>
 
-
-
-        <joint name="${prefix}_r_wheel_joint" type="continuous">
+        <joint name="${prefix}/R_whl" type="continuous">
             <origin rpy="-6.123E-17 0 0" xyz="0.0012914 ${-1*wheel_center_dist_y} 0.055325" />
-            <parent link="${prefix}_base_link" />
-            <child link="${prefix}_r_wheel_link" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/whl/R_link" />
             <axis xyz="0 1 0" />
             <limit effort="8.85" velocity="17.4" />
         </joint>
 
-        <link name="${prefix}_l_wheel_link">
+        <link name="${prefix}/whl/L_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0 0 0" />
                 <mass value="4.3542" />
@@ -92,10 +89,10 @@
             </collision>
         </link>
 
-        <joint name="${prefix}_l_wheel_joint" type="continuous">
+        <joint name="${prefix}/L_whl" type="continuous">
             <origin rpy="-6.123E-17 0 0" xyz="0.0012914 ${wheel_center_dist_y} 0.055325" />
-            <parent link="${prefix}_base_link" />
-            <child link="${prefix}_l_wheel_link" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/whl/L_link" />
             <axis xyz="0 1 0" />
             <limit effort="8.85" velocity="17.4" />
         </joint>
