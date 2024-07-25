@@ -1,0 +1,80 @@
+<!-- ======================================================
+    This file is an example template for all the actuators of the full waterloo summit in the playground. 
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+    
+    Updates:
+        - [July 18, 2022] Added Comments based on the spec
+        - [ ] Breakaway force curve should be implemented through scripts
+        - [Nov  28, 2023] Effort controls implement to use ros_control with hw_interface (Tim van Meijel)
+====================================================== -->
+
+<mujocoinclude>
+    
+    <!-- [Fetch] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+    -->
+    <actuator>
+        <!-- [Fetch] control fetch base in an effort fashion (Arnab Joardar) -->
+        <motor name="fetch/pose/x"  joint="fetch/pose/x" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
+        <motor name="fetch/pose/y"  joint="fetch/pose/y" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
+        <motor name="fetch/orie/z"  joint="fetch/orie/z" ctrllimited="true" ctrlrange="-10.0 10.0" gear="50.0"/>
+    </actuator>
+
+    <!-- [Torso and Head] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+    -->
+    <actuator>
+        <!-- [Torso and Head] position control mode -->
+        <motor name='fetch/torso_lift' ctrllimited="true" joint='fetch/torso_lift' ctrlrange='-80 80' gear="42"      />
+        <motor name='fetch/head_pan'   ctrllimited="true" joint='fetch/head_pan'   ctrlrange='-80 80' gear="28.25"   />
+        <motor name='fetch/head_tilt'  ctrllimited="true" joint='fetch/head_tilt'  ctrlrange='-80 80' gear="28.25"   />
+    </actuator>
+      
+    <!-- [7DOF Arm] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+    -->
+    <actuator>
+        <!-- 
+            Attributes Descriptions:
+            - gear: scakes the length of the actuator (different gain / moment arms and velocity, force)
+        -->
+        <!-- [7DOF] force control mode -->
+        <!-- Limits initialized by the URDF Files!! -->
+        <motor name='fetch_arm/shoulder_pan/F'   ctrllimited="true" joint='fetch_arm/shoulder_pan'   ctrlrange='-80 80' gear="42"      />
+        <motor name='fetch_arm/shoulder_lift/F'  ctrllimited="true" joint='fetch_arm/shoulder_lift'  ctrlrange='-80 80' gear="28.25"   />
+        <motor name='fetch_arm/upper_arm_roll/F' ctrllimited="true" joint='fetch_arm/upper_arm_roll' ctrlrange='-80 80' gear="28.25"   />
+        <motor name='fetch_arm/elbow_flex/F'     ctrllimited="true" joint='fetch_arm/elbow_flex'     ctrlrange='-80 80' gear="18"      />
+        <motor name='fetch_arm/fore_arm_roll/F'  ctrllimited="true" joint='fetch_arm/fore_arm_roll'  ctrlrange='-80 80' gear="9.7"     />
+        <motor name='fetch_arm/wrist_flex/F'     ctrllimited="true" joint='fetch_arm/wrist_flex'     ctrlrange='-80 80' gear="9.7"     />
+        <motor name='fetch_arm/wrist_roll/F'     ctrllimited="true" joint='fetch_arm/wrist_roll'     ctrlrange='-80 80' gear="14.93"   />
+    </actuator>
+    
+    <!-- [Gripper] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+        - Position Control:
+            > Trapezoid Profile Control
+        - Velocity Control:
+            > is used during torque-close and torque-open commands (TC and TO). 
+                These commands use proportional gain multiplied by the instantaneous velocity error to control the motors. 
+                The motor torque responds for each motor controller according to: 
+                    MCn = (K / 4) * Yn
+            > K depends on the Boolean LCPG flag. If LCPG is true than K is equal to the loop control proportional gain, 
+                otherwise K is equal to the value of the “FPG” property. 
+            > Yn is the velocity error equal to control velocity multiplied by the loop control velocity coefficient 
+                minus the actual velocity.
+    -->
+    <actuator>
+        <!-- [Gripper] position control mode -->
+        <motor name='fetch_hand/right_gripper_finger' ctrllimited="true" joint='fetch_hand/right_gripper_finger' ctrlrange='-5.1 5.1'/> 
+        <motor name='fetch_hand/left_gripper_finger'  ctrllimited="true" joint='fetch_hand/left_gripper_finger'  ctrlrange='-5.1 5.1' /> 
+    </actuator>
+
+</mujocoinclude>    
