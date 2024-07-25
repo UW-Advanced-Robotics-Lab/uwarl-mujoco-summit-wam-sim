@@ -4,7 +4,7 @@
 
     <xacro:macro name="arm" params="prefix">
 
-        <link name="${prefix}/shoulder_pan_link">
+        <link name="${prefix}_arm/shoulder_pan_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.0927 -0.0056 0.0564" />
                 <mass value="2.5587" />
@@ -27,27 +27,27 @@
             </collision>
         </link>
 
-        <joint name="${prefix}/shoulder_pan" type="revolute">
+        <joint name="${prefix}_arm/shoulder_pan" type="revolute">
             <origin rpy="0 0 0" xyz="0.119525 0 0.34858" />
             <parent link="${prefix}/torso_lift_link" />
-            <child link="${prefix}/shoulder_pan_link" />
+            <child link="${prefix}_arm/shoulder_pan_link" />
             <axis xyz="0 0 1" />
             <dynamics damping="1.0" />
             <limit effort="33.82" lower="-1.6056" upper="1.6056" velocity="1.256" />
         </joint>
 
-        <transmission name="${prefix}shoulder_pan_joint_tran">
+        <transmission name="${prefix}_arm/shoulder_pan_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}/shoulder_pan">
+            <joint name="${prefix}_arm/shoulder_pan">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}shoulder_pan_joint_motor">
+            <actuator name="${prefix}_arm/shoulder_pan_joint_motor">
                 <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
-        <link name="${prefix}/shoulder_lift_link">
+        <link name="${prefix}_arm/shoulder_lift_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.1432 0.0072 -0.0001" />
                 <mass value="2.6615" />
@@ -70,27 +70,27 @@
             </collision>
         </link>
 
-        <joint name="${prefix}/shoulder_lift" type="revolute">
+        <joint name="${prefix}_arm/shoulder_lift" type="revolute">
             <origin rpy="0 0 0" xyz="0.117 0 0.0599999999999999" />
-            <parent link="${prefix}/shoulder_pan_link" />
-            <child link="${prefix}/shoulder_lift_link" />
+            <parent link="${prefix}_arm/shoulder_pan_link" />
+            <child link="${prefix}_arm/shoulder_lift_link" />
             <axis xyz="0 1 0" />
             <dynamics damping="1.0" />
             <limit effort="131.76" lower="-1.221" upper="1.518" velocity="1.454" />
         </joint>
 
-        <transmission name="${prefix}shoulder_lift_joint_tran">
+        <transmission name="${prefix}_arm/shoulder_lift_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}/shoulder_lift">
+            <joint name="${prefix}_arm/shoulder_lift">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}shoulder_lift_joint_motor">
+            <actuator name="${prefix}_arm/shoulder_lift_joint_motor">
                 <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
-        <link name="${prefix}/upper_arm_roll_link">
+        <link name="${prefix}_arm/upper_arm_roll_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.1165 0.0014 0.0000" />
                 <mass value="2.3311" />
@@ -113,27 +113,27 @@
             </collision>
         </link>
 
-        <joint name="${prefix}/upper_arm_roll" type="continuous">
+        <joint name="${prefix}_arm/upper_arm_roll" type="continuous">
             <origin rpy="0 0 0" xyz="0.219 0 0" />
-            <parent link="${prefix}/shoulder_lift_link" />
-            <child link="${prefix}/upper_arm_roll_link" />
+            <parent link="${prefix}_arm/shoulder_lift_link" />
+            <child link="${prefix}_arm/upper_arm_roll_link" />
             <axis xyz="1 0 0" />
             <dynamics damping="5.0" />
             <limit effort="76.94" velocity="1.571" />
         </joint>
 
-        <transmission name="${prefix}/upper_arm_roll_joint_tran">
+        <transmission name="${prefix}_arm/upper_arm_roll_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}/upper_arm_roll">
+            <joint name="${prefix}_arm/upper_arm_roll">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}/upper_arm_roll_joint_motor">
+            <actuator name="${prefix}_arm/upper_arm_roll_joint_motor">
                 <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
-        <link name="${prefix}/elbow_flex_link">
+        <link name="${prefix}_arm/elbow_flex_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.1279 0.0073 0.0000" />
                 <mass value="2.1299" />
@@ -156,27 +156,27 @@
             </collision>
         </link>
 
-        <joint name="${prefix}/elbow_flex" type="revolute">
+        <joint name="${prefix}_arm/elbow_flex" type="revolute">
             <origin rpy="0 0 0" xyz="0.133 0 0" />
-            <parent link="${prefix}/upper_arm_roll_link" />
-            <child link="${prefix}/elbow_flex_link" />
+            <parent link="${prefix}_arm/upper_arm_roll_link" />
+            <child link="${prefix}_arm/elbow_flex_link" />
             <axis xyz="0 1 0" />
             <dynamics damping="1.0" />
             <limit effort="66.18" lower="-2.251" upper="2.251" velocity="1.521" />
         </joint>
 
-        <transmission name="${prefix}/elbow_flex_joint_tran">
+        <transmission name="${prefix}_arm/elbow_flex_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}/elbow_flex">
+            <joint name="${prefix}_arm/elbow_flex">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}/elbow_flex_joint_motor">
+            <actuator name="${prefix}_arm/elbow_flex_joint_motor">
                 <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
-        <link name="${prefix}/fore_arm_roll_link">
+        <link name="${prefix}_arm/fore_arm_roll_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.1097 -0.0266 0.0000" />
                 <mass value="1.6563" />
@@ -199,28 +199,28 @@
             </collision>
         </link>
 
-        <joint name="${prefix}/fore_arm_roll" type="continuous">
+        <joint name="${prefix}_arm/fore_arm_roll" type="continuous">
             <origin rpy="0 0 0" xyz="0.197 0 0" />
-            <parent link="${prefix}/elbow_flex_link" />
-            <child link="${prefix}/fore_arm_roll_link" />
+            <parent link="${prefix}_arm/elbow_flex_link" />
+            <child link="${prefix}_arm/fore_arm_roll_link" />
             <axis xyz="1 0 0" />
             <dynamics damping="5.0" />
             <limit effort="29.35" velocity="1.571" />
         </joint>
 
 
-        <transmission name="${prefix}/fore_arm_roll_joint_tran">
+        <transmission name="${prefix}_arm/fore_arm_roll_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}/fore_arm_roll">
+            <joint name="${prefix}_arm/fore_arm_roll">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}/fore_arm_roll_joint_motor">
+            <actuator name="${prefix}_arm/fore_arm_roll_joint_motor">
                 <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
-        <link name="${prefix}/wrist_flex_link">
+        <link name="${prefix}_arm/wrist_flex_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.0882 0.0009 -0.0001" />
                 <mass value="1.725" />
@@ -243,28 +243,28 @@
             </collision>
         </link>
 
-        <joint name="${prefix}/wrist_flex" type="revolute">
+        <joint name="${prefix}_arm/wrist_flex" type="revolute">
             <origin rpy="0 0 0" xyz="0.1245 0 0" />
-            <parent link="${prefix}/fore_arm_roll_link" />
-            <child link="${prefix}/wrist_flex_link" />
+            <parent link="${prefix}_arm/fore_arm_roll_link" />
+            <child link="${prefix}_arm/wrist_flex_link" />
             <axis xyz="0 1 0" />
             <dynamics damping="1.0" />
             <limit effort="25.7" lower="-2.16" upper="2.16" velocity="2.268" />
         </joint>
 
 
-        <transmission name="${prefix}/wrist_flex_joint_tran">
+        <transmission name="${prefix}_arm/wrist_flex_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}/wrist_flex">
+            <joint name="${prefix}_arm/wrist_flex">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}/wrist_flex_joint_motor">
+            <actuator name="${prefix}_arm/wrist_flex_joint_motor">
                 <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
 
-        <link name="${prefix}/wrist_roll_link">
+        <link name="${prefix}_arm/wrist_roll_link">
             <inertial>
                 <origin rpy="0 0 0" xyz="0.0095 0.0004 -0.0002" />
                 <mass value="0.1354" />
@@ -287,21 +287,21 @@
             </collision>
         </link>
 
-        <joint name="${prefix}/wrist_roll" type="continuous">
+        <joint name="${prefix}_arm/wrist_roll" type="continuous">
             <origin rpy="0 0 0" xyz="0.1385 0 0" />
-            <parent link="${prefix}/wrist_flex_link" />
-            <child link="${prefix}/wrist_roll_link" />
+            <parent link="${prefix}_arm/wrist_flex_link" />
+            <child link="${prefix}_arm/wrist_roll_link" />
             <axis xyz="1 0 0" />
             <limit effort="7.36" velocity="2.268" />
             <dynamics damping="5.0" />
         </joint>
 
-        <transmission name="${prefix}/wrist_roll_joint_tran">
+        <transmission name="${prefix}_arm/wrist_roll_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="${prefix}/wrist_roll">
+            <joint name="${prefix}_arm/wrist_roll">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}/wrist_roll_joint_motor">
+            <actuator name="${prefix}_arm/wrist_roll_joint_motor">
                 <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
