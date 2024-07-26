@@ -17,6 +17,7 @@
 
 <mujoco model="playground_wagon_manipulation(v1.0.0)">
     
+    <option integrator="implicitfast"/>
     <!--##############
         ### IMPORT ###
         ############## -->
