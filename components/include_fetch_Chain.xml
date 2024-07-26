@@ -96,7 +96,7 @@
             <!-- === Shoulder Pan Link === -->
             <body name="fetch/shoulder_pan_link" pos="0.119525 0 0.34858" quat="1 0 0 0">
                 <geom name="fetch/viz/shoulder_pan_link"    class="fetch/shoulder_pan_link/viz" mesh="fetch_shoulder_pan_link"/>
-                <geom name="fetch/col/shoulder_pan_link"    class="fetch/col" mesh="fetch_shoulder_pan_link_collision"/>
+                <!-- <geom name="fetch/col/shoulder_pan_link"    class="fetch/col" mesh="fetch_shoulder_pan_link_collision"/> -->
                 <inertial                                   pos="0.0927 -0.0056 0.0564" mass="2.5587" 
                                                             fullinertia="0.0043 0.0087 0.0087 -0.0001 0.0001 -0.0001"/>
                 <joint name="fetch_arm/shoulder_pan"        class="fetch/shoulder_pan" pos="0 0 0"/>
@@ -104,7 +104,7 @@
                 <!-- === Shoulder Lift Link === -->
                 <body name="fetch/shoulder_lift_link" pos="0.117 0 0.06" quat="1 0 0 0">
                     <geom name="fetch/viz/shoulder_lift_link"   class="fetch/shoulder_lift_link/viz" mesh="fetch_shoulder_lift_link"/>
-                    <geom name="fetch/col/shoulder_lift_link"   class="fetch/col" mesh="fetch_shoulder_lift_link_collision"/>
+                    <!-- <geom name="fetch/col/shoulder_lift_link"   class="fetch/col" mesh="fetch_shoulder_lift_link_collision"/> -->
                     <inertial                                   pos="0.1432 0.0072 -0.0001" mass="2.6615" 
                                                                 fullinertia="0.0028 0.0111 0.0112 -0.0021 0 0"/>
                     <joint name="fetch_arm/shoulder_lift"       class="fetch/shoulder_lift" pos="0 0 0"/>
@@ -112,7 +112,7 @@
                     <!-- === Upper-arm Roll Link === -->
                     <body name="fetch/upper_arm_roll_link" pos="0.219 0 0" quat="1 0 0 0">
                         <geom name="fetch/viz/upper_arm_roll_link"  class="fetch/upper_arm_roll_link/viz" mesh="fetch_upperarm_roll_link"/>
-                        <geom name="fetch/col/upper_arm_roll_link"  class="fetch/col" mesh="fetch_upperarm_roll_link_collision"/>
+                        <!-- <geom name="fetch/col/upper_arm_roll_link"  class="fetch/col" mesh="fetch_upperarm_roll_link_collision"/> -->
                         <inertial                                   pos="0.1165 0.0014 0" mass="2.3311" 
                                                                     fullinertia="0.0019 0.0045 0.0047 -0.0001 0 0"/>
                         <joint name="fetch_arm/upper_arm_roll"      class="fetch/upper_arm_roll" pos="0 0 0"/>
@@ -120,7 +120,7 @@
                         <!-- === Elbow Flex Link === -->
                         <body name="fetch/elbow_flex_link" pos="0.133 0 0" quat="1 0 0 0">
                             <geom name="fetch/viz/elbow_flex_link"  class="fetch/elbow_flex_link/viz" mesh="fetch_elbow_flex_link"/>
-                            <geom name="fetch/col/elbow_flex_link"  class="fetch/col" mesh="fetch_elbow_flex_link_collision"/>
+                            <!-- <geom name="fetch/col/elbow_flex_link"  class="fetch/col" mesh="fetch_elbow_flex_link_collision"/> -->
                             <inertial                               pos="0.1279 0.0073 0" mass="2.1299" 
                                                                     fullinertia="0.0024 0.0082 0.0084 -0.0016 0 0"/>
                             <joint name="fetch_arm/elbow_flex"      class="fetch/elbow_flex" pos="0 0 0"/>
@@ -128,7 +128,7 @@
                             <!-- === Forearm Roll Link === -->
                             <body name="fetch/fore_arm_roll_link" pos="0.197 0 0" quat="1 0 0 0">
                                 <geom name="fetch/viz/fore_arm_roll_link"   class="fetch/fore_arm_roll_link/viz" mesh="fetch_forearm_roll_link"/>
-                                <geom name="fetch/col/fore_arm_roll_link"   class="fetch/col" mesh="fetch_forearm_roll_link_collision"/>
+                                <!-- <geom name="fetch/col/fore_arm_roll_link"   class="fetch/col" mesh="fetch_forearm_roll_link_collision"/> -->
                                 <inertial                                   pos="0.1097 -0.0266 0" mass="1.6563" 
                                                                             fullinertia="0.0016 0.003 0.0035 -0.0003 0 0"/>
                                 <joint name="fetch_arm/fore_arm_roll"       class="fetch/fore_arm_roll" pos="0 0 0"/>
@@ -136,7 +136,7 @@
                                 <!-- === Wrist Flex Link === -->
                                 <body name="fetch/wrist_flex_link" pos="0.1245 0 0" quat="1 0 0 0">
                                     <geom name="fetch/viz/wrist_flex_link"  class="fetch/wrist_flex_link/viz" mesh="fetch_wrist_flex_link"/>
-                                    <geom name="fetch/col/wrist_flex_link"  class="fetch/col" mesh="fetch_wrist_flex_link_collision"/>
+                                    <!-- <geom name="fetch/col/wrist_flex_link"  class="fetch/col" mesh="fetch_wrist_flex_link_collision"/> -->
                                     <inertial                               pos="0.0882 0.0009 -0.0001" mass="1.725" 
                                                                             fullinertia="0.0018 0.0042 0.0042 -0.0001 0 0"/>
                                     <joint name="fetch_arm/wrist_flex"      class="fetch/wrist_flex" pos="0 0 0"/>
@@ -144,7 +144,7 @@
                                     <!-- === Wrist Roll Link === -->
                                     <body name="fetch/wrist_roll_link" pos="0.1385 0 0" quat="1 0 0 0">
                                         <geom name="fetch/viz/wrist_roll_link"  class="fetch/wrist_roll_link/viz" mesh="fetch_wrist_roll_link"/>
-                                        <geom name="fetch/col/wrist_roll_link"  class="fetch/col" mesh="fetch_wrist_roll_link_collision"/>
+                                        <!-- <geom name="fetch/col/wrist_roll_link"  class="fetch/col" mesh="fetch_wrist_roll_link_collision"/> -->
                                         <inertial                               pos="0.0095 0.0004 -0.0002" mass="0.1354" 
                                                                                 fullinertia="0.0001 0.0001 0.0001 0 0 0"/>
                                         <joint name="fetch_arm/wrist_roll"      class="fetch/wrist_roll" pos="0 0 0"/>
@@ -158,18 +158,18 @@
                                             <!-- Right Gripper Finger Link -->
                                             <body name="fetch_hand/right_gripper_finger_link" pos="0 0.015425 0" quat="1 0 0 0">
                                                 <geom name="fetch/viz/right_gripper_finger_link"    class="fetch/gripper_finger_link/viz" mesh="fetch_r_gripper_finger_link"/>
-                                                <geom name="fetch/col/right_gripper_finger_link"    class="fetch/col" mesh="fetch_r_gripper_finger_link"/>
+                                                <!-- <geom name="fetch/col/right_gripper_finger_link"    class="fetch/col" mesh="fetch_r_gripper_finger_link"/> -->
                                                 <inertial                                           pos="-0.01 0 0" mass="0.0798" 
-                                                                                                    fullinertia="0.002 0.001 0.001 0 0 0"/>
+                                                                                                    fullinertia="0.002 0.002 0.002 0 0 0"/>
                                                 <joint name="fetch_hand/right_gripper_finger"       class="fetch/gripper_right_finger" pos="0 0 0"/>
                                             </body>
 
                                             <!-- Left Gripper Finger Link -->
                                             <body name="fetch_hand/left_gripper_finger_link" pos="0 0.015425 0" quat="1 0 0 0">
                                                 <geom name="fetch/viz/left_gripper_finger_link" class="fetch/gripper_finger_link/viz" mesh="fetch_l_gripper_finger_link"/>
-                                                <geom name="fetch/col/left_gripper_finger_link" class="fetch/col" mesh="fetch_l_gripper_finger_link"/>
+                                                <!-- <geom name="fetch/col/left_gripper_finger_link" class="fetch/col" mesh="fetch_l_gripper_finger_link"/> -->
                                                 <inertial                                       pos="-0.01 0 0" mass="0.0798" 
-                                                                                                fullinertia="0.002 0.001 0.001 0 0 0"/>
+                                                                                                fullinertia="0.002 0.002 0.002 0 0 0"/>
                                                 <joint name="fetch_hand/left_gripper_finger"    class="fetch/gripper_left_finger" pos="0 0 0"/>
                                             </body>
                                         </body>
@@ -199,7 +199,7 @@
         </body>
 
         <!-- === Torso Fixed Link === -->
-        <body name="fetch/torso_fixed_link" pos="0.235 0 0.2878" euler="3.14159265359 0 0">
+        <body name="fetch/torso_fixed_link" pos="-0.086875 0 0.37743" euler="0 0 0">
             <geom name="fetch/viz/torso_fixed_link"     class="fetch/torso_fixed_link/viz" mesh="fetch_torso_fixed_link"/>
             <inertial                                   pos="-0.0306228970175641 0.0007091682908278 0.0551974119471302" mass="0.00833634573995571" 
                                                         fullinertia="1.01866461240801E-06 5.10039589974707E-07 1.28270671527309E-06 

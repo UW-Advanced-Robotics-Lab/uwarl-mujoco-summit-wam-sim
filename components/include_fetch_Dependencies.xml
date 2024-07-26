@@ -114,7 +114,7 @@
         </default>
         <default class="fetch/gripper_left_finger">
             <!-- class-names for joints -->
-            <joint type="slide" axis="0 1 0" damping="0.55" limited="true" range="-0.05 0"/>
+            <joint type="slide" axis="0 -1 0" damping="0.55" limited="true" range="0 0.05"/>
         </default>
 
         <default class="fetch/col">

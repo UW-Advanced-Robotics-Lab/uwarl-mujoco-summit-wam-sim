@@ -99,7 +99,7 @@
         </link>
 
 
-        <joint name="${prefix}_hand/left_gripper_finger_joint" type="prismatic">
+        <joint name="${prefix}_hand/left_gripper_finger" type="prismatic">
             <origin rpy="0 0 0" xyz="0 -0.015425 0" />
             <parent link="${prefix}_hand/gripper_link" />
             <child link="${prefix}_hand/left_gripper_finger_link" />

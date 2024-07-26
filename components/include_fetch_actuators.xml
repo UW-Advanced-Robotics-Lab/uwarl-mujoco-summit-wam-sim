@@ -46,14 +46,23 @@
             - gear: scakes the length of the actuator (different gain / moment arms and velocity, force)
         -->
         <!-- [7DOF] force control mode -->
+        <!-- Source: https://github.com/vikashplus/fetch_sim/tree/master/assets -->
+        <!-- Limits: http://docs.fetchrobotics.com/FetchRobotics.pdf -->
+        <position kp="1e4" ctrllimited="true" ctrlrange="-1.6056 1.6056" joint="fetch_arm/shoulder_pan"   name='fetch_arm/shoulder_pan/P'/>
+		<position kp="1e4" ctrllimited="true" ctrlrange="-1.221 1.518"   joint="fetch_arm/shoulder_lift"  name='fetch_arm/shoulder_lift/P'/>
+		<position kp="1e4" ctrllimited="true" ctrlrange="-3.14 3.14"     joint="fetch_arm/upper_arm_roll" name='fetch_arm/upper_arm_roll/P'/>
+		<position kp="1e4" ctrllimited="true" ctrlrange="-2.251 2.251"   joint="fetch_arm/elbow_flex"     name='fetch_arm/elbow_flex/P'/>
+		<position kp="1e4" ctrllimited="true" ctrlrange="-3.14 3.14"     joint="fetch_arm/fore_arm_roll"  name='fetch_arm/fore_arm_roll/P'/>
+		<position kp="1e4" ctrllimited="true" ctrlrange="-2.16 2.16"     joint="fetch_arm/wrist_flex"     name='fetch_arm/wrist_flex/P'/>
+		<position kp="1e4" ctrllimited="true" ctrlrange="-3.14 3.14"     joint="fetch_arm/wrist_roll"     name='fetch_arm/wrist_roll/P'/>
         <!-- Limits initialized by the URDF Files!! -->
-        <motor name='fetch_arm/shoulder_pan/F'   ctrllimited="true" joint='fetch_arm/shoulder_pan'   ctrlrange='-80 80' gear="42"      />
-        <motor name='fetch_arm/shoulder_lift/F'  ctrllimited="true" joint='fetch_arm/shoulder_lift'  ctrlrange='-80 80' gear="28.25"   />
-        <motor name='fetch_arm/upper_arm_roll/F' ctrllimited="true" joint='fetch_arm/upper_arm_roll' ctrlrange='-80 80' gear="28.25"   />
-        <motor name='fetch_arm/elbow_flex/F'     ctrllimited="true" joint='fetch_arm/elbow_flex'     ctrlrange='-80 80' gear="18"      />
-        <motor name='fetch_arm/fore_arm_roll/F'  ctrllimited="true" joint='fetch_arm/fore_arm_roll'  ctrlrange='-80 80' gear="9.7"     />
-        <motor name='fetch_arm/wrist_flex/F'     ctrllimited="true" joint='fetch_arm/wrist_flex'     ctrlrange='-80 80' gear="9.7"     />
-        <motor name='fetch_arm/wrist_roll/F'     ctrllimited="true" joint='fetch_arm/wrist_roll'     ctrlrange='-80 80' gear="14.93"   />
+        <motor name='fetch_arm/shoulder_pan/F'   ctrllimited="true" joint='fetch_arm/shoulder_pan'   ctrlrange='-33.82 33.82' gear="1"      />
+        <motor name='fetch_arm/shoulder_lift/F'  ctrllimited="true" joint='fetch_arm/shoulder_lift'  ctrlrange='-131.76 131.76' gear="1"   />
+        <motor name='fetch_arm/upper_arm_roll/F' ctrllimited="true" joint='fetch_arm/upper_arm_roll' ctrlrange='-76.94 76.94' gear="1"   />
+        <motor name='fetch_arm/elbow_flex/F'     ctrllimited="true" joint='fetch_arm/elbow_flex'     ctrlrange='-66.18 66.18' gear="1"      />
+        <motor name='fetch_arm/fore_arm_roll/F'  ctrllimited="true" joint='fetch_arm/fore_arm_roll'  ctrlrange='-29.35 29.35' gear="1"     />
+        <motor name='fetch_arm/wrist_flex/F'     ctrllimited="true" joint='fetch_arm/wrist_flex'     ctrlrange='-25.70 25.70' gear="1"     />
+        <motor name='fetch_arm/wrist_roll/F'     ctrllimited="true" joint='fetch_arm/wrist_roll'     ctrlrange='-7.36 7.36' gear="1"   />
     </actuator>
     
     <!-- [Gripper] 
@@ -73,8 +82,10 @@
     -->
     <actuator>
         <!-- [Gripper] position control mode -->
-        <motor name='fetch_hand/right_gripper_finger' ctrllimited="true" joint='fetch_hand/right_gripper_finger' ctrlrange='-5.1 5.1'/> 
-        <motor name='fetch_hand/left_gripper_finger'  ctrllimited="true" joint='fetch_hand/left_gripper_finger'  ctrlrange='-5.1 5.1' /> 
+        <position kp="1e4" ctrllimited="true" ctrlrange="0 .05" joint="fetch_hand/right_gripper_finger" name='fetch_hand/right_gripper_finger/P' />
+		<position kp="1e4" ctrllimited="true" ctrlrange="0 .05" joint="fetch_hand/left_gripper_finger" name='fetch_hand/left_gripper_finger/P' />
+        <motor name='fetch_hand/right_gripper_finger' ctrllimited="true" joint='fetch_hand/right_gripper_finger' ctrlrange='-60 60' gear="1"/> 
+        <motor name='fetch_hand/left_gripper_finger'  ctrllimited="true" joint='fetch_hand/left_gripper_finger'  ctrlrange='-60 60' gear="1"/> 
     </actuator>
 
 </mujocoinclude>    
