@@ -30,6 +30,7 @@
     <include file="../components/include_shelves_Dependencies.xml"/>
     <include file="../components/include_walls_Dependencies.xml"/>
     <include file="../components/include_fork_lift_Dependencies.xml"/>
+    <include file="../components/include_fork_lift_actuators.xml"/>
     <include file="../components/include_fetch_Dependencies.xml"/>
     <include file="../components/include_fetch_actuators.xml"/>
 
@@ -98,8 +99,8 @@
         </body>
 
         <!-- Placing fetch behind the Cart-MM -->
-        <body name="fetch_1" pos="-1 -0.5 0" euler="0 0 0">
-            <include file="../components/include_fetch.xml"/>
+        <body name="fetch_1" pos="-1 -0.5 0.05" euler="0 0 0">
+            <include file="../components/include_fetch_Chain.xml"/>
         </body>
 
     </worldbody>
