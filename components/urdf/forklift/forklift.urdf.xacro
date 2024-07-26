@@ -1,0 +1,722 @@
+<?xml version="1.0"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Fork_Lift_Assembly_small">
+   
+    <xacro:macro name="fork_lift" params="prefix">
+        <link name="${prefix}/base_link">
+            <inertial>
+                <origin xyz="0.052429 -0.17152 -0.52388" rpy="0 0 0" />
+                <mass value="769.72" />
+                <inertia ixx="253.55" ixy="-0.0013091" ixz="0.0079024" iyy="242.85" iyz="21.094" izz="86.133" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/base_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.79216 0.81961 0.93333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/base_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <link name="${prefix}/rim/LF_link">
+            <inertial>
+                <origin xyz="0.077 2.2204E-16 1.1102E-16" rpy="0 0 0" />
+                <mass value="2.2762" />
+                <inertia ixx="0.070084" ixy="2.5435E-17" ixz="-3.0509E-17" iyy="0.045091" iyz="-2.0746E-17" izz="0.045091" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Front_Left_Rim_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.64706 0.61961 0.58824 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Front_Left_Rim_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/rim_LF" type="continuous">
+            <origin xyz="0.408439604987626 -0.52528500449349 -0.619553768101347" rpy="1.5707963267949 0 0" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/rim/LF_link" />
+            <axis xyz="1 0 0" />
+        </joint>
+        <link name="${prefix}/whl/LF_link">
+            <inertial>
+                <origin xyz="0.049707 1.8049E-10 1.1318E-11" rpy="0 0 0" />
+                <mass value="6.4308" />
+                <inertia ixx="0.49716" ixy="-8.2505E-12" ixz="-3.8934E-06" iyy="0.3055" iyz="-1.6056E-10" izz="0.3055" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Front_Left_Tire_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.29804 0.29804 0.29804 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Front_Left_Tire_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Front_Left_Tire_fixed_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <parent link="${prefix}/rim/LF_link" />
+            <child link="${prefix}/whl/LF_link" />
+        </joint>
+
+        <link name="${prefix}/rim/RF_link">
+            <inertial>
+                <origin xyz="0.0769997361196634 5.55111512312578E-17 -7.7715611723761E-16" rpy="0 0 0" />
+                <mass value="2.27623202922214" />
+                <inertia ixx="0.0700844160715179" ixy="1.58736776008097E-17" ixz="-1.81857534742899E-17" iyy="0.0450913266701847" iyz="5.20417042793042E-18" izz="0.0450913266701846" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Front_Right_Rim_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Front_Right_Rim_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/rim_RF" type="continuous">
+            <origin xyz="-0.303560395012374 -0.525285004493489 -0.619553768101346" rpy="0.936902837641519 0 3.14159265358979" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/rim/RF_link" />
+            <axis xyz="1 0 0" />
+        </joint>
+        <link name="${prefix}/whl/RF_link">
+            <inertial>
+                <origin xyz="0.049707 3.4838E-11 -5.4351E-11" rpy="0 0 0" />
+                <mass value="6.4308" />
+                <inertia ixx="0.49716" ixy="-6.2847E-12" ixz="-3.8935E-06" iyy="0.3055" iyz="-1.6114E-10" izz="0.3055" />
+                </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Front_Right_Tire_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.29804 0.29804 0.29804 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Front_Right_Tire_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Front_Right_Tire_fixed_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="1.1164 0 0" />
+            <parent link="${prefix}/rim/RF_link" />
+            <child link="${prefix}/whl/RF_link" />
+        </joint>
+
+        <link name="${prefix}/rim/RR_link">
+            <inertial>
+                <origin xyz="0.0769997361196628 -1.11022302462516E-16 -6.66133814775094E-16" rpy="0 0 0" />
+                <mass value="2.27623202922213" />
+                <inertia ixx="0.0700844160715174" ixy="2.1122484120607E-17" ixz="-2.55626809613478E-17" iyy="0.0450913266701843" iyz="-2.42861286636753E-17" izz="0.0450913266701842" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Rear_Right_Rim_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Rear_Right_Rim_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/rim_RR" type="continuous">
+            <origin xyz="-0.303560395012374 0.674714995506509 -0.619553768101346" rpy="-0.371045502024906 0 3.14159265358979" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/rim/RR_link" />
+            <axis xyz="1 0 0" />
+        </joint>
+        <link name="${prefix}/whl/RR_link">
+            <inertial>
+                <origin xyz="0.049707 1.544E-10 2.7088E-11" rpy="0 0 0" />
+                <mass value="6.4308" />
+                <inertia ixx="0.49716" ixy="-9.4289E-12" ixz="-3.8934E-06" iyy="0.3055" iyz="-1.6043E-10" izz="0.3055" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Rear_Right_Tire_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.29804 0.29804 0.29804 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Rear_Right_Tire_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Rear_Right_Tire_fixed_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="3.0927 0 0" />
+            <parent link="${prefix}/rim/RR_link" />
+            <child link="${prefix}/whl/RR_link" />
+        </joint>
+
+        <link name="${prefix}/rim/LR_link">
+            <inertial>
+                <origin xyz="0.0769997361196634 1.11022302462516E-16 2.22044604925031E-16" rpy="0 0 0" />
+                <mass value="2.27623202922214" />
+                <inertia  ixx="0.0700844160715177" ixy="2.54470078138382E-17" ixz="-2.47392938722097E-17" iyy="0.0450913266701846" iyz="-4.33680868994202E-19" izz="0.0450913266701845" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Rear_Left_Rim_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Rear_Left_Rim_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Rear_Left_Rim_revolute_joint" type="continuous">
+            <origin xyz="0.40844 0.67471 -0.61955" rpy="1.4762 0 0" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/rim/LR_link" />
+            <axis xyz="1 0 0" />
+        </joint>
+        <link name="${prefix}/whl/LR_link">
+            <inertial>
+                <origin xyz="0.0497068446564673 1.8047985328451E-10 1.13241638288741E-11" rpy="0 0 0" />
+                <mass value="6.43079373063954" />
+                <inertia
+                    ixx="0.497161465328435" ixy="-8.24586614642552E-12" ixz="-3.89344573303927E-06" iyy="0.305503049662896" iyz="-1.60551854300676E-10" izz="0.305503049051699" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Rear_Left_Tire_Link.STL" />
+                </geometry>
+                <material name=""> 
+                    <color rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Rear_Left_Tire_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Rear_Left_Tire_fixed_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="0.094585 0 0" />
+            <parent link="${prefix}/rim/LR_link" />
+            <child link="${prefix}/whl/LR_link" />
+        </joint>
+
+        <link name="${prefix}/Dashboard_link">
+            <inertial>
+                <origin xyz="0.0108840381039751 0.23430546781438 4.70887754275284E-08" rpy="0 0 0" />
+                <mass value="11.4581860748962" />
+                <inertia ixx="0.93155199650635" ixy="0.0055296142129257" ixz="2.32647083220486E-07" iyy="0.781194728428458" iyz="-6.22522639122629E-07" izz="0.254202416442016" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Dashboard_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Dashboard_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Dashboard" type="fixed">
+            <origin xyz="0.05244 -0.16636 -0.083365" rpy="1.5708 0 1.5708" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/Dashboard_link" />
+        </joint>
+        <link name="${prefix}/Steering_wheel_link">
+            <inertial>
+                <origin xyz="0.186101100844217 0.240626429246844 9.47162653863742E-10" rpy="0 0 0" />
+                <mass value="12.7140383181532" />
+                <inertia ixx="0.373294360474939" ixy="-0.210896413935879" ixz="-8.9032727758137E-09" iyy="0.267265955145159" iyz="-9.20797959363103E-09" izz="0.525508288434428" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Steering_wheel_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.113725490196078 0.113725490196078 0.113725490196078 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Steering_wheel_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Steering_wheel_fixed_joint" type="fixed">
+            <origin xyz="-0.13652 0.075276 0" rpy="0 0 0.12851" />
+            <parent link="${prefix}/Dashboard_link" />
+            <child link="${prefix}/Steering_wheel_link" />
+        </joint>
+
+        <link name="${prefix}/Seat_link">
+            <inertial>
+                <origin xyz="1.28060825207305E-06 0.146021700769562 -0.38439656445551" rpy="0 0 0" />
+                <mass value="38.2857695056879" />
+                <inertia ixx="1.59476835836919" ixy="-6.88702719587057E-07" ixz="-5.37928865949764E-06" iyy="1.74578269099327" iyz="0.473046122050431" izz="1.48771550257186" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Seat_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="1 1 1 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Seat_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Seat_fixed_joint" type="fixed">
+            <origin xyz="0.05244 0.12897 0.15821" rpy="1.6552 0 0" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/Seat_link" />
+        </joint>
+
+        <link name="${prefix}/cylinder/OFL_Hydraulic_Cylinder_link">
+            <inertial>
+                <origin xyz="-2.77555756156289E-16 -5.55111512312578E-17 0.201108826097916" rpy="0 0 0" />
+                <mass value="2.94859731394196" />
+                <inertia ixx="0.0517687305749863" ixy="3.68676246954702E-21" ixz="6.08237418764368E-17" iyy="0.0518046006685273" iyz="1.48905467276323E-19" izz="0.00412017212944164" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Left_Hydraulic_Cylinder_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.898039215686275 0.898039215686275 0.898039215686275 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Left_Hydraulic_Cylinder_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Outer_Frame_Left_Hydraulic_Cylinder_revolute_joint" type="fixed">
+            <origin xyz="-0.21756 -0.29179 -0.0075055" rpy="1.3756068 0 -1.5707963" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/cylinder/OFL_Hydraulic_Cylinder_link" />
+            <!-- <axis xyz="0 1 0" />
+            <limit lower="0" upper="0" effort="0" velocity="0" /> -->
+        </joint>
+        <link name="${prefix}/piston/OFL_Hydraulic_Piston_link">
+            <inertial>
+                <origin xyz="-5.70155812562589E-08 9.83822654523903E-08 0.328742059684664" rpy="0 0 0" />
+                <mass value="0.833177686510652" />
+                <inertia ixx="0.0292634379449169" ixy="-4.17994898668351E-09" ixz="3.2152909284792E-09" iyy="0.0293064499384084" iyz="-2.30277087543529E-08" izz="0.000210473028743556" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Left_Hydraulic_Piston_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Left_Hydraulic_Piston_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Outer_Frame_Left_Hydraulic_Piston_prismatic_joint" type="fixed">
+            <origin xyz="0 0 0.15582" rpy="0 0 1.5708" />
+            <parent link="${prefix}/cylinder/OFL_Hydraulic_Cylinder_link" />
+            <child link="${prefix}/piston/OFL_Hydraulic_Piston_link" />
+            <!-- <axis xyz="0 0 1" />
+            <limit lower="-0.03" upper="0.6" effort="0" velocity="0" /> -->
+        </joint>
+
+        <link name="${prefix}/cylinder/OFR_Hydraulic_Cylinder_link">
+            <inertial>
+                <origin xyz="-2.91433543964104E-16 -2.77555756156289E-17 0.201108826097916" rpy="0 0 0" />
+                <mass value="2.94859731394196" />
+                <inertia ixx="0.0517687305749864" ixy="-4.00134484449877E-21" ixz="6.50521303491303E-17" iyy="0.0518046006685273" iyz="-1.31717147811942E-18" izz="0.00412017212944164" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Right_Hydraulic_Cylinder_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.898039215686275 0.898039215686275 0.898039215686275 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Right_Hydraulic_Cylinder_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Outer_Frame_Right_Hydraulic_Cylinder_revolute_joint" type="fixed">
+            <origin xyz="0.32244 -0.29178 -0.0075055" rpy="1.3756068 0 -1.5707963" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/cylinder/OFR_Hydraulic_Cylinder_link" />
+            <!-- <axis xyz="0 1 0" />
+            <limit lower="0" upper="0" effort="0" velocity="0" /> -->
+        </joint>
+        <link name="${prefix}/piston/OFR_Hydraulic_Piston_link">
+            <inertial>
+                <origin xyz="-5.70155812840145E-08 9.83822652927957E-08 0.328742059684665" rpy="0 0 0" />
+                <mass value="0.833177686510655" />
+                <inertia ixx="0.029263437944917" ixy="-4.17994898583407E-09" ixz="3.21529092103396E-09" iyy="0.0293064499384085" iyz="-2.30277087372242E-08" izz="0.000210473028743557" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Right_Hydraulic_Piston_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Right_Hydraulic_Piston_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Outer_Frame_Right_Hydraulic_Piston_prismatic_joint" type="fixed">
+            <origin xyz="0 0 0.15582" rpy="0 0 1.5708" />
+            <parent link="${prefix}/cylinder/OFR_Hydraulic_Cylinder_link" />
+            <child link="${prefix}/piston/OFR_Hydraulic_Piston_link" />
+            <!-- <axis xyz="0 0 1" />
+            <limit lower="-0.03" upper="0.6" effort="0" velocity="0" /> -->
+        </joint>
+
+        <link name="${prefix}/Outer_Frame_link">
+            <inertial>
+                <origin xyz="0.0524396015228633 1.146978073091 0.0785769723878297" rpy="0 0 0" />
+                <mass value="344.056992884163" />
+                <inertia ixx="239.372046376259" ixy="9.13131035129275E-07" ixz="-5.91180220221186E-08" iyy="20.3184602294528" iyz="6.27257463800624" izz="249.884147998727" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Outer_Frame_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Outer_Frame_revolute_joint" type="continuous">
+            <origin xyz="0 -0.86278500449349 -0.619553768101347" rpy="1.72996159586767 0 0" />
+            <parent link="${prefix}/base_link" />
+            <child link="${prefix}/Outer_Frame_link" />
+            <axis xyz="1 0 0" />
+        </joint>
+        <link name="${prefix}/Middle_Frame_link">
+            <inertial>
+                <origin xyz="9.08995101411847E-16 1.51413668426939 -0.0496002859153981" rpy="0 0 0" />
+                <mass value="187.652860491938" />
+                <inertia ixx="124.710971250874" ixy="-9.0043082329147E-15" ixz="-4.94674329449803E-15" iyy="6.57400576075792" iyz="6.23896118422505" izz="128.295139431441" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Middle_Frame_prismatic_link" type="prismatic">
+            <origin xyz="0.05244 0 0.165" rpy="0 0 0" />
+            <parent link="${prefix}/Outer_Frame_link" />
+            <child link="${prefix}/Middle_Frame_link" />
+            <axis xyz="0 1 0" />
+            <limit lower="-0.03" upper="1.6" effort="0" velocity="0" />
+        </joint>
+        <link name="${prefix}/Inner_Frame_link">
+            <inertial>
+            <origin xyz="-6.93889390390723E-18 0.385093307966024 -0.0417071285856281" rpy="0 0 0" />
+            <mass value="311.400243767325" />
+            <inertia ixx="32.7449017361089" ixy="-7.05330564585945E-16" ixz="3.37316269337447E-16" iyy="19.0275539826823" iyz="-0.539328331811258" izz="49.8984080595458" />
+            </inertial>
+            <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://Fork_Lift_Assembly_small/meshes/Inner_Frame_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+            </material>
+            </visual>
+            <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://Fork_Lift_Assembly_small/meshes/Inner_Frame_Link.STL" />
+            </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Inner_Frame_prismatic_joint" type="prismatic">
+            <origin xyz="0 0 0.1875" rpy="0 0 0" />
+            <parent link="${prefix}/Middle_Frame_link" />
+            <child link="${prefix}/Inner_Frame_link" />
+            <axis xyz="0 1 0" />
+            <limit lower="-0.03" upper="1.5" effort="0" velocity="0" />
+        </joint>
+
+        <link name="${prefix}/Left_Fork_link">
+            <inertial>
+                <origin xyz="0.0625000000000001 -0.195224751831347 0.176019639963103" rpy="0 0 0" />
+                <mass value="87.9037461571573" />
+                <inertia ixx="16.8153071981266" ixy="7.49662621370763E-16" ixz="1.59539901245326E-16" iyy="6.88808812200543" iyz="4.61791733618072" izz="10.1561350817387" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Left_Fork_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Left_Fork_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Left_Fork_prismatic_joint" type="prismatic">
+            <origin xyz="0.205 0.2935 0.057183" rpy="0 0 0" />
+            <parent link="${prefix}/Inner_Frame_link" />
+            <child link="${prefix}/Left_Fork_link" />
+            <axis xyz="1 0 0" />
+            <limit lower="-0.53" upper="0.07" effort="0" velocity="0" />
+        </joint>
+
+        <link name="${prefix}/Right_Fork_link">
+            <inertial>
+                <origin xyz="-0.0625 -0.195224751831346 0.176019639963103" rpy="0 0 0" />
+                <mass value="87.9037461571575" />
+                <inertia ixx="16.8153071981266" ixy="1.67255917319117E-15" ixz="-1.60865253126928E-15" iyy="6.88808812200547" iyz="4.61791733618072" izz="10.1561350817388" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Right_Fork_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Right_Fork_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Right_Fork_prismatic_joint" type="prismatic">
+            <origin xyz="-0.235 0.2935 0.057183" rpy="0 0 0" />
+            <parent link="${prefix}/Inner_Frame_link" />
+            <child link="${prefix}/Right_Fork_link" />
+            <axis xyz="1 0 0" />
+            <limit lower="-0.56" upper="0.04" effort="0" velocity="0" />
+        </joint>
+
+        <link name="${prefix}/cylinder/MFL_Hydraulic_Cylinder_link">
+            <inertial>
+                <origin xyz="7.7715611723761E-16 -1.66533453693773E-16 0.931622701751322" rpy="0 0 0" />
+                <mass value="12.7754485776949" />
+                <inertia ixx="4.00511504645076" ixy="8.27541059902991E-20" ixz="-3.21856256924047E-15" iyy="4.00519095754069" iyz="5.67603159842312E-16" izz="0.0183132138171257" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Left_Hydraulic_Cylinder_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="1 1 0 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Left_Hydraulic_Cylinder_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Middle_Frame_Left_Hydraulic_Cylinder_revolute_joint" type="fixed">
+            <origin xyz="-0.1006 -0.862785 -0.574554" rpy="0 0 -1.5708" />
+            <parent link="${prefix}/Outer_Frame_link" />
+            <child link="${prefix}/cylinder/MFL_Hydraulic_Cylinder_link" />
+            <!-- <axis xyz="0 1 0" />
+            <limit lower="0" upper="0" effort="0" velocity="0" /> -->
+        </joint>
+        <link name="${prefix}/piston/MFL_Hydraulic_Piston_link">
+            <inertial>
+            <origin xyz="1.11022302462516E-16 -1.0325074129014E-14 1.03242018387385" rpy="0 0 0" />
+            <mass value="2.68249147947458" />
+            <inertia ixx="1.02032811097029" ixy="3.81519253389676E-19" ixz="-8.99740452578115E-17" iyy="1.02032474349043" iyz="1.02887736850264E-14" izz="0.000534058622362435" />
+            </inertial>
+            <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Left_Hydraulic_Piston_Link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+            </material>
+            </visual>
+            <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Left_Hydraulic_Piston_Link.STL" />
+            </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Middle_Frame_Left_Hydraulic_Piston_prismatic_joint" type="fixed">
+            <origin xyz="0 0 0.03" rpy="0 0 1.5708" />
+            <parent link="${prefix}/cylinder/MFL_Hydraulic_Cylinder_link" />
+            <child link="${prefix}/piston/MFL_Hydraulic_Piston_link" />
+            <!-- <axis xyz="0 0 1" />
+            <limit lower="-0.03" upper="1.6" effort="0" velocity="0" /> -->
+        </joint>
+        
+        <link name="${prefix}/cylinder/MFR_Hydraulic_Cylinder_link">
+            <inertial>
+                <origin xyz="-2.22044604925031E-16 1.11022302462516E-16 0.931622701751322" rpy="0 0 0" />
+                <mass value="12.7754485776949" />
+                <inertia ixx="4.00511504645075" ixy="-1.23323952019644E-19" ixz="8.79504802320241E-16" iyy="4.00519095754069" iyz="-5.55193130474173E-16" izz="0.0183132138171256" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Right_Hydraulic_Cylinder_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="1 1 0 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Right_Hydraulic_Cylinder_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Middle_Frame_Right_Hydraulic_Cylinder_revolute_joint" type="fixed">
+            <origin xyz="0.20494 -0.862785 -0.574554" rpy="0 0 -1.5708" />
+            <parent link="${prefix}/Outer_Frame_link" />
+            <child link="${prefix}/cylinder/MFR_Hydraulic_Cylinder_link" />
+            <!-- <axis xyz="0 1 0" />
+            <limit lower="0" upper="0" effort="0" velocity="0" /> -->
+        </joint>
+        <link name="${prefix}/piston/MFR_Hydraulic_Piston_link">
+            <inertial>
+                <origin xyz="-2.91433543964104E-16 1.11022302462516E-14 1.03242018387385" rpy="0 0 0" />
+                <mass value="2.68249147947458" />
+                <inertia ixx="1.02032811097029" ixy="1.2021923224076E-19" ixz="2.80889009222956E-16" iyy="1.02032474349043" iyz="-1.08614967063783E-14" izz="0.000534058622362438" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Right_Hydraulic_Piston_Link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://Fork_Lift_Assembly_small/meshes/Middle_Frame_Right_Hydraulic_Piston_Link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}/Middle_Frame_Right_Hydraulic_Piston_prismatic_joint" type="fixed">
+            <origin xyz="0 0 0.03" rpy="0 0 -1.5708" />
+            <parent link="${prefix}/cylinder/MFR_Hydraulic_Cylinder_link" />
+            <child link="${prefix}/piston/MFR_Hydraulic_Piston_link" />
+            <!-- <axis xyz="0 0 1" />
+            <limit lower="-0.03" upper="1.6" effort="0" velocity="0" /> -->
+        </joint>
+    </xacro:macro>
+</robot>
