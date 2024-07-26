@@ -42,7 +42,6 @@
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_arm/shoulder_pan_joint_motor">
-                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -85,7 +84,6 @@
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_arm/shoulder_lift_joint_motor">
-                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -128,7 +126,6 @@
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_arm/upper_arm_roll_joint_motor">
-                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -171,7 +168,6 @@
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_arm/elbow_flex_joint_motor">
-                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -215,7 +211,6 @@
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_arm/fore_arm_roll_joint_motor">
-                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -259,7 +254,6 @@
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_arm/wrist_flex_joint_motor">
-                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -302,7 +296,6 @@
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_arm/wrist_roll_joint_motor">
-                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
