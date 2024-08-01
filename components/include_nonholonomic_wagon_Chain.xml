@@ -126,7 +126,7 @@
             <joint name="wagon/handle"                   class="wagon/hinge"    range="0 0.02"/>
         </body> -->
 
-        <body name="wagon/handle" pos="-0.015 -0.398275 0.208685">
+        <body name="wagon/handle" pos="-0.015 -0.398275 0.218685">
             <inertial pos="0 0 0" mass="0.4" diaginertia="0.1 0.1 0.001"/>
             <geom name="wagon/viz/handle_1"                class="wagon/viz"      mesh="wagon_handle_base_hinge"/>
 
