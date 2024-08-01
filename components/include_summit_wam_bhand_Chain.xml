@@ -34,13 +34,15 @@
         </body>
 
         <!-- Add a tall pole with a camera mounted on-top and facing the rear -->
-        <body name="smt/pole_link" pos="0 0.32 1"> <!-- 0.58 is the height of the top surface of the summit from the floor -->
+        <!-- 0.42 is the half-length of the pole -->
+        <!-- 0.58 is the height of the top surface of the summit from the floor -->
+        <!-- <body name="smt/pole_link" pos="0 0.32 1"> 
             <geom name="smt/viz/pole_link"                 class="summit/wheel/viz" size="0.005 0.42" type="cylinder"/>
-            <body name="smt/pole_link/camera" pos="0 0 0.44" quat="0.707107 0.707107 0 0"> <!-- 0.42 is the half-length of the pole -->
+            <body name="smt/pole_link/camera" pos="0 0 0.44" quat="0.707107 0.707107 0 0"> 
                 <geom name="smt/viz/pole_link/camera"      class="summit/wheel/viz" mesh="intel_realsense_l515"/>
                 <camera name="smt/pole_link/camera/intel/rgb" pos="0 0 0" quat="0 0 1 0" fovy="90"/>
             </body>
-        </body>
+        </body> -->
         <!-- <geom name="smt/col/base_link"                      class="summit/col" mesh="base_link_summit"/> -->
         <!-- Simplified the collision into boxes + arm rest -->
         <geom name="smt/col/base_link/box_body"             class="summit/col" pos="0 0 0.42" size="0.24 0.32 0.16" type="box"/>
