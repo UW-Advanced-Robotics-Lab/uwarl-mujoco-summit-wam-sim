@@ -66,7 +66,7 @@
         </body>
         
         <!-- Wagon -->
-        <!-- -1.4 0.02 0 | 0 0 1.57079632679 -->
+        <!-- -1.36 0.02 0 | 0 0 1.57079632679 -->
         <body name="wagon" pos="1.62 0.52 0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
