@@ -131,14 +131,14 @@
         <exclude body1="wagon/wire_frame" body2="long_corridor_body"/> -->
 
         <!-- Exclude contact between wheels and wheel mounts -->
-        <exclude body1="fork_lift/rim/LF_link" body2="fork_lift/whl/LF_link"/>
+        <!-- <exclude body1="fork_lift/rim/LF_link" body2="fork_lift/whl/LF_link"/>
         <exclude body1="fork_lift/rim/RF_link" body2="fork_lift/whl/RF_link"/>
         <exclude body1="fork_lift/rim/LR_link" body2="fork_lift/whl/LR_link"/>
         <exclude body1="fork_lift/rim/RR_link" body2="fork_lift/whl/RR_link"/>
         <exclude body1="fork_lift/rim/LF_link" body2="fork_lift/base_link"/>
         <exclude body1="fork_lift/rim/RF_link" body2="fork_lift/base_link"/>
         <exclude body1="fork_lift/rim/LR_link" body2="fork_lift/base_link"/>
-        <exclude body1="fork_lift/rim/RR_link" body2="fork_lift/base_link"/>
+        <exclude body1="fork_lift/rim/RR_link" body2="fork_lift/base_link"/> -->
     
     </contact>
     

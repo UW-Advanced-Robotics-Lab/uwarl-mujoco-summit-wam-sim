@@ -20,9 +20,9 @@
     -->
     <actuator>
         <!-- [Fork-lift] control fetch base in an effort fashion (Arnab Joardar) -->
-        <motor name="fork_lift/pose/x"  joint="fork_lift/pose/x" ctrllimited="true" ctrlrange="-100.0 100.0" gear="100.0"/>
-        <motor name="fork_lift/pose/y"  joint="fork_lift/pose/y" ctrllimited="true" ctrlrange="-100.0 100.0" gear="100.0"/>
-        <motor name="fork_lift/orie/z"  joint="fork_lift/orie/z" ctrllimited="true" ctrlrange="-100.0 100.0" gear="50.0"/>
+        <motor name="fork_lift/pose/x"  joint="fork_lift/pose/x" ctrllimited="true" ctrlrange="-1000.0 1000.0" gear="1.0"/>
+        <motor name="fork_lift/pose/y"  joint="fork_lift/pose/y" ctrllimited="true" ctrlrange="-1000.0 1000.0" gear="1.0"/>
+        <motor name="fork_lift/orie/z"  joint="fork_lift/orie/z" ctrllimited="true" ctrlrange="-1000.0 1000.0" gear="1.0"/>
     </actuator>
 
     <!-- If one wants to control the frame of the fork-lift, first, constrain the hydraulic pistons to the appropriate links and location. Otherwise, it will be very odd to see the hydrualic-piston not being actuated while the frame moves on its own.  -->
