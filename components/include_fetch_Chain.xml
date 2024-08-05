@@ -24,13 +24,13 @@
         <geom name="fetch/col/base_link/box_body"       class="fetch/col" mesh="fetch_base_link_collision"/>
 
         <!-- world placement -->
-        <joint name="fetch/world_x" armature="0.0001" axis="0 1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
-        <joint name="fetch/world_y" armature="0.0001" axis="-1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="fetch/world_x" armature="0.0001" axis="1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="fetch/world_y" armature="0.0001" axis="0 1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
         <joint name="fetch/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
 
         <!-- control summit base -->
-        <joint name="fetch/pose/x"                      type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15"/>
-        <joint name="fetch/pose/y"                      type="slide" pos="0 0 0.4" axis="-1 0 0"  damping="15"/>
+        <joint name="fetch/pose/x"                      type="slide" pos="0 0 0.4" axis="1 0 0"  damping="15"/>
+        <joint name="fetch/pose/y"                      type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15"/>
         <joint name="fetch/orie/z"                      type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
 
         <!-- === whl LINK === === === === -->
