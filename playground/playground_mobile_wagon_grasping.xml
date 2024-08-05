@@ -31,7 +31,8 @@
     <include file="../components/include_shelves_Dependencies.xml"/>
     <include file="../components/include_walls_Dependencies.xml"/>
     <include file="../components/include_fork_lift_Dependencies.xml"/>
-    <include file="../components/include_fork_lift_actuators.xml"/>
+    <include file="../components/include_fork_lift_actuators_reduced_mass.xml"/>
+    <!-- <include file="../components/include_fork_lift_actuators.xml"/> -->
     <include file="../components/include_fetch_Dependencies.xml"/>
     <include file="../components/include_fetch_actuators.xml"/>
 
@@ -96,8 +97,11 @@
         </body>
 
         <!-- Placing Fork lift 1 behind the Cart-MM -->
+        <!-- Depending upon how you visually orient the robot, your base joint-axis will point in a direction different from what your trajectory has been generated in. -->
+        <!-- In this case, re-orient the base joint-axis such that they match the intended direction of motion w.r.t the visual orientation of the robot. Otherwise, the closed-loop traj-follower will give random results. -->
         <body name="fork_lift_1" pos="-8.5 -0.5 1" euler="0 0 1.57079632679">
-            <include file="../components/include_fork_lift_constrained.xml"/>
+            <!-- <include file="../components/include_fork_lift_constrained.xml"/> -->
+            <include file="../components/include_fork_lift_constrained_reduced_mass.xml"/>
         </body>
 
         <!-- Placing fetch behind the Cart-MM -->
