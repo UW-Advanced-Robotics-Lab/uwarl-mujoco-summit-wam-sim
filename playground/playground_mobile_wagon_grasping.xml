@@ -24,7 +24,8 @@
     <include file="../components/include_common.xml"/>
     <include file="../components/include_summit_wam_bhand_Dependencies.xml"/> 
     <include file="../components/include_summit_wam_bhand_actuators.xml"/>
-    <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/>  
+    <!-- <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/> -->
+    <include file="../components/include_nonholonomic_wagon_expanded_Dependencies.xml"/>  
     <!-- <include file="../components/include_e7_3rd_floor_Dependencies.xml"/>  -->
     <!-- <include file="../components/include_long_corridor_Dependencies.xml"/> -->
     <!-- <include file="../components/include_shelves_Dependencies.xml"/> -->
@@ -70,7 +71,8 @@
         <!-- Wagon -->
         <!-- -1.36 0.02 0 | 0 0 1.57079632679 -->
         <body name="wagon" pos="1.96 0.48 0" euler="0 0 1.57079632679" >
-            <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
+            <!-- <include file="../components/include_nonholonomic_wagon_Chain.xml"/> -->
+            <include file="../components/include_nonholonomic_wagon_expanded_Chain.xml"/>
         </body>
 
         <!-- Environment -->
