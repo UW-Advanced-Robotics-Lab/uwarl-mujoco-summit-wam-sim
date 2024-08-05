@@ -1,0 +1,197 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+        
+    TODO:
+    - [ ] mass and inertial parameters check and configure
+====================================================== -->
+
+<mujocoinclude> 
+
+    <!-- SUMMIT -->
+    <body name="utility/wagon" childclass="wagon">
+        <!-- === BASE LINK === === === === -->
+        <body name="wagon/wire_frame" pos="-0.013891 0.009207 0.22892">
+            <inertial pos="-0.013891 0.009207 0.22892" mass="3"/>
+            <!-- <geom name="wagon/viz/base_link"                      class="wagon/viz/wire_frame" mesh="wagon_base_link"/> -->
+            <geom name="wagon/viz/base_link"                      class="wagon/viz/wire_frame" mesh="Cart_outer_skeleton"/>
+            <!-- <geom name="wagon/col/base_link"                      class="wagon/col" mesh="wagon_base_link"/> -->
+            <geom name="wagon/col/base_link_0"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_0"/>
+            <geom name="wagon/col/base_link_1"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_1"/>
+            <geom name="wagon/col/base_link_2"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_2"/>
+            <geom name="wagon/col/base_link_3"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_3"/>
+            <geom name="wagon/col/base_link_4"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_4"/>
+            <geom name="wagon/col/base_link_5"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_5"/>
+            <geom name="wagon/col/base_link_6"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_6"/>
+            <geom name="wagon/col/base_link_7"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_7"/>
+            <geom name="wagon/col/base_link_8"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_8"/>
+            <geom name="wagon/col/base_link_9"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_9"/>
+            <geom name="wagon/col/base_link_10"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_10"/>
+            <geom name="wagon/col/base_link_11"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_11"/>
+            <geom name="wagon/col/base_link_12"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_12"/>
+            <geom name="wagon/col/base_link_13"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_13"/>
+            <geom name="wagon/col/base_link_14"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_14"/>
+            <geom name="wagon/col/base_link_15"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_15"/>
+            <geom name="wagon/col/base_link_16"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_16"/>
+            <geom name="wagon/col/base_link_17"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_17"/>
+            <geom name="wagon/col/base_link_18"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_18"/>
+            <geom name="wagon/col/base_link_19"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_19"/>
+            <geom name="wagon/col/base_link_20"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_20"/>
+            <geom name="wagon/col/base_link_21"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_21"/>
+            <geom name="wagon/col/base_link_22"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_22"/>
+        </body>
+        <!-- mobile body -->
+        <!-- <inertial                                                               pos="0 0 0.37" mass="100" diaginertia="0.1 0.1 0.1" /> -->
+        <!-- <geom name="wagon/col/base_link"                      class="wagon/col" mesh="base_link_summit"/> -->
+        <!-- Simplified the collision into boxes + arm rest -->
+        <!-- <geom name="wagon/col/base_link/box_body"             class="wagon/col" pos="0 0 0.42" size="0.24 0.32 0.16" type="box"/> -->
+        <!-- <geom name="wagon/col/base_link/arm_rest"             class="wagon/col" pos="0 0.098 0.55" quat="0.5 0.5 -0.5 -0.5" mesh="arm_rest"/> -->
+        <!-- <geom name="wagon/col/base_link/cylinder_lidar"       class="wagon/col" pos="0.246 0.362 0.313" size="0.06 0.044" type="cylinder"/> -->
+
+        <!-- world placement: This is for the cart to be able to move freely in the world. Serves no other purpose than to be able to locate the COM of the cart w.r.t the world-frame -->
+        <!-- <joint name="wagon/world_x" armature="0.0001" axis="0 -1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="wagon/world_y" armature="0.0001" axis="1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="wagon/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint> -->
+        <joint name="wagon/slide/world_x" armature="0.0001" axis="0 -1 0" damping="0.01" pos="0 0 0" type="slide"/>
+        <joint name="wagon/slide/world_y" armature="0.0001" axis="1 0 0" damping="0.01" pos="0 0 0" type="slide"/>
+        <joint name="wagon/slide/world_z" armature="0.0001" axis="0 0 1" damping="0.01" pos="0 0 0" type="slide"/>
+        <joint name="wagon/hinge/world_y" armature="0.0001" axis="1 0 0" damping="0.01" pos="0 0 0" type="hinge"/>
+        <joint name="wagon/hinge/world_z" armature="0.0001" axis="0 0 1" damping="0.01" pos="0 0 0" type="hinge"/>
+        
+        <!-- === whl LINK === === === === -->
+        <!-- Mobile whls Right Front (Swivel) -->
+        <body name="wagon/RF" pos="-0.304057 -0.357375 0.08715">
+            <inertial pos="0.0 0.0 0.0" mass="0.3" diaginertia="0.001 0.0001 0.001"/>
+            <geom name="wagon/viz/RF"                    class="wagon/viz"      mesh="wagon_swivel_mount"/>
+            <joint name="wagon/RF"                       class="wagon/swivel"   />
+            
+            <body name="wagon/RF/whl" pos="0 0 0">
+                <inertial pos="0.0 0.0 0.0" mass="0.4" diaginertia="0.001 0.0001 0.001"/>
+                <geom name="wagon/viz/RF/whl"            class="wagon/viz"      mesh="wagon_wheel"/>
+                <geom name="wagon/col/RF/whl"            class="wagon/col/whl"  />
+                <joint name="wagon/RF/whl"               class="wagon/whl"      />
+            </body>
+        </body>
+        <!-- Mobile whls Right Rear (Fixed) -->
+        <body name="wagon/RR" pos="-0.211555 0.405425 0.08715">
+            <geom name="wagon/viz/RR"                    class="wagon/viz"      mesh="wagon_fixed_mount"/>
+            <body name="wagon/RR/whl" pos="0 0 0">
+                <inertial pos="0.0 0.0 0.0" mass="0.4" diaginertia="0.001 0.0001 0.001"/>
+                <geom name="wagon/viz/RR/whl"            class="wagon/viz"      mesh="wagon_wheel"/>
+                <geom name="wagon/col/RR/whl"            class="wagon/col/whl"  />
+                <joint name="wagon/RR/whl"               class="wagon/whl"      />
+            </body>
+        </body>
+        <!-- Mobile whls Left Front (Swivel) -->
+        <body name="wagon/LF" pos="0.36079 -0.357375 0.08715">
+            <inertial pos="0.0 0.0 0.0" mass="0.3" diaginertia="0.001 0.0001 0.001"/>
+            <geom name="wagon/viz/LF"                    class="wagon/viz"      mesh="wagon_swivel_mount"/>
+            <joint name="wagon/LF"                       class="wagon/swivel"   />
+            
+            <body name="wagon/LF/whl" pos="0 0 0">
+                <inertial pos="0.0 0.0 0.0" mass="0.4" diaginertia="0.001 0.0001 0.001"/>
+                <geom name="wagon/viz/LF/whl"            class="wagon/viz"      mesh="wagon_wheel"/>
+                <geom name="wagon/col/LF/whl"            class="wagon/col/whl"  />
+                <joint name="wagon/LF/whl"               class="wagon/whl"      />
+            </body>
+        </body>
+        <!-- Mobile whls Left Rear (Fixed) -->
+        <body name="wagon/LR" pos="0.269875 0.405425 0.08715">
+            <geom name="wagon/viz/LR"                    class="wagon/viz"      mesh="wagon_fixed_mount"/>
+            
+            <body name="wagon/LR/whl" pos="0 0 0">
+                <inertial pos="0.0 0.0 0.0" mass="0.4" diaginertia="0.001 0.0001 0.001"/>
+                <geom name="wagon/viz/LR/whl"            class="wagon/viz"      mesh="wagon_wheel"/>
+                <geom name="wagon/col/LR/whl"            class="wagon/col/whl"  />
+                <joint name="wagon/LR/whl"               class="wagon/whl"      />
+            </body>
+        </body>
+        
+                
+        <!-- === handle LINK === === === === -->
+        <!-- Pull/Push Handle With Passive Hinge Joint -->
+        <!-- <body name="wagon/handle" pos="-0.015 -0.398275 0.208685">
+            <geom name="wagon/viz/handle"                class="wagon/viz"      mesh="wagon_handle"/>
+            Collision Segments
+            <geom name="wagon/col/handle_1"              class="wagon/col"      mesh="wagon_handle_1"/>
+            <geom name="wagon/col/handle_2"              class="wagon/col"      mesh="wagon_handle_2"/>
+            <geom name="wagon/col/handle_3"              class="wagon/col"      mesh="wagon_handle_3"/>
+            <geom name="wagon/col/handle_bar"            class="wagon/col"      mesh="wagon_handle_col_bar"/>
+            <geom name="wagon/col/handle"                class="wagon/col"      mesh="wagon_handle_col"/>
+            Handle Hinge Joint
+            Changed range for hinge joint from 0 0.785398 to 0 0.02 to have a bit of play
+            <joint name="wagon/handle"                   class="wagon/hinge"    range="0 0.02"/>
+        </body> -->
+
+        <body name="wagon/handle" pos="-0.02187 -0.398275 0.198685">
+            <inertial pos="0 0 0" mass="0.4" diaginertia="0.1 0.1 0.001"/>
+            <geom name="wagon/viz/handle_1"                class="wagon/viz"      mesh="wagon_handle_base_hinge"/>
+
+            <!-- Collision Segments -->
+            <geom name="wagon/col/handle_1"              class="wagon/col"      mesh="wagon_handle_base_hinge"/>
+
+            <!-- Handle Hinge Joint -->
+            <!-- Changed range for hinge joint from 0 0.785398 to 0 0.1 to have a bit of play -->
+            <joint name="wagon/handle"                   class="wagon/hinge"     range="0 0.1"/>
+
+
+
+            <body name="wagon/handle2" pos="0.0 0.0 0.0" >
+                <inertial pos="0.1 0.1 0.2" mass="0.2" diaginertia="0.1 0.1 0.001"/>
+                <!-- <geom name="wagon/viz/handle_2"              class="wagon/viz"      mesh="wagon_top_handle" friction="0.001 0.001 0.001"/> -->
+                <geom name="wagon/viz/handle_2"              class="wagon/viz"      mesh="wagon_V2_top-handle-original v1" friction="0.001 0.001 0.001"/>
+
+                <!-- Collision Segments -->
+                <!-- <geom name="wagon/col/handle_2_1"              class="wagon/col"      mesh="wagon_handle_1"/> -->
+                <!-- <geom name="wagon/col/handle_2_2"              class="wagon/col"      mesh="wagon_handle_2"/> -->
+                <!-- <geom name="wagon/col/handle_2_3"              class="wagon/col"      mesh="wagon_handle_3"/> -->
+                <!-- <geom name="wagon/col/handle_2_1"              class="wagon/col"      mesh="wagon_handle_0"/> -->
+                <!-- <geom name="wagon/col/handle_2_2"              class="wagon/col"      mesh="wagon_handle_part2"/> -->
+                <!-- <geom name="wagon/col/handle_2_3"              class="wagon/col"      mesh="wagon_handle_part1"/> -->
+                <!-- <geom name="wagon/col/handle_2_4"              class="wagon/col"      mesh="handle_extension"/> -->
+                <geom name="wagon/col/handle_2_1"              class="wagon/col"      mesh="wagon_V2_top-handle-original v1_collision_0" rgba="0.10730139558611118 0.5058976318406685 0.963099501217149 1"/>
+                <geom name="wagon/col/handle_2_2"              class="wagon/col"      mesh="wagon_V2_top-handle-original v1_collision_1"/>
+                <geom name="wagon/col/handle_2_3"              class="wagon/col"      mesh="wagon_V2_top-handle-original v1_collision_2"/>
+                <geom name="wagon/col/handle_2_4"              class="wagon/col"      mesh="wagon_V2_top-handle-original v1_collision_3"/>
+                <geom name="wagon/col/handle_2_5"              class="wagon/col"      mesh="wagon_V2_top-handle-original v1_collision_4"/>
+                <geom name="wagon/col/handle_2_6"              class="wagon/col"      mesh="wagon_V2_top-handle-original v1_collision_5"/>
+                <geom name="wagon/col/handle_2_7"              class="wagon/col"      mesh="wagon_V2_top-handle-original v1_collision_6"/>
+                <!-- <geom name="wagon/col/handle_2"              class="wagon/col"      mesh="wagon_top_handle" friction="0.001 0.001 0.001"/> -->
+
+                <!-- Prismatic joint -->
+                <!-- <joint name="wagon/handle2"                  class="wagon/prismatic" range="-0.28 0.0"/>  -->
+                <joint name="wagon/handle2"                  class="wagon/prismatic" range="-0.25 0.0"/> 
+            </body>
+        </body>
+        
+
+
+        <!-- === Container === === === === -->
+        <body name="wagon/pocket" pos="0 0.018 0.217">
+            <inertial pos="0 0 0" mass="0.9" diaginertia="0.05 0.06 0.02"/>
+            <!-- <geom name="wagon/viz/pocket"                class="wagon/viz/pocket"      mesh="wagon_pocket"/> -->
+            <geom name="wagon/viz/pocket"                class="wagon/viz/pocket"      mesh="Cart_pocket"/>
+            <!-- <geom name="wagon/col/pocket"                class="wagon/col"      mesh="wagon_pocket"/> -->
+            <geom name="wagon/col/pocket_0"                class="wagon/col"      mesh="Cart_pocket_collision_0"/>
+            <geom name="wagon/col/pocket_1"                class="wagon/col"      mesh="Cart_pocket_collision_1"/>
+            <geom name="wagon/col/pocket_2"                class="wagon/col"      mesh="Cart_pocket_collision_2"/>
+            <geom name="wagon/col/pocket_3"                class="wagon/col"      mesh="Cart_pocket_collision_3"/>
+            <geom name="wagon/col/pocket_4"                class="wagon/col"      mesh="Cart_pocket_collision_4"/>
+            <geom name="wagon/col/pocket_5"                class="wagon/col"      mesh="Cart_pocket_collision_5"/>
+            <geom name="wagon/col/pocket_6"                class="wagon/col"      mesh="Cart_pocket_collision_6"/>
+            <geom name="wagon/col/pocket_7"                class="wagon/col"      mesh="Cart_pocket_collision_7"/>
+            <geom name="wagon/col/pocket_8"                class="wagon/col"      mesh="Cart_pocket_collision_8"/>
+            <geom name="wagon/col/pocket_9"                class="wagon/col"      mesh="Cart_pocket_collision_9"/>
+            <geom name="wagon/col/pocket_10"                class="wagon/col"      mesh="Cart_pocket_collision_10"/>
+            <geom name="wagon/col/pocket_11"                class="wagon/col"      mesh="Cart_pocket_collision_11"/>
+            <geom name="wagon/col/pocket_12"                class="wagon/col"      mesh="Cart_pocket_collision_12"/>
+            <geom name="wagon/col/pocket_13"                class="wagon/col"      mesh="Cart_pocket_collision_13"/>
+            <geom name="wagon/col/pocket_14"                class="wagon/col"      mesh="Cart_pocket_collision_14"/>
+        </body>
+    </body>
+
+</mujocoinclude>
+

@@ -1,0 +1,130 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+        
+    TODO:
+    - [ ] mass and inertial parameters check and configure
+====================================================== -->
+
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- WAM BHAND -->
+    <asset>
+        <mesh file="meshes_wagon/wagon_wheel.stl"/>
+        <mesh file="meshes_wagon/wagon_handle.stl"/>
+        <!-- <mesh file="meshes_wagon/wagon_handle_col.stl"/> -->
+        <mesh file="meshes_wagon/wagon_handle_col_bar.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_1.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_2.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_3.stl"/>
+        <!-- <mesh file="meshes_wagon/wagon_base_link.stl"/> -->
+        <mesh file="meshes_wagon/Cart_outer_skeleton.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_0.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_1.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_2.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_3.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_4.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_5.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_6.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_7.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_8.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_9.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_10.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_11.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_12.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_13.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_14.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_15.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_16.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_17.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_18.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_19.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_20.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_21.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_22.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/wagon_fixed_mount.stl"/>
+        <mesh file="meshes_wagon/wagon_swivel_mount.stl"/>
+        <!-- <mesh file="meshes_wagon/wagon_pocket.stl"/> -->
+        <mesh file="meshes_wagon/Cart_pocket.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_0.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_1.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_2.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_3.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_4.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_5.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_6.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_7.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_8.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_9.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_10.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_11.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_12.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_13.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_14.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/wagon_handle_base_hinge.stl"/>
+        <!-- <mesh file="meshes_wagon/wagon_top_handle.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_0.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_part1.stl"/>
+        <mesh file="meshes_wagon/wagon_handle_part2.stl"/> -->
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_1.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_2.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_3.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_4.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_5.obj" scale="0.01 0.01 0.01"/>
+        <mesh file="meshes_wagon/wagon_V2_top-handle-original v1_collision_6.obj" scale="0.01 0.01 0.01"/>
+        <!-- <mesh file="meshes_wagon/handle_extension.stl"/> -->
+    </asset>
+
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT --> 
+    <default>
+        <default class="wagon">
+        </default>
+        <default class="wagon/hinge">
+            <joint type="hinge" limited="true" axis="1 0 0"  frictionloss=".001"/>
+        </default>
+        <!-- Prismatic joint of the handle -->
+        <default class="wagon/prismatic">
+            <joint type="slide" limited="true" axis="0 0 1"/>
+        </default>
+        <default class="wagon/swivel">
+            <!-- Note: position relative to the origin of swivel linkage from CAD -->
+            <joint axis="0 0 1" damping="0.05" pos="-0.017456 -0.04 0.10985"/>
+        </default>
+        <default class="wagon/whl">
+            <joint axis="1 0 0" damping="0.05"/>
+        </default>
+        <default class="wagon/col">
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.7"/>          
+            <default class="wagon/col/whl">
+                <geom pos="-0.02 0 0" quat="0.707107 0 0.707106 0" size="0.087 0.02" type="cylinder"/>
+            </default>
+        </default>
+        <default class="wagon/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+            <default class="wagon/viz/pocket">
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.1 0.2 0.7 1"/>
+            </default>
+            <default class="wagon/viz/wire_frame">
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.1 0.1 0.1 1"/>
+            </default>
+        </default>
+        
+    </default>
+
+     <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+        <exclude body1="wagon/handle" body2="wagon/handle2"/>
+    </contact>
+
+</mujocoinclude>
+
