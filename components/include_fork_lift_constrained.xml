@@ -24,13 +24,13 @@
         <geom name="fork_lift/col/base_link/box_body"       class="fork_lift/col" pos="0 0 0.8" size="0.4 0.4 0.75" type="box"/>
 
         <!-- world placement -->
-        <joint name="fork_lift/world_x" armature="0.0001" axis="0 1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
-        <joint name="fork_lift/world_y" armature="0.0001" axis="-1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="fork_lift/world_x" armature="0.0001" axis="0 -1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="fork_lift/world_y" armature="0.0001" axis="1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
         <joint name="fork_lift/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
 
-        <!-- control summit base -->
-        <joint name="fork_lift/pose/x"                      type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15"/>
-        <joint name="fork_lift/pose/y"                      type="slide" pos="0 0 0.4" axis="-1 0 0"  damping="15"/>
+        <!-- control Forklift base -->
+        <joint name="fork_lift/pose/x"                      type="slide" pos="0 0 0.4" axis="0 -1 0"  damping="15"/>
+        <joint name="fork_lift/pose/y"                      type="slide" pos="0 0 0.4" axis="1 0 0"  damping="15"/>
         <joint name="fork_lift/orie/z"                      type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
 
         <!-- === whl LINK === === === === -->
@@ -173,13 +173,13 @@
                     <body name="fork_lift/Left_Fork_link" pos="0.205 0.28073 0.10298" quat="1 0 0 0">
                         <geom name="fork_lift/viz/fork/L" class="fork_lift/fork/viz" mesh="forklift_Left_Fork_Link"/>
                         <inertial                         pos="0.0625 -0.19522 0.17602" mass="2.68249" fullinertia="16.81530 6.88808 10.15613 0 0 4.61791"/>
-                        <joint name="fork_lift/fork/L"    class="fork_lift/fork/left" pos="0 0 0"/>
+                        <!-- <joint name="fork_lift/fork/L"    class="fork_lift/fork/left" pos="0 0 0"/> -->
                     </body>
                     <!-- Right Fork -->
                     <body name="fork_lift/Right_Fork_link" pos="-0.235 0.28073 0.10298" quat="1 0 0 0">
                         <geom name="fork_lift/viz/fork/R"  class="fork_lift/fork/viz" mesh="forklift_Right_Fork_Link"/>
                         <inertial                          pos="0.0625 -0.19522 0.17602" mass="2.68249" fullinertia="16.81530 6.88808 10.15613 0 0 4.61791"/>
-                        <joint name="fork_lift/fork/R"     class="fork_lift/fork/right" pos="0 0 0"/>
+                        <!-- <joint name="fork_lift/fork/R"     class="fork_lift/fork/right" pos="0 0 0"/> -->
                     </body>
                 </body>
             </body>
