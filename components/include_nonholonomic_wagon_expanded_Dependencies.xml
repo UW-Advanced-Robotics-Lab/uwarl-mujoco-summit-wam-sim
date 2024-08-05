@@ -23,49 +23,49 @@
         <mesh file="meshes_wagon/wagon_handle_2.stl"/>
         <mesh file="meshes_wagon/wagon_handle_3.stl"/>
         <!-- <mesh file="meshes_wagon/wagon_base_link.stl"/> -->
-        <mesh file="meshes_wagon/Cart_outer_skeleton.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_0.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_1.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_2.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_3.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_4.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_5.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_6.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_7.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_8.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_9.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_10.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_11.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_12.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_13.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_14.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_15.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_16.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_17.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_18.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_19.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_20.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_21.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_22.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_0.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_1.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_2.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_3.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_4.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_5.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_6.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_7.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_8.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_9.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_10.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_11.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_12.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_13.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_14.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_15.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_16.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_17.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_18.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_19.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_20.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_21.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_outer_skeleton_collision_22.obj" scale="1.5 1 1"/>
         <mesh file="meshes_wagon/wagon_fixed_mount.stl"/>
         <mesh file="meshes_wagon/wagon_swivel_mount.stl"/>
         <!-- <mesh file="meshes_wagon/wagon_pocket.stl"/> -->
-        <mesh file="meshes_wagon/Cart_pocket.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_0.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_1.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_2.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_3.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_4.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_5.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_6.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_7.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_8.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_9.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_10.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_11.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_12.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_13.obj" scale="1.458 1 1"/>
-        <mesh file="meshes_wagon/Cart_pocket_collision_14.obj" scale="1.458 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_0.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_1.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_2.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_3.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_4.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_5.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_6.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_7.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_8.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_9.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_10.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_11.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_12.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_13.obj" scale="1.5 1 1"/>
+        <mesh file="meshes_wagon/Cart_pocket_collision_14.obj" scale="1.5 1 1"/>
         <mesh file="meshes_wagon/wagon_handle_base_hinge.stl"/>
         <!-- <mesh file="meshes_wagon/wagon_top_handle.stl"/>
         <mesh file="meshes_wagon/wagon_handle_0.stl"/>
