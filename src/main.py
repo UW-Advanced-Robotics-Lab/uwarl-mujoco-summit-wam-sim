@@ -52,7 +52,19 @@ def main():
     home_path = os.environ["HOME"]
     # Get update frequency of engine from launch file "mujocolaunch.launch"
     freq_muj = rospy.get_param("sim_frequency_mujoco")
+    # Get playground information
     xml_path = rospy.get_param("robot_model_path")+".xml"
+    # Which robots are going to be loaded
+    # SUMMIT XL STEEL
+    robot_a = rospy.get_param("launch_robot_a")
+    # Fetch
+    robot_b = rospy.get_param("launch_robot_b")
+    # Fork Lift
+    robot_c = rospy.get_param("launch_robot_c")
+    # Wagon
+    wagon_a = rospy.get_param("launch_wagon_a")
+    # List of robots to be loaded
+    robot_list = [robot_a, wagon_a, robot_b, robot_c]
     update_rate = int(freq_muj)
     steptime = 1.0/float(update_rate)
     r = rospy.Rate(update_rate)
@@ -76,7 +88,8 @@ def main():
                         #    "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":3}
                            },
         CAMERA_V_FACTOR = 1,
-        write_to = write_to
+        write_to = write_to,
+        robot_list = robot_list
     )
 
     # Initialize variables
