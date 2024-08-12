@@ -63,7 +63,7 @@
         
         <!-- === whl LINK === === === === -->
         <!-- Mobile whls Right Front (Swivel) -->
-        <body name="wagon/RF" pos="-0.312816 -0.357375 0.08715">
+        <body name="wagon/RF" pos="-0.26068 -0.357375 0.08715">
             <inertial pos="0.0 0.0 0.0" mass="0.3" diaginertia="0.001 0.0001 0.001"/>
             <geom name="wagon/viz/RF"                    class="wagon/viz"      mesh="wagon_swivel_mount"/>
             <joint name="wagon/RF"                       class="wagon/swivel"   />
@@ -76,7 +76,7 @@
             </body>
         </body>
         <!-- Mobile whls Right Rear (Fixed) -->
-        <body name="wagon/RR" pos="-0.21765 0.405425 0.08715">
+        <body name="wagon/RR" pos="-0.181375 0.405425 0.08715">
             <geom name="wagon/viz/RR"                    class="wagon/viz"      mesh="wagon_fixed_mount"/>
             <body name="wagon/RR/whl" pos="0 0 0">
                 <inertial pos="0.0 0.0 0.0" mass="0.4" diaginertia="0.001 0.0001 0.001"/>
@@ -86,7 +86,7 @@
             </body>
         </body>
         <!-- Mobile whls Left Front (Swivel) -->
-        <body name="wagon/LF" pos="0.371184 -0.357375 0.08715">
+        <body name="wagon/LF" pos="0.30932 -0.357375 0.08715">
             <inertial pos="0.0 0.0 0.0" mass="0.3" diaginertia="0.001 0.0001 0.001"/>
             <geom name="wagon/viz/LF"                    class="wagon/viz"      mesh="wagon_swivel_mount"/>
             <joint name="wagon/LF"                       class="wagon/swivel"   />
@@ -99,7 +99,7 @@
             </body>
         </body>
         <!-- Mobile whls Left Rear (Fixed) -->
-        <body name="wagon/LR" pos="0.27765 0.405425 0.08715">
+        <body name="wagon/LR" pos="0.231375 0.405425 0.08715">
             <geom name="wagon/viz/LR"                    class="wagon/viz"      mesh="wagon_fixed_mount"/>
             
             <body name="wagon/LR/whl" pos="0 0 0">
@@ -126,7 +126,7 @@
             <joint name="wagon/handle"                   class="wagon/hinge"    range="0 0.02"/>
         </body> -->
 
-        <body name="wagon/handle" pos="-0.0225 -0.398275 0.193685">
+        <body name="wagon/handle" pos="-0.01875 -0.398275 0.198685">
             <inertial pos="0 0 0" mass="0.4" diaginertia="0.1 0.1 0.001"/>
             <geom name="wagon/viz/handle_1"                class="wagon/viz"      mesh="wagon_handle_base_hinge"/>
 
@@ -139,7 +139,7 @@
 
 
 
-            <body name="wagon/handle2" pos="0.0 0.0 0.0" >
+            <body name="wagon/handle2" pos="0.0 0.0 -0.26" >
                 <inertial pos="0.1 0.1 0.2" mass="0.2" diaginertia="0.1 0.1 0.001"/>
                 <!-- <geom name="wagon/viz/handle_2"              class="wagon/viz"      mesh="wagon_top_handle" friction="0.001 0.001 0.001"/> -->
                 <geom name="wagon/viz/handle_2"              class="wagon/viz"      mesh="wagon_V2_top-handle-original v1" friction="0.001 0.001 0.001"/>
@@ -163,7 +163,7 @@
 
                 <!-- Prismatic joint -->
                 <!-- <joint name="wagon/handle2"                  class="wagon/prismatic" range="-0.28 0.0"/>  -->
-                <joint name="wagon/handle2"                  class="wagon/prismatic" range="-0.25 0.0"/> 
+                <joint name="wagon/handle2"                  class="wagon/prismatic" range="0 0.25"/> 
             </body>
         </body>
         
