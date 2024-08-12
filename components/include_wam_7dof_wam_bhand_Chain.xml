@@ -180,7 +180,9 @@
                                     <body name="wam/torque_sensor_link" pos="0 0 0.060" quat="0.707107 0.707107 0 0">
                                         <inertial               pos="0 0.0085 0" mass="0.133278" fullinertia="0.00007551 0.0001462 0.00007508 -7.002e-8 -1.199e-7 -5.37e-8" />
                                         <geom                   class="wam/torque_sensor_link/viz" mesh="torque_sensor_plate"/>
-                                        
+                                        <!-- Insert Force-Torque Sensor -->
+                                        <!-- https://github.com/google-deepmind/mujoco/issues/353#issuecomment-1162445382 -->
+                                        <site name="force_torque_sensor" type="box" size="0.1 0.1 0.1" rgba="0.9 0 0 0.3"/>
                                         <!-- ### WAM BHAND 
                                             Note:
                                                 - [USER PARAMS] 0.01: mounting gap
@@ -189,7 +191,6 @@
                                             <include file="../components/include_bhand_Chain.xml"/>
                                         </body>
                                     </body>
-                                    
                                 </body>
                             </body>
                         </body>

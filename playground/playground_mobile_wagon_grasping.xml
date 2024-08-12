@@ -113,6 +113,13 @@
 
     </worldbody>
 
+    <!-- Defining a sensor -->
+    <!-- https://github.com/google-deepmind/mujoco/issues/353#issuecomment-1162445382 -->
+    <sensor>
+        <!-- Inserted at the wrist: force-torque sensor -->
+        <force site="force_torque_sensor"/>
+        <torque site="force_torque_sensor"/>
+    </sensor>
     <contact>
     <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
 
