@@ -115,11 +115,14 @@
 
     <!-- Defining a sensor -->
     <!-- https://github.com/google-deepmind/mujoco/issues/353#issuecomment-1162445382 -->
+    <!-- Naming sensors -->
+    <!-- https://github.com/openai/mujoco-py/issues/26#issuecomment-273637008 -->
     <sensor>
-        <!-- Inserted at the wrist: force-torque sensor -->
-        <force site="force_torque_sensor"/>
-        <torque site="force_torque_sensor"/>
+        <!-- Inserted at the wrist: force and torque sensor -->
+        <force name="force_sensor" site="force_torque_sensor"/>
+        <torque name="torque_sensor" site="force_torque_sensor"/>
     </sensor>
+
     <contact>
     <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
 
