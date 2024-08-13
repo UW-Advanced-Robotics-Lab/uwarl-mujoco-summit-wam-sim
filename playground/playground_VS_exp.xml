@@ -1,0 +1,161 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Nov 30, 2023 
+
+    Brief       :: Mobile Wagon Playground
+        This is a demo playground showcasing the mobile robot,
+        configured with 7DOF WAM Arm + BHand + Summit Mobile Robot,
+        in a setting of wagon manipulation.
+
+    Updates:
+        - [Nov  30, 2023] Initial orientation of wagon and cart, map 3rd floor E7(Tim van Meijel)
+
+====================================================== -->
+
+<mujoco model="playground_wagon_manipulation(v1.0.0)">
+    
+    <option integrator="implicitfast"/>
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <include file="../components/include_common.xml"/>
+    <include file="../components/include_summit_wam_bhand_Dependencies.xml"/> 
+    <include file="../components/include_summit_wam_bhand_actuators.xml"/>
+    <!-- <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/> -->
+    <include file="../components/include_nonholonomic_wagon_expanded_Dependencies.xml"/>  
+    <!-- <include file="../components/include_e7_3rd_floor_Dependencies.xml"/>  -->
+    <!-- <include file="../components/include_long_corridor_Dependencies.xml"/> -->
+    <!-- <include file="../components/include_shelves_Dependencies.xml"/> -->
+    <include file="../components/include_shelves_Dependencies.xml"/>
+    <include file="../components/include_walls_Dependencies.xml"/>
+    <include file="../components/include_fork_lift_Dependencies.xml"/>
+    <include file="../components/include_fork_lift_actuators_reduced_mass.xml"/>
+    <!-- <include file="../components/include_fork_lift_actuators.xml"/> -->
+    <include file="../components/include_fetch_Dependencies.xml"/>
+    <include file="../components/include_fetch_actuators.xml"/>
+
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <equality>
+    <!-- TBD -->
+    </equality>
+
+    <visual>
+    <!-- TBD -->
+    </visual>
+
+    <asset>
+        <!-- https://unsplash.com/photos/black-textile-on-brown-wooden-table-BUDn0s7QteI -->
+        <texture name="concrete_floor" file="../components/texture/the-creativv-BUDn0s7QteI-unsplash.png" type="2d"/>
+        <material name="floor" texture="concrete_floor" reflectance="0.05"/>
+    </asset>
+
+    <!--####################
+        ### Hello World: ###
+        #################### -->
+    <worldbody>
+        <!-- GND -->
+        <light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
+        <geom name="ground" type="plane" pos="0 0 0" size="24 24 1" conaffinity="1" contype="1" material="floor" friction="0.0001 0.001 0.001" group="1"/>
+
+        <!-- Robot -->
+        <!-- -0.72 0.5 0 -->
+        <body name="waterloo_steel" pos="-0.72 0.51 0" euler="0 0 -1.57079632679">
+            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
+        </body>
+        
+        <!-- Wagon -->
+        <!-- -1.36 0.02 0 | 0 0 1.57079632679 -->
+        <body name="wagon" pos="-2.03 0.494 0" euler="0 0 1.57079632679" >
+            <!-- <include file="../components/include_nonholonomic_wagon_Chain.xml"/> -->
+            <include file="../components/include_nonholonomic_wagon_expanded_Chain.xml"/>
+        </body>
+
+        <!-- Environment -->
+        <body name="environment" pos="0 -2 0" euler="0 0 0">
+            <include file="../components/include_shelves.xml"/>
+            <include file="../components/include_walls.xml"/>
+        </body>
+
+        <!-- Place Box along corridor -->
+        <!-- Origin of this box is at its geometric-center. So initialise the box above the ground. -->
+        <body name="temp_obstacle" pos="7.75 0.98 0.5" euler="0 0 0">
+            <!-- <joint name="temp_obstacle/free" type="free"/> -->
+            <inertial pos="0.0 0.0 0.0" mass="10" diaginertia="1 1 1"/>
+            <geom name="temp_obstacle/viz" type="box" size="0.25 0.5 0.5" contype="0" conaffinity="0" group="1" material="cardboard"/>
+            <geom name="temp_obstacle/col" type="box" size="0.25 0.5 0.5" contype="1" conaffinity="1" group="0" rgba="0.9 0 0 0.7"/>
+        </body>
+
+        <!-- Placing a brown box inside the cart -->
+        <body name="brown_box_0" pos="-2.06 0.48 0.5" euler="0 0 0">
+            <joint name="brown_box_0/free" type="free"/>
+            <inertial pos="0.0 0.0 0.0" mass="8" diaginertia="0.1 0.1 0.1"/>
+            <geom name="brown_box_0/viz" type="box" size="0.3 0.15 0.15" contype="0" conaffinity="0" group="1" material="cardboard"/>
+            <geom name="brown_box_0/col" type="box" size="0.3 0.15 0.15" contype="1" conaffinity="1" group="0" rgba="0.6 0.4 0.3 0.7" solref="0.02 1"/>
+        </body>
+
+        <!-- Placing Fork lift 1 behind the Cart-MM -->
+        <!-- Depending upon how you visually orient the robot, your base joint-axis will point in a direction different from what your trajectory has been generated in. -->
+        <!-- In this case, re-orient the base joint-axis such that they match the intended direction of motion w.r.t the visual orientation of the robot. Otherwise, the closed-loop traj-follower will give random results. -->
+        <body name="fork_lift_1" pos="-16.5 -0.5 1" euler="0 0 1.57079632679">
+            <!-- <include file="../components/include_fork_lift_constrained.xml"/> -->
+            <include file="../components/include_fork_lift_constrained_reduced_mass.xml"/>
+        </body>
+
+        <!-- Placing fetch behind the Cart-MM -->
+        <body name="fetch_1" pos="-12.5 -0.5 0.05" euler="0 0 0">
+            <include file="../components/include_fetch_Chain.xml"/>
+        </body>
+
+    </worldbody>
+
+    <!-- Defining a sensor -->
+    <!-- https://github.com/google-deepmind/mujoco/issues/353#issuecomment-1162445382 -->
+    <!-- Naming sensors -->
+    <!-- https://github.com/openai/mujoco-py/issues/26#issuecomment-273637008 -->
+    <sensor>
+        <!-- Inserted at the wrist: force and torque sensor -->
+        <force name="force_sensor" site="force_torque_sensor"/>
+        <torque name="torque_sensor" site="force_torque_sensor"/>
+    </sensor>
+
+    <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+
+        <!-- <exclude body1="smt/whl/LF_link" body2="long_corridor_body"/>
+        <exclude body1="smt/whl/RF_link" body2="long_corridor_body"/>
+        <exclude body1="smt/whl/LR_link" body2="long_corridor_body"/>
+        <exclude body1="smt/whl/RR_link" body2="long_corridor_body"/>
+        <exclude body1="smt/base_link" body2="long_corridor_body"/>
+        <exclude body1="wagon/LF" body2="long_corridor_body"/>
+        <exclude body1="wagon/RF" body2="long_corridor_body"/>
+        <exclude body1="wagon/RR" body2="long_corridor_body"/>
+        <exclude body1="wagon/LR" body2="long_corridor_body"/>
+        <exclude body1="smt/base_link" body2="long_corridor_body"/>
+        <exclude body1="wagon/LF/whl" body2="long_corridor_body"/>
+        <exclude body1="wagon/RF/whl" body2="long_corridor_body"/>
+        <exclude body1="wagon/RR/whl" body2="long_corridor_body"/>
+        <exclude body1="wagon/LR/whl" body2="long_corridor_body"/>
+        <exclude body1="wagon/pocket" body2="long_corridor_body"/>
+        <exclude body1="wagon/handle" body2="long_corridor_body"/>
+        <exclude body1="wagon/handle2" body2="long_corridor_body"/>
+        <exclude body1="utility/wagon" body2="long_corridor_body"/>
+        <exclude body1="wagon/wire_frame" body2="long_corridor_body"/> -->
+
+        <!-- Exclude contact between wheels and wheel mounts -->
+        <!-- <exclude body1="fork_lift/rim/LF_link" body2="fork_lift/whl/LF_link"/>
+        <exclude body1="fork_lift/rim/RF_link" body2="fork_lift/whl/RF_link"/>
+        <exclude body1="fork_lift/rim/LR_link" body2="fork_lift/whl/LR_link"/>
+        <exclude body1="fork_lift/rim/RR_link" body2="fork_lift/whl/RR_link"/>
+        <exclude body1="fork_lift/rim/LF_link" body2="fork_lift/base_link"/>
+        <exclude body1="fork_lift/rim/RF_link" body2="fork_lift/base_link"/>
+        <exclude body1="fork_lift/rim/LR_link" body2="fork_lift/base_link"/>
+        <exclude body1="fork_lift/rim/RR_link" body2="fork_lift/base_link"/> -->
+    
+    </contact>
+    
+</mujoco>
