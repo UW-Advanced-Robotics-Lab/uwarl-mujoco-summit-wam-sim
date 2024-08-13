@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Non_Holonomic_Cart">
+  <xacro:macro name="cart_base" params="prefix">
+    <link name="${prefix}/base_link">
+      <inertial>
+        <origin xyz="-0.0987869701644406 0.111546221439391 0.0189782111673935" rpy="0 0 0" />
+        <mass value="14.4813146193203" />
+        <inertia ixx="0.429806029970904" ixy="0" ixz="0" iyy="0.763879115003351" iyz="0" izz="1.19151294778136" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/base_link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}/handle_link">
+      <inertial>
+        <origin xyz="0 0.269507274690265 0" rpy="0 0 0" />
+        <mass value="1.57464851050989" />
+        <inertia ixx="0.0949283656491046" ixy="0" ixz="0" iyy="0.0671463724810826" iyz="0" izz="0.028096922870124" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Handle_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Handle_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/handle_fixed_joint" type="fixed">
+      <origin xyz="0.263991199548651 0.111546221439391 0.00397821116739353" rpy="1.5707963267949 0 0" />
+      <parent link="${prefix}/base_link" />
+      <child link="${prefix}/handle_link" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="${prefix}/swivel_hub/L_link">
+      <inertial>
+        <origin xyz="-0.0299630112338933 -0.0291453924306544 0" rpy="0 0 0" />
+        <mass value="0.2995165479443" />
+        <inertia ixx="0.000534882003539849" ixy="0" ixz="0" iyy="0.000441430832048048" iyz="0" izz="0.000505305636255134" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Front_left_hub_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.898039215686275 0.898039215686275 0.898039215686275 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Front_left_hub_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/L_swivel_hub" type="continuous">
+      <origin xyz="-0.376008800451349 -0.128453778560609 0" rpy="1.5707963267949 0 3.14159265358979" />
+      <parent link="${prefix}/base_link" />
+      <child link="${prefix}/swivel_hub/L_link" />
+      <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="${prefix}/whl/FL_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.786123781911533" />
+        <inertia ixx="0.00249483449278092" ixy="0" ixz="0" iyy="0.0013482783029798" iyz="0" izz="0.0013482783029798" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Front_left_wheel_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Front_left_wheel_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/FL_whl" type="continuous">
+      <origin xyz="-0.05 -0.0880217888326065 0" rpy="3.14159265358979 1.5707963267949 0" />
+      <parent link="${prefix}/swivel_hub/L_link" />
+      <child link="${prefix}/whl/FL_link" />
+      <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="${prefix}/swivel_hub/R_link">
+      <inertial>
+        <origin xyz="-0.0299630112338934 -0.0291453924306543 0" rpy="0 0 0" />
+        <mass value="0.2995165479443" />
+        <inertia ixx="0.000534882003539848" ixy="0" ixz="0" iyy="0.000441430832048047" iyz="0" izz="0.000505305636255132" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Front_right_hub_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.898039215686275 0.898039215686275 0.898039215686275 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Front_right_hub_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/R_swivel_hub" type="continuous">
+      <origin xyz="-0.376008800451349 0.351546221439391 0" rpy="1.5707963267949 0 3.14159265358979" />
+      <parent link="${prefix}/base_link" />
+      <child link="${prefix}/swivel_hub/R_link" />
+      <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="${prefix}/whl/FR_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.786123781911533" />
+        <inertia
+          ixx="0.00249483449278092" ixy="0" ixz="0" iyy="0.0013482783029798" iyz="0" izz="0.0013482783029798" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Front_right_wheel_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Front_right_wheel_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/FR_whl" type="continuous">
+      <origin xyz="-0.05 -0.0880217888326065 0" rpy="3.14159265358979 1.5707963267949 0" />
+      <parent link="swivel_hub/R_link" />
+      <child link="whl/FR_link" />
+      <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="${prefix}/static_hub/R_link">
+      <inertial>
+        <origin xyz="0.0408028663277845 0.0776485299054857 0" rpy="0 0 0" />
+        <mass value="0.2884895577302" />
+        <inertia ixx="0.000522444079735276" ixy="0" ixz="0" iyy="0.000435593950616376" iyz="0" izz="0.000488271367417975" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Rear_right_hub_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.898039215686275 0.898039215686275 0.898039215686275 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Rear_right_hub_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/Rear_right_hub_fixed" type="fixed">
+      <origin xyz="0.233991199548651 0.351546221439391 -0.108021788832607" rpy="1.5707963267949 0 3.14159265358979" />
+      <parent link="${prefix}/base_link" />
+      <child link="${prefix}/static_hub/R_link" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="${prefix}/whl/RR_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.786123781911533" />
+        <inertia
+          ixx="0.00249483449278092" ixy="0" ixz="0" iyy="0.0013482783029798" iyz="0" izz="0.0013482783029798" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Rear_right_wheel_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Rear_right_wheel_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/RR_whl" type="continuous">
+      <origin xyz="0.02 0.02 0" rpy="3.14159265358979 1.5707963267949 0" />
+      <parent link="${prefix}/static_hub/R_link" />
+      <child link="${prefix}/whl/RR_link" />
+      <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="${prefix}/static_hub/L_link">
+      <inertial>
+        <origin xyz="0.0408028663277844 0.0776485299054858 8.32667268468867E-17" rpy="0 0 0" />
+        <mass value="0.2884895577302" />
+        <inertia ixx="0.000522444079735275" ixy="0" ixz="0" iyy="0.000435593950616376" iyz="0" izz="0.000488271367417974" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Rear_left_hub_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.898039215686275 0.898039215686275 0.898039215686275 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Rear_left_hub_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/Rear_left_hub_fixed" type="fixed">
+      <origin xyz="0.233991199548651 -0.128453778560609 -0.108021788832606" rpy="1.5707963267949 0 3.14159265358979" />
+      <parent link="${prefix}/base_link" />
+      <child link="${prefix}/static_hub/L_link" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="${prefix}/whl/RL_link">
+      <inertial>
+        <origin xyz="-5.55111512312578E-17 -1.38777878078145E-17 -2.77555756156289E-17" rpy="0 0 0" />
+        <mass value="0.786123781911533" />
+        <inertia ixx="0.00249483449278092" ixy="0" ixz="0" iyy="0.0013482783029798" iyz="0" izz="0.0013482783029798" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Rear_left_wheel_Link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://Non_Holonomic_Cart/meshes/Rear_left_wheel_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}/RL_whl" type="continuous">
+      <origin xyz="0.02 0.02 0" rpy="3.14159265358979 1.5707963267949 0" />
+      <parent link="${prefix}/static_hub/L_link" />
+      <child link="${prefix}/whl/RL_link" />
+      <axis xyz="1 0 0" />
+    </joint>
+  </xacro:macro>
+</robot>
