@@ -1,0 +1,65 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+        
+    TODO:
+    - [ ] mass and inertial parameters check and configure
+====================================================== -->
+
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- WAM BHAND -->
+    <asset>
+        <mesh file="meshes_non_holonomic_cart/base_link.stl"/>
+        <mesh file="meshes_non_holonomic_cart/wheel_link.stl"/>
+        <mesh file="meshes_non_holonomic_cart/front_hub_link.stl"/>
+        <mesh file="meshes_non_holonomic_cart/rear_hub_link.stl"/>
+        <mesh file="meshes_non_holonomic_cart/handle_link.stl"/>
+    </asset>
+
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT --> 
+    <default>
+        <default class="cart">
+        </default>
+        <default class="cart/swivel_hub">
+            <joint axis="0 0 1" damping="0.05"/>
+        </default>
+        <default class="cart/whl">
+            <joint axis="1 0 0" damping="0.05"/>
+        </default>
+        <default class="cart/col">
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.7"/>          
+            <default class="cart/whl/col">
+                <geom pos="0 0 0" quat="0.707107 0 0.707106 0" size="0.08 0.04" type="cylinder"/>
+            </default>
+        </default>
+        <default class="cart/floor/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+        </default>
+        <default class="cart/hub/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.1 0.2 0.7 1"/>
+        </default>
+        <default class="cart/handle/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.1 0.1 0.1 1"/>
+        </default>
+        <default class="cart/whl/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.1 0.1 0.1 1"/>
+        </default>
+        
+    </default>
+
+     <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+        <exclude body1="cart/handle" body2="cart/handle2"/>
+    </contact>
+
+</mujocoinclude>
+
