@@ -41,7 +41,7 @@
                 <geom pos="0 0 0" quat="0.707107 0 0.707106 0" size="0.08 0.04" type="cylinder"/>
             </default>
         </default>
-        <default class="cart/floor/viz">
+        <default class="cart/body/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
         </default>
         <default class="cart/hub/viz">
@@ -55,11 +55,6 @@
         </default>
         
     </default>
-
-     <contact>
-    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
-        <exclude body1="cart/handle" body2="cart/handle2"/>
-    </contact>
 
 </mujocoinclude>
 
