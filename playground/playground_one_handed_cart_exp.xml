@@ -56,7 +56,7 @@
         <geom name="ground" type="plane" pos="0 0 0" size="24 24 1" conaffinity="1" contype="1" material="floor" friction="0.0001 0.001 0.001" group="1"/>
 
         <!-- Robot -->
-        <body name="waterloo_steel" pos="-0.72 0.51 0" euler="0 0 -1.57079632679">
+        <body name="waterloo_steel" pos="0.5 0 0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
