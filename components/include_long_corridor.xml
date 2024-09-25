@@ -1,0 +1,20 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Arnab Joardar
+        Last edits  : Feb 20, 2024
+        
+====================================================== -->
+
+<mujocoinclude> 
+
+        <body name="long_corridor_body" pos="0 0 0">
+            <inertial pos="0 0 0" mass="0"/>
+            <geom name="long_corridor_map/viz" type="mesh" class="wall/viz"  mesh="long_corridor"/>
+            <!-- <geom name="long_corridor_map/col" type="mesh" class="wall/col"  mesh="long_corridor"/> -->
+            <geom name="long_corridor_map/bottom/col" type="mesh" class="wall/col"  mesh="long_corridor_bottom_wall"/>
+            <geom name="long_corridor_map/top/col" type="mesh" class="wall/col"  mesh="long_corridor_top_wall"/>
+        </body>
+        
+</mujocoinclude>
+

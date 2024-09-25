@@ -23,8 +23,8 @@
     <!-- Import ARM -->
     <xacro:if value="$(arg load_wam_7dof)">
         <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/wam_top.urdf.xacro" />
-        <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam//wam_$(arg hardware_interface)_transmission.urdf.xacro" />
-        <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam//bhand_$(arg hardware_interface)_transmission.urdf.xacro" />
+        <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/wam_$(arg hardware_interface)_transmission.urdf.xacro" />
+        <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/bhand_$(arg hardware_interface)_transmission.urdf.xacro" />
         <!-- <xacro:include filename="$(find waterloo_steel_description)/urdf/wam/wam_position_transmission.urdf.xacro" />
         <xacro:include filename="$(find waterloo_steel_description)/urdf/wam/bhand_position_transmission.urdf.xacro" /> -->
         

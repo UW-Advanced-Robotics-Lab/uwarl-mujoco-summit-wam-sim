@@ -1,0 +1,32 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Arnab Joardar
+        Last edits  : Feb 20, 2024
+        
+====================================================== -->
+
+<mujocoinclude> 
+
+    <body name="walls" pos="0 0 0">
+        <!-- Walls -->
+        <body name="wall_0" pos="0 20 1.5">
+            <inertial pos="0 0 0" mass="0.1"/>
+            <geom name="wall_0" type="box" size="20 1 1.5" class="wall/viz" />
+        </body>
+        <body name="wall_1" pos="0 -20 1.5">
+            <inertial pos="0 0 0" mass="0.1"/>
+            <geom name="wall_1" type="box" size="20 1 1.5" class="wall/viz"/>
+        </body>
+        <body name="wall_2" pos="20 0 1.5">
+            <inertial pos="0 0 0" mass="0.1"/>
+            <geom name="wall_2" type="box" size="1 20 1.5" class="wall/viz"/>
+        </body>
+        <body name="wall_3" pos="-20 0 1.5">
+            <inertial pos="0 0 0" mass="0.1"/>
+            <geom name="wall_3" type="box" size="1 20 1.5" class="wall/viz"/>
+        </body>
+    </body>
+        
+</mujocoinclude>
+

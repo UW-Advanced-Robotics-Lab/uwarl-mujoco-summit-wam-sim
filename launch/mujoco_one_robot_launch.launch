@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<!-- Launch file for Mujoco engine, clock publisher, and hw simulation interface
+     Last update: Nov 28 2023, Tim van Meijel -->
+
+<launch>
+    <!-- Default arguments -->
+    <arg name="id_robot" default="robot_1"/>
+    <arg name="prefix" default="robot_1"/>
+    <arg name="xacro_robot_path" default="summit"/>
+    <arg name="debug" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="robot_model_path" default="/playground/playground_mobile_wagon_grasping"/>
+    <arg name="sim_freq_mujoco" default = "200"/>
+    
+    <group ns="$(arg id_robot)">
+
+        <!-- Launch into param server of ROS -->
+        <param name="robot_description" command="$(find xacro)/xacro --inorder
+                                                '$(arg xacro_robot_path)' 
+                                                prefix:=$(arg prefix)" />
+
+        <!-- Give simulation update frequency to synch between engine and hw_sim_int 
+
+            !!!!! Make sure the node steptime is a multiple of the MjModel steptime !!!!! 
+            
+            -->
+        <param name="sim_frequency_mujoco" value = "$(arg sim_freq_mujoco)" type="int" />
+        
+        <!-- This launch file launches mujoco_ros_control node -->
+        <param name="/use_sim_time" value="$(arg use_sim_time)"/>
+        
+        <!-- Launch mujoco hw sim interface based on the simplified robot urdf -->
+        <node unless="$(arg debug)" name="mujoco_ros_control_node" pkg="uwarl-mujoco-summit-wam-sim" type="mujoco_ros_control" output="screen">
+            <param name="robot_model_path" value="$(arg robot_model_path)"/>
+            <param name="robot_description_param" value="robot_description"/>
+        </node>
+
+        <node if="$(arg debug)" name="mujoco_ros_control_node" pkg="uwarl-mujoco-summit-wam-sim" type="mujoco_ros_control" output="screen" launch-prefix="gdb -ex run -args">
+            <param name="robot_model_path" value="$(arg robot_model_path)"/>
+            <param name="robot_description_param" value="robot_description"/>
+        </node>
+    </group>
+
+</launch>

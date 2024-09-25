@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="gripper">
+    <!-- Mesh from https://www.blendswap.com/blends/view/74733-->
+
+    <xacro:macro name="gripper" params="prefix">
+
+        <link name="${prefix}_hand/gripper_link">
+            <inertial>
+                <origin rpy="0 0 0" xyz="-0.0900 -0.0001 -0.0017" />
+                <mass value="1.5175" />
+                <inertia ixx="0.0013" ixy="-0.0" ixz="0.0" iyy="0.0019" iyz="-0.0" izz="0.0024" />
+            </inertial>
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/gripper_link.dae" />
+                </geometry>
+            </visual>
+            <collision>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/gripper_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="${prefix}_hand/gripper_axis" type="fixed">
+            <origin rpy="0 0 0" xyz="0.16645 0 0" />
+            <parent link="${prefix}_arm/wrist_roll_link" />
+            <child link="${prefix}_hand/gripper_link" />
+            <axis xyz="0 1 0" />
+        </joint>
+
+        <link name="${prefix}_hand/right_gripper_finger_link">
+            <inertial>
+                <origin rpy="0 0 0" xyz="-0.01 0 0" />
+                <mass value="0.0798" />
+                <inertia ixx="0.002" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+            </inertial>
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0.101425 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/r_gripper_finger_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.356 0.361 0.376 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin rpy="0 0 0" xyz="0 0.101425 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/r_gripper_finger_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="${prefix}_hand/right_gripper_finger" type="prismatic">
+            <origin rpy="0 0 0" xyz="0 0.015425 0" />
+            <parent link="${prefix}_hand/gripper_link" />
+            <child link="${prefix}_hand/right_gripper_finger_link" />
+            <axis xyz="0 1 0" />
+            <limit effort="60" lower="0.0" upper="0.05" velocity="0.05" /><dynamics damping="100.0" />
+        </joint>
+
+        <transmission name="${prefix}_hand/right_gripper_finger_joint_tran">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${prefix}_hand/right_gripper_finger">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${prefix}_hand/right_gripper_finger_joint_motor">
+                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <link name="${prefix}_hand/left_gripper_finger_link">
+            <inertial>
+                <origin rpy="0 0 0" xyz="-0.01 0 0" />
+                <mass value="0.0798" />
+                <!-- Error: inertia must satisfy A + B >= C -->
+                <!-- https://physics.stackexchange.com/a/48273 -->
+                <inertia ixx="0.002" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+            </inertial>
+            <visual>
+                <origin rpy="0 0 0" xyz="0 -0.101425 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/l_gripper_finger_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.356 0.361 0.376 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin rpy="0 0 0" xyz="0 -0.101425 0" />
+                <geometry>
+                    <mesh filename="package://fetch_simple_description/meshes/l_gripper_finger_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+
+        <joint name="${prefix}_hand/left_gripper_finger" type="prismatic">
+            <origin rpy="0 0 0" xyz="0 -0.015425 0" />
+            <parent link="${prefix}_hand/gripper_link" />
+            <child link="${prefix}_hand/left_gripper_finger_link" />
+            <axis xyz="0 -1 0" />
+            <limit effort="60" lower="0.0" upper="0.05" velocity="0.05" /><dynamics damping="100.0" />
+        </joint>
+
+        <transmission name="${prefix}_hand/left_gripper_finger_joint_tran">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${prefix}_hand/left_gripper_finger">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${prefix}_hand/left_gripper_finger_joint_motor">
+                <!-- <hardwareInterface>EffortJointInterface</hardwareInterface> -->
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+
+    </xacro:macro>
+
+</robot>

@@ -1,0 +1,6 @@
+<mujocoinclude>
+    <asset>
+        <mesh name="Cylinder_with_Hole" file="meshes_peg_in_hole/Cylinder_with_Hole.obj" scale="0.1 0.1 0.1"/>
+        <mesh name="Peg" file="meshes_peg_in_hole/Peg.obj" scale="0.1 0.1 0.1"/>
+    </asset>
+</mujocoinclude> 

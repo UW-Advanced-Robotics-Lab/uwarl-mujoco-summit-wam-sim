@@ -1,0 +1,11 @@
+<mujocoinclude>
+    <asset>
+        <!--https://www.pinterest.com/pin/822962531891993746/-->
+        <texture name="cardboard" file="../components/texture/cardboard_resized_450.png" type="cube"/>
+        <material name="cardboard" texture="cardboard" reflectance="0"/>
+    </asset>
+    <default>
+        <default class="default">
+        </default>
+    </default>
+</mujocoinclude>

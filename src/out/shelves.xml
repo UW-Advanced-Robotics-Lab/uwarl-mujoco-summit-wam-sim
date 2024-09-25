@@ -1,0 +1,440 @@
+<mujoco model="shelves">
+  <default>
+    <default class="default">
+    </default>
+  </default>
+  <worldbody>
+    <body name="leg_rt\" pos="1 1 1.5249999999999999">
+      <body name="leg_rt\leg_rt">
+        <inertial pos="0 0 0" mass="0.40000000000000002"/>
+        <geom name="leg_rt\leg_rt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="leg_lt\" pos="-1 1 1.5249999999999999">
+      <body name="leg_lt\leg_lt">
+        <inertial pos="0 0 0" mass="0.40000000000000002"/>
+        <geom name="leg_lt\leg_lt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="leg_lb\" pos="-1 -1 1.5249999999999999">
+      <body name="leg_lb\leg_lb">
+        <inertial pos="0 0 0" mass="0.40000000000000002"/>
+        <geom name="leg_lb\leg_lb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="leg_rb\" pos="1 -1 1.5249999999999999">
+      <body name="leg_rb\leg_rb">
+        <inertial pos="0 0 0" mass="0.40000000000000002"/>
+        <geom name="leg_rb\leg_rb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 1.5249999999999999" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="shelf_0\" pos="0 0 0.050000000000000003">
+      <body name="shelf_0\shelf_0">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_0\shelf_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="box_col_0\" pos="0 0 0.050000000000000003">
+      <body name="box_col_0\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_0\box_0_0\box_0_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_0\box_0_1\box_0_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_0\box_1\box_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_0\box_2\box_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_0\box_4\box_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_0\box_3_0\box_3_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_0\box_3_1\box_3_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_0\box_0_2\box_0_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_0\box_0_3\box_0_3">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_0\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_0\box_0_4\box_0_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_0\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_1\" pos="0 0 0.65000000000000002">
+      <body name="shelf_1\shelf_1">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_1\shelf_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="box_col_1\" pos="0 0 0.65000000000000002">
+      <body name="box_col_1\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_1\box_0_0\box_0_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_1\box_0_1\box_0_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_1\box_1\box_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_1\box_2\box_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_1\box_4\box_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_1\box_3_0\box_3_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_1\box_3_1\box_3_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_1\box_0_2\box_0_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_1\box_0_3\box_0_3">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_1\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_1\box_0_4\box_0_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_1\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_2\" pos="0 0 1.25">
+      <body name="shelf_2\shelf_2">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_2\shelf_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="box_col_2\" pos="0 0 1.25">
+      <body name="box_col_2\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_2\box_0_0\box_0_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_2\box_0_1\box_0_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_2\box_1\box_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_2\box_2\box_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_2\box_4\box_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_2\box_3_0\box_3_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_2\box_3_1\box_3_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_2\box_0_2\box_0_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_2\box_0_3\box_0_3">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_2\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_2\box_0_4\box_0_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_2\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_3\" pos="0 0 1.8500000000000001">
+      <body name="shelf_3\shelf_3">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_3\shelf_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="box_col_3\" pos="0 0 1.8500000000000001">
+      <body name="box_col_3\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_3\box_0_0\box_0_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_3\box_0_1\box_0_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_3\box_1\box_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_3\box_2\box_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_3\box_4\box_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_3\box_3_0\box_3_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_3\box_3_1\box_3_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_3\box_0_2\box_0_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_3\box_0_3\box_0_3">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_3\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_3\box_0_4\box_0_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_3\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_4\" pos="0 0 2.4500000000000002">
+      <body name="shelf_4\shelf_4">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_4\shelf_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="box_col_4\" pos="0 0 2.4500000000000002">
+      <body name="box_col_4\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_4\box_0_0\box_0_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_4\box_0_1\box_0_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_4\box_1\box_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_4\box_2\box_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_4\box_4\box_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_4\box_3_0\box_3_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_4\box_3_1\box_3_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_4\box_0_2\box_0_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_4\box_0_3\box_0_3">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_4\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_4\box_0_4\box_0_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_4\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_5\" pos="0 0 3.0500000000000003">
+      <body name="shelf_5\shelf_5">
+        <inertial pos="0 0 0" mass="1"/>
+        <geom name="shelf_5\shelf_5" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.94999999999999996 0.59999999999999998 0.050000000000000003 1"/>
+      </body>
+    </body>
+    <body name="box_col_5\" pos="0 0 3.0500000000000003">
+      <body name="box_col_5\box_0_0\" pos="-0.84999999999999998 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_5\box_0_0\box_0_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_0_0\box_0_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_0_1\" pos="-0.84999999999999998 -0.20000000000000001 0.10000000000000001">
+        <body name="box_col_5\box_0_1\box_0_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_0_1\box_0_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_1\" pos="-0.5 0.20000000000000001 0.20000000000000001">
+        <body name="box_col_5\box_1\box_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_1\box_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.20000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_2\" pos="-0.050000000000000003 0.10000000000000001 0.10000000000000001">
+        <body name="box_col_5\box_2\box_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_2\box_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_4\" pos="-0.044999999999999998 0.14999999999999999 0.34999999999999998">
+        <body name="box_col_5\box_4\box_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_4\box_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.29999999999999999 0.14999999999999999" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_3_0\" pos="0.29999999999999999 0.14999999999999999 0.25">
+        <body name="box_col_5\box_3_0\box_3_0">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_3_0\box_3_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_3_1\" pos="0.55000000000000004 0.10000000000000001 0.25">
+        <body name="box_col_5\box_3_1\box_3_1">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_3_1\box_3_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.29999999999999999 0.25" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_0_2\" pos="0.80000000000000004 0.20000000000000001 0.10000000000000001">
+        <body name="box_col_5\box_0_2\box_0_2">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_0_2\box_0_2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_0_3\" pos="0.80000000000000004 -0.050000000000000003 0.10000000000000001">
+        <body name="box_col_5\box_0_3\box_0_3">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_0_3\box_0_3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+      <body name="box_col_5\box_0_4\" pos="0.80000000000000004 0.074999999999999997 0.29999999999999999">
+        <body name="box_col_5\box_0_4\box_0_4">
+          <inertial pos="0 0 0" mass="0.10000000000000001"/>
+          <geom name="box_col_5\box_0_4\box_0_4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.10000000000000001 0.10000000000000001 0.10000000000000001" rgba="0.59999999999999998 0.40000000000000002 0.29999999999999999 1"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

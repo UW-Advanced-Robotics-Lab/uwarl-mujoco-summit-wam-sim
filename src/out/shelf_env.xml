@@ -1,0 +1,981 @@
+<mujoco model="shelf_env">
+  <default>
+    <default class="/">
+      <default class="\"/>
+      <default class="shelf_wall_0\"/>
+      <default class="shelf_wall_0\shelves_0\">
+        <default class="shelf_wall_0\shelves_0\shelves_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\leg_rt\">
+        <default class="shelf_wall_0\shelves_0\leg_rt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\leg_lt\">
+        <default class="shelf_wall_0\shelves_0\leg_lt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\leg_lb\">
+        <default class="shelf_wall_0\shelves_0\leg_lb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\leg_rb\">
+        <default class="shelf_wall_0\shelves_0\leg_rb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\shelf_0\">
+        <default class="shelf_wall_0\shelves_0\shelf_0\rack_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\shelf_1\">
+        <default class="shelf_wall_0\shelves_0\shelf_1\rack_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_0\">
+        <default class="shelf_wall_0\shelves_0\box_col_0\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_0\box0\">
+        <default class="shelf_wall_0\shelves_0\box_col_0\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_0\box1\">
+        <default class="shelf_wall_0\shelves_0\box_col_0\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_0\box2\">
+        <default class="shelf_wall_0\shelves_0\box_col_0\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_0\box3\">
+        <default class="shelf_wall_0\shelves_0\box_col_0\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_0\box4\">
+        <default class="shelf_wall_0\shelves_0\box_col_0\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_1\">
+        <default class="shelf_wall_0\shelves_0\box_col_1\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_1\box0\">
+        <default class="shelf_wall_0\shelves_0\box_col_1\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_1\box1\">
+        <default class="shelf_wall_0\shelves_0\box_col_1\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_1\box2\">
+        <default class="shelf_wall_0\shelves_0\box_col_1\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_1\box3\">
+        <default class="shelf_wall_0\shelves_0\box_col_1\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_0\shelves_0\box_col_1\box4\">
+        <default class="shelf_wall_0\shelves_0\box_col_1\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\"/>
+      <default class="shelf_wall_1\shelves_0\">
+        <default class="shelf_wall_1\shelves_0\shelves_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\leg_rt\">
+        <default class="shelf_wall_1\shelves_0\leg_rt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\leg_lt\">
+        <default class="shelf_wall_1\shelves_0\leg_lt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\leg_lb\">
+        <default class="shelf_wall_1\shelves_0\leg_lb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\leg_rb\">
+        <default class="shelf_wall_1\shelves_0\leg_rb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\shelf_0\">
+        <default class="shelf_wall_1\shelves_0\shelf_0\rack_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\shelf_1\">
+        <default class="shelf_wall_1\shelves_0\shelf_1\rack_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_0\">
+        <default class="shelf_wall_1\shelves_0\box_col_0\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_0\box0\">
+        <default class="shelf_wall_1\shelves_0\box_col_0\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_0\box1\">
+        <default class="shelf_wall_1\shelves_0\box_col_0\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_0\box2\">
+        <default class="shelf_wall_1\shelves_0\box_col_0\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_0\box3\">
+        <default class="shelf_wall_1\shelves_0\box_col_0\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_0\box4\">
+        <default class="shelf_wall_1\shelves_0\box_col_0\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_1\">
+        <default class="shelf_wall_1\shelves_0\box_col_1\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_1\box0\">
+        <default class="shelf_wall_1\shelves_0\box_col_1\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_1\box1\">
+        <default class="shelf_wall_1\shelves_0\box_col_1\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_1\box2\">
+        <default class="shelf_wall_1\shelves_0\box_col_1\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_1\box3\">
+        <default class="shelf_wall_1\shelves_0\box_col_1\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_1\shelves_0\box_col_1\box4\">
+        <default class="shelf_wall_1\shelves_0\box_col_1\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\"/>
+      <default class="shelf_wall_2\shelves_0\">
+        <default class="shelf_wall_2\shelves_0\shelves_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\leg_rt\">
+        <default class="shelf_wall_2\shelves_0\leg_rt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\leg_lt\">
+        <default class="shelf_wall_2\shelves_0\leg_lt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\leg_lb\">
+        <default class="shelf_wall_2\shelves_0\leg_lb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\leg_rb\">
+        <default class="shelf_wall_2\shelves_0\leg_rb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\shelf_0\">
+        <default class="shelf_wall_2\shelves_0\shelf_0\rack_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\shelf_1\">
+        <default class="shelf_wall_2\shelves_0\shelf_1\rack_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_0\">
+        <default class="shelf_wall_2\shelves_0\box_col_0\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_0\box0\">
+        <default class="shelf_wall_2\shelves_0\box_col_0\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_0\box1\">
+        <default class="shelf_wall_2\shelves_0\box_col_0\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_0\box2\">
+        <default class="shelf_wall_2\shelves_0\box_col_0\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_0\box3\">
+        <default class="shelf_wall_2\shelves_0\box_col_0\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_0\box4\">
+        <default class="shelf_wall_2\shelves_0\box_col_0\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_1\">
+        <default class="shelf_wall_2\shelves_0\box_col_1\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_1\box0\">
+        <default class="shelf_wall_2\shelves_0\box_col_1\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_1\box1\">
+        <default class="shelf_wall_2\shelves_0\box_col_1\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_1\box2\">
+        <default class="shelf_wall_2\shelves_0\box_col_1\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_1\box3\">
+        <default class="shelf_wall_2\shelves_0\box_col_1\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_2\shelves_0\box_col_1\box4\">
+        <default class="shelf_wall_2\shelves_0\box_col_1\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\"/>
+      <default class="shelf_wall_3\shelves_0\">
+        <default class="shelf_wall_3\shelves_0\shelves_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\leg_rt\">
+        <default class="shelf_wall_3\shelves_0\leg_rt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\leg_lt\">
+        <default class="shelf_wall_3\shelves_0\leg_lt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\leg_lb\">
+        <default class="shelf_wall_3\shelves_0\leg_lb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\leg_rb\">
+        <default class="shelf_wall_3\shelves_0\leg_rb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\shelf_0\">
+        <default class="shelf_wall_3\shelves_0\shelf_0\rack_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\shelf_1\">
+        <default class="shelf_wall_3\shelves_0\shelf_1\rack_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_0\">
+        <default class="shelf_wall_3\shelves_0\box_col_0\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_0\box0\">
+        <default class="shelf_wall_3\shelves_0\box_col_0\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_0\box1\">
+        <default class="shelf_wall_3\shelves_0\box_col_0\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_0\box2\">
+        <default class="shelf_wall_3\shelves_0\box_col_0\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_0\box3\">
+        <default class="shelf_wall_3\shelves_0\box_col_0\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_0\box4\">
+        <default class="shelf_wall_3\shelves_0\box_col_0\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_1\">
+        <default class="shelf_wall_3\shelves_0\box_col_1\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_1\box0\">
+        <default class="shelf_wall_3\shelves_0\box_col_1\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_1\box1\">
+        <default class="shelf_wall_3\shelves_0\box_col_1\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_1\box2\">
+        <default class="shelf_wall_3\shelves_0\box_col_1\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_1\box3\">
+        <default class="shelf_wall_3\shelves_0\box_col_1\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_3\shelves_0\box_col_1\box4\">
+        <default class="shelf_wall_3\shelves_0\box_col_1\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\"/>
+      <default class="shelf_wall_4\shelves_0\">
+        <default class="shelf_wall_4\shelves_0\shelves_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\leg_rt\">
+        <default class="shelf_wall_4\shelves_0\leg_rt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\leg_lt\">
+        <default class="shelf_wall_4\shelves_0\leg_lt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\leg_lb\">
+        <default class="shelf_wall_4\shelves_0\leg_lb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\leg_rb\">
+        <default class="shelf_wall_4\shelves_0\leg_rb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\shelf_0\">
+        <default class="shelf_wall_4\shelves_0\shelf_0\rack_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\shelf_1\">
+        <default class="shelf_wall_4\shelves_0\shelf_1\rack_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_0\">
+        <default class="shelf_wall_4\shelves_0\box_col_0\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_0\box0\">
+        <default class="shelf_wall_4\shelves_0\box_col_0\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_0\box1\">
+        <default class="shelf_wall_4\shelves_0\box_col_0\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_0\box2\">
+        <default class="shelf_wall_4\shelves_0\box_col_0\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_0\box3\">
+        <default class="shelf_wall_4\shelves_0\box_col_0\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_0\box4\">
+        <default class="shelf_wall_4\shelves_0\box_col_0\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_1\">
+        <default class="shelf_wall_4\shelves_0\box_col_1\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_1\box0\">
+        <default class="shelf_wall_4\shelves_0\box_col_1\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_1\box1\">
+        <default class="shelf_wall_4\shelves_0\box_col_1\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_1\box2\">
+        <default class="shelf_wall_4\shelves_0\box_col_1\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_1\box3\">
+        <default class="shelf_wall_4\shelves_0\box_col_1\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_4\shelves_0\box_col_1\box4\">
+        <default class="shelf_wall_4\shelves_0\box_col_1\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\"/>
+      <default class="shelf_wall_5\shelves_0\">
+        <default class="shelf_wall_5\shelves_0\shelves_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\leg_rt\">
+        <default class="shelf_wall_5\shelves_0\leg_rt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\leg_lt\">
+        <default class="shelf_wall_5\shelves_0\leg_lt\leg_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\leg_lb\">
+        <default class="shelf_wall_5\shelves_0\leg_lb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\leg_rb\">
+        <default class="shelf_wall_5\shelves_0\leg_rb\leg_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\shelf_0\">
+        <default class="shelf_wall_5\shelves_0\shelf_0\rack_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\shelf_1\">
+        <default class="shelf_wall_5\shelves_0\shelf_1\rack_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_0\">
+        <default class="shelf_wall_5\shelves_0\box_col_0\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_0\box0\">
+        <default class="shelf_wall_5\shelves_0\box_col_0\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_0\box1\">
+        <default class="shelf_wall_5\shelves_0\box_col_0\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_0\box2\">
+        <default class="shelf_wall_5\shelves_0\box_col_0\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_0\box3\">
+        <default class="shelf_wall_5\shelves_0\box_col_0\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_0\box4\">
+        <default class="shelf_wall_5\shelves_0\box_col_0\box4\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_1\">
+        <default class="shelf_wall_5\shelves_0\box_col_1\box_col_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_1\box0\">
+        <default class="shelf_wall_5\shelves_0\box_col_1\box0\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_1\box1\">
+        <default class="shelf_wall_5\shelves_0\box_col_1\box1\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_1\box2\">
+        <default class="shelf_wall_5\shelves_0\box_col_1\box2\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_1\box3\">
+        <default class="shelf_wall_5\shelves_0\box_col_1\box3\box_viz"/>
+      </default>
+      <default class="shelf_wall_5\shelves_0\box_col_1\box4\">
+        <default class="shelf_wall_5\shelves_0\box_col_1\box4\box_viz"/>
+      </default>
+    </default>
+  </default>
+  <worldbody>
+    <body name="shelf_wall_0\" pos="-14 0 0">
+      <body name="shelf_wall_0\shelves_0\" pos="0 0 0">
+        <body name="shelf_wall_0\shelves_0\leg_rt\" pos="0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_0\shelves_0\leg_rt\leg_rt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_0\shelves_0\leg_rt\leg_rt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_0\shelves_0\leg_lt\" pos="-0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_0\shelves_0\leg_lt\leg_lt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_0\shelves_0\leg_lt\leg_lt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_0\shelves_0\leg_lb\" pos="-0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_0\shelves_0\leg_lb\leg_lb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_0\shelves_0\leg_lb\leg_lb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_0\shelves_0\leg_rb\" pos="0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_0\shelves_0\leg_rb\leg_rb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_0\shelves_0\leg_rb\leg_rb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_0\shelves_0\shelf_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_0\shelves_0\shelf_0\shelf_0">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_0\shelves_0\shelf_0\shelf_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_0\shelves_0\box_col_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_0\shelves_0\box_col_0\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_0\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_0\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_0\shelves_0\box_col_0\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_0\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_0\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_0\shelves_0\box_col_0\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_0\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_0\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_0\shelves_0\box_col_0\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_0\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_0\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_0\shelves_0\box_col_0\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_0\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_0\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+        <body name="shelf_wall_0\shelves_0\shelf_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_0\shelves_0\shelf_1\shelf_1">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_0\shelves_0\shelf_1\shelf_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_0\shelves_0\box_col_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_0\shelves_0\box_col_1\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_1\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_1\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_0\shelves_0\box_col_1\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_1\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_1\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_0\shelves_0\box_col_1\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_1\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_1\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_0\shelves_0\box_col_1\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_1\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_1\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_0\shelves_0\box_col_1\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_0\shelves_0\box_col_1\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_0\shelves_0\box_col_1\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_wall_1\" pos="0 0 0">
+      <body name="shelf_wall_1\shelves_0\" pos="0 0 0">
+        <body name="shelf_wall_1\shelves_0\leg_rt\" pos="0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_1\shelves_0\leg_rt\leg_rt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_1\shelves_0\leg_rt\leg_rt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_1\shelves_0\leg_lt\" pos="-0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_1\shelves_0\leg_lt\leg_lt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_1\shelves_0\leg_lt\leg_lt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_1\shelves_0\leg_lb\" pos="-0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_1\shelves_0\leg_lb\leg_lb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_1\shelves_0\leg_lb\leg_lb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_1\shelves_0\leg_rb\" pos="0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_1\shelves_0\leg_rb\leg_rb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_1\shelves_0\leg_rb\leg_rb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_1\shelves_0\shelf_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_1\shelves_0\shelf_0\shelf_0">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_1\shelves_0\shelf_0\shelf_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_1\shelves_0\box_col_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_1\shelves_0\box_col_0\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_0\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_0\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_1\shelves_0\box_col_0\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_0\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_0\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_1\shelves_0\box_col_0\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_0\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_0\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_1\shelves_0\box_col_0\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_0\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_0\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_1\shelves_0\box_col_0\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_0\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_0\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+        <body name="shelf_wall_1\shelves_0\shelf_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_1\shelves_0\shelf_1\shelf_1">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_1\shelves_0\shelf_1\shelf_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_1\shelves_0\box_col_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_1\shelves_0\box_col_1\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_1\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_1\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_1\shelves_0\box_col_1\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_1\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_1\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_1\shelves_0\box_col_1\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_1\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_1\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_1\shelves_0\box_col_1\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_1\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_1\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_1\shelves_0\box_col_1\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_1\shelves_0\box_col_1\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_1\shelves_0\box_col_1\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_wall_2\" pos="14 0 0">
+      <body name="shelf_wall_2\shelves_0\" pos="0 0 0">
+        <body name="shelf_wall_2\shelves_0\leg_rt\" pos="0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_2\shelves_0\leg_rt\leg_rt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_2\shelves_0\leg_rt\leg_rt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_2\shelves_0\leg_lt\" pos="-0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_2\shelves_0\leg_lt\leg_lt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_2\shelves_0\leg_lt\leg_lt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_2\shelves_0\leg_lb\" pos="-0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_2\shelves_0\leg_lb\leg_lb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_2\shelves_0\leg_lb\leg_lb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_2\shelves_0\leg_rb\" pos="0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_2\shelves_0\leg_rb\leg_rb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_2\shelves_0\leg_rb\leg_rb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_2\shelves_0\shelf_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_2\shelves_0\shelf_0\shelf_0">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_2\shelves_0\shelf_0\shelf_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_2\shelves_0\box_col_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_2\shelves_0\box_col_0\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_0\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_0\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_2\shelves_0\box_col_0\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_0\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_0\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_2\shelves_0\box_col_0\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_0\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_0\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_2\shelves_0\box_col_0\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_0\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_0\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_2\shelves_0\box_col_0\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_0\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_0\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+        <body name="shelf_wall_2\shelves_0\shelf_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_2\shelves_0\shelf_1\shelf_1">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_2\shelves_0\shelf_1\shelf_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_2\shelves_0\box_col_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_2\shelves_0\box_col_1\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_1\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_1\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_2\shelves_0\box_col_1\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_1\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_1\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_2\shelves_0\box_col_1\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_1\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_1\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_2\shelves_0\box_col_1\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_1\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_1\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_2\shelves_0\box_col_1\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_2\shelves_0\box_col_1\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_2\shelves_0\box_col_1\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_wall_3\" pos="-14 4 0">
+      <body name="shelf_wall_3\shelves_0\" pos="0 0 0">
+        <body name="shelf_wall_3\shelves_0\leg_rt\" pos="0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_3\shelves_0\leg_rt\leg_rt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_3\shelves_0\leg_rt\leg_rt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_3\shelves_0\leg_lt\" pos="-0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_3\shelves_0\leg_lt\leg_lt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_3\shelves_0\leg_lt\leg_lt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_3\shelves_0\leg_lb\" pos="-0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_3\shelves_0\leg_lb\leg_lb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_3\shelves_0\leg_lb\leg_lb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_3\shelves_0\leg_rb\" pos="0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_3\shelves_0\leg_rb\leg_rb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_3\shelves_0\leg_rb\leg_rb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_3\shelves_0\shelf_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_3\shelves_0\shelf_0\shelf_0">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_3\shelves_0\shelf_0\shelf_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_3\shelves_0\box_col_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_3\shelves_0\box_col_0\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_0\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_0\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_3\shelves_0\box_col_0\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_0\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_0\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_3\shelves_0\box_col_0\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_0\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_0\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_3\shelves_0\box_col_0\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_0\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_0\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_3\shelves_0\box_col_0\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_0\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_0\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+        <body name="shelf_wall_3\shelves_0\shelf_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_3\shelves_0\shelf_1\shelf_1">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_3\shelves_0\shelf_1\shelf_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_3\shelves_0\box_col_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_3\shelves_0\box_col_1\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_1\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_1\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_3\shelves_0\box_col_1\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_1\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_1\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_3\shelves_0\box_col_1\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_1\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_1\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_3\shelves_0\box_col_1\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_1\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_1\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_3\shelves_0\box_col_1\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_3\shelves_0\box_col_1\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_3\shelves_0\box_col_1\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_wall_4\" pos="0 4 0">
+      <body name="shelf_wall_4\shelves_0\" pos="0 0 0">
+        <body name="shelf_wall_4\shelves_0\leg_rt\" pos="0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_4\shelves_0\leg_rt\leg_rt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_4\shelves_0\leg_rt\leg_rt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_4\shelves_0\leg_lt\" pos="-0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_4\shelves_0\leg_lt\leg_lt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_4\shelves_0\leg_lt\leg_lt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_4\shelves_0\leg_lb\" pos="-0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_4\shelves_0\leg_lb\leg_lb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_4\shelves_0\leg_lb\leg_lb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_4\shelves_0\leg_rb\" pos="0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_4\shelves_0\leg_rb\leg_rb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_4\shelves_0\leg_rb\leg_rb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_4\shelves_0\shelf_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_4\shelves_0\shelf_0\shelf_0">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_4\shelves_0\shelf_0\shelf_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_4\shelves_0\box_col_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_4\shelves_0\box_col_0\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_0\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_0\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_4\shelves_0\box_col_0\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_0\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_0\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_4\shelves_0\box_col_0\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_0\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_0\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_4\shelves_0\box_col_0\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_0\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_0\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_4\shelves_0\box_col_0\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_0\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_0\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+        <body name="shelf_wall_4\shelves_0\shelf_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_4\shelves_0\shelf_1\shelf_1">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_4\shelves_0\shelf_1\shelf_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_4\shelves_0\box_col_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_4\shelves_0\box_col_1\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_1\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_1\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_4\shelves_0\box_col_1\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_1\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_1\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_4\shelves_0\box_col_1\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_1\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_1\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_4\shelves_0\box_col_1\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_1\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_1\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_4\shelves_0\box_col_1\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_4\shelves_0\box_col_1\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_4\shelves_0\box_col_1\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="shelf_wall_5\" pos="14 4 0">
+      <body name="shelf_wall_5\shelves_0\" pos="0 0 0">
+        <body name="shelf_wall_5\shelves_0\leg_rt\" pos="0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_5\shelves_0\leg_rt\leg_rt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_5\shelves_0\leg_rt\leg_rt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_5\shelves_0\leg_lt\" pos="-0.93999999999999995 0.44 0.32500000000000001">
+          <body name="shelf_wall_5\shelves_0\leg_lt\leg_lt">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_5\shelves_0\leg_lt\leg_lt" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_5\shelves_0\leg_lb\" pos="-0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_5\shelves_0\leg_lb\leg_lb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_5\shelves_0\leg_lb\leg_lb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_5\shelves_0\leg_rb\" pos="0.93999999999999995 -0.44 0.32500000000000001">
+          <body name="shelf_wall_5\shelves_0\leg_rb\leg_rb">
+            <inertial pos="0 0 0" mass="0.40000000000000002"/>
+            <geom name="shelf_wall_5\shelves_0\leg_rb\leg_rb" class="default" type="cylinder" contype="0" conaffinity="0" group="1" size="0.029999999999999999 0.32500000000000001" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_5\shelves_0\shelf_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_5\shelves_0\shelf_0\shelf_0">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_5\shelves_0\shelf_0\shelf_0" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_5\shelves_0\box_col_0\" pos="0 0 0.050000000000000003">
+          <body name="shelf_wall_5\shelves_0\box_col_0\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_0\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_0\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_5\shelves_0\box_col_0\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_0\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_0\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_5\shelves_0\box_col_0\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_0\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_0\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_5\shelves_0\box_col_0\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_0\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_0\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_5\shelves_0\box_col_0\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_0\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_0\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+        <body name="shelf_wall_5\shelves_0\shelf_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_5\shelves_0\shelf_1\shelf_1">
+            <inertial pos="0 0 0" mass="1"/>
+            <geom name="shelf_wall_5\shelves_0\shelf_1\shelf_1" class="default" type="box" contype="0" conaffinity="0" group="1" size="1 0.5 0.01" rgba="0.80000000000000004 0.34999999999999998 0.10000000000000001 1"/>
+          </body>
+        </body>
+        <body name="shelf_wall_5\shelves_0\box_col_1\" pos="0 0 0.65000000000000002">
+          <body name="shelf_wall_5\shelves_0\box_col_1\box0\" pos="0.80000000000000004 0.050000000000000003 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_1\box0\box0">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_1\box0\box0" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_5\shelves_0\box_col_1\box1\" pos="0.40000000000000002 -0.050000000000000003 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_1\box1\box1">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_1\box1\box1" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_5\shelves_0\box_col_1\box2\" pos="0 0 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_1\box2\box2">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_1\box2\box2" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_5\shelves_0\box_col_1\box3\" pos="-0.40000000000000002 0.050000000000000003 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_1\box3\box3">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_1\box3\box3" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+          <body name="shelf_wall_5\shelves_0\box_col_1\box4\" pos="-0.80000000000000004 -0.050000000000000003 0.25">
+            <body name="shelf_wall_5\shelves_0\box_col_1\box4\box4">
+              <inertial pos="0 0 0" mass="0.10000000000000001"/>
+              <geom name="shelf_wall_5\shelves_0\box_col_1\box4\box4" class="default" type="box" contype="0" conaffinity="0" group="1" size="0.20000000000000001 0.40000000000000002 0.25" material="cardboard"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

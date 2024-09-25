@@ -18,6 +18,8 @@ import os
 
 # python 3rd party libraries:
 import numpy as np
+import cv2
+
 
 import rospy
 
@@ -46,14 +48,28 @@ import mujoco_engine.core_engine as jx
 #===========#
 #  M A I N  #
 #===========#
-def main():
+def main(): 
     home_path = os.environ["HOME"]
-
     # Get update frequency of engine from launch file "mujocolaunch.launch"
     freq_muj = rospy.get_param("sim_frequency_mujoco")
+    # Get playground information
+    xml_path = rospy.get_param("robot_model_path")+".xml"
+    # Which robots are going to be loaded
+    # SUMMIT XL STEEL
+    robot_a = rospy.get_param("launch_robot_a")
+    # Fetch
+    robot_b = rospy.get_param("launch_robot_b")
+    # Fork Lift
+    robot_c = rospy.get_param("launch_robot_c")
+    # Wagon
+    wagon_a = rospy.get_param("launch_wagon_a")
+    # List of robots to be loaded
+    robot_list = [robot_a, wagon_a, robot_b, robot_c]
     update_rate = int(freq_muj)
     steptime = 1.0/float(update_rate)
     r = rospy.Rate(update_rate)
+    # Write camera images to a folder
+    write_to = home_path+"/Pictures/MuJoCo_Camera"
 
     # Define viewer refresh rate
     rate_plot = 10
@@ -61,11 +77,19 @@ def main():
     rospy.sleep(1.0)
 
     Engine = jx.Mujoco_Engine(
-        xml_path        = home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
+        xml_path        = xml_path,#home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_grasping.xml",
+        # xml_path        = home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_manipulation.xml",
         # xml_path        = "/home/tim/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_grasping.xml",
         rate_Hz         = update_rate,
         rate_scene      = rate_plot,
-        camera_config   = None,
+        camera_config   = {#"smt/front/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":0},
+                           "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":1}
+                        #    "smt/pole_link/camera/intel/rgb": {"width": 1980, "height":1080, "fps": 60, "id":2},
+                        #    "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":3}
+                           },
+        CAMERA_V_FACTOR = 1,
+        write_to = write_to,
+        robot_list = robot_list
     )
 
     # Initialize variables

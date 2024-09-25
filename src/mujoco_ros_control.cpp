@@ -193,14 +193,19 @@ bool MujocoRosControl::parse_transmissions(const std::string& urdf_string)
 
 std::map<std::string, double >  MujocoRosControl::update(void)
 {
+    // Current ros-time (no wonder we cannot pause the MujoCO simulation; because the control-time is dictated by ROS)
     sim_time_ros = ros::Time::now();
+    // Time-period over which the new controls shold becomputed for.
     sim_period = sim_time_ros - sim_time_last;
+
     bool reset_ctrls = false;
+
     controller_manager_->update(sim_time_ros, sim_period, reset_ctrls);
 
     robot_hw_sim_->write(sim_time_ros, sim_period);
 
     received_effort_control = *robot_hw_sim_->get_mj_data();
+    // Keep up with the ros-time, not a hypothetical one where the controller took next-to-no-time to compute the next control command.
     sim_time_last = ros::Time::now();
 
     return received_effort_control;
@@ -274,6 +279,7 @@ int main(int argc, char** argv)
       effort_pub.name.clear();
 
       // update:
+      // Get the effort commands from the controller, collect them, and then publish them to the `efforts_command` topic.
       received_effort_control_pub = mujoco_ros_control_1.update();
 
       for (auto& x : received_effort_control_pub)

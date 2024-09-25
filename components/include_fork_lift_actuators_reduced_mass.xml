@@ -1,0 +1,30 @@
+<!-- ======================================================
+    This file is an example template for all the actuators of the full waterloo summit in the playground. 
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+    
+    Updates:
+        - [July 18, 2022] Added Comments based on the spec
+        - [ ] Breakaway force curve should be implemented through scripts
+        - [Nov  28, 2023] Effort controls implement to use ros_control with hw_interface (Tim van Meijel)
+====================================================== -->
+
+<mujocoinclude>
+    
+    <!-- [Fork-lift] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+    -->
+    <actuator>
+        <!-- [Fork-lift] control fetch base in an effort fashion (Arnab Joardar) -->
+        <motor name="fork_lift/pose/x"  joint="fork_lift/pose/x" ctrllimited="true" ctrlrange="-10.0 10.0" gear="200.0"/>
+        <motor name="fork_lift/pose/y"  joint="fork_lift/pose/y" ctrllimited="true" ctrlrange="-10.0 10.0" gear="200.0"/>
+        <motor name="fork_lift/orie/z"  joint="fork_lift/orie/z" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
+    </actuator>
+
+    <!-- If one wants to control the frame of the fork-lift, first, constrain the hydraulic pistons to the appropriate links and location. Otherwise, it will be very odd to see the hydrualic-piston not being actuated while the frame moves on its own.  -->
+
+</mujocoinclude>    

@@ -1,0 +1,180 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+====================================================== -->
+
+
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <!-- SUMMIT -->
+    <asset>
+        <mesh file="meshes_fetch/fetch_base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_base_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_bellows_link.stl"/>
+        <mesh file="meshes_fetch/fetch_bellows_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_elbow_flex_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_elbow_flex_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_estop_link.stl"/>
+        <mesh file="meshes_fetch/fetch_forearm_roll_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_forearm_roll_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_gripper_link.stl"/>
+        <mesh file="meshes_fetch/fetch_l_gripper_finger_link.stl"/>
+        <mesh file="meshes_fetch/fetch_r_gripper_finger_link.stl"/>
+        <mesh file="meshes_fetch/fetch_head_pan_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_head_pan_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_head_tilt_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_head_tilt_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_laser_link.stl"/>
+        <mesh file="meshes_fetch/fetch_l_wheel_link.stl"/>
+        <mesh file="meshes_fetch/fetch_l_wheel_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_r_wheel_link.stl"/>
+        <mesh file="meshes_fetch/fetch_r_wheel_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_shoulder_lift_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_shoulder_lift_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_shoulder_pan_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_shoulder_pan_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_torso_lift_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_torso_lift_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_torso_fixed_link.stl"/>
+        <mesh file="meshes_fetch/fetch_upperarm_roll_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_upperarm_roll_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_wrist_flex_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_wrist_flex_link_collision.stl"/>
+        <mesh file="meshes_fetch/fetch_wrist_roll_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh file="meshes_fetch/fetch_wrist_roll_link_collision.stl"/>
+    </asset>
+    
+    <!--###############
+        ### Config: ###
+        ############### -->
+    <!-- DEFAULT -->
+    <default>
+        <!-- The class-name being specified under default maps back to the class-names being specified for a body (childclass/class) , or  -->
+        <!-- These names have to be unique; it must not clash with class-names for un-intended bodies/joints/geometries -->
+        <default class="fetch">
+        </default>
+        <default class="fetch/whl">
+            <!-- class-names for joints -->
+            <joint axis="0 1 0" damping="0.55"/>
+            <!-- By default, hinge-type is the default joint type -->
+            <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-joint -->
+        </default>
+        <default class="fetch/torso">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 0 1" damping="0.55" limited="true" range="0 0.38615"/>
+        </default>
+        <default class="fetch/bellows">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 0 1" damping="0.55" limited="true" range="0 0.4"/>
+        </default>
+        <default class="fetch/head_pan">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 0 1" damping="0.55" limited="true" range="-1.57 1.57"/>
+        </default>
+        <default class="fetch/head_tilt">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 1 0" damping="0.55" limited="true" range="-0.76 1.45"/>
+        </default>
+        <default class="fetch/shoulder_pan">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 0 1" damping="0.55" limited="true" range="-1.6056 1.6056"/>
+        </default>
+        <default class="fetch/shoulder_lift">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 1 0" damping="0.55" limited="true" range="-1.221 1.518"/>
+        </default>
+        <default class="fetch/upper_arm_roll">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="1 0 0" damping="0.55" limited="false"/>
+        </default>
+        <default class="fetch/elbow_flex">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 1 0" damping="0.55" limited="true" range="-2.251 2.251"/>
+        </default>
+        <default class="fetch/fore_arm_roll">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="1 0 0" damping="0.55" limited="false"/>
+        </default>
+        <default class="fetch/wrist_flex">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="0 1 0" damping="0.55" limited="true" range="-2.16 2.16"/>
+        </default>
+        <default class="fetch/wrist_roll">
+            <!-- class-names for joints -->
+            <joint type="hinge" axis="1 0 0" damping="0.55" limited="false"/>
+        </default>
+        <default class="fetch/gripper_right_finger">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 1 0" damping="0.55" limited="true" range="0 0.05"/>
+        </default>
+        <default class="fetch/gripper_left_finger">
+            <!-- class-names for joints -->
+            <joint type="slide" axis="0 -1 0" damping="0.55" limited="true" range="0 0.05"/>
+        </default>
+
+        <default class="fetch/col">
+            <!-- class-names for geometry-type -->
+            <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.3"/>
+        </default>
+        <default class="fetch/body/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.356 0.361 0.376 1"/>
+        </default>
+        <default class="fetch/whl/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/torso_lift_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1"/>
+        </default>
+        <default class="fetch/bellows_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0 0 0 1"/>
+        </default>
+        <default class="fetch/e_stop_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0 0 1"/>
+        </default>
+        <default class="fetch/laser_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+        </default>
+        <default class="fetch/torso_fixed_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/head_pan_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.356 0.361 0.376 1"/>
+        </default>
+        <default class="fetch/head_tilt_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/shoulder_pan_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1"/>
+        </default>
+        <default class="fetch/shoulder_lift_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/upper_arm_roll_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1"/>
+        </default>
+        <default class="fetch/elbow_flex_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/fore_arm_roll_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1"/>
+        </default>
+        <default class="fetch/wrist_flex_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.086 0.506 0.767 1"/>
+        </default>
+        <default class="fetch/wrist_roll_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1"/>
+        </default>
+        <default class="fetch/gripper_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1"/>
+        </default>
+        <default class="fetch/gripper_finger_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.356 0.361 0.376 1"/>
+        </default>
+    </default>
+</mujocoinclude>
+

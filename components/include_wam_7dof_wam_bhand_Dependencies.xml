@@ -74,7 +74,34 @@
             <geom type="mesh" contype="1" conaffinity="1" group="0" rgba="0.5 0.6 0.7 0.6"/>
         </default>
         <default class="wam/viz">
-            <geom type="mesh" contype="1" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+        </default>
+        <default class="wam/shoulder_yaw_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0.8 0.8 1"/>
+        </default>
+        <default class="wam/shoulder_pitch_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam/upper_arm_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+        </default>
+        <default class="wam/elbow_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1"/>
+        </default>
+        <default class="wam/fore_arm_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0.8 0.8 1"/>
+        </default>
+        <default class="wam/wrist_yaw_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+        </default>
+        <default class="wam/wrist_pitch_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.8 0.8 0.8 1"/>
+        </default>
+        <default class="wam/wrist_palm_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.6 0.6 0.6 1"/>
+        </default>
+        <default class="wam/torque_sensor_link/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.5 0.7 1"/>
         </default>
     </default>
     

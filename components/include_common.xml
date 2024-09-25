@@ -31,10 +31,19 @@
     />
     <!-- <size nuserdata="100" njmax="500" nconmax="1000" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_actuator="12" nuser_sensor="1" /> -->
 
+    <!-- Statistic -->
+    <!-- https://mujoco.readthedocs.io/en/latest/XMLreference.html#statistic -->
+    <!-- Looka at this `center` point using the free-camera, which is located at a distance of 1.5x`extent` distance -->
+    <!-- Apparently, the camera cannot zoom to within the extent distance, so keep it small. -->
+    <!-- The value of `center` does not move the initial location of the camera view-point.-->
+    <statistic center="0 0 0" extent="1"/>
     <!-- Visual -->
     <visual>
         <map fogstart="3" fogend="5" force="0.1" znear="0.001"/>
-        <quality shadowsize="4096" offsamples="16"/>
+        <quality shadowsize="1024" offsamples="16"/>
+        <scale forcewidth="0.05" contactwidth="0.05" contactheight="0.05" 
+               connect="0.05" com="0.1" jointlength="0.1" jointwidth="0.01"
+               framelength="0.1" framewidth="0.01"/>
         <!-- <global offwidth="1960" offheight="800"/> -->
     </visual>
 

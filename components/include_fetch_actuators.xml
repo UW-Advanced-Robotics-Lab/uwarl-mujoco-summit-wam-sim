@@ -1,0 +1,94 @@
+<!-- ======================================================
+    This file is an example template for all the actuators of the full waterloo summit in the playground. 
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Jun 13, 2022
+    
+    Updates:
+        - [July 18, 2022] Added Comments based on the spec
+        - [ ] Breakaway force curve should be implemented through scripts
+        - [Nov  28, 2023] Effort controls implement to use ros_control with hw_interface (Tim van Meijel)
+====================================================== -->
+
+<mujocoinclude>
+    
+    <!-- [Fetch] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+    -->
+    <actuator>
+        <!-- [Fetch] control fetch base in an effort fashion (Arnab Joardar) -->
+        <motor name="fetch/pose/x"  joint="fetch/pose/x" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
+        <motor name="fetch/pose/y"  joint="fetch/pose/y" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
+        <motor name="fetch/orie/z"  joint="fetch/orie/z" ctrllimited="true" ctrlrange="-10.0 10.0" gear="50.0"/>
+    </actuator>
+
+    <!-- [Torso and Head] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+    -->
+    <actuator>
+        <position dampratio="1" ctrllimited="true" ctrlrange="0 0.38615"  joint="fetch/torso_lift" name='fetch/torso_lift/P'/>
+		<position dampratio="1" ctrllimited="true" ctrlrange="-1.57 1.57" joint="fetch/head_pan"   name='fetch/head_pan/P'/>
+		<position dampratio="1" ctrllimited="true" ctrlrange="-0.76 1.45" joint="fetch/head_tilt"  name='fetch/head_tilt/P'/>
+        <!-- [Torso and Head] position control mode -->
+        <motor name='fetch/torso_lift' ctrllimited="true" joint='fetch/torso_lift' ctrlrange='-80 80' gear="42"      />
+        <motor name='fetch/head_pan'   ctrllimited="true" joint='fetch/head_pan'   ctrlrange='-80 80' gear="28.25"   />
+        <motor name='fetch/head_tilt'  ctrllimited="true" joint='fetch/head_tilt'  ctrlrange='-80 80' gear="28.25"   />
+    </actuator>
+      
+    <!-- [7DOF Arm] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+    -->
+    <actuator>
+        <!-- 
+            Attributes Descriptions:
+            - gear: scakes the length of the actuator (different gain / moment arms and velocity, force)
+        -->
+        <!-- [7DOF] force control mode -->
+        <!-- Source: https://github.com/vikashplus/fetch_sim/tree/master/assets (do not give the kp-values used; delete them)-->
+        <!-- Limits: http://docs.fetchrobotics.com/FetchRobotics.pdf -->
+        <position dampratio="1" ctrllimited="true" ctrlrange="-1.6056 1.6056" joint="fetch_arm/shoulder_pan"   name='fetch_arm/shoulder_pan/P'/>
+		<position dampratio="1" ctrllimited="true" ctrlrange="-1.221 1.518"   joint="fetch_arm/shoulder_lift"  name='fetch_arm/shoulder_lift/P'/>
+		<position dampratio="1" ctrllimited="true" ctrlrange="-3.14 3.14"     joint="fetch_arm/upper_arm_roll" name='fetch_arm/upper_arm_roll/P'/>
+		<position dampratio="1" ctrllimited="true" ctrlrange="-2.251 2.251"   joint="fetch_arm/elbow_flex"     name='fetch_arm/elbow_flex/P'/>
+		<position dampratio="1" ctrllimited="true" ctrlrange="-3.14 3.14"     joint="fetch_arm/fore_arm_roll"  name='fetch_arm/fore_arm_roll/P'/>
+		<position dampratio="1" ctrllimited="true" ctrlrange="-2.16 2.16"     joint="fetch_arm/wrist_flex"     name='fetch_arm/wrist_flex/P'/>
+		<position dampratio="1" ctrllimited="true" ctrlrange="-3.14 3.14"     joint="fetch_arm/wrist_roll"     name='fetch_arm/wrist_roll/P'/>
+        <!-- Limits initialized by the URDF Files!! -->
+        <motor name='fetch_arm/shoulder_pan/F'   ctrllimited="true" joint='fetch_arm/shoulder_pan'   ctrlrange='-33.82 33.82' gear="1"      />
+        <motor name='fetch_arm/shoulder_lift/F'  ctrllimited="true" joint='fetch_arm/shoulder_lift'  ctrlrange='-131.76 131.76' gear="1"   />
+        <motor name='fetch_arm/upper_arm_roll/F' ctrllimited="true" joint='fetch_arm/upper_arm_roll' ctrlrange='-76.94 76.94' gear="1"   />
+        <motor name='fetch_arm/elbow_flex/F'     ctrllimited="true" joint='fetch_arm/elbow_flex'     ctrlrange='-66.18 66.18' gear="1"      />
+        <motor name='fetch_arm/fore_arm_roll/F'  ctrllimited="true" joint='fetch_arm/fore_arm_roll'  ctrlrange='-29.35 29.35' gear="1"     />
+        <motor name='fetch_arm/wrist_flex/F'     ctrllimited="true" joint='fetch_arm/wrist_flex'     ctrlrange='-25.70 25.70' gear="1"     />
+        <motor name='fetch_arm/wrist_roll/F'     ctrllimited="true" joint='fetch_arm/wrist_roll'     ctrlrange='-7.36 7.36' gear="1"   />
+    </actuator>
+    
+    <!-- [Gripper] 
+        - Note:
+            - The configuration below may not reflect the actual robot
+        - Position Control:
+            > Trapezoid Profile Control
+        - Velocity Control:
+            > is used during torque-close and torque-open commands (TC and TO). 
+                These commands use proportional gain multiplied by the instantaneous velocity error to control the motors. 
+                The motor torque responds for each motor controller according to: 
+                    MCn = (K / 4) * Yn
+            > K depends on the Boolean LCPG flag. If LCPG is true than K is equal to the loop control proportional gain, 
+                otherwise K is equal to the value of the “FPG” property. 
+            > Yn is the velocity error equal to control velocity multiplied by the loop control velocity coefficient 
+                minus the actual velocity.
+    -->
+    <actuator>
+        <!-- [Gripper] position control mode -->
+        <position ctrllimited="true" ctrlrange="0 .05" joint="fetch_hand/right_gripper_finger" name='fetch_hand/right_gripper_finger/P' />
+		<position ctrllimited="true" ctrlrange="0 .05" joint="fetch_hand/left_gripper_finger" name='fetch_hand/left_gripper_finger/P' />
+        <motor name='fetch_hand/right_gripper_finger' ctrllimited="true" joint='fetch_hand/right_gripper_finger' ctrlrange='-60 60' gear="1"/> 
+        <motor name='fetch_hand/left_gripper_finger'  ctrllimited="true" joint='fetch_hand/left_gripper_finger'  ctrlrange='-60 60' gear="1"/> 
+    </actuator>
+
+</mujocoinclude>    

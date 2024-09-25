@@ -17,8 +17,32 @@
     <body name="smt/base_link" childclass="summit" pos="0 0 0">
         <!-- === BASE LINK === === === === -->
         <!-- mobile body -->
-        <inertial                                                              pos="0 0 0.37" mass="125" diaginertia="1.391 6.853 6.125" />
-        <geom name="smt/viz/base_link"                      class="summit/viz" mesh="base_link_summit"/>
+        <inertial                                           pos="0 0 0.37" mass="125" diaginertia="1.391 6.853 6.125" />
+        <geom name="smt/viz/base_link"                      class="summit/body/viz" mesh="base_link_summit"/>
+
+        <!-- Front Camera -->
+        <body name="smt/front/camera" pos="0 0.362 0.373" quat="0 0 0.707107 0.707107">
+            <inertial               pos="0 0 0.015" mass="0.095"/>
+            <geom                   class="wam/viz" mesh="intel_realsense_l515"/>
+            <camera name="smt/front/camera/intel/rgb" pos="0 0 0" quat="0 0 1 0" fovy="55"/>
+        </body>
+        <!-- Rear Camera --><!-- quant=w x y z -->
+        <body name="smt/rear/camera" pos="0 -0.362 0.373" quat="0.707107 0.707107 0 0"> 
+            <inertial               pos="0 0 0.015" mass="0.095"/>
+            <geom                   class="wam/viz" mesh="intel_realsense_l515"/>
+            <camera name="smt/rear/camera/intel/rgb" pos="0 0 0" quat="0 0 1 0" fovy="55"/>
+        </body>
+
+        <!-- Add a tall pole with a camera mounted on-top and facing the rear -->
+        <!-- 0.42 is the half-length of the pole -->
+        <!-- 0.58 is the height of the top surface of the summit from the floor -->
+        <!-- <body name="smt/pole_link" pos="0 0.32 1"> 
+            <geom name="smt/viz/pole_link"                 class="summit/wheel/viz" size="0.005 0.42" type="cylinder"/>
+            <body name="smt/pole_link/camera" pos="0 0 0.44" quat="0.707107 0.707107 0 0"> 
+                <geom name="smt/viz/pole_link/camera"      class="summit/wheel/viz" mesh="intel_realsense_l515"/>
+                <camera name="smt/pole_link/camera/intel/rgb" pos="0 0 0" quat="0 0 1 0" fovy="90"/>
+            </body>
+        </body> -->
         <!-- <geom name="smt/col/base_link"                      class="summit/col" mesh="base_link_summit"/> -->
         <!-- Simplified the collision into boxes + arm rest -->
         <geom name="smt/col/base_link/box_body"             class="summit/col" pos="0 0 0.42" size="0.24 0.32 0.16" type="box"/>
@@ -38,28 +62,28 @@
         <!-- === whl LINK === === === === -->
         <!-- Mobile whls -->
         <body name="smt/whl/LF_link" pos="0 0 0">
-            <geom name="smt/viz/whl/LF"                    class="summit/viz" mesh="mecanum_LF_1"/>
+            <geom name="smt/viz/whl/LF"                    class="summit/wheel/viz" mesh="mecanum_LF_1"/>
             <geom name="smt/col/whl/LF_cylinder"           class="summit/col" pos="-0.220 0.222 0.128" quat="0.707107 0 0.707106 0" size="0.13 0.05" type="cylinder" friction="0.0001 0.001 0.001"/>
             <inertial                                                         pos="-0.220 0.222 0.128" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/>
             <!-- <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
             <joint name="smt/whl_LF"                       class="summit/whl" pos="-0.264 0.222 0.128"/>
         </body>
         <body name="smt/whl/LR_link" pos="0 0 0">
-            <geom name="smt/viz/whl/LR"                    class="summit/viz" mesh="mecanum_LR_1"/>
+            <geom name="smt/viz/whl/LR"                    class="summit/wheel/viz" mesh="mecanum_LR_1"/>
             <geom name="smt/col/whl/LR_cylinder"           class="summit/col" pos="-0.220 -0.223 0.128" quat="0.707107 0 0.707106 0" size="0.13 0.05" type="cylinder" friction="0.0001 0.001 0.001"/>
             <inertial                                                         pos="-0.220 -0.223 0.128" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/>
             <!-- <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
             <joint name="smt/whl_LR"                       class="summit/whl" pos="-0.264 -0.223 0.128"/>
         </body>
         <body name="smt/whl/RF_link" pos="0 0 0">
-            <geom name="smt/viz/whl/RF"                   class="summit/viz" mesh="mecanum_RF_1"/>
+            <geom name="smt/viz/whl/RF"                   class="summit/wheel/viz" mesh="mecanum_RF_1"/>
             <geom name="smt/col/whl/RF_cylinder"          class="summit/col" pos="0.220 0.222 0.128" quat="0.707107 0 0.707106 0" size="0.13 0.05" type="cylinder" friction="0.0001 0.001 0.001"/>
             <inertial                                                        pos="0.220 0.222 0.128" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/>
             <!-- <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
             <joint name="smt/whl_RF"                      class="summit/whl" pos="0.264 0.222 0.128"/>
         </body>
         <body name="smt/whl/RR_link" pos="0 0 0">
-            <geom name="smt/viz/whl/RR"                   class="summit/viz" mesh="mecanum_RR_1"/>
+            <geom name="smt/viz/whl/RR"                   class="summit/wheel/viz" mesh="mecanum_RR_1"/>
             <geom name="smt/col/whl/RR_cylinder"          class="summit/col" pos="0.220 -0.223 0.128" quat="0.707107 0 0.707106 0" size="0.13 0.05" type="cylinder" friction="0.0001 0.001 0.001"/>
             <inertial                                                        pos="0.220 -0.223 0.128" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/>
             <!-- <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->

@@ -4,7 +4,7 @@
         ############## -->
     <!-- WAM BHAND -->
     <asset>
-        <mesh name="map_e7_3rd_floor" file="maps_thirdfloor/map_e7_3_v6.stl" />
+        <mesh name="map_e7_3rd_floor" file="maps/maps_thirdfloor/map_e7_3_v6.stl" />
     </asset>
 
 

@@ -1,0 +1,191 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+    (This file is based on a Forklift Model imported / modified by Arnab.)
+        
+    Author      :: Arnab Joardar
+        Contacts    : ajoardar@uwaterloo.ca
+        Last edits  : Jul 3, 2024
+        
+    TODO:
+    - 
+====================================================== -->
+
+<mujocoinclude> 
+
+    <!-- Fork Lift -->
+    <body name="fork_lift/base_link" pos="0 0 0">
+        <!-- === BASE LINK === === === === -->
+        <!-- mobile body -->
+        <inertial                                           pos="0.052429 -0.17152 -0.52388" mass="769" 
+                                                            fullinertia="100 100 40 0 0 0" />
+        <geom name="fork_lift/viz/base_link"                class="fork_lift/body/viz" mesh="forklift_base_link"/>
+
+        <!-- Simplified the collision into boxes -->
+        <geom name="fork_lift/col/base_link/box_body"       class="fork_lift/col" pos="0 0 0.8" size="0.4 0.4 0.75" type="box"/>
+
+        <!-- world placement -->
+        <joint name="fork_lift/world_x" armature="0.0001" axis="0 -1 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="fork_lift/world_y" armature="0.0001" axis="1 0 0" damping="1e+11" pos="0 0 0" type="slide"></joint>
+        <joint name="fork_lift/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
+
+        <!-- control Forklift base -->
+        <joint name="fork_lift/pose/x"                      type="slide" pos="0 0 0.4" axis="0 -1 0"  damping="15"/>
+        <joint name="fork_lift/pose/y"                      type="slide" pos="0 0 0.4" axis="1 0 0"  damping="15"/>
+        <joint name="fork_lift/orie/z"                      type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
+
+        <!-- === whl LINK === === === === -->
+        <!-- Front-Left Wheel -->
+        <body name="fork_lift/rim/LF_link" pos="0.408439604987626 -0.52528500449349 -0.619553768101347" quat="0.7071068 0.7071068 0 0">
+            <geom name="fork_lift/viz/rim/LF"               class="fork_lift/rim/viz" mesh="forklift_Front_Left_Rim_Link"/>
+            <inertial                                       pos="0.077 0 0" mass="2.27" diaginertia="0.070084 0.045091 0.045091"/>
+            <joint name="fork_lift/rim_LF"                  class="fork_lift/rim" pos="0 0 0"/>
+        
+            <body name="fork_lift/whl/LF_link" pos="0 0 0" quat="1 0 0 0">
+                <geom name="fork_lift/viz/whl/LF"               class="fork_lift/wheel/viz" mesh="forklift_Front_Left_Tire_Link"/>
+                <geom name="fork_lift/col/whl/LF_cylinder"      class="fork_lift/col" pos="0 0 0" quat="0.7071068 0 0.7071068 0" size="0.305 0.15" type="cylinder" friction="0.0001 0.001 0.001"/>
+                <inertial                                       pos="0.049707 0 0" mass="6.43" diaginertia="0.49716 0.3055 0.3055"/>
+            </body>
+        </body>
+
+        <!-- Front-Right Wheel -->
+        <body name="fork_lift/rim/RF_link" pos="-0.303560395012374 -0.52528500449349 -0.619553768101347" quat="0 0 -0.7071068 0.7071068">
+            <geom name="fork_lift/viz/rim/RF"               class="fork_lift/rim/viz" mesh="forklift_Front_Right_Rim_Link"/>
+            <inertial                                       pos="0.077 0 0" mass="2.27" diaginertia="0.070084 0.045091 0.045091"/>
+            <joint name="fork_lift/rim_RF"                  class="fork_lift/rim" pos="0 0 0"/>
+        
+            <body name="fork_lift/whl/RF_link" pos="0 0 0" quat="1 0 0 0">
+                <geom name="fork_lift/viz/whl/RF"               class="fork_lift/wheel/viz" mesh="forklift_Front_Right_Tire_Link"/>
+                <geom name="fork_lift/col/whl/RF_cylinder"      class="fork_lift/col" pos="0 0 0" quat="0.7071068 0 0.7071068 0" size="0.305 0.15" type="cylinder" friction="0.0001 0.001 0.001"/>
+                <inertial                                       pos="0.049707 0 0" mass="6.43" diaginertia="0.49716 0.3055 0.3055"/>
+            </body>
+        </body>
+
+        <!-- Rear-Left Wheel -->
+        <body name="fork_lift/rim/LR_link" pos="0.408439604987626 0.674714995506509 -0.619553768101347" quat="0.7071068 0.7071068 0 0">
+            <geom name="fork_lift/viz/rim/LR"               class="fork_lift/rim/viz" mesh="forklift_Rear_Left_Rim_Link"/>
+            <inertial                                       pos="0.077 0 0" mass="2.27" diaginertia="0.070084 0.045091 0.045091"/>
+            <joint name="fork_lift/rim_LR"                  class="fork_lift/rim" pos="0 0 0"/>
+        
+            <body name="fork_lift/whl/LR_link" pos="0 0 0" quat="1 0 0 0">
+                <geom name="fork_lift/viz/whl/LR"               class="fork_lift/wheel/viz" mesh="forklift_Rear_Left_Tire_Link"/>
+                <geom name="fork_lift/col/whl/LR_cylinder"      class="fork_lift/col" pos="0 0 0" quat="0.7071068 0 0.7071068 0" size="0.305 0.15" type="cylinder" friction="0.0001 0.001 0.001"/>
+                <inertial                                       pos="0.049707 0 0" mass="6.43" diaginertia="0.49716 0.3055 0.3055"/>
+            </body>
+        </body>
+
+        <!-- Rear-Right Wheel -->
+        <body name="fork_lift/rim/RR_link" pos="-0.303560395012374 0.674714995506509 -0.619553768101347" quat="0 0 -0.7071068 0.7071068">
+            <geom name="fork_lift/viz/rim/RR"               class="fork_lift/rim/viz" mesh="forklift_Rear_Right_Rim_Link"/>
+            <inertial                                       pos="0.077 0 0" mass="2.27" diaginertia="0.070084 0.045091 0.045091"/>
+            <joint name="fork_lift/rim_RR"                  class="fork_lift/rim" pos="0 0 0"/>
+        
+            <body name="fork_lift/whl/RR_link" pos="0 0 0" quat="1 0 0 0">
+                <geom name="fork_lift/viz/whl/RR"               class="fork_lift/wheel/viz" mesh="forklift_Rear_Right_Tire_Link"/>
+                <geom name="fork_lift/col/whl/RR_cylinder"      class="fork_lift/col" pos="0 0 0" quat="0.7071068 0 0.7071068 0" size="0.305 0.15" type="cylinder" friction="0.0001 0.001 0.001"/>
+                <inertial                                       pos="0.049707 0 0" mass="6.43" diaginertia="0.49716 0.3055 0.3055"/>
+            </body>
+        </body>
+
+        <!-- === Dashboard === -->
+        <body name="fork_lift/Dashboard_link" pos="0.05244 -0.16636 -0.083365" quat="0.5 0.5 0.5 0.5">
+            <geom name="fork_lift/viz/Dashboard"            class="fork_lift/dashboard/viz" mesh="forklift_Dashboard_Link"/>
+            <inertial                                       pos="0.0108 0.2343 0" mass="11.45" diaginertia="0.93155 0.78119 0.25420"/>
+        
+            <body name="fork_lift/Steering_wheel_link" pos="-0.13652 0.075276 0" quat="1 0 0 0">
+                <geom name="fork_lift/viz/Steering_wheel_link"  class="fork_lift/steering_wheel/viz" mesh="forklift_Steering_wheel_Link"/>
+                <inertial                                       pos="0.18610 0.24062 0" mass="12.71" diaginertia="0.37329 0.26726 0.52550"/>
+            </body>
+        </body>
+
+        <!-- === Seat === -->
+        <body name="fork_lift/Seat_link" pos="0.05244 0.12897 0.15821" quat="0.7071068 0.7071068 0 0">
+            <geom name="fork_lift/viz/Seat"            class="fork_lift/seat/viz" mesh="forklift_Seat_Link"/>
+            <inertial                                  pos="0 0.14602 -0.38439" mass="5" diaginertia="0.6 0.74 0.48"/>
+        </body>
+
+        <!-- === Hydraulic links === === === === -->
+        <!-- Right Outer Frame -->
+        <body name="fork_lift/cylinder/OFR_Hydraulic_Cylinder_link" pos="0.32244 -0.29178 -0.0075055" euler="1.3756068 0 -1.5707963">
+            <geom name="fork_lift/viz/cylinder/OFR"         class="fork_lift/cylinder/viz" mesh="forklift_Outer_Frame_Right_Hydraulic_Cylinder_Link"/>
+            <inertial                                       pos="0 0 0.20110" mass="2.94" diaginertia="0.05176 0.05176 0.00412"/>
+            <!-- <joint name="fork_lift/cylinder_OFR"            class="fork_lift/cylinder" pos="0 0 -0.045"/> -->
+        
+            <body name="fork_lift/piston/OFR_Hydraulic_Piston_link" pos="0 0 0.15582" quat="0.7071068 0 0 0.7071068">
+                <geom name="fork_lift/viz/piston/OFR"           class="fork_lift/piston/viz" mesh="forklift_Outer_Frame_Right_Hydraulic_Piston_Link"/>
+                <inertial                                       pos="0 0 0.32874" mass="0.83" diaginertia="0.02926 0.02930 0.00021"/>
+                <!-- <joint name="fork_lift/piston_OFR"              class="fork_lift/piston/outer_frame" pos="0 0 0"/> -->
+            </body>
+        </body>
+        <!-- Left Outer Frame -->
+        <body name="fork_lift/cylinder/OFL_Hydraulic_Cylinder_link" pos="-0.21756 -0.29179 -0.0075055" euler="1.3756068 0 -1.5707963">
+            <geom name="fork_lift/viz/cylinder/OFL"         class="fork_lift/cylinder/viz" mesh="forklift_Outer_Frame_Left_Hydraulic_Cylinder_Link"/>
+            <inertial                                       pos="0 0 0.20110" mass="2.94" diaginertia="0.05176 0.05176 0.00412"/>
+            <!-- <joint name="fork_lift/cylinder_OFL"            class="fork_lift/cylinder" pos="0 0 -0.045"/> -->
+        
+            <body name="fork_lift/piston/OFL_Hydraulic_Piston_link" pos="0 0 0.15582" quat="0.7071068 0 0 0.7071068">
+                <geom name="fork_lift/viz/piston/OFL"           class="fork_lift/piston/viz" mesh="forklift_Outer_Frame_Left_Hydraulic_Piston_Link"/>
+                <inertial                                       pos="0 0 0.32874" mass="0.83" diaginertia="0.02926 0.02930 0.00021"/>
+                <!-- <joint name="fork_lift/piston_OFL"              class="fork_lift/piston/outer_frame" pos="0 0 0"/> -->
+            </body>
+        </body>
+        <!-- Right Middle Frame -->
+        <body name="fork_lift/cylinder/MFR_Hydraulic_Cylinder_link" pos="0.20494 -0.862785 -0.574554" quat="0.7071068 0 0 -0.7071068">
+            <geom name="fork_lift/viz/cylinder/MFR"         class="fork_lift/cylinder/viz" mesh="forklift_Middle_Frame_Right_Hydraulic_Cylinder_Link"/>
+            <inertial                                       pos="0 0 0.93162" mass="12.77" diaginertia="4.00511 4.00511 0.01831"/>
+            <!-- <joint name="fork_lift/cylinder_MFR"            class="fork_lift/cylinder" pos="0 0 -0.045"/> -->
+        
+            <body name="fork_lift/piston/MFR_Hydraulic_Piston_link" pos="0 0 0.03" quat="0.7071068 0 0 0.7071068">
+                <geom name="fork_lift/viz/piston/MFR"           class="fork_lift/piston/viz" mesh="forklift_Middle_Frame_Right_Hydraulic_Piston_Link"/>
+                <inertial                                       pos="0 0 1.03242" mass="2.68249" diaginertia="1.02032 1.02032 0.00053"/>
+                <!-- <joint name="fork_lift/piston_MFR"              class="fork_lift/piston/middle_frame" pos="0 0 0"/> -->
+            </body>
+        </body>
+        <!-- Left Middle Frame -->
+        <body name="fork_lift/cylinder/MFL_Hydraulic_Cylinder_link" pos="-0.1006 -0.862785 -0.574554" quat="0.7071068 0 0 -0.7071068">
+            <geom name="fork_lift/viz/cylinder/MFL"         class="fork_lift/cylinder/viz" mesh="forklift_Middle_Frame_Left_Hydraulic_Cylinder_Link"/>
+            <inertial                                       pos="0 0 0.93162" mass="12.77" diaginertia="4.00511 4.00511 0.01831"/>
+            <!-- <joint name="fork_lift/cylinder_MFL"            class="fork_lift/cylinder" pos="0 0 -0.045"/> -->
+        
+            <body name="fork_lift/piston/MFL_Hydraulic_Piston_link" pos="0 0 0.03" quat="0.7071068 0 0 0.7071068">
+                <geom name="fork_lift/viz/piston/MFL"           class="fork_lift/piston/viz" mesh="forklift_Middle_Frame_Left_Hydraulic_Piston_Link"/>
+                <inertial                                       pos="0 0 1.03242" mass="2.68249" diaginertia="1.02032 1.02032 0.00053"/>
+                <!-- <joint name="fork_lift/piston_MFL"              class="fork_lift/piston/middle_frame" pos="0 0 0"/> -->
+            </body>
+        </body>
+        
+        <!-- Frames -->
+        <!-- Outer Frame 0.05244 -1.03278 0.45544 -->
+        <body name="fork_lift/Outer_Frame_link" pos="0 -0.86278 -0.61955" quat="0.7071068 0.7071068 0 0">
+            <geom name="fork_lift/viz/frame/OF" class="fork_lift/frame/outer/viz" mesh="forklift_Outer_Frame_Link"/>
+            <inertial                           pos="0 1.14697 0" mass="344" fullinertia="239 20.3 249 0 0 6.3"/>
+            <!-- <joint name="fork_lift/OF"          class="fork_lift/frame/outer" pos="0 -0.862785 -0.61955"/> -->
+            <!-- Middle Frame -->
+            <body name="fork_lift/Middle_Frame_link" pos="0.05244 -0.02615 0.16291" quat="1 0 0 0">
+                <geom name="fork_lift/viz/frame/MF"  class="fork_lift/frame/middle/viz" mesh="forklift_Middle_Frame_Link"/>
+                <inertial                            pos="0 0 1.03242" mass="2.68249" diaginertia="1.02032 1.02032 0.00053"/>
+                <joint name="fork_lift/MF"           class="fork_lift/frame/middle" pos="0 0 0"/>
+                <!-- Inner Frame -->
+                <body name="fork_lift/Inner_Frame_link" pos="0 -0.02971 0.18513" quat="1 0 0 0">
+                    <geom name="fork_lift/viz/frame/IF"  class="fork_lift/frame/inner/viz" mesh="forklift_Inner_Frame_Link"/>
+                    <inertial                            pos="0 0 1.03242" mass="2.68249" diaginertia="1.02032 1.02032 0.00053"/>
+                    <joint name="fork_lift/IF"           class="fork_lift/frame/inner" pos="0 0 0"/>
+                    <!-- Left Fork -->
+                    <body name="fork_lift/Left_Fork_link" pos="0.205 0.28073 0.10298" quat="1 0 0 0">
+                        <geom name="fork_lift/viz/fork/L" class="fork_lift/fork/viz" mesh="forklift_Left_Fork_Link"/>
+                        <inertial                         pos="0.0625 -0.19522 0.17602" mass="2.68249" fullinertia="16.81530 6.88808 10.15613 0 0 4.61791"/>
+                        <!-- <joint name="fork_lift/fork/L"    class="fork_lift/fork/left" pos="0 0 0"/> -->
+                    </body>
+                    <!-- Right Fork -->
+                    <body name="fork_lift/Right_Fork_link" pos="-0.235 0.28073 0.10298" quat="1 0 0 0">
+                        <geom name="fork_lift/viz/fork/R"  class="fork_lift/fork/viz" mesh="forklift_Right_Fork_Link"/>
+                        <inertial                          pos="0.0625 -0.19522 0.17602" mass="2.68249" fullinertia="16.81530 6.88808 10.15613 0 0 4.61791"/>
+                        <!-- <joint name="fork_lift/fork/R"     class="fork_lift/fork/right" pos="0 0 0"/> -->
+                    </body>
+                </body>
+            </body>
+        </body>
+    </body>
+        
+        
+
+</mujocoinclude>

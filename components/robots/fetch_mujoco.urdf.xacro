@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="fetch">
+
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/macros.xacro" />
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/common_properties.xacro" />
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/base.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/body.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/head.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/arm.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/gripper.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/fetch/fetch_gazebo.xacro"/>
+
+    <!-- Construct Fetch Base -->
+    <!-- https://answers.ros.org/question/282902/pass-parameters-to-xacro-from-launch-file-or-otherwise/ -->
+    <xacro:arg name="prefix" default="fetch" />
+    <xacro:base prefix="$(arg prefix)"/>
+    <xacro:body prefix="$(arg prefix)"/>
+    <xacro:head prefix="$(arg prefix)"/>
+    <xacro:arm prefix="$(arg prefix)"/>
+    <xacro:gripper prefix="$(arg prefix)"/>
+
+</robot>

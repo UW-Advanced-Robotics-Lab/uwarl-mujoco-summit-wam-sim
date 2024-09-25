@@ -24,7 +24,8 @@
     <include file="../components/include_summit_wam_bhand_Dependencies.xml"/>   
     <include file="../components/include_summit_wam_bhand_actuators.xml"/>
     <include file="../components/include_nonholonomic_wagon_Dependencies.xml"/>  
-    <include file="../components/include_e7_3rd_floor_Dependencies.xml"/> 
+    <!-- <include file="../components/include_e7_3rd_floor_Dependencies.xml"/>  -->
+    <include file="../components/include_long_corridor_Dependencies.xml"/>
 
     <!--###############
         ### Config: ###
@@ -46,18 +47,21 @@
         <geom name="ground" type="plane" pos="0 0 0" size="20 20 1" conaffinity="1" contype="1" material="MatGnd" friction="0.0001 0.001 0.001" group="1"/>
 
         <!-- Robot -->
-        <body name="waterloo_steel" pos="0 0 0.0" euler="0 0 -1.57079632679">
+        <body name="waterloo_steel" pos="0 0 0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
         <!-- Wagon -->
-        <body name="wagon" pos="-3.35 0 0.0" euler="0 0 1.57079632679" >
+        <body name="wagon" pos="-3.35 0 0" euler="0 0 1.57079632679" >
             <include file="../components/include_nonholonomic_wagon_Chain.xml"/>   
         </body>
 
         <!-- E7 3rd floor -->
-        <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
+        <!-- <body name="environment" pos="-1.1 -1.35 -0.6" euler="0 0 0.03">
             <include file="../components/include_e7_3rd_floor.xml"/>   
+        </body> -->
+        <body name="environment" pos="-1.1 -1.35 0.0" euler="0 0 -1.57079632679">
+            <include file="../components/include_long_corridor.xml"/>   
         </body>
 
     </worldbody>
@@ -65,7 +69,7 @@
     <!-- Used for simulation of E7 3rd floor map -->
     <contact>
     <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
-        <exclude body1="smt/whl/LF_link" body2="e7_3rd_floor_body"/>
+        <!-- <exclude body1="smt/whl/LF_link" body2="e7_3rd_floor_body"/>
         <exclude body1="smt/whl/RF_link" body2="e7_3rd_floor_body"/>
         <exclude body1="smt/whl/LR_link" body2="e7_3rd_floor_body"/>
         <exclude body1="smt/whl/RR_link" body2="e7_3rd_floor_body"/>
@@ -83,7 +87,27 @@
         <exclude body1="wagon/handle" body2="e7_3rd_floor_body"/>
         <exclude body1="wagon/handle2" body2="e7_3rd_floor_body"/>
         <exclude body1="utility/wagon" body2="e7_3rd_floor_body"/>
-        <exclude body1="wagon/wire_frame" body2="e7_3rd_floor_body"/>
+        <exclude body1="wagon/wire_frame" body2="e7_3rd_floor_body"/> -->
+
+        <exclude body1="smt/whl/LF_link" body2="long_corridor_body"/>
+        <exclude body1="smt/whl/RF_link" body2="long_corridor_body"/>
+        <exclude body1="smt/whl/LR_link" body2="long_corridor_body"/>
+        <exclude body1="smt/whl/RR_link" body2="long_corridor_body"/>
+        <exclude body1="smt/base_link" body2="long_corridor_body"/>
+        <exclude body1="wagon/LF" body2="long_corridor_body"/>
+        <exclude body1="wagon/RF" body2="long_corridor_body"/>
+        <exclude body1="wagon/RR" body2="long_corridor_body"/>
+        <exclude body1="wagon/LR" body2="long_corridor_body"/>
+        <exclude body1="smt/base_link" body2="long_corridor_body"/>
+        <exclude body1="wagon/LF/whl" body2="long_corridor_body"/>
+        <exclude body1="wagon/RF/whl" body2="long_corridor_body"/>
+        <exclude body1="wagon/RR/whl" body2="long_corridor_body"/>
+        <exclude body1="wagon/LR/whl" body2="long_corridor_body"/>
+        <exclude body1="wagon/pocket" body2="long_corridor_body"/>
+        <exclude body1="wagon/handle" body2="long_corridor_body"/>
+        <exclude body1="wagon/handle2" body2="long_corridor_body"/>
+        <exclude body1="utility/wagon" body2="long_corridor_body"/>
+        <exclude body1="wagon/wire_frame" body2="long_corridor_body"/>
     
     </contact>
     
