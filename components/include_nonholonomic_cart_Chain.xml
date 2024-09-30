@@ -84,10 +84,22 @@
         </body>
 
         <!-- Handle -->
-        <body name="cart/handle_link" pos="0.263991199548651 0.111546221439391 0.00397821116739353" quat="0.7071068 0.7071068 0 0">
+        <!-- <body name="cart/handle_link" pos="0.263991199548651 0.111546221439391 0.00397821116739353" quat="0.7071068 0.7071068 0 0">
             <geom name="cart/viz/handle"                class="cart/handle/viz" mesh="handle_link"/>
             <geom name="cart/col/handle"                class="cart/col" mesh="handle_link"/>
             <inertial                                   pos="0 0.269507274690265 0" mass="1.57464851050989" diaginertia="0.0949283656491046 0.0671463724810826 0.028096922870124"/>
+        </body> -->
+        <body name="cart/handle/left_cylinder" pos="0.263991 -0.128454 0.3" quat="1 0 0 0">
+            <geom name="cart/viz/handle/left_cylinder" type="cylinder" class="cart/handle/viz" size="0.02 0.3"/>
+            <geom name="cart/col/handle/left_cylinder" type="cylinder" class="cart/col" size="0.02 0.3"/>
+            <body name="cart/handle/horizontal_cylinder" pos="0 0.24 0.3" quat="0.7071068 -0.7071068 0 0">
+                <geom name="cart/viz/handle/horizontal_cylinder" type="cylinder" class="cart/handle/viz" size="0.02 0.26"/>
+                <geom name="cart/col/handle/horizontal_cylinder" type="cylinder" class="cart/col" size="0.02 0.26"/>
+            </body>
+        </body>
+        <body name="cart/handle/right_cylinder" pos="0.263991 0.351546 0.3" quat="1 0 0 0">
+            <geom name="cart/viz/handle/right_cylinder" type="cylinder" class="cart/handle/viz" size="0.02 0.3"/>
+            <geom name="cart/col/handle/right_cylinder" type="cylinder" class="cart/col" size="0.02 0.3"/>
         </body>
     </body>
         
