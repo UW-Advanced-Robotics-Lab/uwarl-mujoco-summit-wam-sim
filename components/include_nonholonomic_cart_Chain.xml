@@ -95,6 +95,12 @@
             <body name="cart/handle/horizontal_cylinder" pos="0 0.24 0.3" quat="0.7071068 -0.7071068 0 0">
                 <geom name="cart/viz/handle/horizontal_cylinder" type="cylinder" class="cart/handle/viz" size="0.02 0.26"/>
                 <geom name="cart/col/handle/horizontal_cylinder" type="cylinder" class="cart/col" size="0.02 0.26"/>
+                <!-- <body name="flexible_cylinder" pos="0.3 0 0">
+                    <composite type="cylinder" count="5 5 21" spacing="0.025">
+                        <skin texcoord="true" material="blue_sponge" rgba=".7 .7 .7 1"/>
+                        <geom type="capsule" size="0.003 0.005" contype="1" conaffinity="1" group="1" rgba=".8 .2 .1 1"/>
+                    </composite>
+                </body> -->
             </body>
         </body>
         <body name="cart/handle/right_cylinder" pos="0.263991 0.351546 0.3" quat="1 0 0 0">
