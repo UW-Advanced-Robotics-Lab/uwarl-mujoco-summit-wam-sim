@@ -1,0 +1,74 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Jack (Jianxiang) Xu
+        Contacts    : j337xu@uwaterloo.ca
+        Last edits  : Nov 30, 2023 
+
+    Brief       :: Mobile Wagon Playground
+        This is a demo playground showcasing the mobile robot,
+        configured with 7DOF WAM Arm + BHand + Summit Mobile Robot,
+        in a setting of wagon manipulation.
+
+    Updates:
+        - [Nov  30, 2023] Initial orientation of wagon and cart, map 3rd floor E7(Tim van Meijel)
+
+====================================================== -->
+
+<mujoco model="playground_wagon_manipulation(v1.0.0)">
+    
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+    <include file="../components/include_common_V1.xml"/>
+    <include file="../components/include_summit_wam_bhand_Dependencies_V1.xml"/> 
+    <include file="../components/include_summit_wam_bhand_actuators.xml"/>
+    <include file="../components/include_nonholonomic_cart_Dependencies_V1.xml"/>
+
+    <!--##################
+        ### Extension: ###
+        ################## -->
+    <extension>
+        <plugin plugin="mujoco.elasticity.solid"/>
+    </extension>
+    <asset>
+        <!-- https://unsplash.com/photos/black-textile-on-brown-wooden-table-BUDn0s7QteI -->
+        <texture name="concrete_floor" file="../components/texture/the-creativv-BUDn0s7QteI-unsplash.png" type="2d"/>
+        <material name="floor" texture="concrete_floor" reflectance="0.05"/>
+        <!-- https://www.deviantart.com/ebonykate/art/Free-textures-23-85711516 -->
+        <texture name="blue_sponge" file="../components/texture/blue_sponge.png" type="2d"/>
+        <material name="blue_sponge" texture="blue_sponge" reflectance="0.05"/>
+    </asset>
+
+    <worldbody>
+        <!-- GND -->
+        <light directional="true" cutoff="60" exponent="1" diffuse="1 1 1" specular=".1 .1 .1" pos=".1 .2 1.3" dir="-.1 -.2 -1.3"/>
+        <geom name="ground" type="plane" pos="0 0 0" size="24 24 1" conaffinity="1" contype="1" material="floor" friction="0.0001 0.001 0.001" group="1"/>
+
+        <!-- Robot -->
+        <body name="waterloo_steel" pos="3.5 0 0" euler="0 0 -1.57079632679">
+            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
+        </body>
+        
+        <!-- Cart -->
+        <body name="wagon" pos="-2.03 0.494 0.2" euler="0 0 0" >
+            <include file="../components/include_nonholonomic_cart_Chain.xml"/>
+        </body>
+
+        <!-- A flexible element -->
+        <flexcomp name="softbody" type="grid" count="24 4 4" spacing=".1 .1 .1" pos=".1 0 1.5" radius=".0" rgba="0 .7 .7 1" dim="3" mass="7">
+            <contact condim="3" solref="0.01 1" solimp=".95 .99 .0001" selfcollide="none"/>
+            <edge damping="1"/>
+            <plugin plugin="mujoco.elasticity.solid">
+                <config key="poisson" value="0.2"/>
+                <config key="young" value="5e4"/>
+            </plugin>
+        </flexcomp>
+    </worldbody>
+
+    <sensor>
+        <!-- Inserted at the wrist: force and torque sensor -->
+        <force name="force_sensor" site="force_torque_sensor"/>
+        <torque name="torque_sensor" site="force_torque_sensor"/>
+    </sensor>
+</mujoco>
