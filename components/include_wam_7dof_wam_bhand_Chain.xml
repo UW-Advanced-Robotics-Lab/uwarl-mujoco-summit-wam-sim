@@ -183,15 +183,6 @@
                                         <!-- Insert Force-Torque Sensor -->
                                         <!-- https://github.com/google-deepmind/mujoco/issues/353#issuecomment-1162445382 -->
                                         <site name="force_torque_sensor" type="box" size="0.1 0.1 0.1" rgba="0.9 0 0 0.3"/>
-                                        <flexcomp name="softbody_2" type="grid" count="4 4 4" spacing=".01 .01 .01" pos="0 0.3 0.4" radius=".0" rgba="0 0 0.7 1" dim="3" mass="1">
-                                            <contact condim="3" solref="0.01 1" solimp=".95 .99 .0001" selfcollide="none"/>
-                                            <edge damping="1"/>
-                                            <plugin plugin="mujoco.elasticity.solid">
-                                                <config key="poisson" value="0.2"/>
-                                                <config key="young" value="5e4"/>
-                                            </plugin>
-                                            <pin id="0 1 2 3 16 17 18 19 32 33 34 35 48 49 50 51"/>
-                                        </flexcomp>
                                         <!-- ### WAM BHAND 
                                             Note:
                                                 - [USER PARAMS] 0.01: mounting gap
