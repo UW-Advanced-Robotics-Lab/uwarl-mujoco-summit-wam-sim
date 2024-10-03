@@ -17,7 +17,6 @@
 
 <mujoco model="playground_wagon_manipulation(v1.0.0)">
     
-    <option integrator="implicitfast"/>
     <!--##############
         ### IMPORT ###
         ############## -->
@@ -88,7 +87,22 @@
             <geom name="sphere/col" type="sphere" size=".2" contype="1" conaffinity="1" group="0" rgba=".8 .2 .2 1"/>
             <geom name="sphere/viz" type="sphere" size=".2" contype="0" conaffinity="0" group="1" rgba=".2 .2 .2 1"/>
         </body> -->
-
+        <!-- Add a horizontal  -->
+        <body name="hor_bar" pos="0 0 0.6" quat="0.7071068 -0.7071068 0 0">
+            <geom name="cylinder_0/viz" type="cylinder" size="0.03 0.4" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+            <geom name="cylinder_0/col" type="cylinder" size="0.03 0.4" contype="1" conaffinity="1" group="0" rgba="0.3 0.3 0.3 1"/>
+        </body>
+        <!-- Add two vertical bars at either end -->
+        <!-- Left -->
+        <body name="vert_bar_left" pos="0 -0.4 0.3" quat="1 0 0 0">
+            <geom name="cylinder_left/viz" type="cylinder" size="0.03 0.3" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+            <geom name="cylinder_left/col" type="cylinder" size="0.03 0.3" contype="1" conaffinity="1" group="0" rgba="0.3 0.3 0.3 1"/>
+        </body>
+        <!-- Right -->
+        <body name="vert_bar_right" pos="0 0.4 0.3" quat="1 0 0 0">
+            <geom name="cylinder_right/viz" type="cylinder" size="0.03 0.3" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
+            <geom name="cylinder_right/col" type="cylinder" size="0.03 0.3" contype="1" conaffinity="1" group="0" rgba="0.3 0.3 0.3 1"/>
+        </body>
     </worldbody>
 
     <!-- Defining a sensor -->
@@ -101,10 +115,17 @@
         <torque name="torque_sensor" site="force_torque_sensor"/>
     </sensor>
 
-    <!-- <contact>
-        <exclude body1="cart/handle/horizontal_cylinder" body2="flexible_cylinder"/>
-        <exclude body1="cart/handle/left_cylinder" body2="flexible_cylinder"/>
-        <exclude body1="cart/handle/right_cylinder" body2="flexible_cylinder"/>
-    </contact> -->
+    <contact>
+        <!-- Palm and horizontal-bar pairs -->
+        <pair geom1="hor_bar" geom2="wam/bhand/bhand_palm_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="hor_bar" geom2="wam/bhand/finger_1/prox_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="hor_bar" geom2="wam/bhand/finger_1/med_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="hor_bar" geom2="wam/bhand/finger_1/dist_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="hor_bar" geom2="wam/bhand/finger_2/prox_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="hor_bar" geom2="wam/bhand/finger_2/med_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="hor_bar" geom2="wam/bhand/finger_2/dist_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="hor_bar" geom2="wam/bhand/finger_3/med_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="hor_bar" geom2="wam/bhand/finger_3/dist_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+    </contact>
     
 </mujoco>
