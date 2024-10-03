@@ -47,7 +47,25 @@
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p2"/>
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p3"/>
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p4"/>
-        
+        <!-- A flexible element -->
+        <!-- <flexcomp name="softbody" type="grid" count="4 4 4" spacing=".01 .01 .01" pos="0 0 0.3" radius=".0" rgba="0 0 0.7 1" dim="3" mass="1">
+            <contact condim="3" solref="0.01 1" solimp=".95 .99 .0001" selfcollide="none"/>
+            <edge damping="1"/>
+            <plugin plugin="mujoco.elasticity.solid">
+                <config key="poisson" value="0.2"/>
+                <config key="young" value="5e4"/>
+            </plugin>
+            <pin id="0 1 2 3 16 17 18 19 32 33 34 35 48 49 50 51"/>
+        </flexcomp> -->
+        <!-- <flexcomp name="palm_soft" type="grid" count="5 4 5" spacing=".01 .01 .01" pos="0 0 0.1" radius=".0" rgba="0 0 .7 1" dim="3" mass="0.02">
+            <contact condim="3" solref="0.01 1" solimp=".95 .99 .0001" selfcollide="none"/>
+            <edge damping="1"/>
+            <plugin plugin="mujoco.elasticity.solid">
+                <config key="poisson" value="0.2"/>
+                <config key="young" value="5e4"/>
+            </plugin>
+            <pin id="0 1 2 3 4 25 26 27 28 29 50 51 52 53 54 75 76 77 78 79"/>
+        </flexcomp> -->
 
         <body name="wam/bhand/finger_1/prox_link" pos="-0.025 0 0.0415" quat="0.707107 0 0 -0.707107">
             <inertial                       pos="0.030616 7.3219e-005 0.011201" mass="0.14109" fullinertia="2.0672e-005 7.4105e-005 6.8207e-005 2.6024e-007 6.3481e-006 1.7118e-008" />
