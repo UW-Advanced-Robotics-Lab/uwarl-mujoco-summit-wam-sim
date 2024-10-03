@@ -26,8 +26,8 @@
     <include file="../components/include_summit_wam_bhand_actuators.xml"/>
     <include file="../components/include_nonholonomic_cart_Dependencies.xml"/>  
 
-    <!-- <include file="../components/include_shelves_Dependencies.xml"/>
-    <include file="../components/include_walls_Dependencies.xml"/> -->
+    <include file="../components/include_shelves_Dependencies.xml"/>
+    <include file="../components/include_walls_Dependencies.xml"/>
 
     <!--##################
         ### Extension: ###
@@ -72,28 +72,18 @@
         </body>
 
         <!-- Environment -->
-        <!-- <body name="environment" pos="0 -2 0" euler="0 0 0">
+        <body name="environment" pos="0 -2 0" euler="0 0 0">
             <include file="../components/include_shelves.xml"/>
             <include file="../components/include_walls.xml"/>
-        </body> -->
-
-        <!-- A flexible element -->
-        <flexcomp name="softbody" type="grid" count="24 4 4" spacing=".1 .1 .1" pos=".1 0 1.5" radius=".0" rgba="0 .7 .7 1" dim="3" mass="7">
-            <contact condim="3" solref="0.01 1" solimp=".95 .99 .0001" selfcollide="none"/>
-            <edge damping="1"/>
-            <plugin plugin="mujoco.elasticity.solid">
-                <config key="poisson" value="0.2"/>
-                <config key="young" value="5e4"/>
-            </plugin>
-        </flexcomp>
+        </body>
         <!-- <body name="flexible_box" pos="0 0 1">
             <freejoint/>
             <composite type="box" count="7 7 7" spacing="0.04">
                 <skin texcoord="true" material="blue_sponge" rgba=".7 .7 .7 1"/>
                 <geom type="capsule" size=".015 0.02" contype="1" conaffinity="1" group="0" rgba=".8 .2 .1 1"/>
             </composite>
-        </body> -->
-        <!-- <body name="rigid_sphere" pos="0 0 2">
+        </body>
+        <body name="rigid_sphere" pos="0 0 2">
             <freejoint/>
             <geom name="sphere/col" type="sphere" size=".2" contype="1" conaffinity="1" group="0" rgba=".8 .2 .2 1"/>
             <geom name="sphere/viz" type="sphere" size=".2" contype="0" conaffinity="0" group="1" rgba=".2 .2 .2 1"/>
