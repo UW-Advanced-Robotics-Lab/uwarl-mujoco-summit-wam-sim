@@ -27,7 +27,8 @@
         impratio="1"
         gravity="0 0 -9.81"
         solver="Newton"
-        cone="elliptic" 
+        cone="elliptic"
+        integrator="implicitfast"
     />
     <!-- <size nuserdata="100" njmax="500" nconmax="1000" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1" nuser_actuator="12" nuser_sensor="1" /> -->
 
