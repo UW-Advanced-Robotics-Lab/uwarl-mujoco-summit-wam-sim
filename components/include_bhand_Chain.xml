@@ -48,23 +48,16 @@
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p3"/>
         <geom     class="wam/bhand/col" mesh="bhand_palm_link_convex_decomposition_p4"/>
         <!-- A flexible element -->
-        <flexcomp name="softbody_2" type="grid" count="4 4 4" spacing=".01 .01 .01" pos="0 0.3 0.4" radius=".0" rgba="1 0 0 1" dim="3" mass="1">
-            <contact condim="3" solref="0.01 1" solimp=".95 .99 .0001" selfcollide="none"/>
+                <!-- Cannot use Flex-comp element as it makes the simulation slow. This is already a known limitation (https://github.com/google-deepmind/mujoco/issues/2073#issue-2540375215).
+        Until it gets faster, there's no point it trying.-->
+        <!-- <flexcomp name="softbody_2" type="grid" count="6 4 4" spacing=".02 .015 .005" pos="0 0 0.08" radius=".001" rgba="1 0 0 1" dim="3" mass="1">
+            <contact condim="3" solref="0.01 1" solimp=".95 .99 .0001" selfcollide="none" internal="false"/>
             <edge damping="1"/>
             <plugin plugin="mujoco.elasticity.solid">
                 <config key="poisson" value="0.2"/>
                 <config key="young" value="5e4"/>
             </plugin>
-            <pin id="0 1 2 3 16 17 18 19 32 33 34 35 48 49 50 51"/>
-        </flexcomp>
-        <!-- <flexcomp name="palm_soft" type="grid" count="5 4 5" spacing=".01 .01 .01" pos="0 0 0.1" radius=".0" rgba="0 0 .7 1" dim="3" mass="0.02">
-            <contact condim="3" solref="0.01 1" solimp=".95 .99 .0001" selfcollide="none"/>
-            <edge damping="1"/>
-            <plugin plugin="mujoco.elasticity.solid">
-                <config key="poisson" value="0.2"/>
-                <config key="young" value="5e4"/>
-            </plugin>
-            <pin id="0 1 2 3 4 25 26 27 28 29 50 51 52 53 54 75 76 77 78 79"/>
+            <pin id="0 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92"/>
         </flexcomp> -->
 
         <body name="wam/bhand/finger_1/prox_link" pos="-0.025 0 0.0415" quat="0.707107 0 0 -0.707107">
