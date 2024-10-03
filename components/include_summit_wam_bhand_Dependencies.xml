@@ -19,6 +19,7 @@
         <mesh file="meshes_summit/mecanum_RF_1.stl"/>
         <mesh file="meshes_summit/mecanum_RR_1.stl"/>
         <mesh file="meshes_summit/arm_rest.stl"/>
+        <mesh file="meshes_sensors/intel_realsense_l515.stl"/>
     </asset>
     <!-- WAM -->
     <include file="../components/include_wam_7dof_wam_bhand_Dependencies.xml"/> 
@@ -28,7 +29,7 @@
         ############### -->
     <!-- DEFAULT -->
     <default>
-        <!-- The class0name being specified under default maps back to the class-names being specified for a body (childclass/class) , or  -->
+        <!-- The class-name being specified under default maps back to the class-names being specified for a body (childclass/class) , or  -->
         <!-- These names have to be unique; it must not clash with class-names for un-intended bodies/joints/geometries -->
         <default class="summit">
         </default>
@@ -48,6 +49,18 @@
         <default class="summit/wheel/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
         </default>
+        <default class="summit/camera/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.7 0.7 0.7 1"/>
+        </default>
     </default>
+
+    <!-- CONTACT -->
+    <contact>
+    <!-- NOTE: Exclude overlapping collision mesh to be used in contact physics.  -->
+        <exclude body1="smt/base_link" body2="smt/whl/LF_link"/>
+        <exclude body1="smt/base_link" body2="smt/whl/RF_link"/>
+        <exclude body1="smt/base_link" body2="smt/whl/RR_link"/>
+        <exclude body1="smt/base_link" body2="smt/whl/LR_link"/>
+    </contact>
 </mujocoinclude>
 
