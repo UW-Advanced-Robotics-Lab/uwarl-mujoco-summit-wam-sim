@@ -61,7 +61,7 @@
         <geom name="ground" type="plane" pos="0 0 0" size="24 24 1" conaffinity="1" contype="1" material="floor" friction="0.0001 0.001 0.001" group="1"/>
 
         <!-- Robot -->
-        <body name="waterloo_steel" pos="3.5 0 0" euler="0 0 -1.57079632679">
+        <body name="waterloo_steel" pos="0.8 0 0" euler="0 0 -1.57079632679">
             <include file="../components/include_summit_wam_bhand_Chain.xml"/>
         </body>
         
@@ -114,18 +114,24 @@
         <force name="force_sensor" site="force_torque_sensor"/>
         <torque name="torque_sensor" site="force_torque_sensor"/>
     </sensor>
-
+    <!-- Palm and horizontal-bar pairs -->
     <contact>
-        <!-- Palm and horizontal-bar pairs -->
-        <pair geom1="hor_bar" geom2="wam/bhand/bhand_palm_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
-        <pair geom1="hor_bar" geom2="wam/bhand/finger_1/prox_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
-        <pair geom1="hor_bar" geom2="wam/bhand/finger_1/med_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
-        <pair geom1="hor_bar" geom2="wam/bhand/finger_1/dist_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
-        <pair geom1="hor_bar" geom2="wam/bhand/finger_2/prox_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
-        <pair geom1="hor_bar" geom2="wam/bhand/finger_2/med_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
-        <pair geom1="hor_bar" geom2="wam/bhand/finger_2/dist_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
-        <pair geom1="hor_bar" geom2="wam/bhand/finger_3/med_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
-        <pair geom1="hor_bar" geom2="wam/bhand/finger_3/dist_link" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_palm_link_p1/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_palm_link_p2/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_palm_link_p3/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_palm_link_p4/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_1_prox_link_p1/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_1_prox_link_p2/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_1_prox_link_p3/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_1_med_link_p0/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_1_dist_link_p0/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_2_prox_link_p1/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_2_prox_link_p2/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_2_prox_link_p3/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_2_med_link_p0/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_2_dist_link_p0/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_3_med_link_p0/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
+        <pair geom1="cylinder_0/col" geom2="bhand_finger_3_dist_link_p0/col" condim="3" solref="0.01 1" solimp=".95 .99 .0001"/>
     </contact>
     
 </mujoco>
