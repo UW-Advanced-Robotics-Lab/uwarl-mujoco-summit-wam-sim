@@ -60,7 +60,7 @@
             <geom       class="wam/viz" mesh="base_link_fine"/>
             <geom       class="wam/col" mesh="base_link_convex"/>
         </body>
-        <site name="imu_sensor_site_wam_base_link" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+        <site name="imu_sensor_site_wam_base_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
 
         <body name="wam/shoulder_yaw_link" pos="0 0 0.346">
             <!-- ### Inertial Ref: (*1, pg.12) unit: [m, kg, kg * m^2] 
@@ -74,7 +74,7 @@
             <geom                   class="wam/col" mesh="shoulder_link_convex_decomposition_p2"/>
             <geom                   class="wam/col" mesh="shoulder_link_convex_decomposition_p3"/>
             <!-- Place imu sensors here. -->
-            <site name="imu_sensor_site_wam_shoulder_yaw_link" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+            <site name="imu_sensor_site_wam_shoulder_yaw_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
             
             <body name="wam/shoulder_pitch_link" pos="0 0 0" quat="0.707107 -0.707107 0 0"> 
                 <!-- ### Inertial Ref: (*1, pg.14) unit: [m, kg, kg * m^2] 
@@ -87,7 +87,7 @@
                 <geom                   class="wam/shoulder_pitch_link/viz" mesh="shoulder_pitch_link_fine"/>
                 <geom                   class="wam/col" mesh="shoulder_pitch_link_convex"/>
                 <!-- Place imu sensors here. -->
-                <site name="imu_sensor_site_wam_shoulder_pitch_link" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+                <site name="imu_sensor_site_wam_shoulder_pitch_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
 
                 <body name="wam/upper_arm_link" pos="0 0 0" quat="0.707107 0.707107 0 0">
                     <!-- ### Inertial Ref: (*1, pg.16) unit: [m, kg, kg * m^2] 
@@ -103,7 +103,7 @@
                     <geom                   class="wam/col" mesh="upper_arm_link_convex_decomposition_p1"/>
                     <geom                   class="wam/col" mesh="upper_arm_link_convex_decomposition_p2"/>
                     <!-- Place imu sensors here. -->
-                    <site name="imu_sensor_site_wam_upper_arm_link" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+                    <site name="imu_sensor_site_wam_upper_arm_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
                     
                     <body name="wam/forearm_link" pos="0.045 0 0.55" quat="0.707107 -0.707107 0 0">
                         <!-- ### Inertial Ref: (*1, pg.22) unit: [m, kg, kg * m^2]
@@ -123,7 +123,7 @@
                         <geom                   class="wam/col" mesh="forearm_link_convex_decomposition_p1" pos="-0.045 -0.0730 0" euler="1.57 0 0"/>
                         <geom                   class="wam/col" mesh="forearm_link_convex_decomposition_p2" pos="-0.045 -0.0730 0" euler="1.57 0 0"/>
                         <!-- Place imu sensors here. -->
-                        <site name="imu_sensor_site_wam_forearm_link" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+                        <site name="imu_sensor_site_wam_forearm_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
 
                         <!-- [Optional] ZED Camera on forearm link, TODO: uncertain for inertial params -->
                         <!-- <body name="wam/sensor/zed" pos="-0.18 -0.15 0" quat="0 0.707107 0 0.707107">
@@ -146,7 +146,7 @@
                             <geom                   class="wam/col" mesh="wrist_yaw_link_convex_decomposition_p1"/>
                             <geom                   class="wam/col" mesh="wrist_yaw_link_convex_decomposition_p2"/>
                             <!-- Place imu sensors here. -->
-                            <site name="imu_sensor_site_wam_wrist_yaw_link" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+                            <site name="imu_sensor_site_wam_wrist_yaw_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
 
                             <body name="wam/wrist_pitch_link" pos="0 0 0" quat="0.707107 -0.707107 0 0">
                                 <!-- ### Inertial Ref: (*1, pg.26) unit: [m, kg, kg * m^2] 
@@ -161,7 +161,7 @@
                                 <geom                   class="wam/col" mesh="wrist_pitch_link_convex_decomposition_p2"/>
                                 <geom                   class="wam/col" mesh="wrist_pitch_link_convex_decomposition_p3"/>
                                 <!-- Place imu sensors here. -->
-                                <site name="imu_sensor_site_wam_wrist_pitch_link" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+                                <site name="imu_sensor_site_wam_wrist_pitch_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
 
                                 <body name="wam/wrist_palm_link" pos="0 0 0" quat="0.707107 0.707107 0 0">
                                     <!-- ### Inertial Ref: (*1, pg.14) unit: [m, kg, kg * m^2] 
@@ -175,7 +175,7 @@
                                     <geom                   class="wam/wrist_palm_link/viz" mesh="wrist_palm_link_fine"/>
                                     <geom                   class="wam/col" mesh="wrist_palm_link_convex"/>
                                     <!-- Place imu sensors here. -->
-                                    <site name="imu_sensor_site_wam_wrist_palm_link" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+                                    <site name="imu_sensor_site_wam_wrist_palm_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
                                     
                                     <!-- [Optional] Intel Lidar Camera (*4) -->
                                     <body name="wam/camera" pos="0 0.085 0.02">
@@ -197,7 +197,7 @@
                                         <geom                   class="wam/torque_sensor_link/viz" mesh="torque_sensor_plate"/>
                                         <!-- Insert Force-Torque Sensor -->
                                         <!-- https://github.com/google-deepmind/mujoco/issues/353#issuecomment-1162445382 -->
-                                        <site name="force_torque_sensor" type="box" size="0.1 0.1 0.1" rgba="0.9 0 0 0.3"/>
+                                        <site name="force_torque_sensor" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
                                         <!-- ### WAM BHAND 
                                             Note:
                                                 - [USER PARAMS] 0.01: mounting gap
