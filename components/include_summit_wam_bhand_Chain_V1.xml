@@ -95,7 +95,7 @@
         <!-- === WAM 7DOF HAND LINK === === === === -->
         <!-- Place WAM Module Here -->
         <body name="wam_7dof_bhand" pos="0.14 0 0.405" quat="1 0 0 0">
-            <include file="../components/include_wam_7dof_wam_bhand_Chain.xml"/>
+            <include file="../components/include_wam_7dof_wam_bhand_Chain_V1.xml"/>
         </body>
     </body>
 

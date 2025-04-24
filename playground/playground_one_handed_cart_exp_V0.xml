@@ -12,6 +12,7 @@
 
     Updates:
         - [Nov  30, 2023] Initial orientation of wagon and cart, map 3rd floor E7(Tim van Meijel)
+        - Using the old MM with the friction and damping values set by Jack.
 
 ====================================================== -->
 
@@ -52,7 +53,7 @@
 
         <!-- Robot -->
         <body name="waterloo_steel" pos="-0.88 0 0" euler="0 0 3.1416">
-            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
+            <include file="../components/include_summit_wam_bhand_Chain_V0.xml"/>
         </body>
         
         <!-- Cart -->
