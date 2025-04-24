@@ -157,7 +157,7 @@
                                 -->
                                 <!-- <body name="wam/wrist_pitch_link" pos="0 0 0" > -->
                                 <inertial               pos="-0.00012262 -0.02468336 -0.01703194" mass="0.41797364" fullinertia="0.00055516 0.00045358 0.00024367 0.00000074 0.00000061 0.00004590" />
-                                <joint name="wam/J6"    range="-1.6 1.6" damping="50" frictionloss="0.5" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
+                                <joint name="wam/J6"    range="-1.6 1.6" damping="0.8" frictionloss="0.5" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
                                 <geom                   class="wam/wrist_pitch_link/viz" mesh="wrist_pitch_link_fine"/>
                                 <geom                   class="wam/col" mesh="wrist_pitch_link_convex_decomposition_p1"/>
                                 <geom                   class="wam/col" mesh="wrist_pitch_link_convex_decomposition_p2"/>
