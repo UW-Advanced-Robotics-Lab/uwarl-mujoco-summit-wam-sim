@@ -43,6 +43,8 @@
         - [June 24, 2022] ZED Camera / Intel Realsense Eye on forearm
         - [Nov 15, 2024] Added measuring-sites to the origins of the links
         - [ ] TODO: We need to calibrate / measure the damping / friction values
+        - Using a MM with lowered friction and damping values as documented in a PhD thesis.
+            https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://figshare.le.ac.uk/articles/The_WAM_arm_modelling_control_and_its_application_in_a_HMI_based_on_gaze_tracking/10165436/files/18320189.pdf&ved=2ahUKEwjL8Mbgg-eKAxUYMNAFHW_pOx4QFnoECBMQAQ&usg=AOvVaw2ZlHKpBFfDdmISZywmNKGY
 ====================================================== -->
 
 <mujocoinclude>
@@ -171,7 +173,7 @@
                                     -->
                                     <!-- <body name="wam/wrist_palm_link" pos="0 0 0"> -->
                                     <inertial               pos="-0.00007974 0.0001613 0.05176448" mass="0.06864753" fullinertia="0.00003773 0.00003806 0.00007408 -0.00000019 0.00000000 0.00000000" />
-                                    <joint name="wam/J7"    range="-2.2 2.2" damping="50" frictionloss="0.1" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
+                                    <joint name="wam/J7"    range="-2.2 2.2" damping="1" frictionloss="0.1" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
                                     <geom                   class="wam/wrist_palm_link/viz" mesh="wrist_palm_link_fine"/>
                                     <geom                   class="wam/col" mesh="wrist_palm_link_convex"/>
                                     <!-- Place imu sensors here. -->
