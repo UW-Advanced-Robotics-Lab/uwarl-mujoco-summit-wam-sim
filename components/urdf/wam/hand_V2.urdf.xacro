@@ -84,7 +84,7 @@
             <parent link="${prefix}/bhand_palm_link"/>
             <child link="${prefix}/bhand_palm_surface_link"/>
             <origin xyz="0 0 0.08" rpy="0 0 0"/>
-            <limit effort="5" lower="0" upper="${PI}" velocity="0.5"/>
+            <limit effort="5" lower="0" upper="${PI}" velocity="0.2"/>
             <dynamics damping="${0.1*b}" friction="0"/>
         </joint>
         <link name="${prefix}/bhand_palm_surface_link">
@@ -101,7 +101,7 @@
             <parent link="${prefix}/bhand_palm_link"/>
             <child link="${prefix}/bhand_grasp_link"/>
             <origin xyz="0 0 0.12" rpy="0 0 0"/>
-            <limit effort="5" lower="0" upper="${PI}" velocity="0.5"/>
+            <limit effort="5" lower="0" upper="${PI}" velocity="0.2"/>
             <dynamics damping="${0.1*b}" friction="0"/>
         </joint>
         <link name="${prefix}/bhand_grasp_link">
@@ -121,7 +121,7 @@
             <child link="${prefix}/prox_link"/>
             <origin xyz="${xyz}" rpy="${rpy}"/>
             <axis xyz="${axis}"/>
-            <limit effort="5" lower="0" upper="${PI}" velocity="0.5"/>
+            <limit effort="5" lower="0" upper="${PI}" velocity="0.2"/>
             <dynamics damping="${0.1*b}" friction="0"/>
         </joint>
         <gazebo reference="${prefix}/prox">
@@ -163,7 +163,7 @@
             <child link="${prefix}/med_link"/>
             <origin xyz="${xyz}" rpy="${rpy}"/>
             <axis xyz="0 0 1"/>
-            <limit effort="5" lower="0" upper="${140/180*PI}" velocity="0.5"/>
+            <limit effort="5" lower="0" upper="${140/180*PI}" velocity="0.2"/>
             <dynamics damping="${0.1*b}" friction="0"/>
         </joint>
         <gazebo reference="${prefix}/med">
@@ -203,7 +203,7 @@
             <child link="${prefix}/dist_link"/>
             <origin xyz="0.06994 0.003 0.0" rpy="0 0 ${PI/4}"/>
             <axis xyz="0 0 1"/>
-            <limit effort="5" lower="0" upper="${48/180*PI}" velocity="0.5"/>
+            <limit effort="5" lower="0" upper="${48/180*PI}" velocity="0.2"/>
             <dynamics damping="${0.1*b}" friction="0"/>
         </joint>
         <gazebo reference="${prefix}/dist">
