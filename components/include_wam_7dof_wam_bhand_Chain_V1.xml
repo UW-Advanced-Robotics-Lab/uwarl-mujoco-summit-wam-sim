@@ -100,7 +100,7 @@
                     -->
                     <!-- <body name="wam/upper_arm_link" pos="0 0 0"> -->
                     <inertial               pos="0.00674142 -0.00003309 0.3424923" mass="1.8028141" fullinertia="0.05911077 0.05927043 0.00324550 -0.00000738 0.00249612 -0.00001767" />
-                    <joint name="wam/J3"    range="-2.8 2.8" damping="100" frictionloss="2.3" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
+                    <joint name="wam/J3"    range="-2.8 2.8" damping="50" frictionloss="2.3" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
                     <geom                   class="wam/upper_arm_link/viz" mesh="upper_arm_link_fine"/>
                     <geom                   class="wam/col" mesh="upper_arm_link_convex_decomposition_p1"/>
                     <geom                   class="wam/col" mesh="upper_arm_link_convex_decomposition_p2"/>
