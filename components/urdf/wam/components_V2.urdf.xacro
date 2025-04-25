@@ -28,7 +28,7 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/hand.urdf.xacro"/>
+    <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/hand_V2.urdf.xacro"/>
     <xacro:include filename="$(find uwarl-mujoco-summit-wam-sim)/components/urdf/wam/common.urdf.xacro"/>
     <xacro:property name="b" value="0.5"/>
 

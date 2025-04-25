@@ -85,7 +85,7 @@
                 -->
                 <!-- <body name="wam/shoulder_pitch_link" pos="0 0 0"> -->
                 <inertial               pos="-0.00236983 -0.01542114 0.03105614" mass="3.8749" fullinertia="0.02140958 0.01558906 0.01377875 -0.00002461 0.00027172 0.00181920" />
-                <joint name="wam/J2"    range="-2.0 2.0" damping="1000" frictionloss="3.5" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
+                <joint name="wam/J2"    range="-2.0 2.0" damping="700" frictionloss="3.5" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
                 <geom                   class="wam/shoulder_pitch_link/viz" mesh="shoulder_pitch_link_fine"/>
                 <geom                   class="wam/col" mesh="shoulder_pitch_link_convex"/>
                 <!-- Place imu sensors here. -->
