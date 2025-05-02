@@ -21,9 +21,9 @@
         <geom name="cart/viz/base_link"                 class="cart/body/viz" mesh="base_link"/>
 
         <!-- Place two IMUs to get-back yaw angular-acceleration -->
-        <site name="imu_sensor_site_1_cart_base_link" pos="0.213991199548651 0.11154622143 0" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+        <site name="imu_sensor_site_1_cart_base_link" pos="0.213991199548651 0.11154622143 0" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0"/>
         <!-- Keeping the 2nd IMU-sensor 0.1 m away from the first. This value is used `state_pub_mujoco.py` when calculating the yaw angular-acceleration -->
-        <site name="imu_sensor_site_2_cart_base_link" pos="0.213991199548651 0.21154622143 0" type="box" size="0.05 0.05 0.05" rgba="0 0.9 0 0.3"/>
+        <site name="imu_sensor_site_2_cart_base_link" pos="0.213991199548651 0.21154622143 0" type="box" size="0.05 0.05 0.05" rgba="0 0.9 0 0"/>
 
         <!-- Simplified the collision into boxes -->
         <geom name="cart/col/base_link/box_body"        class="cart/col" mesh="base_link" friction="0 0 0.0001"/>
@@ -127,8 +127,8 @@
             <geom name="cart/viz/handle/left_cylinder" type="cylinder" class="cart/handle/viz" size="0.02 0.21"/>
             <geom name="cart/col/handle/left_cylinder" type="cylinder" class="cart/col" size="0.02 0.2"/>
             <body name="cart/handle/horizontal_cylinder" pos="0 0.32 0.21" quat="0.7071068 -0.7071068 0 0">
-                <geom name="cart/viz/handle/horizontal_cylinder" type="cylinder" class="cart/handle/viz" size="0.02 0.32"/>
-                <geom name="cart/col/handle/horizontal_cylinder" type="cylinder" class="cart/col" size="0.02 0.32" friction="0.01 0.005 0.0001"/>
+                <geom name="cart/viz/handle/horizontal_cylinder" type="cylinder" class="cart/handle/viz" size="0.03 0.32"/>
+                <geom name="cart/col/handle/horizontal_cylinder" type="cylinder" class="cart/col" size="0.03 0.32" friction="0.01 0.005 0.0001"/>
                 <!-- <body name="flexible_cylinder" pos="0.3 0 0">
                     <composite type="cylinder" count="5 5 21" spacing="0.025">
                         <skin texcoord="true" material="blue_sponge" rgba=".7 .7 .7 1"/>
