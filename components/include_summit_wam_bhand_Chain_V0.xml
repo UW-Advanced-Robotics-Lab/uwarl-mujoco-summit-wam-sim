@@ -60,7 +60,7 @@
         <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
 
         <!-- Place imu-sensors here. Have them rotated to match the MB control-axis | w x y z-->
-        <site name="imu_sensor_site_mb" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+        <site name="imu_sensor_site_mb" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0"/>
         <!-- === whl LINK === === === === -->
         <!-- Mobile whls -->
         <body name="smt/whl/LF_link" pos="0 0 0">
