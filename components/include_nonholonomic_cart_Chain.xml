@@ -69,7 +69,7 @@
         </body> -->
 
         <!-- Front Center Hub -->
-        <!-- <body name="cart/swivel_hub/C_link" pos="-0.376008800451349 0.11154622143 0" quat="0 0 0.7071068 0.7071068">
+        <body name="cart/swivel_hub/C_link" pos="-0.376008800451349 0.11154622143 0" quat="0 0 0.7071068 0.7071068">
             <geom name="cart/viz/C_swivel_hub"          class="cart/hub/viz" mesh="front_hub_link"/>
             <inertial                                   pos="-0.0299630112338933 -0.0291453924306544 0" mass="0.074879" diaginertia="0.00013372 0.00011036 0.00012633"/>
             <joint name="cart/C_swivel_hub"             class="cart/swivel_hub" pos="0 0 0"/>
@@ -81,13 +81,13 @@
                 <joint name="cart/FC_whl"               class="cart/whl" pos="0 0 0"/>
                 <site name="FC_whl_link" pos="0.03 0 0.05" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0.3"/>
             </body>
-        </body> -->
-        <body name="cart/spherical_wheel" pos="-0.376008800451349 0.11154622143 -0.108021788832607" quat="0 0 0.7071068 0.7071068">
+        </body>
+        <!-- <body name="cart/spherical_wheel" pos="-0.376008800451349 0.11154622143 -0.108021788832607" quat="0 0 0.7071068 0.7071068">
             <geom name="cart/viz/spherical_wheel"       type="sphere" size="0.06" contype="0" conaffinity="0" group="1"/>
             <geom name="cart/col/spherical_wheel"       type="sphere" size="0.06" contype="1" conaffinity="1" group="0"/>
             <inertial                                   pos="0 0 0" mass="0.074879" diaginertia="0.0001 0.0001 0.0001"/>
             <joint name="cart/spherical_joint"          type="ball" damping="0.0001" limited="false"/>
-        </body>
+        </body> -->
 
         <!-- Rear Left Hub -->
         <body name="cart/static_hub/L_link" pos="0.233991199548651 -0.128453778560609 -0.108021788832606" quat="0 0 0.7071068 0.7071068">
