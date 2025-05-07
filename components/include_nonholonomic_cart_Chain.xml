@@ -71,13 +71,11 @@
         <!-- Front Center Hub -->
         <body name="cart/swivel_hub/C_link" pos="-0.376008800451349 0.11154622143 0" quat="0 0 0.7071068 0.7071068">
             <geom name="cart/viz/C_swivel_hub"          class="cart/hub/viz" mesh="front_hub_link"/>
-            <inertial                                   pos="-0.0299630112338933 -0.0291453924306544 0" mass="0.074879" diaginertia="0.00013372 0.00011036 0.00012633"/>
             <joint name="cart/C_swivel_hub"             class="cart/swivel_hub" pos="0 0 0"/>
             <site name="C_swivel_hub_link" pos="-0.05 0 0.1" type="box" size="0.01 0.01 0.01" rgba="0 0.9 0 0.3"/>
             <body name="cart/whl/FC_link" pos="-0.05 -0.0880217888326065 0" quat="0 0.7071068 0 0.7071068">
                 <geom name="cart/viz/FC_whl"            class="cart/whl/viz" mesh="wheel_link"/>
                 <geom name="cart/col/FC_whl"            class="cart/whl/col" friction="0.1 0.005 0.0001"/>
-                <inertial                               pos="0 0 0" mass="0.19653" diaginertia="0.00062371 0.00033707 0.00033707"/>
                 <joint name="cart/FC_whl"               class="cart/whl" pos="0 0 0"/>
                 <site name="FC_whl_link" pos="0.03 0 0.05" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0.3"/>
             </body>
