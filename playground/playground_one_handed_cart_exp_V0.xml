@@ -25,6 +25,7 @@
     <include file="../components/include_summit_wam_bhand_Dependencies.xml"/> 
     <include file="../components/include_summit_wam_bhand_actuators.xml"/>
     <include file="../components/include_nonholonomic_cart_Dependencies.xml"/>  
+    <include file="../components/include_path_Dependencies.xml"/>
 
     <!-- <include file="../components/include_shelves_Dependencies.xml"/>
     <include file="../components/include_walls_Dependencies.xml"/> -->
@@ -60,6 +61,11 @@
         <!-- Off-setted along the +y-axis by `0.111546`m because the origin of the cart floor-base is not the same as its geometric center, because of how the mesh was generated, inspite of the cad having the same geometric center origin as intended. -->
         <body name="wagon" pos="0.2 0.111546 0.2" euler="0 0 3.1416" >
             <include file="../components/include_nonholonomic_cart_Chain.xml"/>
+        </body>
+
+        <!-- A marked path that is being followed -->
+        <body name="marked_path" pos="0 0 0" euler="0 0 0">
+            <include file="../components/include_path.xml"/>
         </body>
 
         <!-- Environment -->

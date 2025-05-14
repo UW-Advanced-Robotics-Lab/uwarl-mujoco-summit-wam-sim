@@ -1,0 +1,142 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Arnab Joardar
+        Last edits  : Feb 20  2024
+        
+====================================================== -->
+
+<mujocoinclude> 
+
+    <body name="path" pos="0 0 0">
+        <!-- Paths -->
+        <body name="path_0" pos="1.25 0 -0.005">
+            <geom name="path_0" type="box" size="1.25 0.03 0.01" class="path/viz" />
+        </body>
+
+        <body name="path_1_0" pos="2.62478649861385 0.0058536550957256 -0.005">
+            <geom name="path_1_0" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_1" pos="2.74786956855184 0.0272193614712276 -0.005">
+            <geom name="path_1_1" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_2" pos="2.86732853967379 0.0637637144244618 -0.005">
+            <geom name="path_1_2" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_3" pos="2.98129929468942 0.114916451550168 -0.005">
+            <geom name="path_1_3" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_4" pos="3.08800335808522 0.179879351493976 -0.005">
+            <geom name="path_1_4" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_5" pos="3.18577564864 0.257638689929666 -0.005">
+            <geom name="path_1_5" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_6" pos="3.27309046246044 0.346981058388234 -0.005">
+            <geom name="path_1_6" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_7" pos="3.34858528108006 0.446512299091213 -0.005">
+            <geom name="path_1_7" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_8" pos="3.41108203310421 0.554679260316517 -0.005">
+            <geom name="path_1_8" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_9" pos="3.45960547762013 0.669794032811602 -0.005">
+            <geom name="path_1_9" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_10" pos="3.49339842250523 0.790060289052816 -0.005">
+            <geom name="path_1_10" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_1_11" pos="3.51193354015692 0.913601314335604 -0.005">
+            <geom name="path_1_11" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+
+        <body name="path_2" pos="3.53 3.475 -0.005">
+            <geom name="path_2" type="box" size="0.03 2.5 0.01" class="path/viz"/>
+        </body>
+
+        <body name="path_3_0" pos="3.55536597859008 5.9133520365058 -0.005">
+            <geom name="path_3_0" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_1" pos="3.54069993926093 5.78929220092361 -0.005">
+            <geom name="path_3_1" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_2" pos="3.51068120232603 5.66802880600529 -0.005">
+            <geom name="path_3_2" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_3" pos="3.46577820013522 5.55145412647093 -0.005">
+            <geom name="path_3_3" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_4" pos="3.40669162901949 5.44138727120528 -0.005">
+            <geom name="path_3_4" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_5" pos="3.33434351515909 5.33954579667193 -0.005">
+            <geom name="path_3_5" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_6" pos="3.24986282667336 5.24751890501922 -0.005">
+            <geom name="path_3_6" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_7" pos="3.15456785645081 5.16674264511219 -0.005">
+            <geom name="path_3_7" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_8" pos="3.04994565062954 5.09847750347037 -0.005">
+            <geom name="path_3_8" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_9" pos="2.9376288037396 5.04378873479722 -0.005">
+            <geom name="path_3_9" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_10" pos="2.81936998261135 5.00352973903675 -0.005">
+            <geom name="path_3_10" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_3_11" pos="2.69701457659582 4.97832874435284 -0.005">
+            <geom name="path_3_11" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+
+        <body name="path_4" pos="7.572 5 -0.005">
+            <geom name="path_4" type="box" size="5 0.03 0.01" class="path/viz"/>
+        </body>
+
+        <body name="path_5_0" pos="12.6972583994949 4.9627253487431 -0.005">
+            <geom name="path_5_0" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_1" pos="12.8203414694329 4.94135964236759 -0.005">
+            <geom name="path_5_1" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_2" pos="12.9398004405548 4.90481528941436 -0.005">
+            <geom name="path_5_2" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_3" pos="13.0537711955705 4.85366255228865 -0.005">
+            <geom name="path_5_3" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_4" pos="13.1604752589663 4.78869965234485 -0.005">
+            <geom name="path_5_4" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_5" pos="13.2582475495211 4.71094031390916 -0.005">
+            <geom name="path_5_5" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_6" pos="13.3455623633415 4.62159794545059 -0.005">
+            <geom name="path_5_6" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_7" pos="13.4210571819611 4.52206670474761 -0.005">
+            <geom name="path_5_7" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_8" pos="13.4835539339853 4.41389974352231 -0.005">
+            <geom name="path_5_8" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_9" pos="13.5320773785012 4.29878497102722 -0.005">
+            <geom name="path_5_9" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_10" pos="13.5658703233863 4.17851871478601 -0.005">
+            <geom name="path_5_10" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+        <body name="path_5_11" pos="584405441038 4.05497768950322 -0.005">
+            <geom name="path_5_11" type="cylinder" size="0.03 0.01" class="path/viz" />
+        </body>
+
+        <body name="path_6" pos="13.61 1.492 -0.005">
+            <geom name="path_6" type="box" size="0.03 2.5 0.01" class="path/viz"/>
+        </body>
+    </body>
+        
+</mujocoinclude>
+
