@@ -73,13 +73,13 @@
     -->
     <actuator>
         <!-- [WAM BHAND] position control mode -->
-        <motor name='bhand/f1/prox' ctrllimited="true" joint='bhand/f1/prox' ctrlrange='-50.1 50.1'/> 
-        <motor name='bhand/f2/prox' ctrllimited="true" joint='bhand/f2/prox' ctrlrange='-50.1 50.1' />
-        <motor name='bhand/f1/med'  ctrllimited="true" joint='bhand/f1/med'  ctrlrange='-50.1 50.1' />
-        <motor name='bhand/f2/med'  ctrllimited="true" joint='bhand/f2/med'  ctrlrange='-50.1 50.1' />
+        <motor name='bhand/f1/prox' ctrllimited="true" joint='bhand/f1/prox' ctrlrange='-100.1 100.1'/> 
+        <motor name='bhand/f2/prox' ctrllimited="true" joint='bhand/f2/prox' ctrlrange='-100.1 100.1' />
+        <motor name='bhand/f1/med'  ctrllimited="true" joint='bhand/f1/med'  ctrlrange='-100.1 100.1' />
+        <motor name='bhand/f2/med'  ctrllimited="true" joint='bhand/f2/med'  ctrlrange='-100.1 100.1' />
         <motor name='bhand/f3/med'  ctrllimited="true" joint='bhand/f3/med'  ctrlrange='-100.1 100.1' />
-        <motor name='bhand/f1/dist' ctrllimited="true" joint='bhand/f1/dist' ctrlrange='-50.1 50.1' />
-        <motor name='bhand/f2/dist' ctrllimited="true" joint='bhand/f2/dist' ctrlrange='-50.1 50.1' />
+        <motor name='bhand/f1/dist' ctrllimited="true" joint='bhand/f1/dist' ctrlrange='-100.1 100.1' />
+        <motor name='bhand/f2/dist' ctrllimited="true" joint='bhand/f2/dist' ctrlrange='-100.1 100.1' />
         <motor name='bhand/f3/dist' ctrllimited="true" joint='bhand/f3/dist' ctrlrange='-100.1 100.1' />   
     </actuator>
 
