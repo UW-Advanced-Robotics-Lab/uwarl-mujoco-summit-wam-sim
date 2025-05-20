@@ -14,10 +14,10 @@
     <!-- SUMMIT -->
     <asset>
         <mesh file="meshes_summit/base_link_summit.stl"/>
-        <mesh file="meshes_summit/mecanum_LF_1.stl"/>
-        <mesh file="meshes_summit/mecanum_LR_1.stl"/>
-        <mesh file="meshes_summit/mecanum_RF_1.stl"/>
-        <mesh file="meshes_summit/mecanum_RR_1.stl"/>
+        <mesh file="meshes_summit/mecanum_LF_1.stl" refpos="-0.222 0.22 0.128"/>
+        <mesh file="meshes_summit/mecanum_LR_1.stl" refpos="-0.222 -0.22 0.128"/>
+        <mesh file="meshes_summit/mecanum_RF_1.stl" refpos="0.223 0.22 0.128"/>
+        <mesh file="meshes_summit/mecanum_RR_1.stl" refpos="0.223 -0.22 0.128"/>
         <mesh file="meshes_summit/arm_rest.stl"/>
         <mesh file="meshes_sensors/intel_realsense_l515.stl"/>
     </asset>
