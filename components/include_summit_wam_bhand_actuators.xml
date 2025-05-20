@@ -23,6 +23,11 @@
         <motor name="smt/pose/x"  joint="smt/pose/x" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
         <motor name="smt/pose/y"  joint="smt/pose/y" ctrllimited="true" ctrlrange="-10.0 10.0" gear="100.0"/>
         <motor name="smt/orie/z"  joint="smt/orie/z" ctrllimited="true" ctrlrange="-10.0 10.0" gear="50.0"/>
+        <!-- Wheel motors -->
+        <motor name="smt/whl_LF"  joint="smt/whl_LF" ctrllimited="true" ctrlrange="-10.0 10.0" gear="1.0"/>
+        <motor name="smt/whl_LR"  joint="smt/whl_LR" ctrllimited="true" ctrlrange="-10.0 10.0" gear="1.0"/>
+        <motor name="smt/whl_RF"  joint="smt/whl_RF" ctrllimited="true" ctrlrange="-10.0 10.0" gear="1.0"/>
+        <motor name="smt/whl_RR"  joint="smt/whl_RR" ctrllimited="true" ctrlrange="-10.0 10.0" gear="1.0"/>
     </actuator>
         
     <!-- [WAM 7DOF] 
