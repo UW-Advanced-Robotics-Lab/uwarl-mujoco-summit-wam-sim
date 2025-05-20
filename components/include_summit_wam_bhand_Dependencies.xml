@@ -35,7 +35,7 @@
         </default>
         <default class="summit/whl">
             <!-- class-names for joints -->
-            <joint axis="1 0 0" damping="0.55"/>
+            <joint axis="0 1 0" damping="0.55"/>
             <!-- Bydefault, hinge-type is the default joint type -->
             <!-- https://mujoco.readthedocs.io/en/stable/XMLreference.html#body-joint -->
         </default>
