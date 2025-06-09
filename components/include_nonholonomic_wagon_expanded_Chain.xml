@@ -43,6 +43,10 @@
             <geom name="wagon/col/base_link_21"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_21"/>
             <geom name="wagon/col/base_link_22"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_22"/>
         </body>
+
+        <!-- Place IMU to get-back cart state -->
+        <site name="imu_sensor_site_1_cart_base_link" pos="0.025 0.405425 0.08715" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+        
         <!-- mobile body -->
         <!-- <inertial                                                               pos="0 0 0.37" mass="100" diaginertia="0.1 0.1 0.1" /> -->
         <!-- <geom name="wagon/col/base_link"                      class="wagon/col" mesh="base_link_summit"/> -->
