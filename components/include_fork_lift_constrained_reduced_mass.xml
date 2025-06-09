@@ -33,6 +33,9 @@
         <joint name="fork_lift/pose/y"                      type="slide" pos="0 0 0.4" axis="1 0 0"  damping="15"/>
         <joint name="fork_lift/orie/z"                      type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
 
+        <!-- Place imu-sensors here. Have them rotated to match the MB control-axis | w x y z-->
+        <site name="imu_sensor_site_forklift" type="box" euler="0 0 -1.57079632679" size="0.05 0.05 0.05" rgba="0.9 0 0 0"/>
+
         <!-- === whl LINK === === === === -->
         <!-- Front-Left Wheel -->
         <body name="fork_lift/rim/LF_link" pos="0.408439604987626 -0.52528500449349 -0.619553768101347" quat="0.7071068 0.7071068 0 0">
