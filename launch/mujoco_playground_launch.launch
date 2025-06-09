@@ -21,9 +21,12 @@
      <!-- Fork Lift -->
      <arg name="launch_robot_c" default="True"/>
      <param name="launch_robot_c" value="$(arg launch_robot_c)"/>
-     <!-- Wagon -->
+     <!-- Wagon A -->
      <arg name="launch_wagon_a" default="True"/>
      <param name="launch_wagon_a" value="$(arg launch_wagon_a)"/>
+     <!-- Wagon B -->
+     <arg name="launch_wagon_b" default="True"/>
+     <param name="launch_wagon_b" value="$(arg launch_wagon_b)"/>
      
      <!-- Publish clock -->
      <node pkg="uwarl-mujoco-summit-wam-sim" type="clockpub.py" name="ClockPublisher" output="screen">\
