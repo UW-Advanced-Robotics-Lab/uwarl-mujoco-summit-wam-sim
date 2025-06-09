@@ -12,7 +12,7 @@
 
 <mujocoinclude> 
 
-    <!-- Fetch -->
+    <!-- Cart -->
     <body name="cart/base_link" pos="0 0 0">
         <!-- === BASE LINK === === === === -->
         <!-- mobile body -->
