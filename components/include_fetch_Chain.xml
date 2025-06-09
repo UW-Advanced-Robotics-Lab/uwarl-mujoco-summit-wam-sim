@@ -33,6 +33,9 @@
         <joint name="fetch/pose/y"                      type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15"/>
         <joint name="fetch/orie/z"                      type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
 
+        <!-- Place imu-sensors here. Have them rotated to match the MB control-axis | w x y z-->
+        <site name="imu_sensor_site_fetch" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0"/>
+
         <!-- === whl LINK === === === === -->
         <!-- Left Wheel -->
         <body name="fetch/whl/L_link" pos="0.0012914 0.18738 0.055325" quat="1 0 0 0">
