@@ -450,6 +450,32 @@
         <framepos name="global_pos_cart" objtype="site" objname="imu_sensor_site_1_cart_base_link"/>
         <!-- Get Cart gloabl-quaternion -->
         <framequat name="global_quat_cart" objtype="site" objname="imu_sensor_site_1_cart_base_link"/>
+
+        <!-- Fetch -->
+        <!-- Get Linear acceleration in Fetch local-frame -->
+        <accelerometer name="accelerometer_fetch" site="imu_sensor_site_fetch"/>
+        <!-- Get Linear velocity in Fetch local-frame -->
+        <velocimeter name="velocimeter_fetch" site="imu_sensor_site_fetch"/>
+        <!-- Get Angular velocity in Fetch local-frame -->
+        <gyro name="gyroscope_fetch" site="imu_sensor_site_fetch"/>
+        <!-- Get Fetch gloabl-position -->
+        <!-- “body” refers to the inertial frame of the body, while “xbody” refers to the regular frame of the body (usually centered at the joint with the parent body) -->
+        <framepos name="global_pos_fetch" objtype="site" objname="imu_sensor_site_fetch"/>
+        <!-- Get Fetch gloabl-quaternion -->
+        <framequat name="global_quat_fetch" objtype="site" objname="imu_sensor_site_fetch"/>
+
+        <!-- Forklift -->
+        <!-- Get Linear acceleration in Forklift local-frame -->
+        <accelerometer name="accelerometer_forklift" site="imu_sensor_site_forklift"/>
+        <!-- Get Linear velocity in Forklift local-frame -->
+        <velocimeter name="velocimeter_forklift" site="imu_sensor_site_forklift"/>
+        <!-- Get Angular velocity in Forklift local-frame -->
+        <gyro name="gyroscope_forklift" site="imu_sensor_site_forklift"/>
+        <!-- Get Forklift gloabl-position -->
+        <!-- “body” refers to the inertial frame of the body, while “xbody” refers to the regular frame of the body (usually centered at the joint with the parent body) -->
+        <framepos name="global_pos_forklift" objtype="site" objname="imu_sensor_site_forklift"/>
+        <!-- Get Forklift gloabl-quaternion -->
+        <framequat name="global_quat_forklift" objtype="site" objname="imu_sensor_site_forklift"/>
     </sensor>
 
     <contact>
