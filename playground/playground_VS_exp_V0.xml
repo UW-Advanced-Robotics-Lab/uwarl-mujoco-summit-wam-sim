@@ -64,13 +64,13 @@
 
         <!-- Robot -->
         <!-- -0.72 0.5 0 -->
-        <body name="waterloo_steel" pos="-0.72 0.51 0" euler="0 0 -1.57079632679">
-            <include file="../components/include_summit_wam_bhand_Chain.xml"/>
+        <body name="waterloo_steel" pos="-0.72 0.51 0" euler="0 0 0">
+            <include file="../components/include_summit_wam_bhand_Chain_V0.xml"/>
         </body>
         
         <!-- Wagon -->
         <!-- -1.36 0.02 0 | 0 0 1.57079632679 -->
-        <body name="wagon" pos="-2.03 0.494 0" euler="0 0 0" >
+        <body name="wagon" pos="-2.03 0.494 0" euler="0 0 1.57079632679" >
             <!-- <include file="../components/include_nonholonomic_wagon_Chain.xml"/> -->
             <include file="../components/include_nonholonomic_wagon_expanded_Chain.xml"/>
         </body>
