@@ -22,6 +22,7 @@ import cv2
 
 
 import rospy
+import subprocess
 
 # Ours:
 import mujoco_engine.core_engine as jx
@@ -84,7 +85,7 @@ def main():
         rate_Hz         = update_rate,
         rate_scene      = rate_plot,
         camera_config   = {#"smt/front/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":0},
-                           "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":1}
+                           "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 30, "id":1}
                         #    "smt/pole_link/camera/intel/rgb": {"width": 1980, "height":1080, "fps": 60, "id":2},
                         #    "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":3}
                            },
@@ -153,7 +154,12 @@ def main():
 if __name__ == '__main__':
     rospy.init_node('Mujocolaunch')
 
-    try: 
+    try:
+        if subprocess.run('nvidia-smi').returncode:
+            raise RuntimeError(
+                'Cannot communicate with GPU. ')
+        print('Setting environment variable to use GPU rendering:')
+        os.environ['MUJOCO_GL']='egl'
         main()
     except jx.MuJoCo_Engine_InterruptException:
         pass
