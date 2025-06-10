@@ -1,0 +1,147 @@
+<!-- ======================================================
+    Copyright UWARL (UW Mechanical and Control Lab).
+        
+    Author      :: Arnab Joardar
+        Last edits  : Feb 20, 2024
+        
+====================================================== -->
+
+<mujocoinclude> 
+
+    <body name="shelves" pos="0 0 0">
+        <!-- There are 6 sets of shelves. 3 on the right and 3 on the left -->
+        <body name="shelf_0" pos="-14 -0.5 0">
+            <geom name="shelf_0_platform_0" pos="0 0.5 0" class="shelf/platform/viz"/>
+            <geom name="shelf_0_platform_1" pos="0 0.5 0.6" class="shelf/platform/viz"/>
+            <geom name="shelf_0_platform_2" pos="0 0.5 1.2" class="shelf/platform/viz"/>
+            <geom name="shelf_0_platform_3" pos="0 0.5 1.8" class="shelf/platform/viz"/>
+            <geom name="shelf_0_platform_4" pos="0 0.5 2.4" class="shelf/platform/viz"/>
+            <geom name="shelf_0_platform_5" pos="0 0.5 3.0" class="shelf/platform/viz"/>
+            <geom name="shelf_0_leg_0" pos="-5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_1" pos="-5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_2" pos="-3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_3" pos="-3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_4" pos="-1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_5" pos="-1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_6" pos="1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_7" pos="1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_8" pos="3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_9" pos="3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_10" pos="5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_leg_11" pos="5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_0_box" pos="0 0.5 1.5" class="shelf/box/viz"/>
+        </body>
+
+        <body name="shelf_1" pos="-14 3.5 0">
+            <geom name="shelf_1_platform_0" pos="0 0.5 0" class="shelf/platform/viz"/>
+            <geom name="shelf_1_platform_1" pos="0 0.5 0.6" class="shelf/platform/viz"/>
+            <geom name="shelf_1_platform_2" pos="0 0.5 1.2" class="shelf/platform/viz"/>
+            <geom name="shelf_1_platform_3" pos="0 0.5 1.8" class="shelf/platform/viz"/>
+            <geom name="shelf_1_platform_4" pos="0 0.5 2.4" class="shelf/platform/viz"/>
+            <geom name="shelf_1_platform_5" pos="0 0.5 3.0" class="shelf/platform/viz"/>
+            <geom name="shelf_1_leg_0" pos="-5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_1" pos="-5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_2" pos="-3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_3" pos="-3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_4" pos="-1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_5" pos="-1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_6" pos="1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_7" pos="1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_8" pos="3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_9" pos="3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_10" pos="5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_leg_11" pos="5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_1_box" pos="0 0.5 1.5" class="shelf/box/viz"/>
+        </body>
+
+        <body name="shelf_2" pos="0 -0.5 0">
+            <geom name="shelf_2_platform_0" pos="0 0.5 0" class="shelf/platform/viz"/>
+            <geom name="shelf_2_platform_1" pos="0 0.5 0.6" class="shelf/platform/viz"/>
+            <geom name="shelf_2_platform_2" pos="0 0.5 1.2" class="shelf/platform/viz"/>
+            <geom name="shelf_2_platform_3" pos="0 0.5 1.8" class="shelf/platform/viz"/>
+            <geom name="shelf_2_platform_4" pos="0 0.5 2.4" class="shelf/platform/viz"/>
+            <geom name="shelf_2_platform_5" pos="0 0.5 3.0" class="shelf/platform/viz"/>
+            <geom name="shelf_2_leg_0" pos="-5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_1" pos="-5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_2" pos="-3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_3" pos="-3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_4" pos="-1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_5" pos="-1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_6" pos="1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_7" pos="1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_8" pos="3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_9" pos="3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_10" pos="5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_leg_11" pos="5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_2_box" pos="0 0.5 1.5" class="shelf/box/viz"/>
+        </body>
+
+        <body name="shelf_3" pos="0 3.5 0">
+            <geom name="shelf_3_platform_0" pos="0 0.5 0" class="shelf/platform/viz"/>
+            <geom name="shelf_3_platform_1" pos="0 0.5 0.6" class="shelf/platform/viz"/>
+            <geom name="shelf_3_platform_2" pos="0 0.5 1.2" class="shelf/platform/viz"/>
+            <geom name="shelf_3_platform_3" pos="0 0.5 1.8" class="shelf/platform/viz"/>
+            <geom name="shelf_3_platform_4" pos="0 0.5 2.4" class="shelf/platform/viz"/>
+            <geom name="shelf_3_platform_5" pos="0 0.5 3.0" class="shelf/platform/viz"/>
+            <geom name="shelf_3_leg_0" pos="-5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_1" pos="-5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_2" pos="-3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_3" pos="-3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_4" pos="-1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_5" pos="-1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_6" pos="1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_7" pos="1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_8" pos="3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_9" pos="3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_10" pos="5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_leg_11" pos="5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_3_box" pos="0 0.5 1.5" class="shelf/box/viz"/>
+        </body>
+
+        <body name="shelf_4" pos="14 -0.5 0">
+            <geom name="shelf_4_platform_0" pos="0 0.5 0" class="shelf/platform/viz"/>
+            <geom name="shelf_4_platform_1" pos="0 0.5 0.6" class="shelf/platform/viz"/>
+            <geom name="shelf_4_platform_2" pos="0 0.5 1.2" class="shelf/platform/viz"/>
+            <geom name="shelf_4_platform_3" pos="0 0.5 1.8" class="shelf/platform/viz"/>
+            <geom name="shelf_4_platform_4" pos="0 0.5 2.4" class="shelf/platform/viz"/>
+            <geom name="shelf_4_platform_5" pos="0 0.5 3.0" class="shelf/platform/viz"/>
+            <geom name="shelf_4_leg_0" pos="-5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_1" pos="-5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_2" pos="-3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_3" pos="-3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_4" pos="-1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_5" pos="-1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_6" pos="1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_7" pos="1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_8" pos="3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_9" pos="3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_10" pos="5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_leg_11" pos="5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_4_box" pos="0 0.5 1.5" class="shelf/box/viz"/>
+        </body>
+
+        <body name="shelf_5" pos="14 3.5 0">
+            <geom name="shelf_5_platform_0" pos="0 0.5 0" class="shelf/platform/viz"/>
+            <geom name="shelf_5_platform_1" pos="0 0.5 0.6" class="shelf/platform/viz"/>
+            <geom name="shelf_5_platform_2" pos="0 0.5 1.2" class="shelf/platform/viz"/>
+            <geom name="shelf_5_platform_3" pos="0 0.5 1.8" class="shelf/platform/viz"/>
+            <geom name="shelf_5_platform_4" pos="0 0.5 2.4" class="shelf/platform/viz"/>
+            <geom name="shelf_5_platform_5" pos="0 0.5 3.0" class="shelf/platform/viz"/>
+            <geom name="shelf_5_leg_0" pos="-5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_1" pos="-5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_2" pos="-3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_3" pos="-3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_4" pos="-1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_5" pos="-1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_6" pos="1 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_7" pos="1 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_8" pos="3 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_9" pos="3 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_10" pos="5 0 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_leg_11" pos="5 1 1.5" class="shelf/leg/viz"/>
+            <geom name="shelf_5_box" pos="0 0.5 1.5" class="shelf/box/viz"/>
+        </body>
+    </body>
+        
+</mujocoinclude>
+

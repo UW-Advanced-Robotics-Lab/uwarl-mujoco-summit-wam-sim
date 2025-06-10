@@ -1,0 +1,23 @@
+<mujocoinclude> 
+    <!--##############
+        ### IMPORT ###
+        ############## -->
+     <asset>
+        <!--https://www.pinterest.com/pin/822962531891993746/-->
+        <texture name="cardboard" file="../components/texture/cardboard_resized_450.png" type="cube"/>
+        <material name="cardboard" texture="cardboard" reflectance="0"/>
+    </asset>
+    <default>
+        <default class="shelf/platform/viz">
+            <geom contype="0" conaffinity="0" group="1" type="box" size="5 0.5 0.01" rgba="0.8 0.35 0.1 1"/>
+        </default>
+        <default class="shelf/leg/viz">
+            <geom contype="0" conaffinity="0" group="1" type="cylinder" size="0.03 1.5" rgba="0.8 0.35 0.1 1"/>
+        </default>
+        <default class="shelf/box/viz">
+            <geom contype="0" conaffinity="0" group="1" type="box" size="5 0.5 1.5" material="cardboard"/>
+        </default>
+    </default>
+
+</mujocoinclude>
+
