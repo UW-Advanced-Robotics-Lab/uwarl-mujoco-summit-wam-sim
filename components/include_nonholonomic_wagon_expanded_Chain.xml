@@ -44,6 +44,10 @@
             <geom name="wagon/col/base_link_22"                      class="wagon/col" mesh="Cart_outer_skeleton_collision_22"/> -->
         </body>
 
+        <body name="brown_box_0" pos="0 0 0.37" euler="0 1.57079632679 1.57079632679">
+            <geom name="brown_box_0/viz" type="box" size="0.3 0.15 0.15" contype="0" conaffinity="0" group="1" material="cardboard"/>
+        </body>
+
         <!-- Place IMU to get-back cart state -->
         <site name="imu_sensor_site_1_cart_base_link" pos="0.025 0.405425 0.08715" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0"/>
         
