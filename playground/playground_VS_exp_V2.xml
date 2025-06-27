@@ -9,7 +9,7 @@
         This is a demo playground showcasing the mobile robot,
         configured with 7DOF WAM Arm + BHand + Summit Mobile Robot,
         in a setting of wagon manipulation.
-        - For VS experiment: cart tilted, while MB aligned along intended path.
+        - For VS experiment: cart and MB aligned along intended path.
     Updates:
         - [Nov  30, 2023] Initial orientation of wagon and cart, map 3rd floor E7(Tim van Meijel)
 
@@ -65,13 +65,13 @@
 
         <!-- Robot -->
         <!-- -0.72 0.5 0 -->
-        <body name="waterloo_steel" pos="-0.814 0.45 0" euler="0 0 0">
+        <body name="waterloo_steel" pos="-1.014 0.51 0" euler="0 0 0">
             <include file="../components/include_summit_wam_bhand_Chain_V0.xml"/>
         </body>
         
         <!-- Wagon -->
         <!-- -1.36 0.02 0 | 0 0 1.57079632679 -->
-        <body name="wagon" pos="-2.0664 0.469 0" euler="0 0 1.32079872679" >
+        <body name="wagon" pos="-2.324 0.494 0" euler="0 0 1.57079632679" >
             <!-- <include file="../components/include_nonholonomic_wagon_Chain.xml"/> -->
             <include file="../components/include_nonholonomic_wagon_expanded_Chain.xml"/>
         </body>
