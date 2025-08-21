@@ -50,6 +50,12 @@ import mujoco_engine.core_engine as jx
 #  M A I N  #
 #===========#
 def main(): 
+    # https://www.geeksforgeeks.org/python/python-os-sched_setaffinity-method/
+    # Run this process on an isolated core
+    pid = 0 # Current Process
+    affinity_mask = {6} # Run it on isolated core 6
+    os.sched_setaffinity(pid, affinity_mask)
+
     home_path = os.environ["HOME"]
     # Get update frequency of engine from launch file "mujocolaunch.launch"
     freq_muj = rospy.get_param("sim_frequency_mujoco")
@@ -85,7 +91,7 @@ def main():
         rate_Hz         = update_rate,
         rate_scene      = rate_plot,
         camera_config   = {#"smt/front/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":0},
-                           "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 30, "id":1}
+                        #    "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 30, "id":1}
                         #    "smt/pole_link/camera/intel/rgb": {"width": 1980, "height":1080, "fps": 60, "id":2},
                         #    "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":3}
                            },
@@ -106,7 +112,8 @@ def main():
     while not rospy.is_shutdown():
         
         # Step engine to progress in time
-        Engine._update()
+        Engine._update(if_camera_preview=False,
+                       if_viewport_preview=False)
         
         # Set simulation time counter +1
         i+=1
