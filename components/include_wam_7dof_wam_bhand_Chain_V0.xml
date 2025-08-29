@@ -68,7 +68,7 @@
                     - frame correction to the stl: <x, z, -y>
             -->
             <inertial               pos="-0.00443422 -0.00066489 -0.12189039" mass="10.76768767" fullinertia="0.13488033 0.09046330 0.11328369 -0.00012485 0.00213041 -0.00068555" />
-            <joint name="wam/J1"    range="-2.6 2.6" damping="300" frictionloss="1" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
+            <joint name="wam/J1"    range="-2.6 2.6" damping="200" frictionloss="1" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
             <geom                   class="wam/shoulder_yaw_link/viz" mesh="shoulder_link_fine"/>
             <geom                   class="wam/col" mesh="shoulder_link_convex_decomposition_p1"/>
             <geom                   class="wam/col" mesh="shoulder_link_convex_decomposition_p2"/>
@@ -116,7 +116,7 @@
                         -->
                         <!-- <body name="wam/forearm_link" pos="0.045 0 0.55"> -->
                         <inertial               pos="-0.04001488 -0.1327162 -0.00022942" mass="2.40016804" fullinertia="0.01491672 0.00294463 0.01482922 0.00150604 0.00001741 0.00002109" />
-                        <joint name="wam/J4"    range="-0.9 3.1" damping="150" frictionloss="1" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
+                        <joint name="wam/J4"    range="-0.9 3.1" damping="100" frictionloss="1" type="hinge" limited="true" pos="0 0 0" axis="0 0 1"/>
                         <geom                   class="wam/elbow_link/viz" mesh="elbow_link_fine"/>
                         <geom                   class="wam/col" mesh="elbow_link_convex"/>
                         <geom                   class="wam/fore_arm_link/viz" mesh="forearm_link_fine" pos="-.045 -0.0730 0" euler="1.57 0 0"/>
