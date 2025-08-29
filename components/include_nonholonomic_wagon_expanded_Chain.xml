@@ -45,6 +45,7 @@
         </body>
 
         <body name="brown_box_0" pos="0 0 0.62" euler="0 1.57079632679 1.57079632679">
+            <inertial pos="0.0 0.0 0.0" mass="0.1" diaginertia="0.001 0.0001 0.001"/>
             <geom name="brown_box_0/viz" type="box" size="0.3 0.4 0.2" contype="0" conaffinity="0" group="1" material="cardboard"/>
         </body>
 
