@@ -43,7 +43,7 @@
         <map fogstart="3" fogend="5" force="0.1" znear="0.001"/>
         <quality shadowsize="1024" offsamples="16"/>
         <scale forcewidth="0.05" contactwidth="0.05" contactheight="0.05" 
-               connect="0.05" com="0.1" jointlength="1" jointwidth="0.05"
+               connect="0.05" com="0.1" jointlength="0.2" jointwidth="0.005"
                framelength="0.2" framewidth="0.03"/>
         <!-- <global offwidth="1960" offheight="800"/> -->
     </visual>
