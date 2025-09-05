@@ -85,11 +85,11 @@
 
         <!-- Place Box along corridor -->
         <!-- Origin of this box is at its geometric-center. So initialise the box above the ground. -->
-        <body name="temp_obstacle" pos="3.75 0.98 0.5" euler="0 0 0">
+        <body name="temp_obstacle" pos="3.75 0.75 0.5" euler="0 0 0">
             <!-- <joint name="temp_obstacle/free" type="free"/> -->
             <inertial pos="0.0 0.0 0.0" mass="10" diaginertia="1 1 1"/>
-            <geom name="temp_obstacle/viz" type="box" size="0.25 0.5 0.5" contype="0" conaffinity="0" group="1" material="cardboard"/>
-            <geom name="temp_obstacle/col" type="box" size="0.25 0.5 0.5" contype="1" conaffinity="1" group="0" rgba="0.9 0 0 0.7"/>
+            <geom name="temp_obstacle/viz" type="box" size="0.25 0.75 0.5" contype="0" conaffinity="0" group="1" material="cardboard"/>
+            <geom name="temp_obstacle/col" type="box" size="0.25 0.75 0.5" contype="1" conaffinity="1" group="0" rgba="0.9 0 0 0.7"/>
         </body>
 
         <!-- Placing a brown box inside the cart -->
@@ -103,13 +103,13 @@
         <!-- Placing Fork lift 1 behind the Cart-MM -->
         <!-- Depending upon how you visually orient the robot, your base joint-axis will point in a direction different from what your trajectory has been generated in. -->
         <!-- In this case, re-orient the base joint-axis such that they match the intended direction of motion w.r.t the visual orientation of the robot. Otherwise, the closed-loop traj-follower will give random results. -->
-        <body name="fork_lift_1" pos="-11.7 -0.5 1" euler="0 0 0">
+        <body name="fork_lift_1" pos="-12.5 -0.5 1" euler="0 0 0">
             <!-- <include file="../components/include_fork_lift_constrained.xml"/> -->
             <include file="../components/include_fork_lift_constrained_reduced_mass_rotated.xml"/>
         </body>
 
         <!-- Placing fetch behind the Cart-MM -->
-        <body name="fetch_1" pos="-7.7 -0.5 0.05" euler="0 0 0">
+        <body name="fetch_1" pos="-7.5 -0.5 0.05" euler="0 0 0">
             <include file="../components/include_fetch_Chain.xml"/>
         </body>
 
