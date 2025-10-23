@@ -55,41 +55,59 @@
         <joint name="smt/world_z" armature="0.0001" axis="0 0 1" damping="1e+0"  pos="0 0 0" type="slide"></joint>
 
         <!-- control summit base -->
-        <joint name="smt/pose/x"                            type="slide" pos="0 0 0.4" axis="1 0 0"  damping="15"/>
-        <joint name="smt/pose/y"                            type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15"/>
-        <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10"/>
+        <joint name="smt/pose/x"                            type="slide" pos="0 0 0.4" axis="1 0 0"  damping="15" frictionloss="0.1"/>
+        <joint name="smt/pose/y"                            type="slide" pos="0 0 0.4" axis="0 1 0"  damping="15" frictionloss="0.1"/>
+        <joint name="smt/orie/z"                            type="hinge" pos="0 0 0.4" axis="0 0 1"  damping="10" frictionloss="0.1"/>
 
         <!-- Place imu-sensors here. Have them rotated to match the MB control-axis | w x y z-->
-        <site name="imu_sensor_site_mb" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0.3"/>
+        <site name="imu_sensor_site_mb" type="box" size="0.05 0.05 0.05" rgba="0.9 0 0 0"/>
         <!-- === whl LINK === === === === -->
-        <!-- Mobile whls -->
-        <body name="smt/whl/LF_link" pos="0 0 0">
-            <geom name="smt/viz/whl/LF"                    class="summit/wheel/viz" quat="0.7071068 0 0 0.7071068" mesh="mecanum_LF_1"/>
+        <!-- Mobile whls - Rotating -->
+        <body name="smt/whl/LF_link" pos="0.222 0.22 0.128">
+            <geom name="smt/viz/whl/LF"                    class="summit/wheel/viz" quat="-0.7071068 0 0 0.7071068" mesh="mecanum_LF_1"/>
+            <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.02467 0.04411 0.02467"/>
+            <!-- <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
+            <joint name="smt/whl_LF"                       class="summit/whl" pos="0 0 0"/>
+        </body>
+        <body name="smt/whl/LR_link" pos="-0.223 0.22 0.128">
+            <geom name="smt/viz/whl/LR"                    class="summit/wheel/viz" quat="-0.7071068 0 0 0.7071068" mesh="mecanum_LR_1"/>
+            <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.02467 0.04411 0.02467"/>
+            <!-- <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
+            <joint name="smt/whl_LR"                       class="summit/whl" pos="0 0 0"/>
+        </body>
+        <body name="smt/whl/RF_link" pos="0.222 -0.22 0.128">
+            <geom name="smt/viz/whl/RF"                   class="summit/wheel/viz" quat="-0.7071068 0 0 0.7071068" mesh="mecanum_RF_1"/>
+            <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.02467 0.04411 0.02467"/>
+            <!-- <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
+            <joint name="smt/whl_RF"                      class="summit/whl" pos="0 0 0"/>
+        </body>
+        <body name="smt/whl/RR_link" pos="-0.223 -0.22 0.128">
+            <geom name="smt/viz/whl/RR"                   class="summit/wheel/viz" quat="-0.7071068 0 0 0.7071068" mesh="mecanum_RR_1"/>
+            <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.02467 0.04411 0.02467"/>
+            <!-- <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
+            <joint name="smt/whl_RR"                      class="summit/whl" pos="0 0 0"/>
+        </body>
+
+        <!-- Mobile whls - Fixed -->
+        <body name="smt/whl/LF_link_1" pos="0 0 0">
             <geom name="smt/col/whl/LF_cylinder"           class="summit/col" pos="0.222 0.22 0.128" quat="0.7071068 0.7071068 0 0" size="0.13 0.05" type="cylinder" friction="0.0001 0.001 0.001"/>
-            <inertial                                                         pos="0.222 0.22 0.128" mass="10.0" diaginertia="0.02467 0.04411 0.02467"/>
             <!-- <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
-            <joint name="smt/whl_LF"                       class="summit/whl" pos="0.222 0.22 0.128"/>
+            <joint name="smt/whl_LF_1"                       class="summit/whl" pos="0.222 0.22 0.128"/>
         </body>
-        <body name="smt/whl/LR_link" pos="0 0 0">
-            <geom name="smt/viz/whl/LR"                    class="summit/wheel/viz" quat="0.7071068 0 0 0.7071068" mesh="mecanum_LR_1"/>
+        <body name="smt/whl/LR_link_1" pos="0 0 0">
             <geom name="smt/col/whl/LR_cylinder"           class="summit/col" pos="-0.223 0.22 0.128" quat="0.7071068 0.7071068 0 0" size="0.13 0.05" type="cylinder" friction="0.0001 0.001 0.001"/>
-            <inertial                                                         pos="-0.223 0.22 0.128" mass="10.0" diaginertia="0.02467 0.04411 0.02467"/>
             <!-- <inertial                                                         pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
-            <joint name="smt/whl_LR"                       class="summit/whl" pos="-0.223 0.22 0.128"/>
+            <joint name="smt/whl_LR_1"                       class="summit/whl" pos="-0.223 0.22 0.128"/>
         </body>
-        <body name="smt/whl/RF_link" pos="0 0 0">
-            <geom name="smt/viz/whl/RF"                   class="summit/wheel/viz" quat="0.7071068 0 0 0.7071068" mesh="mecanum_RF_1"/>
+        <body name="smt/whl/RF_link_1" pos="0 0 0">
             <geom name="smt/col/whl/RF_cylinder"          class="summit/col" pos="0.222 -0.22 0.128" quat="0.7071068 0.7071068 0 0" size="0.13 0.05" type="cylinder" friction="0.0001 0.001 0.001"/>
-            <inertial                                                        pos="0.222 -0.22 0.128" mass="10.0" diaginertia="0.02467 0.04411 0.02467"/>
             <!-- <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
-            <joint name="smt/whl_RF"                      class="summit/whl" pos="0.222 -0.22 0.128"/>
+            <joint name="smt/whl_RF_1"                      class="summit/whl" pos="0.222 -0.22 0.128"/>
         </body>
-        <body name="smt/whl/RR_link" pos="0 0 0">
-            <geom name="smt/viz/whl/RR"                   class="summit/wheel/viz" quat="0.7071068 0 0 0.7071068" mesh="mecanum_RR_1"/>
+        <body name="smt/whl/RR_link_1" pos="0 0 0">
             <geom name="smt/col/whl/RR_cylinder"          class="summit/col" pos="-0.223 -0.22 0.128" quat="0.7071068 0.7071068 0 0" size="0.13 0.05" type="cylinder" friction="0.0001 0.001 0.001"/>
-            <inertial                                                        pos="-0.223 -0.22 0.128" mass="10.0" diaginertia="0.02467 0.04411 0.02467"/>
             <!-- <inertial                                                        pos="0 0 0" mass="10.0" diaginertia="0.04411 0.02467 0.02467"/> -->
-            <joint name="smt/whl_RR"                      class="summit/whl" pos="-0.223 -0.22 0.128"/>
+            <joint name="smt/whl_RR_1"                      class="summit/whl" pos="-0.223 -0.22 0.128"/>
         </body>
 
         <!-- === WAM 7DOF HAND LINK === === === === -->
