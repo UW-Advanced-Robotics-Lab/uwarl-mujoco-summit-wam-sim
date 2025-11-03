@@ -106,6 +106,35 @@
         <body name="fork_lift/Seat_link" pos="-0.60897 0.05244 0.73821" quat="0.7071068 0 0 -0.7071068">
             <geom name="fork_lift/viz/Seat"            class="fork_lift/seat/viz" mesh="forklift_Seat_Link"/>
             <inertial                                  pos="0 0.14602 -0.38439" mass="2" diaginertia="0.6 0.74 0.48"/>
+            <!-- Put a person sitting on it -->
+            <body name="fork_lift/Seat/person" pos="0 0.15 -0.18" quat="1 0 0 0">
+                <geom name="fork_lift/Seat/viz/torso"            class="fork_lift/person/uniform/viz" pos="0 0 0" size="0.15 0.1 0.3" type="box"/>
+                <inertial                                  pos="0 0 0" mass="2" diaginertia="0.6 0.74 0.48"/>
+                <!-- Add a head -->
+                <body name="fork_lift/Seat/person/head" pos="0 0 0.38" quat="1 0 0 0">
+                    <geom name="fork_lift/Seat/viz/head"            class="fork_lift/person/skin/viz" pos="0 0 0" size="0.08" type="sphere"/>
+                    <inertial                                  pos="0 0 0" mass="2" diaginertia="0.2 0.2 0.2"/>
+                </body>
+                <!-- Add two arms -->
+                <!-- Left -->
+                <body name="fork_lift/Seat/person/shoulder_L" pos="-0.18 0 0.27" euler="-2.3 -0.15 0">
+                    <geom name="fork_lift/Seat/viz/shoulder_L"            class="fork_lift/person/uniform/viz" pos="0 0 0" size="0.04" type="sphere"/>
+                    <inertial                                  pos="0 0 0" mass="0.3" diaginertia="0.01 0.01 0.01"/>
+                    <body name="fork_lift/Seat/person/arm_L" pos="0 0 0.2" quat="1 0 0 0">
+                        <geom name="fork_lift/Seat/viz/arm_L"            class="fork_lift/person/uniform/viz" pos="0 0 0" size="0.04 0.2" type="cylinder"/>
+                        <inertial                                  pos="0 0 0" mass="0.3" diaginertia="0.01 0.01 0.01"/>
+                    </body>
+                </body>
+                <!-- Right -->
+                <body name="fork_lift/Seat/person/shoulder_R" pos="0.18 0 0.27" euler="-2.3 0.15 0">
+                    <geom name="fork_lift/Seat/viz/shoulder_R"            class="fork_lift/person/uniform/viz" pos="0 0 0" size="0.04" type="sphere"/>
+                    <inertial                                  pos="0 0 0" mass="0.3" diaginertia="0.01 0.01 0.01"/>
+                    <body name="fork_lift/Seat/person/arm_R" pos="0 0 0.2" quat="1 0 0 0">
+                        <geom name="fork_lift/Seat/viz/arm_R"            class="fork_lift/person/uniform/viz" pos="0 0 0" size="0.04 0.2" type="cylinder"/>
+                        <inertial                                  pos="0 0 0" mass="0.3" diaginertia="0.01 0.01 0.01"/>
+                    </body>
+                </body>
+            </body>
         </body>
 
         <!-- === Hydraulic links === === === === -->
