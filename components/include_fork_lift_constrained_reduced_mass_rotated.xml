@@ -199,7 +199,7 @@
                 <inertial                            pos="0 0 1.03242" mass="2.68249" diaginertia="1.02032 1.02032 0.00053"/>
                 <!-- <joint name="fork_lift/MF"           class="fork_lift/frame/middle" pos="0 0 0"/> -->
                 <!-- Inner Frame -->
-                <body name="fork_lift/Inner_Frame_link" pos="0 -0.02971 0.18513" quat="1 0 0 0">
+                <body name="fork_lift/Inner_Frame_link" pos="0 0.2 0.18513" quat="1 0 0 0">
                     <geom name="fork_lift/viz/frame/IF"  class="fork_lift/frame/inner/viz" mesh="forklift_Inner_Frame_Link"/>
                     <inertial                            pos="0 0 1.03242" mass="2.68249" diaginertia="1.02032 1.02032 0.00053"/>
                     <!-- <joint name="fork_lift/IF"           class="fork_lift/frame/inner" pos="0 0 0"/> -->
@@ -214,6 +214,14 @@
                         <geom name="fork_lift/viz/fork/R"  class="fork_lift/fork/viz" mesh="forklift_Right_Fork_Link"/>
                         <inertial                          pos="0.0625 -0.19522 0.17602" mass="2.68249" diaginertia="1.02032 1.02032 0.00053"/>
                         <!-- <joint name="fork_lift/fork/R"     class="fork_lift/fork/right" pos="0 0 0"/> -->
+                    </body>
+                    <body name="fork_lift/pallet_0" pos="0 -0.15 0.6" quat="1 0 0 0">
+                        <inertial pos="0.0 0 0.0" mass="0.1" diaginertia="0.001 0.001 0.001"/>
+                        <geom name="pallet_0/viz" type="box" size="0.45 0.08 0.45" contype="0" conaffinity="0" group="1" rgba="0.16 0.42 0.75 1"/>
+                        <body name="fork_lift/brown_box_0" pos="0 0.48 0" euler="0 0 0">
+                            <inertial pos="0.0 0 0.0" mass="0.1" diaginertia="0.001 0.001 0.001"/>
+                            <geom name="fork_lift/brown_box_0/viz" type="box" size="0.45 0.4 0.45" contype="0" conaffinity="0" group="1" material="cardboard"/>
+                        </body>
                     </body>
                 </body>
             </body>
