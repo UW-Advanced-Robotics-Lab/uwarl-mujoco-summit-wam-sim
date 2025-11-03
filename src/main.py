@@ -80,7 +80,7 @@ def main():
     write_to = home_path+"/Pictures/MuJoCo_Camera"
 
     # Define viewer refresh rate
-    rate_plot = 10
+    rate_plot = 30
 
     rospy.sleep(1.0)
 
@@ -112,7 +112,7 @@ def main():
     while not rospy.is_shutdown():
         
         # Step engine to progress in time
-        Engine._update(if_camera_preview=False,
+        Engine._update(if_camera_preview=True,
                        if_viewport_preview=True)
         
         # Set simulation time counter +1
