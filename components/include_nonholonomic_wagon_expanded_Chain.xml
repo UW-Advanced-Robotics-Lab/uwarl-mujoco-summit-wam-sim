@@ -48,11 +48,11 @@
             <inertial pos="0.0 -0.25 0.0" mass="3.75" diaginertia="0.01 0.01 0.01"/>
             <geom name="brown_box_0/viz" type="box" size="0.3 0.4 0.2" contype="0" conaffinity="0" group="1" material="cardboard"/>
         </body> -->
-        <body name="brown_box_0" pos="0 0 0.37" euler="0 1.57079632679 1.57079632679">
+        <body name="brown_box_0" pos="0 -0.04 0.37" euler="0 1.57079632679 1.57079632679">
             <geom name="brown_box_0/viz" type="box" size="0.3 0.15 0.15" contype="0" conaffinity="0" group="1" material="cardboard"/>
             <body name="brown_box_1" pos="0 0.3 0" euler="0 0 0">
                 <inertial pos="0.0 0 0.0" mass="0.1" diaginertia="0.001 0.001 0.001"/>
-                <geom name="brown_box_1/viz" type="box" size="0.3 0.3 0.25" contype="0" conaffinity="0" group="1" material="cardboard"/>
+                <geom name="brown_box_1/viz" type="box" size="0.3 0.3 0.28" contype="0" conaffinity="0" group="1" material="cardboard"/>
             </body>
         </body>
 
