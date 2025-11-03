@@ -38,6 +38,7 @@
         <mesh file="meshes_forklift/forklift_Inner_Frame_Link.stl"/>
         <mesh file="meshes_forklift/forklift_Left_Fork_Link.stl"/>
         <mesh file="meshes_forklift/forklift_Right_Fork_Link.stl"/>
+        <material name="skin" shininess="0"/>
     </asset>
     
     <!--###############
@@ -112,6 +113,12 @@
         </default>
         <default class="fork_lift/seat/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.54 0.5 0.43 1"/>
+        </default>
+        <default class="fork_lift/person/uniform/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.28 0.48 0.87 1"/>
+        </default>
+        <default class="fork_lift/person/skin/viz">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.9 0.73 0.42 1" material="skin"/>
         </default>
         <default class="fork_lift/cylinder/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.9 0.8 0.33 0.1"/>
