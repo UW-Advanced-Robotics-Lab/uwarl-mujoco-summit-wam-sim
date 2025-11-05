@@ -12,7 +12,7 @@
             <geom contype="0" conaffinity="0" group="1" type="box" size="5 0.5 0.01" rgba="0.8 0.35 0.1 1"/>
         </default>
         <default class="shelf/leg/viz">
-            <geom contype="0" conaffinity="0" group="1" type="cylinder" size="0.03 1.5" rgba="0.8 0.35 0.1 1"/>
+            <geom contype="0" conaffinity="0" group="1" type="cylinder" size="0.03 1.5" rgba="0.6 0.6 0.6 1"/>
         </default>
         <default class="shelf/box/viz">
             <geom contype="0" conaffinity="0" group="1" type="box" size="5 0.5 1.5" material="cardboard"/>
