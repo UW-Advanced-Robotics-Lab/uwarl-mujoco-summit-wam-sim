@@ -127,13 +127,13 @@
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.5 0.5 0.6 1"/>
         </default>
         <default class="fork_lift/frame/outer/viz">
-            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.650980392156863 0.619607843137255 0.588235294117647 1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.86 0.44 0.08 1"/>
         </default>
         <default class="fork_lift/frame/middle/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.86 0.44 0.08 0.1"/>
         </default>
         <default class="fork_lift/frame/inner/viz">
-            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.650980392156863 0.619607843137255 0.588235294117647 1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.86 0.44 0.08 1"/>
         </default>
         <default class="fork_lift/fork/viz">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.650980392156863 0.619607843137255 0.588235294117647 1"/>
