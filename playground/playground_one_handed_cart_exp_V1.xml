@@ -27,8 +27,8 @@
     <include file="../components/include_nonholonomic_cart_Dependencies.xml"/>  
     <include file="../components/include_path_Dependencies.xml"/>
 
-    <!-- <include file="../components/include_shelves_Dependencies.xml"/>
-    <include file="../components/include_walls_Dependencies.xml"/> -->
+    <!-- <include file="../components/include_shelves_Dependencies.xml"/> -->
+    <include file="../components/include_walls_Dependencies.xml"/>
 
     <!--###############
         ### Config: ###
@@ -69,10 +69,10 @@
         </body>
 
         <!-- Environment -->
-        <!-- <body name="environment" pos="0 -2 0" euler="0 0 0">
-            <include file="../components/include_shelves.xml"/>
+        <body name="environment" pos="0 -2 0" euler="0 0 0">
+            <!-- <include file="../components/include_shelves.xml"/> -->
             <include file="../components/include_walls.xml"/>
-        </body> -->
+        </body>
         <!-- Add a horizontal  -->
         <!-- <body name="hor_bar" pos="0 0 0.6" quat="0.7071068 -0.7071068 0 0">
             <geom name="cylinder_0/viz" type="cylinder" size="0.03 0.4" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1"/>
