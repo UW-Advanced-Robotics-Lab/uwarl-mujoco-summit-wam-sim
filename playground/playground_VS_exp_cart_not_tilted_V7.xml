@@ -32,11 +32,11 @@
     <!-- <include file="../components/include_shelves_Dependencies.xml"/> -->
     <include file="../components/include_shelves_simple_Dependencies.xml"/>
     <include file="../components/include_walls_Dependencies.xml"/>
-    <include file="../components/include_fork_lift_Dependencies.xml"/>
-    <include file="../components/include_fork_lift_actuators_reduced_mass.xml"/>
+    <!-- <include file="../components/include_fork_lift_Dependencies.xml"/>
+    <include file="../components/include_fork_lift_actuators_reduced_mass.xml"/> -->
     <!-- <include file="../components/include_fork_lift_actuators.xml"/> -->
-    <include file="../components/include_fetch_Dependencies.xml"/>
-    <include file="../components/include_fetch_actuators.xml"/>
+    <!-- <include file="../components/include_fetch_Dependencies.xml"/>
+    <include file="../components/include_fetch_actuators.xml"/> -->
 
     <!--###############
         ### Config: ###
@@ -93,14 +93,14 @@
         <!-- Placing Fork lift 1 behind the Cart-MM -->
         <!-- Depending upon how you visually orient the robot, your base joint-axis will point in a direction different from what your trajectory has been generated in. -->
         <!-- In this case, re-orient the base joint-axis such that they match the intended direction of motion w.r.t the visual orientation of the robot. Otherwise, the closed-loop traj-follower will give random results. -->
-        <body name="fork_lift_1" pos="-10.59 -0.5 1" euler="0 0 0">
+        <!-- <body name="fork_lift_1" pos="-10.59 -0.5 1" euler="0 0 0">
             <include file="../components/include_fork_lift_constrained_reduced_mass_rotated.xml"/>
-        </body>
+        </body> -->
 
         <!-- Placing fetch behind the Cart-MM -->
-        <body name="fetch_1" pos="-6.59 -0.5 0.05" euler="0 0 0">
+        <!-- <body name="fetch_1" pos="-6.59 -0.5 0.05" euler="0 0 0">
             <include file="../components/include_fetch_Chain.xml"/>
-        </body>
+        </body> -->
 
     </worldbody>
 
@@ -442,31 +442,6 @@
         <!-- Get Cart gloabl-quaternion -->
         <framequat name="global_quat_cart" objtype="site" objname="imu_sensor_site_1_cart_base_link"/>
 
-        <!-- Fetch -->
-        <!-- Get Linear acceleration in Fetch local-frame -->
-        <accelerometer name="accelerometer_fetch" site="imu_sensor_site_fetch"/>
-        <!-- Get Linear velocity in Fetch local-frame -->
-        <velocimeter name="velocimeter_fetch" site="imu_sensor_site_fetch"/>
-        <!-- Get Angular velocity in Fetch local-frame -->
-        <gyro name="gyroscope_fetch" site="imu_sensor_site_fetch"/>
-        <!-- Get Fetch gloabl-position -->
-        <!-- “body” refers to the inertial frame of the body, while “xbody” refers to the regular frame of the body (usually centered at the joint with the parent body) -->
-        <framepos name="global_pos_fetch" objtype="site" objname="imu_sensor_site_fetch"/>
-        <!-- Get Fetch gloabl-quaternion -->
-        <framequat name="global_quat_fetch" objtype="site" objname="imu_sensor_site_fetch"/>
-
-        <!-- Forklift -->
-        <!-- Get Linear acceleration in Forklift local-frame -->
-        <accelerometer name="accelerometer_forklift" site="imu_sensor_site_forklift"/>
-        <!-- Get Linear velocity in Forklift local-frame -->
-        <velocimeter name="velocimeter_forklift" site="imu_sensor_site_forklift"/>
-        <!-- Get Angular velocity in Forklift local-frame -->
-        <gyro name="gyroscope_forklift" site="imu_sensor_site_forklift"/>
-        <!-- Get Forklift gloabl-position -->
-        <!-- “body” refers to the inertial frame of the body, while “xbody” refers to the regular frame of the body (usually centered at the joint with the parent body) -->
-        <framepos name="global_pos_forklift" objtype="site" objname="imu_sensor_site_forklift"/>
-        <!-- Get Forklift gloabl-quaternion -->
-        <framequat name="global_quat_forklift" objtype="site" objname="imu_sensor_site_forklift"/>
     </sensor>
 
     <contact>
