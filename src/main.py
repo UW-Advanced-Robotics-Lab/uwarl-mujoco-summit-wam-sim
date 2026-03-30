@@ -80,7 +80,7 @@ def main():
     write_to = home_path+"/Pictures/MuJoCo_Camera"
 
     # Define viewer refresh rate
-    rate_plot = 30
+    rate_plot = 20
 
     rospy.sleep(1.0)
 
@@ -91,7 +91,7 @@ def main():
         rate_Hz         = update_rate,
         rate_scene      = rate_plot,
         camera_config   = {#"smt/front/camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":0},
-                           "smt/rear/camera/intel/rgb": {"width": 1280, "height":720, "fps": 30, "id":1}
+                           "smt/rear/camera/intel/rgb": {"width": 480, "height":360, "fps": 30, "id":1}
                         #    "smt/pole_link/camera/intel/rgb": {"width": 1980, "height":1080, "fps": 60, "id":2},
                         #    "camera/intel/rgb": {"width": 1280, "height":720, "fps": 60, "id":3}
                            },
@@ -112,7 +112,7 @@ def main():
     while not rospy.is_shutdown():
         
         # Step engine to progress in time
-        Engine._update(if_camera_preview=True,
+        Engine._update(if_camera_preview=False,
                        if_viewport_preview=True)
         
         # Set simulation time counter +1
