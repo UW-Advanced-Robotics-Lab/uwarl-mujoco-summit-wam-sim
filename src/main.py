@@ -49,12 +49,7 @@ import mujoco_engine.core_engine as jx
 #===========#
 #  M A I N  #
 #===========#
-def main(): 
-    # https://www.geeksforgeeks.org/python/python-os-sched_setaffinity-method/
-    # Run this process on an isolated core
-    pid = 0 # Current Process
-    affinity_mask = {6} # Run it on isolated core 6
-    os.sched_setaffinity(pid, affinity_mask)
+def main():
 
     home_path = os.environ["HOME"]
     # Get update frequency of engine from launch file "mujocolaunch.launch"
@@ -97,7 +92,9 @@ def main():
                            },
         CAMERA_V_FACTOR = 1,
         write_to = write_to,
-        robot_list = robot_list
+        robot_list = robot_list,
+        if_camera_preview=False,
+        if_viewport_preview=True
     )
 
     # Initialize variables
@@ -112,8 +109,7 @@ def main():
     while not rospy.is_shutdown():
         
         # Step engine to progress in time
-        Engine._update(if_camera_preview=True,
-                       if_viewport_preview=True)
+        Engine._update()
         
         # Set simulation time counter +1
         i+=1
@@ -155,9 +151,6 @@ def main():
         if not no_sleep:
             r.sleep()
 
-
-
-
 if __name__ == '__main__':
     rospy.init_node('Mujocolaunch')
 
@@ -167,6 +160,9 @@ if __name__ == '__main__':
                 'Cannot communicate with GPU. ')
         print('Setting environment variable to use GPU rendering:')
         os.environ['MUJOCO_GL']='egl'
+        os.environ["PYOPENGL_PLATFORM"] = "egl"
+        
+        print(f"MUJOCO_GL: {os.environ.get('MUJOCO_GL')}")
         main()
     except jx.MuJoCo_Engine_InterruptException:
         pass
