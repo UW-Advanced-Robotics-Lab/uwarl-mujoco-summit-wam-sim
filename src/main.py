@@ -82,7 +82,7 @@ def main():
     # Define viewer refresh rate
     rate_plot = 20
 
-    rospy.sleep(1.0)
+    # rospy.sleep(1.0)
 
     Engine = jx.Mujoco_Engine(
         xml_path        = xml_path,#home_path+"/UWARL_catkin_ws/src/uwarl-mujoco-summit-wam-sim/playground/playground_mobile_wagon_grasping.xml",

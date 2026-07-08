@@ -29,8 +29,8 @@
      <param name="launch_wagon_b" value="$(arg launch_wagon_b)"/>
      
      <!-- Publish clock -->
-     <node pkg="uwarl-mujoco-summit-wam-sim" type="clockpub.py" name="ClockPublisher" output="screen">\
-     </node>
+     <!-- <node pkg="uwarl-mujoco-summit-wam-sim" type="clockpub.py" name="ClockPublisher" output="screen">\
+     </node> -->
 
      <!-- Define new robot urdf without sensors -->
      <arg name="xacro_robot_package" value="uwarl-mujoco-summit-wam-sim"/>
