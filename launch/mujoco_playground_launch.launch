@@ -42,7 +42,7 @@
      <!-- Mujoco simulation environment description file location complete address-->
      <param name="robot_model_path" value="$(eval find(xacro_robot_package) + playground_path)"/>
      <!-- Launch MoJoCo simulation environment -->
-     <node pkg="uwarl-mujoco-summit-wam-sim" type="main.py" name="Mujocolaunch" output="screen">
+     <node pkg="uwarl-mujoco-summit-wam-sim" type="main.py" name="Mujocolaunch" output="screen" launch-prefix="taskset -c 4">
      </node>
 
      <!-- Plotting package for plotting ros topics -->
