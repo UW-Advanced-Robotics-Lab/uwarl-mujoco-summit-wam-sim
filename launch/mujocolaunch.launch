@@ -41,7 +41,7 @@
         <param name="robot_description_param" value="$(arg robot_description_param)"/>
     </node>
 
-    <node pkg="uwarl-mujoco-summit-wam-sim" type="main.py" name="Mujocolaunch" output="screen">
+    <node pkg="uwarl-mujoco-summit-wam-sim" type="main.py" name="Mujocolaunch" output="screen" launch-prefix="chrt -f 99 taskset -c 0-5">
     </node>
 
     <!-- Plotting package for plotting ros topics -->

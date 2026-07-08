@@ -20,6 +20,8 @@ import os
 import numpy as np
 import cv2
 
+import gc
+import time
 
 import rospy
 import subprocess
@@ -50,6 +52,9 @@ import mujoco_engine.core_engine as jx
 #  M A I N  #
 #===========#
 def main():
+
+    # Disable automatic garbage collection
+    gc.disable()
 
     home_path = os.environ["HOME"]
     # Get update frequency of engine from launch file "mujocolaunch.launch"
@@ -105,6 +110,9 @@ def main():
     realtime = rospy.Time.now().to_time()
     no_sleep = False
 
+    # Use perf_counter for microsecond precision
+    next_step_target = time.perf_counter()
+
     # Engine update loop which tries to be real time. Checks the time difference between clocktime and simtime
     while not rospy.is_shutdown():
         
@@ -114,8 +122,8 @@ def main():
         # Set simulation time counter +1
         i+=1
 
-        # Set no_sleep variable to false to make sure the loop is kept at constant frequency
-        no_sleep = False
+        # # Set no_sleep variable to false to make sure the loop is kept at constant frequency
+        # no_sleep = False
 
         # Check frequency and compare simtime and realtime (every 100 iterations):
         if  i == 100:
@@ -141,15 +149,28 @@ def main():
             # Do not sleep for 1 step if simulation is lagging behind. This is done to avoid laging behind. 
             # When simulation lags more than 0.01 seconds behind, it will slowly catch up by not sleeping for 1 iteration 
             # every 100 iterations. This will slowly merge the simulation time with the real time. 
-            if simtime < realtime-0.01:
-                no_sleep = True
+            # if simtime < realtime-0.01:
+            #     no_sleep = True
 
             ## Used for computing frequency
             # now = rospy.Time.now().to_time()
         
-        # Check boolian to sleep or not which acts as time regulator
-        if not no_sleep:
-            r.sleep()
+        # 2. Precision Spin-Lock (Busy Wait)
+        # Advance the target time by exactly 0.005 seconds
+        next_step_target += steptime 
+        
+        # Spin the CPU until the exact fraction of a millisecond arrives
+        while time.perf_counter() < next_step_target:
+            pass 
+            
+        # Optional: Prevent the target time from winding up infinitely 
+        # if the computer genuinely freezes for a second.
+        if time.perf_counter() > next_step_target + 0.05:
+            next_step_target = time.perf_counter()
+
+        # # Check boolian to sleep or not which acts as time regulator
+        # if not no_sleep:
+        #     r.sleep()
 
 if __name__ == '__main__':
     rospy.init_node('Mujocolaunch')
