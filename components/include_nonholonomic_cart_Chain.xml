@@ -72,10 +72,12 @@
         <body name="cart/swivel_hub/C_link" pos="-0.376008800451349 0.11154622143 0" quat="0 0 0.7071068 0.7071068">
             <geom name="cart/viz/C_swivel_hub"          class="cart/hub/viz" mesh="front_hub_link"/>
             <joint name="cart/C_swivel_hub"             class="cart/swivel_hub" pos="0 0 0"/>
+            <inertial                                   pos="0.0408028663277845 0.0776485299054857 0" mass="0.072122" diaginertia="0.00013061 0.0001089 0.00012207"/>
             <site name="C_swivel_hub_link" pos="-0.05 0 0.1" type="box" size="0.01 0.01 0.01" rgba="0 0.9 0 0.3"/>
             <body name="cart/whl/FC_link" pos="-0.05 -0.0880217888326065 0" quat="0 0.7071068 0 0.7071068">
                 <geom name="cart/viz/FC_whl"            class="cart/whl/viz" mesh="wheel_link"/>
                 <geom name="cart/col/FC_whl"            class="cart/whl/col" friction="0.1 0.005 0.0001"/>
+                <inertial                               pos="0 0 0" mass="0.19653" diaginertia="0.00062371 0.00033707 0.00033707"/>
                 <joint name="cart/FC_whl"               class="cart/whl" pos="0 0 0"/>
                 <site name="FC_whl_link" pos="0.03 0 0.05" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0.3"/>
             </body>
@@ -124,9 +126,11 @@
         <body name="cart/handle/left_cylinder" pos="0.263991 -0.208454 0.21" quat="1 0 0 0">
             <geom name="cart/viz/handle/left_cylinder" type="cylinder" class="cart/handle/viz" size="0.02 0.21"/>
             <geom name="cart/col/handle/left_cylinder" type="cylinder" class="cart/col" size="0.02 0.2"/>
+            <inertial                                   pos="0.0408028663277845 0.0776485299054857 0" mass="0.072122" diaginertia="0.00013061 0.0001089 0.00012207"/>
             <body name="cart/handle/horizontal_cylinder" pos="0 0.32 0.21" quat="0.7071068 -0.7071068 0 0">
                 <geom name="cart/viz/handle/horizontal_cylinder" type="cylinder" class="cart/handle/viz" size="0.03 0.32"/>
                 <geom name="cart/col/handle/horizontal_cylinder" type="cylinder" class="cart/col" size="0.03 0.32" friction="0.01 0.005 0.0001"/>
+                <inertial                                   pos="0.0408028663277845 0.0776485299054857 0" mass="0.072122" diaginertia="0.00013061 0.0001089 0.00012207"/>
                 <!-- <body name="flexible_cylinder" pos="0.3 0 0">
                     <composite type="cylinder" count="5 5 21" spacing="0.025">
                         <skin texcoord="true" material="blue_sponge" rgba=".7 .7 .7 1"/>
@@ -138,6 +142,7 @@
         <body name="cart/handle/right_cylinder" pos="0.263991 0.431546 0.21" quat="1 0 0 0">
             <geom name="cart/viz/handle/right_cylinder" type="cylinder" class="cart/handle/viz" size="0.02 0.21"/>
             <geom name="cart/col/handle/right_cylinder" type="cylinder" class="cart/col" size="0.02 0.2"/>
+            <inertial                                   pos="0.0408028663277845 0.0776485299054857 0" mass="0.072122" diaginertia="0.00013061 0.0001089 0.00012207"/>
         </body>
     </body>
         
