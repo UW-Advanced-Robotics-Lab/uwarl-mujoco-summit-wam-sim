@@ -202,7 +202,7 @@
                                             Note:
                                                 - [USER PARAMS] 0.01: mounting gap
                                         -->
-                                        <body name="wam/bhand"  pos="0 0.01 0"  quat="0 0 0.707107 0.707107">
+                                        <body name="wam/bhand"  pos="0 0.01 0"  quat="0.5 -0.5 0.5 0.5">
                                             <include file="../components/include_bhand_Chain_V1.xml"/>
                                         </body>
                                     </body>
