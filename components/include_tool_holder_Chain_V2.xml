@@ -1,0 +1,84 @@
+<mujocoinclude>
+    <!-- Tool holder V2 (2026-11-15, user: "with prongs (19 mm apart)", for the experiments' cart with its 19 mm handle bar): V1 with the two prongs
+         19 mm apart surface to surface (V1: 45 mm, for the 40 mm MuJoCo handle): prong axes at +-19.5 mm from the joint axis (V1: +-32.5 mm),
+         prongs still 20 mm across, the base plate shortened to +-29.5 mm (V1: +-42.5 mm); contact margin 0 on the prongs and the plate (the
+         default 1 mm margin acts as a 1 mm skin: with the 18 mm bar it clamped the bar at 285 N per prong). Everything else as V1. -->
+    <!-- Tool holder V1 (2026-11-14, user): replaces the BHand ("include_bhand_Chain_V1.xml") with the hardware experiment's tool,
+         "Tool_Assembly_V2" of "Cart_Handle_Vicon_Assembly_V2.STEP": a rigid link ("Tool_V1") from the wrist stump (the face where the
+         BHand meets the F/T sensor = this frame, "wam/bhand", frame 9 of the QP-solver) forward to a FREE vertical revolute joint, which
+         carries a two-pronged holder ("Tool_Mount_V6") that cradles the cart handle. The joint axis passes through the handle axis.
+         Frame 9 axes at the held pose: x sideways, y DOWN, z forward (towards the cart).
+         - Joint axis: 87.4 mm ahead of the wrist stump (z = 0.0874), so the QP's frame 10 ("link_9_10" 0.0674) is 2 cm behind it and
+           frame 11 ("link_10_11" 0.02) is on it ("cart_mpc_params_V10_2.py").
+         - Holder (MuJoCo-sized: the MuJoCo handle is 4 cm across; the hardware's 1.9 cm): two vertical prongs, 2 cm diameter, 4.5 cm
+           apart (surface to surface), in front of and behind the handle, rising from a base plate under the handle; rounded (capsule) tops
+           so that the handle slides in when the tool is brought up from below (user). The cradle opens upwards.
+         - Mass and inertia from the STEP solids with PLA (1.37 g/cm^3), computed with gmsh/OpenCASCADE: Tool_V1 0.2133 kg,
+           Tool_Mount_V6 0.0554 kg; inertia about the COM, rotated into this frame (asm x -> x, asm y (up) -> -y, asm z -> -z).
+         - The free joint: unlimited, frictionloss 0.2 (user: "completely free, friction 0.2"), tiny damping / armature for stability, and a
+           weak centring spring 0.5 N m/rad (2026-11-14, run TS2: with no spring the holder turned 90 deg before reaching the handle, the
+           prongs met the handle crosswise on the raise and pushed the cart away; 0.79 N m at 90 deg beats the friction and squares the
+           holder before the raise; in a 30 deg turn it is 0.26 N m, about 8 N at the prongs, the size of the friction).
+         - Gravity compensation on the tool bodies (gravcomp="1"), as on the WAM (include_wam_7dof_wam_bhand_Chain_V4.xml).
+         - The BHand's body, joint and IMU-site names are kept (the state publisher, the actuators and the BHand controllers use them): the tool
+           link is "wam/bhand/bhand_palm_link"; the finger bodies are tiny massless-like placeholders with no geometry. -->
+    <body gravcomp="1" name="wam/bhand/bhand_palm_link" pos="0 0 0">
+        <inertial pos="0.0005 0.0064 0.0263" mass="0.2133" fullinertia="1.954e-4 1.861e-4 1.379e-4 -1.34e-6 -2.28e-6 -3.313e-5"/>
+        <!-- wrist flange (r 43 mm, 13 mm) and the link under the handle line; visual / no contact (it would touch the wrist meshes) -->
+        <geom name="tool/viz/flange" type="cylinder" size="0.043 0.0065" pos="0 0 0.0065" contype="0" conaffinity="0" group="1" rgba="0.85 0.55 0.15 1"/>
+        <geom name="tool/viz/link" type="box" size="0.01 0.0075 0.05" pos="0 0.0475 0.06" contype="0" conaffinity="0" group="1" rgba="0.85 0.55 0.15 1"/>
+        <geom name="tool/viz/riser" type="box" size="0.01 0.02 0.0065" pos="0 0.03 0.0135" contype="0" conaffinity="0" group="1" rgba="0.85 0.55 0.15 1"/>
+        <site name="imu_sensor_site_bhand_palm_link" type="box" size="0.01 0.01 0.01" rgba="0.9 0 0 0"/>
+        <site name="tool_axis_site" pos="0 0 0.0874" type="sphere" size="0.003" rgba="0 0.9 0 0.5"/>
+        <!-- Holder on the free vertical joint (axis frame-9 y = vertical), through the handle axis -->
+        <body gravcomp="1" name="wam/tool/holder" pos="0 0 0.0874">
+            <inertial pos="0 0 0" mass="0.0554" diaginertia="2.956e-5 1.48e-5 2.148e-5"/>
+            <joint name="wam/tool/holder_yaw" type="hinge" axis="0 1 0" limited="false" frictionloss="0.2" damping="0.001" armature="1e-5" stiffness="0.5" springref="0"/>
+            <geom name="tool/viz/pin" type="cylinder" size="0.015 0.006" pos="0 0.04 0" quat="0.707107 0.707107 0 0" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.8 1"/>
+            <geom name="tool/col/plate" margin="0" type="box" size="0.01 0.0065 0.0295" pos="0 0.0285 0" contype="1" conaffinity="1" friction="0.01 0.005 0.0001" group="1" rgba="0.3 0.3 0.8 1"/>
+            <geom name="tool/col/prong_front" margin="0" type="capsule" fromto="0 0.028 0.0195 0 -0.045 0.0195" size="0.01" contype="1" conaffinity="1" friction="0.01 0.005 0.0001" group="1" rgba="0.3 0.3 0.8 1"/>
+            <geom name="tool/col/prong_back" margin="0" type="capsule" fromto="0 0.028 -0.0195 0 -0.045 -0.0195" size="0.01" contype="1" conaffinity="1" friction="0.01 0.005 0.0001" group="1" rgba="0.3 0.3 0.8 1"/>
+        </body>
+        <!-- Placeholder BHand fingers (names kept for the state publisher, actuators and controllers): no geometry, 0.01 kg each, never moved by the tool demo (the fingers stay at 0) -->
+        <body gravcomp="1" name="wam/bhand/finger_1/prox_link" pos="0 0 0.02">
+            <inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6"/>
+            <joint name="bhand/f1/prox" axis="0 0 -1" range="-0.1 3.2" damping="0.1" limited="true" frictionloss="0.1"/>
+            <site name="imu_sensor_site_bhand_finger_1_prox_link" type="box" size="0.005 0.005 0.005" rgba="0.9 0 0 0"/>
+            <body gravcomp="1" name="wam/bhand/finger_1/med_link" pos="0 0 0">
+                <inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6"/>
+                <joint name="bhand/f1/med" axis="0 0 1" range="-0.1 2.5" damping="0.1" limited="true" frictionloss="0.001"/>
+                <site name="imu_sensor_site_bhand_finger_1_med_link" type="box" size="0.005 0.005 0.005" rgba="0.9 0 0 0"/>
+                <body gravcomp="1" name="wam/bhand/finger_1/dist_link" pos="0 0 0">
+                    <inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6"/>
+                    <joint name="bhand/f1/dist" axis="0 0 1" range="-0.1 0.9" damping="0.1" limited="true" frictionloss="0.001"/>
+                    <site name="imu_sensor_site_bhand_finger_1_dist_link" type="box" size="0.005 0.005 0.005" rgba="0.9 0 0 0"/>
+                </body>
+            </body>
+        </body>
+        <body gravcomp="1" name="wam/bhand/finger_2/prox_link" pos="0 0 0.02">
+            <inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6"/>
+            <joint name="bhand/f2/prox" axis="0 0 1" range="0 3.1415926536" damping="0.1" limited="true" frictionloss="0.1"/>
+            <site name="imu_sensor_site_bhand_finger_2_prox_link" type="box" size="0.005 0.005 0.005" rgba="0.9 0 0 0"/>
+            <body gravcomp="1" name="wam/bhand/finger_2/med_link" pos="0 0 0">
+                <inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6"/>
+                <joint name="bhand/f2/med" axis="0 0 1" range="-0.1 2.5" damping="0.1" limited="true" frictionloss="0.001"/>
+                <site name="imu_sensor_site_bhand_finger_2_med_link" type="box" size="0.005 0.005 0.005" rgba="0.9 0 0 0"/>
+                <body gravcomp="1" name="wam/bhand/finger_2/dist_link" pos="0 0 0">
+                    <inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6"/>
+                    <joint name="bhand/f2/dist" axis="0 0 1" range="0 0.9" damping="0.1" limited="true" frictionloss="0.001"/>
+                    <site name="imu_sensor_site_bhand_finger_2_dist_link" type="box" size="0.005 0.005 0.005" rgba="0.9 0 0 0"/>
+                </body>
+            </body>
+        </body>
+        <body gravcomp="1" name="wam/bhand/finger_3/med_link" pos="0 0 0.02">
+            <inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6"/>
+            <joint name="bhand/f3/med" axis="0 0 1" range="-0.1 2.5" damping="0.1" limited="true" frictionloss="0.001"/>
+            <site name="imu_sensor_site_bhand_finger_3_med_link" type="box" size="0.005 0.005 0.005" rgba="0.9 0 0 0"/>
+            <body gravcomp="1" name="wam/bhand/finger_3/dist_link" pos="0 0 0">
+                <inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6"/>
+                <joint name="bhand/f3/dist" axis="0 0 1" range="-0.1 0.9" damping="0.1" limited="true" frictionloss="0.001"/>
+                <site name="imu_sensor_site_bhand_finger_3_dist_link" type="box" size="0.005 0.005 0.005" rgba="0.9 0 0 0"/>
+            </body>
+        </body>
+    </body>
+</mujocoinclude>
