@@ -22,10 +22,13 @@
             <inertial pos="0 0 0" mass="0.2" diaginertia="0.0001 0.0001 0.0001"/>
             <joint name="cart/C_swivel_hub" type="hinge" axis="0 0 1" pos="0 0 0" damping="0.0001" limited="false"/>
             <geom type="capsule" fromto="0 0 0 0.1 0 0" size="0.008" contype="0" conaffinity="0" group="1" rgba="0.1 0.2 0.7 1"/>
+            <geom type="capsule" fromto="0 0 0 0 0 0.2065" size="0.01" contype="0" conaffinity="0" group="1" rgba="0.1 0.2 0.7 1"/>
             <body name="cart/whl/FC_link" pos="0.1 0 0" quat="0.7071068 0.7071068 0 0">
                 <inertial pos="0 0 0" mass="0.4" diaginertia="0.000424058333333333 0.000424058333333333 0.00080645"/>
                 <joint name="cart/FC_whl" type="hinge" axis="0 0 1" pos="0 0 0" damping="0.0001" limited="false"/>
                 <geom name="cart/col/FC_whl" type="ellipsoid" size="0.0635 0.0635 0.0125" condim="4" priority="1" friction="1 0.0060534316231268 0" contype="1" conaffinity="1" group="0" rgba="0.25 0.25 0.25 1"/>
+                <geom type="cylinder" size="0.0635 0.0125" contype="0" conaffinity="0" group="1" rgba="0.25 0.25 0.25 1"/>
+                <geom type="box" pos="0.0381 0 0" size="0.0127 0.0127 0.0145" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"/>
             </body>
         </body>
         <!-- front swivel caster: swivel axis 0.910 m ahead of the rear axle, wheel 0.100 m behind it (trail) -->
@@ -33,42 +36,54 @@
             <inertial pos="0 0 0" mass="0.2" diaginertia="0.0001 0.0001 0.0001"/>
             <joint name="cart/C2_swivel_hub" type="hinge" axis="0 0 1" pos="0 0 0" damping="0.0001" limited="false"/>
             <geom type="capsule" fromto="0 0 0 0.1 0 0" size="0.008" contype="0" conaffinity="0" group="1" rgba="0.1 0.2 0.7 1"/>
+            <geom type="capsule" fromto="0 0 0 0 0 0.2065" size="0.01" contype="0" conaffinity="0" group="1" rgba="0.1 0.2 0.7 1"/>
             <body name="cart/whl/FC2_link" pos="0.1 0 0" quat="0.7071068 0.7071068 0 0">
                 <inertial pos="0 0 0" mass="0.4" diaginertia="0.000424058333333333 0.000424058333333333 0.00080645"/>
                 <joint name="cart/FC2_whl" type="hinge" axis="0 0 1" pos="0 0 0" damping="0.0001" limited="false"/>
                 <geom name="cart/col/FC2_whl" type="ellipsoid" size="0.0635 0.0635 0.0125" condim="4" priority="1" friction="1 0.0060534316231268 0" contype="1" conaffinity="1" group="0" rgba="0.25 0.25 0.25 1"/>
+                <geom type="cylinder" size="0.0635 0.0125" contype="0" conaffinity="0" group="1" rgba="0.25 0.25 0.25 1"/>
+                <geom type="box" pos="0.0381 0 0" size="0.0127 0.0127 0.0145" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"/>
             </body>
         </body>
         <body name="cart/static_hub/L_link" pos="0 -0.22 0">
             <inertial pos="0 0 0" mass="0.2" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="capsule" fromto="0 0.0245 0 0 0.0245 0.2065" size="0.01" contype="0" conaffinity="0" group="1" rgba="0.1 0.2 0.7 1"/>
             <body name="cart/whl/RL_link" pos="0 0 0" quat="0.7071068 0.7071068 0 0">
                 <inertial pos="0 0 0" mass="0.4" diaginertia="0.000424058333333333 0.000424058333333333 0.00080645"/>
                 <joint name="cart/RL_whl" type="hinge" axis="0 0 1" pos="0 0 0" damping="0.0001" limited="false"/>
                 <geom name="cart/col/RL_whl" type="ellipsoid" size="0.0635 0.0635 0.0125" condim="3" priority="1" friction="1 0 0" contype="1" conaffinity="1" group="0" rgba="0.25 0.25 0.25 1"/>
+                <geom type="cylinder" size="0.0635 0.0125" contype="0" conaffinity="0" group="1" rgba="0.25 0.25 0.25 1"/>
+                <geom type="box" pos="0.0381 0 0" size="0.0127 0.0127 0.0145" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"/>
             </body>
         </body>
         <body name="cart/static_hub/R_link" pos="0 0.22 0">
             <inertial pos="0 0 0" mass="0.2" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="capsule" fromto="0 -0.0245 0 0 -0.0245 0.2065" size="0.01" contype="0" conaffinity="0" group="1" rgba="0.1 0.2 0.7 1"/>
             <body name="cart/whl/RR_link" pos="0 0 0" quat="0.7071068 0.7071068 0 0">
                 <inertial pos="0 0 0" mass="0.4" diaginertia="0.000424058333333333 0.000424058333333333 0.00080645"/>
                 <joint name="cart/RR_whl" type="hinge" axis="0 0 1" pos="0 0 0" damping="0.0001" limited="false"/>
                 <geom name="cart/col/RR_whl" type="ellipsoid" size="0.0635 0.0635 0.0125" condim="3" priority="1" friction="1 0 0" contype="1" conaffinity="1" group="0" rgba="0.25 0.25 0.25 1"/>
+                <geom type="cylinder" size="0.0635 0.0125" contype="0" conaffinity="0" group="1" rgba="0.25 0.25 0.25 1"/>
+                <geom type="box" pos="0.0381 0 0" size="0.0127 0.0127 0.0145" contype="0" conaffinity="0" group="1" rgba="0.9 0 0 1"/>
             </body>
         </body>
         <!-- handle: posts (the hard end-stops) at +-0.330 m, the bar axis 0.751 m above the ground, 0.255 m behind the rear axle; a bracket to the bed (visual) -->
         <body name="cart/handle/left_cylinder" pos="0.255 -0.33 0.4615">
             <inertial pos="0 0 0" mass="0.3" diaginertia="0.00506926875 0.00506926875 1.35375e-05"/>
             <geom name="cart/col/handle/left_cylinder" type="cylinder" size="0.0095 0.225" contype="1" conaffinity="1" group="0" rgba="0.1 0.1 0.1 1"/>
+            <geom type="cylinder" size="0.0095 0.225" contype="0" conaffinity="0" group="1" rgba="0.1 0.1 0.1 1"/>
             <geom type="box" pos="-0.0425 0 -0.215" size="0.052 0.0095 0.01" contype="0" conaffinity="0" group="1" rgba="0.1 0.1 0.1 1"/>
         </body>
         <body name="cart/handle/right_cylinder" pos="0.255 0.33 0.4615">
             <inertial pos="0 0 0" mass="0.3" diaginertia="0.00506926875 0.00506926875 1.35375e-05"/>
             <geom name="cart/col/handle/right_cylinder" type="cylinder" size="0.0095 0.225" contype="1" conaffinity="1" group="0" rgba="0.1 0.1 0.1 1"/>
+            <geom type="cylinder" size="0.0095 0.225" contype="0" conaffinity="0" group="1" rgba="0.1 0.1 0.1 1"/>
             <geom type="box" pos="-0.0425 0 -0.215" size="0.052 0.0095 0.01" contype="0" conaffinity="0" group="1" rgba="0.1 0.1 0.1 1"/>
         </body>
         <body name="cart/handle/horizontal_cylinder" pos="0.255 0 0.6865" quat="0.7071068 0.7071068 0 0">
             <inertial pos="0 0 0" mass="0.5" diaginertia="0.018160125 0.018160125 2.025e-05"/>
             <geom name="cart/col/handle/horizontal_cylinder" type="cylinder" size="0.009 0.33" friction="0.01 0.005 0.0001" margin="0" contype="1" conaffinity="1" group="0" rgba="0.1 0.1 0.1 1"/>
+            <geom type="cylinder" size="0.009 0.33" contype="0" conaffinity="0" group="1" rgba="0.1 0.1 0.1 1"/>
             <!-- force-torque site at the handle mid-point, axes of the cart frame (sensors "force_handle" / "torque_handle") -->
             <site name="cart_handle_ft_site" pos="0 0 0" quat="0.7071068 -0.7071068 0 0" type="sphere" size="0.005" rgba="0.9 0.9 0 0"/>
         </body>
