@@ -1,3 +1,5 @@
 *.vscode
 *.pyc
 *.bag
+# MuJoCo writes its error / warning log MUJOCO_LOG.TXT into the folder it is run from (e.g. playground/)
+MUJOCO_LOG.TXT
