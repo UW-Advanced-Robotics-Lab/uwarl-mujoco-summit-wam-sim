@@ -81,6 +81,10 @@ def main():
 
     # Define viewer refresh rate
     rate_plot = 30
+    # 2026-11-19: headless mode (no viewer, no rendering; physics unchanged; see the engine's "headless" argument): the rosparam
+    # "/mujoco/headless" (the step launch files' argument headless:=true sets it) or the environment variable MUJOCO_HEADLESS=1 (set by the
+    # parallel-run scripts, cart_mpc/script/step_tools/parallel_runs/trial_p.sh, so that any launch file runs headless there)
+    headless = bool(rospy.get_param('/mujoco/headless', False)) or os.environ.get('MUJOCO_HEADLESS', '0') == '1'
 
     # rospy.sleep(1.0)
 
@@ -99,8 +103,9 @@ def main():
         write_to = write_to,
         robot_list = robot_list,
         if_camera_preview=False,
-        if_viewport_preview=True,
-        viewport        = {"width": 1920, "height":1080}
+        if_viewport_preview=not headless,
+        viewport        = {"width": 1920, "height":1080},
+        headless        = headless
     )
 
     # Initialize variables
